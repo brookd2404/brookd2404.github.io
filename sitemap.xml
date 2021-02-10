@@ -1,18 +1,237 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
-  <sitemap>
-    <loc>https://brookd2404.github.io/en/sitemap.xml</loc>
-    
-      <lastmod>2020-04-14T15:40:24+06:00</lastmod>
-    
-  </sitemap>
+  <url>
+    <loc>https://brookd2404.github.io/</loc>
+    <lastmod>2020-04-14T15:40:24+06:00</lastmod>
+  </url>
   
-  <sitemap>
-    <loc>https://brookd2404.github.io/fr/sitemap.xml</loc>
-    
-      <lastmod>2020-04-14T15:40:24+06:00</lastmod>
-    
-  </sitemap>
+  <url>
+    <loc>https://brookd2404.github.io/shop/product-3/</loc>
+    <lastmod>2020-04-14T15:40:24+06:00</lastmod>
+  </url>
   
-</sitemapindex>
+  <url>
+    <loc>https://brookd2404.github.io/shop/</loc>
+    <lastmod>2020-04-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/post/</loc>
+    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/categories/</loc>
+    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/post/elements/</loc>
+    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/tags/image/</loc>
+    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/tags/photo/</loc>
+    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/categories/photography/</loc>
+    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/tags/</loc>
+    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/shop/product-7/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/tags/booth/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/post/post-1/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/post/post-2/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/post/post-3/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/post/post-4/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/post/post-5/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/post/post-6/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/tags/city/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/shop/product-6/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/categories/four-seasone/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/shop/product-1/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/tags/new/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/categories/newyork-city/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/categories/photobooth/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/shop/product-4/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/tags/seasone/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/shop/product-2/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/shop/product-8/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/tags/video/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/categories/videography/</loc>
+    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/shop/product-5/</loc>
+    <lastmod>2020-02-14T15:40:24+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/author/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/homepage/full/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/homepage/full-left/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/homepage/full-right/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/homepage/grid/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/homepage/grid-left/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/homepage/grid-right/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/homepage/list/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/homepage/list-left/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/homepage/list-right/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/homepage/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/author/john-doe/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/404/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/privacy-policy/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/terms-conditions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/search/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brookd2404.github.io/contact/</loc>
+  </url>
+  
+</urlset>
