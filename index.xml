@@ -18,6 +18,15 @@
     </item>
     
     <item>
+      <title>Getting Useful Device Information… Troubleshooting Made Easy</title>
+      <link>https://brookd2404.github.io/getting-useful-device-information-troubleshooting-made-easy/</link>
+      <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://brookd2404.github.io/getting-useful-device-information-troubleshooting-made-easy/</guid>
+      <description>It’s no secret that the digital industry is booming. From exciting startups to global brands, companies are reaching out to digital agencies, responding to the new possibilities available. However, the industry is fast becoming overcrowded, heaving with agencies offering similar services — on the surface, at least. Producing creative, fresh projects is the key to standing out.</description>
+    </item>
+    
+    <item>
       <title>Elements That You Can Use To Create A New Post On This Template.</title>
       <link>https://brookd2404.github.io/elements-that-you-can-use-to-create-a-new-post-on-this-template./</link>
       <pubDate>Sun, 15 Mar 2020 15:40:24 +0600</pubDate>
@@ -28,21 +37,32 @@ Heading 1 Heading 2 Heading 3 Heading 4 Heading 5 Heading 6  Emphasis Emphasis, 
     </item>
     
     <item>
-      <title>David Brook</title>
-      <link>https://brookd2404.github.io/author/david-brook/</link>
+      <title>Contact | Talk To Me Anytime :)</title>
+      <link>https://brookd2404.github.io/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://brookd2404.github.io/author/david-brook/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet vulputate augue. Duis auctor lacus id vehicula gravida. Nam suscipit vitae purus et laoreet. Donec nisi dolor, consequat vel pretium id, auctor in dui. Nam iaculis, neque ac ullamcorper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet vulputate augue.</description>
+      <guid>https://brookd2404.github.io/contact/</guid>
+      <description>Ask Us Anything Or just Say Hi, </description>
     </item>
     
     <item>
-      <title>Hi, I Am John Doe</title>
+      <title>David Brook</title>
+      <link>https://brookd2404.github.io/author/_david-brook/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://brookd2404.github.io/author/_david-brook/</guid>
+      <description>I am an experienced End User Computing Engineer who works on delivering Modern Desktop concepts using Microsoft Intune and Configuration Manager.
+I’ve worked in IT for the past 8+ years with over 6 of those been a 3rd Line/Senior Engineer delivering solution to Medium/Large enterprise environments. I have worked on Micro Focus Novell ZENworks with ENGL Imaging, Which offered the traditional ‘Gold Image’ creation with the additional driver packs layered on top.</description>
+    </item>
+    
+    <item>
+      <title>David Brook | About Me</title>
       <link>https://brookd2404.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://brookd2404.github.io/about/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Condimentum in urna justo elit turpis risus vitae viverra enim. Augue quis vitae in non nisi, posuere ultrices tempus. Feugiat consequat suspendisse laoreet vitae enim adipiscing cursus. Duis nunc vitae tincidunt sed nibh id. Egestas erat consequat, ornare etiam donec faucibus. Lorem ut enim nunc, senectus adipiscing sed.</description>
+      <description>I am an experienced End User Computing Engineer who works on delivering Modern Desktop concepts using Microsoft Intune and Configuration Manager.
+I’ve worked in IT for the past 8+ years with over 6 of those been a 3rd Line/Senior Engineer delivering solution to Medium/Large enterprise environments. I have worked on Micro Focus Novell ZENworks with ENGL Imaging, Which offered the traditional ‘Gold Image’ creation with the additional driver packs layered on top.</description>
     </item>
     
     <item>
@@ -79,15 +99,6 @@ Heading 1 Heading 2 Heading 3 Heading 4 Heading 5 Heading 6  Emphasis Emphasis, 
       
       <guid>https://brookd2404.github.io/search/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Talk To Me Anytime :)</title>
-      <link>https://brookd2404.github.io/contact/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://brookd2404.github.io/contact/</guid>
-      <description>Ask Us Anything Or just Say Hi, Rather than just filling out a form, Sleeknote also offers help to the user with links directing them to find additional information or take popular actions.</description>
     </item>
     
   </channel>
