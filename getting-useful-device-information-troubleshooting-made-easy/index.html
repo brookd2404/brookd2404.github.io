@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us"><head>
   <meta charset="utf-8">
-  <title>Getting Useful Device Information… Troubleshooting Made Easy</title>
+  <title>EUC365 | Getting Useful Device Information… Troubleshooting Made Easy</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -59,7 +59,7 @@
     
     <nav class="navbar navbar-expand-lg navbar-white">
       <a class="navbar-brand" href="/">
-        <img class="img-fluid" width="150px" src="https://brookd2404.github.io/images/logo.png" alt="EUC365"></a>
+        <img class="img-fluid" width="150px" src="https://brookd2404.github.io/images/logo.png" alt="Homepage"></a>
       <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="ti-menu"></i>
       </button>
@@ -158,29 +158,51 @@
       
       
       <div class="col-lg-10 mx-auto">
-        <div class="content"><center>
-<img src="/images/post/getdeviceinfo/banner.png" >
-</center>
-<p>It’s no secret that the digital industry is booming. From exciting startups to global brands, companies
-are reaching out to digital agencies, responding to the new possibilities available. However, the industry
-is fast becoming overcrowded, heaving with agencies offering similar services — on the surface, at least.
-Producing creative, fresh projects is the key to standing out. Unique side projects are the best place to
-innovate, but balancing commercially and creatively lucrative work is tricky. So, this article looks at</p>
-<p>It’s no secret that the digital industry is booming. From exciting startups to global brands, companies
-are reaching out to digital agencies, responding to the new possibilities available. However, the industry
-is fast becoming overcrowded, heaving with agencies offering similar services — on the surface, at least.
-Producing creative, fresh projects is the key to standing out. Unique side projects are the best place to
-innovate, but balancing commercially and creatively lucrative work is tricky. So, this article looks at</p>
-<p>It’s no secret that the digital industry is booming. From exciting startups to global brands, companies
-are reaching out to digital agencies, responding to the new possibilities available. However, the industry
-is fast becoming overcrowded, heaving with agencies offering similar services — on the surface, at least.
-Producing creative, fresh projects is the key to standing out. Unique side projects are the best place to
-innovate, but balancing commercially and creatively lucrative work is tricky. So, this article looks at</p>
-<p>It’s no secret that the digital industry is booming. From exciting startups to global brands, companies
-are reaching out to digital agencies, responding to the new possibilities available. However, the industry
-is fast becoming overcrowded, heaving with agencies offering similar services — on the surface, at least.
-Producing creative, fresh projects is the key to standing out. Unique side projects are the best place to
-innovate, but balancing commercially and creatively lucrative work is tricky. So, this article looks at</p>
+        <div class="content"><p>SO&hellip; I&rsquo;ve been working tirelessly in trying to get an Autopilot Hybrid Deployment working along with my colleagues. As any Tech does I give everything my blood sweat and tears before logging a call with support (Sound silly as we could waste hours&hellip; But where&rsquo;s the fun in just logging a call), however on occasion you have to admit defeat and raise a service request.</p>
+<p>When logging an SR (Service Request) its always best to provide as much information about the device you are using (the one that&rsquo;s having the issues) so the Microsoft Engineer can do as much fault finding and troubleshooting that they can before they contact you.</p>
+<p>When troubleshooting an Autopilot Deployment its useful to have the following information from a support engineer point of view but it is also helpful when speaking with Microsoft;</p>
+<ul>
+ 	<li>Azure Device ID (GUID)</li>
+ 	<li>Intune Device ID (GUID)</li>
+ 	<li>Name (Not vital as it can be obtained from the above)</li>
+ 	<li>IP Address</li>
+ 	<li>Logon Server</li>
+</ul>
+Useful for Hybrid Deployments in an organisation with multiple Domain Controllers when using Azure AD Connect
+<p>Device Serial Number (Easiest way to find a device in the Windows Enrolment Devices Screen)</p>
+<p>All of that information is not just something that you can go grab in one place off of the shelf. Going to obtain all of this information from various locations got very long in the tooth and became a bit of a drag. In true IT fashion I spent hours writing a PowerShell script which Displays as a Windows Form and gathers all of this information and copies it to your clipboard.</p>
+<p>The form will look like the below when run, It will only display active networks and it can handle more than one network (this is dynamic) and the form will resize dynamically depending on content.</p>
+<center><img class="aligncenter wp-image-94" src="https://euc365.com/wp-content/uploads/2020/05/infopage-741x1024.png" alt="" width="470" height="650" /><br></center>
+<br>
+<h6 id="this-will-also-copy-the-following-information-to-your-clipboard">This will also copy the following information to your clipboard;</h6>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">Computer Name: 
+Device Serial: 
+Device Manufacturer: 
+Device Model: 
+Logon Server: 
+Intune Device ID: 
+AzureAD Device ID: 
+
+IP Information: 
+
+Interface Name: WiFi
+ 
+Interface Description: Intel(R) Wi-Fi 6 AX201 160MHz
+Profile Name: 
+IPv4 Address: 192.168.0.141
+IPv6 Address: 
+ 
+Interface Name: Microsoft IP-HTTPS Platform Interface
+ 
+Interface Description: 
+Profile Name: 
+IPv4 Address: 
+IPv6 Address: fd59:a9a9:6c55:1000:8c4a:531c:b003:cf56
+
+
+Information gathered 23/05/2020 22:08:30
+
+</code></pre></div><p>The form can be branded, and amended to your hearts content. I have uploaded it to GitHub in a Public Library if anyone wants to head over and download it or Fork it (Still not sure what that does, New to this GitHub stuff). I haven’t got around to putting any information on the GitHub Page yet but it you need any help drop me a message from the Contact page or on the GitHub page.</p>
 </div>
       </div>
     </article>
@@ -223,7 +245,7 @@ innovate, but balancing commercially and creatively lucrative work is tricky. So
   <div class="container">
     <div class="row justify-content-between">
       <div class="col-md-3 mb-4">
-        <a class="mb-4 d-block" href="/"><img class="img-fluid" width="150px" src="https://brookd2404.github.io/images/logo.png" alt="EUC365"></a>
+        <a class="mb-4 d-block" href="/"><img class="img-fluid" width="150px" src="https://brookd2404.github.io/images/logo.png" alt="Homepage"></a>
         <p>Thank you for looking at my Tech, Tips and other bits.</p>
       </div>
       <div class="col-lg-2 col-md-3 col-6 mb-4">

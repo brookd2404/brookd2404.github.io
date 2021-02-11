@@ -1,31 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on EUC365</title>
+    <title>Tags on Homepage</title>
     <link>https://brookd2404.github.io/tags/</link>
-    <description>Recent content in Tags on EUC365</description>
+    <description>Recent content in Tags on Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Wed, 10 Feb 2021 12:15:00 +0000</lastBuildDate><atom:link href="https://brookd2404.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>First One</title>
-      <link>https://brookd2404.github.io/tags/first-one/</link>
-      <pubDate>Wed, 10 Feb 2021 12:15:00 +0000</pubDate>
-      
-      <guid>https://brookd2404.github.io/tags/first-one/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Template</title>
-      <link>https://brookd2404.github.io/tags/template/</link>
-      <pubDate>Wed, 10 Feb 2021 12:15:00 +0000</pubDate>
-      
-      <guid>https://brookd2404.github.io/tags/template/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Sun, 15 Mar 2020 15:40:24 +0600</lastBuildDate><atom:link href="https://brookd2404.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>image</title>
       <link>https://brookd2404.github.io/tags/image/</link>

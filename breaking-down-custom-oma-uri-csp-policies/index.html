@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>EUC365 | Breaking Down Custom OMA-URI (CSP) Policies</title>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="description" content="Quick Post Descirpt">
+  <meta name="author" content="David Brook">
+  <meta name="generator" content="Hugo 0.75.1" />
+
+  
+  <link rel="preload" href="https://fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFWJ0bbck.woff2" style="font-display: optional;">
+  
+  
+  
+  <link rel="stylesheet" href="https://brookd2404.github.io/plugins/bootstrap/bootstrap.min.css" >
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:600%7cOpen&#43;Sans&amp;display=swap" >
+  
+  
+  
+  <link rel="stylesheet" href="https://brookd2404.github.io/plugins/themify-icons/themify-icons.css" >
+  
+  
+  
+  <link rel="stylesheet" href="https://brookd2404.github.io/plugins/slick/slick.css" >
+  
+  
+  
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.25/default/snipcart.css" >
+  
+  
+
+  
+  
+  <link rel="stylesheet" href="https://brookd2404.github.io/scss/style.css" media="screen">
+
+  
+  <link rel="shortcut icon" href="https://brookd2404.github.io/images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="https://brookd2404.github.io/images/favicon.png" type="image/x-icon">
+
+  <meta property="og:title" content="Breaking Down Custom OMA-URI (CSP) Policies" />
+<meta property="og:description" content="Quick Post Descirpt" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://brookd2404.github.io/breaking-down-custom-oma-uri-csp-policies/" />
+<meta property="og:image" content="https://brookd2404.github.io/images/post/omauri/chromeadmx-300x208.png" />
+<meta property="article:published_time" content="2020-06-30T18:35:00+00:00" />
+<meta property="article:modified_time" content="2020-06-30T18:35:00+00:00" />
+
+  
+  
+
+</head><body><!-- navigation -->
+<header class="sticky-top bg-white border-bottom border-default">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white">
+      <a class="navbar-brand" href="/">
+        <img class="img-fluid" width="150px" src="https://brookd2404.github.io/images/logo.png" alt="Homepage"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://brookd2404.github.io/">homepage</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Posts <i class="ti-angle-down ml-1"></i>
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="https://brookd2404.github.io/categories/autopilot">Autopilot</a>
+              
+              <a class="dropdown-item" href="https://brookd2404.github.io/categories/azure">Azure</a>
+              
+              <a class="dropdown-item" href="https://brookd2404.github.io/categories/intune">Intune</a>
+              
+              <a class="dropdown-item" href="https://brookd2404.github.io/categories/microsoft-graph-api">Microsoft Graph API</a>
+              
+              <a class="dropdown-item" href="https://brookd2404.github.io/categories/powershell">PowerShell</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://brookd2404.github.io/about">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://brookd2404.github.io/contact">Contact</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        
+
+        
+        <!-- search -->
+        <div class="search px-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="/search" class="h-100">
+              <input class="search-box pl-4" id="search-query" name="s" type="search" placeholder="Type &amp; Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+
+
+<section class="section">
+  <div class="container">
+    <article class="row mb-4">
+      <div class="col-lg-10 mx-auto mb-4">
+        <h1 class="h2 mb-3">Breaking Down Custom OMA-URI (CSP) Policies</h1>
+        <ul class="list-inline post-meta mb-3">
+          <li class="list-inline-item"><i class="ti-user mr-2"></i><a
+              href="/author/david-brook/">David Brook</a></li>
+          <li class="list-inline-item">Date : 30 June, 2020</li>
+          <li class="list-inline-item">Categories :
+            <a
+              href="/categories/intune" class="ml-1">Intune </a>
+            ,<a
+              href="/categories/powershell-tools" class="ml-1">Powershell tools </a>
+            ,<a
+              href="/categories/powershell" class="ml-1">Power shell </a>
+            </li>
+          <li class="list-inline-item">Tags : 
+          </li>
+        </ul>
+      </div>
+      
+      
+      
+      <div class="col-lg-10 mx-auto">
+        <div class="content"><h2 id="what-is-an-oma-uri-policy">What is an OMA-URI Policy?</h2>
+<h4 id="meaning-open-mobile-alliance-uniform-resource-identifier">Meaning: Open Mobile Alliance Uniform Resource Identifier</h4>
+<p>Traditionally when you implement a new piece of software which contains Group Policy Objects (GPO&rsquo;s) to customise the feature of the application you would import the .adml and .admx files into the PolicyDefinitions folder located within SysVol (SYSVOL) for the domain or into the local PolicyDefinitions (C:/WindowsPolicyDefinitions) folder.</p>
+<p>If like me you are wanting to move most if not all of your policies to Intune for better MDM (Mobile Device Management) then you can run into a rather complex scenario where you need to ingest the .admx file and then work out how to configure your policies correctly. Now the first time I looked at this I thought &lsquo;Oh man this looks tricky, its a job for later on&rsquo;. However after putting it off for so long I finally dived into it and it turns out it isn&rsquo;t as complicated as it looks.</p>
+<p>The link to the Microsoft Guide can be found <a href="https://docs.microsoft.com/en-us/windows/client-management/mdm/win32-and-centennial-app-policy-configuration" target="_blank">
+    HERE!!
+  </a>, Feel free to head over and check it out. Hopefully this post/guide can help you out when it comes to creating your own.</p>
+<h2 id="importing-your-admx-file">Importing your ADMX file</h2>
+<p>For this example we will be using Google Chrome&rsquo;s GPO&rsquo;s, Not because they are simple because each policy has its own complexities but because it will be a common policy people will look to migrate to Intune. The ADMX files can be found on the <a href="https://chromeenterprise.google/browser/download/" target="_blank">
+    Chrome for Enterprise Download Page
+  </a>, you can obtain the gpo files only be finding the Manage Chrome Browser section.</p>
+<p>Once downloaded extract the .zip file and find the <b>Chrome.admx</b> (Normally located within WindowsADMX), Open this in a text editor (Notepad will do fine). Now we will switch over to Intune, From the Endpoint Manager Admin Center Homepage select <b>Devices</b> <b>&gt; Configuration Profiles</b> from the navigation bar. Click <b>Create profile.</b></p>
+<center>
+<img src="/images/post/omauri/Dev_ConfigProfiles-1.png" alt="" width="400" height="524" />
+</center>
+<ul>
+ 	<li>Click <strong>Create Profile</strong></li>
+ 	<li>Select the following and click <strong>Create</strong>;</li>
+</ul>
+<center>
+<img src="/images/post/omauri/profileselection_Custom.png" alt="" width="579" height="245" />
+</center>
+<ul>
+ 	<li>Enter the name for your profile (i.e Windows - Google Chrome Policy) and any other information you wish to add, click <b>Next</b></li>
+ 	<li>Now here is the fun part, Click <b>Add</b></li>
+</ul>
+<center>
+<img src="/images/post/omauri/Add_Custom.png" alt="" width="899" height="267" />
+</center>
+<ul>
+ 	<li>Enter a Name (Use something Descriptive) and Enter a description</li>
+ 	<li>The OMA-URI Field Should be something like the below
+<ul>
+ 	<li>.<b>/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/{AppName}/Policy/{ADMXFileName}</b></li>
+</ul>
+</li>
+ 	<li>Data Type: <b>String</b></li>
+ 	<li>Value: Paste the contents of the chrome.admx file</li>
+</ul>
+<center>
+<img src="/images/post/omauri/chromeadmx.png" alt="" width="580" height="402" />
+</center>
+<ul>
+ 	<li>Click Add</li>
+ 	<li>Now</li>
+ 	<li>Proceed to deploy the policy (I would recommend doing this to a test group first)</li>
+</ul>
+<p>The above path determines what the OMA-URI is for future policies, for example if you enter <strong><i>./Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/Chrome/Policy/ChromeAdmx </i></strong>as the OMA-URI for the device import the policies within the ADMX will then be formatted like <strong>Chrome~Policy~googlechrome~Startup</strong><i>. </i></p>
+<p>The full path for the OMA-URI for the Homepage Setting would be <strong>./{AppName}/Vendor/MSFT/Policy/Config/Chrome~Policy~googlechrome~Startup/HomepageLocation</strong>. The format of the URI is is <strong>{AppName}~{SettingType}~{CategoryandSubCategory}</strong>.</p>
+<p>Now the category path may not just be a root category for example the startup settings will look like this <i>Chrome~Policy~googlechrome~Startup </i>to break it down</p>
+<ul>
+<ul>
+ 	<li>AppName: Chrome (Set in the ADMX File Ingest)</li>
+ 	<li>SettingType: Policy (Set in the ADMX File Ingest)</li>
+ 	<li>CategoryAndSubCategory
+<ul>
+ 	<li>Category: googlechrom</li>
+ 	<li>Sub Category: Startup</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+Now this may seem complicated at first glance, however do keep reading and I will explain how to obtain the paths and settings.
+<br><br>
+<h2 id="finding-and-creating-policies">Finding and Creating Policies</h2>
+<p>Before we get started, if you haven&rsquo;t already re-open the properties of the policy you created previously. You will also need to open the .admx files in your favourite text editor. Personally I use VSCode as it has syntax highlighting for XML files and many other useful features.</p>
+<p><strong>NOTE: This section requires this to be published to a device.</strong></p>
+<p>To get started Open the <strong>Chrome.admx</strong> and <strong>Chrome.adml </strong>(This will be in the language folder i.e. en-US within the .zip file) and launch <strong>REGEDIT (Registry Editor)</strong>.</p>
+<p>Let&rsquo;s get started, within <strong>REGEDIT</strong> browse to <strong>HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/PolicyManager/AdmxDefault </strong>(There is always a random GUID per device, however this doesn&rsquo;t make a difference to the policy so don&rsquo;t worry :D), from here if you deployed the Chrome Policy as per the above steps you will see something like the below. (Note: this is showing Google Updates, but we will</p>
+<p><img class="aligncenter size-full wp-image-1243" src="https://euc365.com/wp-content/uploads/2020/06/RegSnap_PolicyADMX-1.png" alt="" width="876" height="463" /></p>
+<p>As mentioned above they are broken down like below, we will be sticking with the Homepage setting which is within the startup category.</p>
+<ul>
+ 	<li>AppName: Chrome</li>
+ 	<li>SettingType: Policy</li>
+ 	<li>Categories:
+	<ul>
+ 		<li>Root Category: googlechrome</li>
+ 		<li>Sub Category: startup</li>
+	</ul>
+	</li>
+</ul>
+Now if you look at the .admx file, you will see the following under the categories section
+<center>
+<img src="/images/post/omauri/Cat_SUbCat_GC-1.png" alt="" width="642" height="117" />
+</center>
+<p>As you can see that this correlates with with policy in the registry, now if you expand the policy within the registry you can see that the HomePage Location settings is created from within there</p>
+<p><img class="aligncenter size-full wp-image-1247" src="https://euc365.com/wp-content/uploads/2020/06/Startup_Shot.png" alt="" width="415" height="187" /></p>
+<p>This is the part where you actually need the .admx file. Lets start by explaining why you need to use .admx file. For this example you are not only enabling or disabling a policy but you will be actually specifying a value. When you go to specify this value in Intune you will need to use the <em><strong>ValueName</strong></em> from within the ADMX File. See the below example;</p>
+<p><img class="aligncenter size-full wp-image-1248" src="https://euc365.com/wp-content/uploads/2020/06/HomepageSetting.png" alt="" width="585" height="407" /></p>
+<p>Lets break the policy setting down first, As always I would recommend naming the setting descriptively and also adding a description if you want more information about it. The OMA-URI would then be <strong> ./Device/Vendor/MSFT/Policy/Config/Chrome~Policy~googlechrome~Startup/HomepageLocation.</strong></p>
+<h4 class="fusion-responsive-typography-calculated" style="--fontsize: 30; line-height: 1.4;" data-fontsize="30" data-lineheight="42px">Class (Device or User)</h4>
+One things to note here is the first section of the OMA-URI, It seems simple but you will need to specify if you want to apply this to a <strong>Device </strong>or <strong>User.</strong> Some policies are only available for <strong>Devices</strong> and likewise fort <strong>Users</strong>. You can see this in the ADMX File by looking at the policy like below
+<p><img class="aligncenter size-full wp-image-1249" src="https://euc365.com/wp-content/uploads/2020/06/PolicyClass.png" alt="" width="477" height="157" /></p>
+<p>Now the HomePageLocation setting can be User or Device based so the class shows as Both. If this was a device only policy <strong>class=&ldquo;Machine&rdquo;</strong> and for a user only policy it would show as <strong>class=&ldquo;User&rdquo;.</strong></p>
+<h4 class="fusion-responsive-typography-calculated" style="--fontsize: 30; line-height: 1.4;" data-fontsize="30" data-lineheight="42px">AppName</h4>
+As mentioned above the AppName is can be totally customisable however I wouldn't advise that and I would keep it as simple and descriptive as possible.
+<p>For example, For this post I used <strong>Chrome</strong> as the AppName so the Policies show as <strong>Chrome~{SettingType}~{Root Category}~{Sub</strong> <strong>Category}</strong>. If i was to do another policy for Lenovo Vantage for example and set the AppName to <strong>LenovoVantage</strong> the polcies would show<b> LenovoVantage~{SettingType}~{Root Category}~{Sub Category}. </b></p>
+<h4 class="fusion-responsive-typography-calculated" style="--fontsize: 30; line-height: 1.4;" data-fontsize="30" data-lineheight="42px">SettingType</h4>
+As we imported the ADMX into the Policy section (.<b>/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/{AppName}/Policy/{ADMXFileName}</b>) of the ADMXInstall OMA-URI this part of the OMA-URI would always be policy.
+<h4 class="fusion-responsive-typography-calculated" style="--fontsize: 30; line-height: 1.4;" data-fontsize="30" data-lineheight="42px">Categories and Sub-Categories</h4>
+This is detailed above but I will elaborate a little bit more here.
+<p>If you look at the .admx file, and browse to the categories section you will see lots of categories set with a parent category within there.</p>
+<p><img class="aligncenter size-full wp-image-1246" src="https://euc365.com/wp-content/uploads/2020/06/Cat_SUbCat_GC-1.png" alt="" width="642" height="117" /></p>
+<p>If you work backwards you can see how this all comes together,</p>
+<p>The OMA-URI is<strong> Chrome~Policy~{Root Category}~{Sub</strong> <strong>Category}</strong></p>
+<ul>
+ 	<li><strong>Sub Category:</strong> Startup</li>
+ 	<li><strong>Root Category:</strong> googlechrome</li>
+</ul>
+Something to not here is that it is possible for a parent category to have another parent category to make matters more confusing. You could end up having a policy like <strong>{AppName}~Policy~{Parent Category 1}~{Parent Category 2}~{Sub Category} </strong> and so on... Just something to always check.
+<p>This is partly the reason to always check the registry when creating polcies.</p>
+<h4 class="fusion-responsive-typography-calculated" style="--fontsize: 30; line-height: 1.4;" data-fontsize="30" data-lineheight="42px">The Policy Itself</h4>
+So finally we come to the policy itself, at the end all the OMA-URI string comes the setting, in this case <strong>HomePageLocation</strong>.
+<p><img class="aligncenter size-large wp-image-1250" src="https://euc365.com/wp-content/uploads/2020/06/HomepageKey-1024x120.png" alt="" width="1024" height="120" /></p>
+<p>This is derived again from the .admx file, if you search for the policy you will come across something like the above screenshot. You will notice that the policy is based on the <strong>DisplayName</strong> property. We won&rsquo;t cover setting the value in this section as I feel it deserves its own.</p>
+<h4 class="fusion-responsive-typography-calculated" style="--fontsize: 30; line-height: 1.4;" data-fontsize="30" data-lineheight="42px">The Policy Value/Setting</h4>
+Some setting are really simple to configure, for example if you want to disable something like <strong>MetricsReportingEnabled</strong> you can simply just add like below
+<p><img class="aligncenter size-full wp-image-1251" src="https://euc365.com/wp-content/uploads/2020/06/simpledisable.png" alt="" width="585" height="407" /></p>
+<p>Others like the <strong>HomePageLocation</strong> are not complicated but require a little bit more than just a simple disable or enable switch as you need to specify a value for the property.</p>
+<p>Again jumping back into the .admx file, if you look at the last highlighted section of the below screenshot you can see that there is a <em><strong>ValueName,</strong> </em>now this is the value we need want to change.</p>
+<p><img class="aligncenter size-large wp-image-1250" src="https://euc365.com/wp-content/uploads/2020/06/HomepageKey-1024x120.png" alt="" width="1024" height="120" /></p>
+<p>to do this you would need to write the policy string like the below screenshot</p>
+<p><img class="aligncenter size-full wp-image-1248" src="https://euc365.com/wp-content/uploads/2020/06/HomepageSetting.png" alt="" width="585" height="407" /></p>
+<p>If you look at the <strong>data id</strong> section, this is where you would put the value name in out of the .admx file, from there you would then set the value of that property for example <a href="https://euc365.com">https://euc365.com</a>.</p>
+<p>If you apply this policy and sync it to your device you will notice that it will change the Homepage upon start up.</p>
+<p>Now&hellip; Here is another example of adding a string to a policy which requires multiple values. This once is not so much tricky but its messy.</p>
+<p>For this example we will use the Allow Pop ups for certain sites, I will start off by showing you the screenshot of the policy itself</p>
+<p><img class="aligncenter size-full wp-image-1288" src="https://euc365.com/wp-content/uploads/2020/07/Annotation-2020-07-02-123120.png" alt="" width="586" height="408" /></p>
+<p>You will notice that at the start and end of each URL there is a rather ugly looking set of characters, now this is where is can get messy. The pre-URL string is the only one that needs to be changed per entry. If you think of this like a list, <strong>option 1</strong> in the list is <a href="http://euc365.com">http://euc365.com</a> and <strong>option 2</strong> is <a href="http://bbc.co.uk">http://bbc.co.uk</a>, As you can see in the screenshot the pre-URL has a number which needs to be incremented each time you add another URL.</p>
+<p>If you are just having one URL you don’t need to add the final <code class="EnlighterJSRAW" data-enlighter-language="raw"></code>, However if you are using multiple values you will need to add that to the end of the URL and then follow it up with you next URL. Do <strong>NOTE</strong> that the last URL in the sequence should not be followed by <strong><code class="EnlighterJSRAW" data-enlighter-language="raw"></code></strong></p>
+<p>Looking at putting the URL together you will end up with something like the below;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">1&amp;#xF000; + https://euc365.com + &amp;#xF000; + Following URLs
+</code></pre></div><p>For a single url it would be</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">1&amp;#xF000; + https://euc365.com</code></pre></div></div>
+      </div>
+    </article>
+    
+    
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <div class="mt-5">
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "euc365-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+
+
+
+<footer class="section-sm pb-0 border-top border-default">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-md-3 mb-4">
+        <a class="mb-4 d-block" href="/"><img class="img-fluid" width="150px" src="https://brookd2404.github.io/images/logo.png" alt="Homepage"></a>
+        <p>Thank you for looking at my Tech, Tips and other bits.</p>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6 mb-4">
+        <h6 class="mb-4">Quick Links</h6>
+        <ul class="list-unstyled footer-list">
+          
+          
+          <li><a href="https://brookd2404.github.io/about">About</a></li>
+          
+          
+          <li><a href="https://brookd2404.github.io/contact">Contact</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6 mb-4">
+        <h6 class="mb-4">Social Links</h6>
+        <ul class="list-unstyled footer-list">
+          
+          <li><a href="https://www.twitter.com/dbbrook24">Twitter</a></li>
+          
+          <li><a href="https://www.linkedin.com/in/david-brook-81796145/">linkedin</a></li>
+          
+          <li><a href="https://github.com/brookd2404">github</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="col-md-3 mb-4">
+        <h6 class="mb-4">Subscribe Newsletter</h6>
+        
+        <form class="subscription" action="https://euc365.us1.list-manage.com/subscribe/post?u=5be29b0e8342fd1942dd179e6&amp;amp;id=4afea5f508" method="post" name="mc-embedded-subscribe-form"
+          target="_blank">
+          <div class="position-relative">
+            <i class="ti-email email-icon"></i>
+            <input type="email" class="form-control" placeholder="Your Email Address">
+          </div>
+          <button class="btn btn-primary btn-block rounded" type="submit"
+            name="subscribe">Subscribe now</button>
+          <div style="position: absolute; left: -5000px;" aria-hidden="true">
+            <input type="text" name="b_5be29b0e8342fd1942dd179e6_4afea5f508" tabindex="-1">
+          </div>
+        </form>
+        
+      </div>
+      
+    </div>
+    <div class="scroll-top">
+      <a href="javascript:void(0);" id="scrollTop"><i class="ti-angle-up"></i></a>
+    </div>
+    <div class="text-center">
+      <p class="content">Design By <a href="https://euc365.com/">EUC365</a> Hosted By <a href="https://github.com/">GitHub</a></p>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+<script src="https://brookd2404.github.io/plugins/jQuery/jquery.min.js" ></script>
+
+
+
+<script src="https://brookd2404.github.io/plugins/bootstrap/bootstrap.min.js" async></script>
+
+
+
+<script src="https://brookd2404.github.io/plugins/slick/slick.min.js" ></script>
+
+
+
+
+
+
+
+
+
+<script src="https://brookd2404.github.io/plugins/turbolinks/turbolinks.js" ></script>
+
+
+
+<script src="https://cdn.snipcart.com/themes/v3.0.25/default/snipcart.js" async></script>
+
+
+
+
+
+<script src="https://brookd2404.github.io/js/script.min.js"></script></body>
+
+</html>
