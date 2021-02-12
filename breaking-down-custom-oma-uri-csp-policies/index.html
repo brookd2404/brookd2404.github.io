@@ -288,11 +288,13 @@ Some setting are really simple to configure, for example if you want to disable 
 <p>For this example we will use the Allow Pop ups for certain sites, I will start off by showing you the screenshot of the policy itself</p>
 <p><img class="aligncenter size-full wp-image-1288" src="https://euc365.com/wp-content/uploads/2020/07/Annotation-2020-07-02-123120.png" alt="" width="586" height="408" /></p>
 <p>You will notice that at the start and end of each URL there is a rather ugly looking set of characters, now this is where is can get messy. The pre-URL string is the only one that needs to be changed per entry. If you think of this like a list, <strong>option 1</strong> in the list is <a href="http://euc365.com">http://euc365.com</a> and <strong>option 2</strong> is <a href="http://bbc.co.uk">http://bbc.co.uk</a>, As you can see in the screenshot the pre-URL has a number which needs to be incremented each time you add another URL.</p>
-<p>If you are just having one URL you don’t need to add the final <code class="EnlighterJSRAW" data-enlighter-language="raw"></code>, However if you are using multiple values you will need to add that to the end of the URL and then follow it up with you next URL. Do <strong>NOTE</strong> that the last URL in the sequence should not be followed by <strong><code class="EnlighterJSRAW" data-enlighter-language="raw"></code></strong></p>
-<p>Looking at putting the URL together you will end up with something like the below;</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">1&amp;#xF000; + https://euc365.com + &amp;#xF000; + Following URLs
-</code></pre></div><p>For a single url it would be</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">1&amp;#xF000; + https://euc365.com</code></pre></div></div>
+<p>If you are just having one URL you don’t need to add the final <code>&amp;#xF000;</code>, However if you are using multiple values you will need to add that to the end of the URL and then follow it up with you next URL.</p>
+
+
+<div class="notices note" ><p>The last URL in the sequence should not be followed by <code>&amp;#xF000;</code></p></div>
+
+<p>Looking at putting the URL together you will end up with something like <code>1&amp;#xF000; + https://euc365.com + &amp;#xF000; + Following URLs</code>, For a single url it would be <code>1&amp;#xF000; + https://euc365.com</code></p>
+</div>
       </div>
     </article>
     

@@ -43,31 +43,6 @@
   </url>
   
   <url>
-    <loc>https://hugo.euc365.com/elements-that-you-can-use-to-create-a-new-post-on-this-template./</loc>
-    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/tags/image/</loc>
-    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/tags/photo/</loc>
-    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/categories/photography/</loc>
-    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/tags/</loc>
-    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://hugo.euc365.com/author/</loc>
   </url>
   
@@ -97,6 +72,10 @@
   
   <url>
     <loc>https://hugo.euc365.com/search/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/tags/</loc>
   </url>
   
 </urlset>
