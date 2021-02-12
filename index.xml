@@ -2,102 +2,102 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Homepage</title>
-    <link>https://hugo.euc356.com/</link>
+    <link>https://hugo.euc365.com/</link>
     <description>Recent content on Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Tue, 30 Jun 2020 18:35:00 +0000</lastBuildDate><atom:link href="https://hugo.euc356.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Jun 2020 18:35:00 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Breaking Down Custom OMA-URI (CSP) Policies</title>
-      <link>https://hugo.euc356.com/breaking-down-custom-oma-uri-csp-policies/</link>
+      <link>https://hugo.euc365.com/breaking-down-custom-oma-uri-csp-policies/</link>
       <pubDate>Tue, 30 Jun 2020 18:35:00 +0000</pubDate>
       
-      <guid>https://hugo.euc356.com/breaking-down-custom-oma-uri-csp-policies/</guid>
+      <guid>https://hugo.euc365.com/breaking-down-custom-oma-uri-csp-policies/</guid>
       <description>What is an OMA-URI Policy? Meaning: Open Mobile Alliance Uniform Resource Identifier Traditionally when you implement a new piece of software which contains Group Policy Objects (GPO&amp;rsquo;s) to customise the feature of the application you would import the .adml and .admx files into the PolicyDefinitions folder located within SysVol (SYSVOL) for the domain or into the local PolicyDefinitions (C:/WindowsPolicyDefinitions) folder.</description>
     </item>
     
     <item>
       <title>Getting Useful Device Information… Troubleshooting Made Easy</title>
-      <link>https://hugo.euc356.com/getting-useful-device-information-troubleshooting-made-easy/</link>
+      <link>https://hugo.euc365.com/getting-useful-device-information-troubleshooting-made-easy/</link>
       <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://hugo.euc356.com/getting-useful-device-information-troubleshooting-made-easy/</guid>
+      <guid>https://hugo.euc365.com/getting-useful-device-information-troubleshooting-made-easy/</guid>
       <description>SO&amp;hellip; I&amp;rsquo;ve been working tirelessly in trying to get an Autopilot Hybrid Deployment working along with my colleagues. As any Tech does I give everything my blood sweat and tears before logging a call with support (Sound silly as we could waste hours&amp;hellip; But where&amp;rsquo;s the fun in just logging a call), however on occasion you have to admit defeat and raise a service request.</description>
     </item>
     
     <item>
       <title>Elements That You Can Use To Create A New Post On This Template.</title>
-      <link>https://hugo.euc356.com/elements-that-you-can-use-to-create-a-new-post-on-this-template./</link>
+      <link>https://hugo.euc365.com/elements-that-you-can-use-to-create-a-new-post-on-this-template./</link>
       <pubDate>Sun, 15 Mar 2020 15:40:24 +0600</pubDate>
       
-      <guid>https://hugo.euc356.com/elements-that-you-can-use-to-create-a-new-post-on-this-template./</guid>
+      <guid>https://hugo.euc365.com/elements-that-you-can-use-to-create-a-new-post-on-this-template./</guid>
       <description>Heading example Here is example of hedings. You can use this heading by following markdownify rules. For example: use # for heading 1 and use ###### for heading 6.
 Heading 1 Heading 2 Heading 3 Heading 4 Heading 5 Heading 6  Emphasis Emphasis, aka italics, with asterisks or underscores.</description>
     </item>
     
     <item>
       <title>Contact | Talk To Me Anytime :)</title>
-      <link>https://hugo.euc356.com/contact/</link>
+      <link>https://hugo.euc365.com/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hugo.euc356.com/contact/</guid>
+      <guid>https://hugo.euc365.com/contact/</guid>
       <description>Ask Us Anything Or just Say Hi, </description>
     </item>
     
     <item>
       <title>David Brook</title>
-      <link>https://hugo.euc356.com/author/_david-brook/</link>
+      <link>https://hugo.euc365.com/author/_david-brook/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hugo.euc356.com/author/_david-brook/</guid>
+      <guid>https://hugo.euc365.com/author/_david-brook/</guid>
       <description>I am an experienced End User Computing Engineer who works on delivering Modern Desktop concepts using Microsoft Intune and Configuration Manager.
 I’ve worked in IT for the past 8+ years with over 6 of those been a 3rd Line/Senior Engineer delivering solution to Medium/Large enterprise environments. I have worked on Micro Focus Novell ZENworks with ENGL Imaging, Which offered the traditional ‘Gold Image’ creation with the additional driver packs layered on top.</description>
     </item>
     
     <item>
       <title>David Brook | About Me</title>
-      <link>https://hugo.euc356.com/about/</link>
+      <link>https://hugo.euc365.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hugo.euc356.com/about/</guid>
+      <guid>https://hugo.euc365.com/about/</guid>
       <description>I am an experienced End User Computing Engineer who works on delivering Modern Desktop concepts using Microsoft Intune and Configuration Manager.
 I’ve worked in IT for the past 8+ years with over 6 of those been a 3rd Line/Senior Engineer delivering solution to Medium/Large enterprise environments. I have worked on Micro Focus Novell ZENworks with ENGL Imaging, Which offered the traditional ‘Gold Image’ creation with the additional driver packs layered on top.</description>
     </item>
     
     <item>
       <title>No Search Found</title>
-      <link>https://hugo.euc356.com/404/</link>
+      <link>https://hugo.euc365.com/404/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hugo.euc356.com/404/</guid>
+      <guid>https://hugo.euc365.com/404/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Our Privacy Policy</title>
-      <link>https://hugo.euc356.com/privacy-policy/</link>
+      <link>https://hugo.euc365.com/privacy-policy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hugo.euc356.com/privacy-policy/</guid>
+      <guid>https://hugo.euc365.com/privacy-policy/</guid>
       <description>Responsibility of Contributors Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus.</description>
     </item>
     
     <item>
       <title>Our Terms And Conditions</title>
-      <link>https://hugo.euc356.com/terms-conditions/</link>
+      <link>https://hugo.euc365.com/terms-conditions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hugo.euc356.com/terms-conditions/</guid>
+      <guid>https://hugo.euc365.com/terms-conditions/</guid>
       <description>Responsibility of Contributors Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus.</description>
     </item>
     
     <item>
       <title>Search Results</title>
-      <link>https://hugo.euc356.com/search/</link>
+      <link>https://hugo.euc365.com/search/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hugo.euc356.com/search/</guid>
+      <guid>https://hugo.euc365.com/search/</guid>
       <description></description>
     </item>
     

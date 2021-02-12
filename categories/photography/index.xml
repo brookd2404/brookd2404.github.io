@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>photography on Homepage</title>
-    <link>https://hugo.euc356.com/categories/photography/</link>
+    <link>https://hugo.euc365.com/categories/photography/</link>
     <description>Recent content in photography on Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Sun, 15 Mar 2020 15:40:24 +0600</lastBuildDate><atom:link href="https://hugo.euc356.com/categories/photography/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Mar 2020 15:40:24 +0600</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/photography/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Elements That You Can Use To Create A New Post On This Template.</title>
-      <link>https://hugo.euc356.com/elements-that-you-can-use-to-create-a-new-post-on-this-template./</link>
+      <link>https://hugo.euc365.com/elements-that-you-can-use-to-create-a-new-post-on-this-template./</link>
       <pubDate>Sun, 15 Mar 2020 15:40:24 +0600</pubDate>
       
-      <guid>https://hugo.euc356.com/elements-that-you-can-use-to-create-a-new-post-on-this-template./</guid>
+      <guid>https://hugo.euc365.com/elements-that-you-can-use-to-create-a-new-post-on-this-template./</guid>
       <description>Heading example Here is example of hedings. You can use this heading by following markdownify rules. For example: use # for heading 1 and use ###### for heading 6.
 Heading 1 Heading 2 Heading 3 Heading 4 Heading 5 Heading 6  Emphasis Emphasis, aka italics, with asterisks or underscores.</description>
     </item>

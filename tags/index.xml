@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Homepage</title>
-    <link>https://hugo.euc356.com/tags/</link>
+    <link>https://hugo.euc365.com/tags/</link>
     <description>Recent content in Tags on Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Sun, 15 Mar 2020 15:40:24 +0600</lastBuildDate><atom:link href="https://hugo.euc356.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Mar 2020 15:40:24 +0600</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>image</title>
-      <link>https://hugo.euc356.com/tags/image/</link>
+      <link>https://hugo.euc365.com/tags/image/</link>
       <pubDate>Sun, 15 Mar 2020 15:40:24 +0600</pubDate>
       
-      <guid>https://hugo.euc356.com/tags/image/</guid>
+      <guid>https://hugo.euc365.com/tags/image/</guid>
       <description></description>
     </item>
     
     <item>
       <title>photo</title>
-      <link>https://hugo.euc356.com/tags/photo/</link>
+      <link>https://hugo.euc365.com/tags/photo/</link>
       <pubDate>Sun, 15 Mar 2020 15:40:24 +0600</pubDate>
       
-      <guid>https://hugo.euc356.com/tags/photo/</guid>
+      <guid>https://hugo.euc365.com/tags/photo/</guid>
       <description></description>
     </item>
     
