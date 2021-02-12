@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Powershell Tools on Homepage</title>
-    <link>https://brookd2404.github.io/categories/powershell-tools/</link>
+    <link>https://hugo.euc356.com/categories/powershell-tools/</link>
     <description>Recent content in Powershell Tools on Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Tue, 30 Jun 2020 18:35:00 +0000</lastBuildDate><atom:link href="https://brookd2404.github.io/categories/powershell-tools/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Jun 2020 18:35:00 +0000</lastBuildDate><atom:link href="https://hugo.euc356.com/categories/powershell-tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Breaking Down Custom OMA-URI (CSP) Policies</title>
-      <link>https://brookd2404.github.io/breaking-down-custom-oma-uri-csp-policies/</link>
+      <link>https://hugo.euc356.com/breaking-down-custom-oma-uri-csp-policies/</link>
       <pubDate>Tue, 30 Jun 2020 18:35:00 +0000</pubDate>
       
-      <guid>https://brookd2404.github.io/breaking-down-custom-oma-uri-csp-policies/</guid>
+      <guid>https://hugo.euc356.com/breaking-down-custom-oma-uri-csp-policies/</guid>
       <description>What is an OMA-URI Policy? Meaning: Open Mobile Alliance Uniform Resource Identifier Traditionally when you implement a new piece of software which contains Group Policy Objects (GPO&amp;rsquo;s) to customise the feature of the application you would import the .adml and .admx files into the PolicyDefinitions folder located within SysVol (SYSVOL) for the domain or into the local PolicyDefinitions (C:/WindowsPolicyDefinitions) folder.</description>
     </item>
     
     <item>
       <title>Getting Useful Device Information… Troubleshooting Made Easy</title>
-      <link>https://brookd2404.github.io/getting-useful-device-information-troubleshooting-made-easy/</link>
+      <link>https://hugo.euc356.com/getting-useful-device-information-troubleshooting-made-easy/</link>
       <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://brookd2404.github.io/getting-useful-device-information-troubleshooting-made-easy/</guid>
+      <guid>https://hugo.euc356.com/getting-useful-device-information-troubleshooting-made-easy/</guid>
       <description>SO&amp;hellip; I&amp;rsquo;ve been working tirelessly in trying to get an Autopilot Hybrid Deployment working along with my colleagues. As any Tech does I give everything my blood sweat and tears before logging a call with support (Sound silly as we could waste hours&amp;hellip; But where&amp;rsquo;s the fun in just logging a call), however on occasion you have to admit defeat and raise a service request.</description>
     </item>
     
