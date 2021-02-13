@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Autopilot on Homepage</title>
+    <link>https://hugo.euc365.com/categories/autopilot/</link>
+    <description>Recent content in Autopilot on Homepage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
+    <lastBuildDate>Fri, 07 Aug 2020 17:17:00 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/autopilot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Enrol Devices to Autopilot (Unattended)</title>
+      <link>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</link>
+      <pubDate>Fri, 07 Aug 2020 17:17:00 +0000</pubDate>
+      
+      <guid>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

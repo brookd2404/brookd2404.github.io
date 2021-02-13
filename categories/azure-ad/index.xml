@@ -7,11 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Tue, 30 Jun 2020 18:35:00 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/azure-ad/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Aug 2020 17:17:00 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/azure-ad/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Enrol Devices to Autopilot (Unattended)</title>
+      <link>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</link>
+      <pubDate>Fri, 07 Aug 2020 17:17:00 +0000</pubDate>
+      
+      <guid>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Create an Azure App Registration</title>
       <link>https://hugo.euc365.com/create-an-azure-app-registration/</link>
-      <pubDate>Tue, 30 Jun 2020 18:35:00 +0000</pubDate>
+      <pubDate>Wed, 08 Jul 2020 10:00:00 +0000</pubDate>
       
       <guid>https://hugo.euc365.com/create-an-azure-app-registration/</guid>
       <description>What can you use an Azure App Registration for An Azure App Registration has many uses, in my case I use it mainly for the Microsoft Graph API to perform Intune Configuration Profile backups, List devices, Update local CMDB dynamically and also enrol devices into Autopilot.
