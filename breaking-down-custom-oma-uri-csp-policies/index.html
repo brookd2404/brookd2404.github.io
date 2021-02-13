@@ -170,26 +170,17 @@
     Chrome for Enterprise Download Page
   </a>, you can obtain the gpo files only be finding the Manage Chrome Browser section.</p>
 <p>Once downloaded extract the .zip file and find the <strong>Chrome.admx</strong> (Normally located within WindowsADMX), Open this in a text editor (Notepad will do fine). Now we will switch over to Intune, From the Endpoint Manager Admin Center Homepage select <strong>Devices</strong> <strong>&gt; Configuration Profiles</strong> from the navigation bar. Click <strong>Create profile.</strong></p>
-<center>
-<img src="/images/post/omauri/Dev_ConfigProfiles-1.png" alt="" width="400" height="524" />
-</center>
-</br>
+<p><img class="aligncenter" src="/images/post/omauri/Dev_ConfigProfiles-1.png" alt="" width="400" height="524" /></p>
 <ul>
  	<li>Click **Create Profile**</li>
  	<li>Select the following and click **Create**;</li>
 </ul>
-<center>
-<img src="/images/post/omauri/profileselection_Custom.png" alt="" width="579" height="245" />
-</center>
-</br>
+<p><img class="aligncenter" src="/images/post/omauri/profileselection_Custom.png" alt="" width="579" height="245" /></p>
 <ul>
  	<li>Enter the name for your profile (i.e Windows - Google Chrome Policy) and any other information you wish to add, click **Next**</li>
  	<li>Now here is the fun part, Click **Add**</li>
 </ul>
-<center>
-<img src="/images/post/omauri/Add_Custom.png" alt="" width="899" height="267" />
-</center>
-</br>
+<p><img class="aligncenter" src="/images/post/omauri/Add_Custom.png" alt="" width="899" height="267" /></p>
 <ul>
  	<li>Enter a Name (Use something Descriptive) and Enter a description</li>
  	<li>The OMA-URI Field Should be something like the below
@@ -200,10 +191,7 @@
  	<li>Data Type: **String**</li>
  	<li>Value: Paste the contents of the chrome.admx file</li>
 </ul>
-<center>
-<img src="/images/post/omauri/chromeadmx.png" alt="" width="580" height="402" />
-</center>
-</br>
+<p><img class="aligncenter" src="/images/post/omauri/chromeadmx.png" alt="" width="580" height="402" /></p>
 <ul>
  	<li>Click Add</li>
  	<li>Now</li>
@@ -232,11 +220,8 @@ Now this may seem complicated at first glance, however do keep reading and I wil
 <p><strong>NOTE: This section requires this to be published to a device.</strong></p>
 <p>To get started Open the <strong>Chrome.admx</strong> and **Chrome.adml **(This will be in the language folder i.e. en-US within the .zip file) and launch <strong>REGEDIT (Registry Editor)</strong>.</p>
 <p>Let&rsquo;s get started, within <strong>REGEDIT</strong> browse to **HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/PolicyManager/AdmxDefault **(There is always a random GUID per device, however this doesn&rsquo;t make a difference to the policy so don&rsquo;t worry :D), from here if you deployed the Chrome Policy as per the above steps you will see something like the below. (Note: this is showing Google Updates, but we will</p>
-<center> 
-<img src="/images/post/omauri/RegSnap_PolicyADMX-1.png" alt="" width="876" height="463" />
-</center>
-</br>
-As mentioned above they are broken down like below, we will be sticking with the Homepage setting which is within the startup category.
+<p><img class="aligncenter" src="/images/post/omauri/RegSnap_PolicyADMX-1.png" alt="" width="876" height="463" /></p>
+<p>As mentioned above they are broken down like below, we will be sticking with the Homepage setting which is within the startup category.</p>
 <ul>
  	<li>AppName: Chrome</li>
  	<li>SettingType: Policy</li>
@@ -248,27 +233,16 @@ As mentioned above they are broken down like below, we will be sticking with the
 	</li>
 </ul>
 Now if you look at the .admx file, you will see the following under the categories section
-<center>
-<img src="/images/post/omauri/Cat_SUbCat_GC-1.png" alt="" width="642" height="117" />
-</center>
-</br>
-As you can see that this correlates with with policy in the registry, now if you expand the policy within the registry you can see that the HomePage Location settings is created from within there
-<center> 
-<img src="/images/post/omauri/Startup_Shot.png" alt="" width="415" height="187" />
-</center>
+<p><img class="aligncenter" src="/images/post/omauri/Cat_SUbCat_GC-1.png" alt="" width="642" height="117" /></p>
+<p>As you can see that this correlates with with policy in the registry, now if you expand the policy within the registry you can see that the HomePage Location settings is created from within there</p>
+<p><img class="aligncenter" src="/images/post/omauri/Startup_Shot.png" alt="" width="415" height="187" /></p>
 <p>This is the part where you actually need the .admx file. Lets start by explaining why you need to use .admx file. For this example you are not only enabling or disabling a policy but you will be actually specifying a value. When you go to specify this value in Intune you will need to use the <em><strong>ValueName</strong></em> from within the ADMX File. See the below example;</p>
-<center> 
-<img src="/images/post/omauri/HomepageSetting.png" alt="" width="585" height="407" />
-</center>
-</br>
-Lets break the policy setting down first, As always I would recommend naming the setting descriptively and also adding a description if you want more information about it. The OMA-URI would then be ** ./Device/Vendor/MSFT/Policy/Config/Chrome~Policy~googlechrome~Startup/HomepageLocation.**
+<p><img class="aligncenter" src="/images/post/omauri/HomepageSetting.png" alt="" width="585" height="407" /></p>
+<p>Lets break the policy setting down first, As always I would recommend naming the setting descriptively and also adding a description if you want more information about it. The OMA-URI would then be ** ./Device/Vendor/MSFT/Policy/Config/Chrome~Policy~googlechrome~Startup/HomepageLocation.**</p>
 <h4 id="class-device-or-user">Class (Device or User)</h4>
 <p>One things to note here is the first section of the OMA-URI, It seems simple but you will need to specify if you want to apply this to a **Device **or <strong>User.</strong> Some policies are only available for <strong>Devices</strong> and likewise fort <strong>Users</strong>. You can see this in the ADMX File by looking at the policy like below</p>
-<center> 
-<img src="/images/post/omauri/PolicyClass.png" alt="" width="477" height="157" />
-</center>
-</br>
-Now the HomePageLocation setting can be User or Device based so the class shows as Both. If this was a device only policy **class="Machine"** and for a user only policy it would show as **class="User".**
+<p><img class="aligncenter" src="/images/post/omauri/PolicyClass.png" alt="" width="477" height="157" /></p>
+<p>Now the HomePageLocation setting can be User or Device based so the class shows as Both. If this was a device only policy <strong>class=&ldquo;Machine&rdquo;</strong> and for a user only policy it would show as <strong>class=&ldquo;User&rdquo;.</strong></p>
 <h4 id="appname">AppName</h4>
 <p>As mentioned above the AppName is can be totally customisable however I wouldn&rsquo;t advise that and I would keep it as simple and descriptive as possible.</p>
 <p>For example, For this post I used <strong>Chrome</strong> as the AppName so the Policies show as <strong>Chrome~{SettingType}~{Root Category}~{Sub</strong> <strong>Category}</strong>. If i was to do another policy for Lenovo Vantage for example and set the AppName to <strong>LenovoVantage</strong> the polcies would show** LenovoVantage~{SettingType}~{Root Category}~{Sub Category}. **</p>
@@ -277,11 +251,8 @@ Now the HomePageLocation setting can be User or Device based so the class shows 
 <h4 id="categories-and-sub-categories">Categories and Sub-Categories</h4>
 <p>This is detailed above but I will elaborate a little bit more here.</p>
 <p>If you look at the .admx file, and browse to the categories section you will see lots of categories set with a parent category within there.</p>
-<center> 
-<img src="/images/post/omauri/Cat_SUbCat_GC-1.png" alt="" width="642" height="117" />
-</center>
-</br>
-If you work backwards you can see how this all comes together,
+<p><img class="aligncenter" src="/images/post/omauri/Cat_SUbCat_GC-1.png" alt="" width="642" height="117" /></p>
+<p>If you work backwards you can see how this all comes together,</p>
 <p>The OMA-URI is** Chrome~Policy~{Root Category}~{Sub** **Category}**</p>
 <ul>
  	<li>**Sub Category:** Startup</li>
@@ -291,37 +262,22 @@ Something to not here is that it is possible for a parent category to have anoth
 <p>This is partly the reason to always check the registry when creating polcies.</p>
 <h4 id="the-policy-itself">The Policy Itself</h4>
 <p>So finally we come to the policy itself, at the end all the OMA-URI string comes the setting, in this case <strong>HomePageLocation</strong>.</p>
-<center> 
-<img src="/images/post/omauri/HomepageKey-1024x120.png" alt="" width="1024" height="120" />
-</center>
-</br>
-This is derived again from the .admx file, if you search for the policy you will come across something like the above screenshot. You will notice that the policy is based on the **DisplayName** property. We won't cover setting the value in this section as I feel it deserves its own.
+<p><img class="aligncenter" src="/images/post/omauri/HomepageKey-1024x120.png" alt="" width="1024" height="120" /></p>
+<p>This is derived again from the .admx file, if you search for the policy you will come across something like the above screenshot. You will notice that the policy is based on the <strong>DisplayName</strong> property. We won&rsquo;t cover setting the value in this section as I feel it deserves its own.</p>
 <h4 id="the-policy-valuesetting">The Policy Value/Setting</h4>
 <p>Some setting are really simple to configure, for example if you want to disable something like <strong>MetricsReportingEnabled</strong> you can simply just add like below</p>
-<center> 
-<img src="/images/post/omauri/simpledisable.png" alt="" width="585" height="407" />
-</center>
-</br>
-Others like the **HomePageLocation** are not complicated but require a little bit more than just a simple disable or enable switch as you need to specify a value for the property.
+<p><img class="aligncenter" src="/images/post/omauri/simpledisable.png" alt="" width="585" height="407" /></p>
+<p>Others like the <strong>HomePageLocation</strong> are not complicated but require a little bit more than just a simple disable or enable switch as you need to specify a value for the property.</p>
 <p>Again jumping back into the .admx file, if you look at the last highlighted section of the below screenshot you can see that there is a <em><strong>ValueName,</strong> </em>now this is the value we need want to change.</p>
-<center> 
-<img src="/images/post/omauri/HomepageKey-1024x120.png" alt="" width="1024" height="120" />
-</center>
-</br>
-to do this you would need to write the policy string like the below screenshot
-<center> 
-<img src="/images/post/omauri/HomepageSetting.png" alt="" width="585" height="407" />
-</center>
-</br>
-If you look at the **data id** section, this is where you would put the value name in out of the .admx file, from there you would then set the value of that property for example https://euc365.com.
+<p><img class="aligncenter" src="/images/post/omauri/HomepageKey-1024x120.png" alt="" width="1024" height="120" /></p>
+<p>to do this you would need to write the policy string like the below screenshot</p>
+<p><img class="aligncenter" src="/images/post/omauri/HomepageSetting.png" alt="" width="585" height="407" /></p>
+<p>If you look at the <strong>data id</strong> section, this is where you would put the value name in out of the .admx file, from there you would then set the value of that property for example <a href="https://euc365.com">https://euc365.com</a>.</p>
 <p>If you apply this policy and sync it to your device you will notice that it will change the Homepage upon start up.</p>
 <p>Now&hellip; Here is another example of adding a string to a policy which requires multiple values. This once is not so much tricky but its messy.</p>
 <p>For this example we will use the Allow Pop ups for certain sites, I will start off by showing you the screenshot of the policy itself</p>
-<center> 
-<img src="/images/post/omauri/Annotation-2020-07-02-123120.png" alt="" width="586" height="408" />
-</center>
-</br>
-You will notice that at the start and end of each URL there is a rather ugly looking set of characters, now this is where is can get messy. The pre-URL string is the only one that needs to be changed per entry. If you think of this like a list, **option 1** in the list is http://euc365.com and **option 2** is http://bbc.co.uk, As you can see in the screenshot the pre-URL has a number which needs to be incremented each time you add another URL.
+<p><img class="aligncenter" src="/images/post/omauri/Annotation-2020-07-02-123120.png" alt="" width="586" height="408" /></p>
+<p>You will notice that at the start and end of each URL there is a rather ugly looking set of characters, now this is where is can get messy. The pre-URL string is the only one that needs to be changed per entry. If you think of this like a list, <strong>option 1</strong> in the list is <a href="http://euc365.com">http://euc365.com</a> and <strong>option 2</strong> is <a href="http://bbc.co.uk">http://bbc.co.uk</a>, As you can see in the screenshot the pre-URL has a number which needs to be incremented each time you add another URL.</p>
 <p>If you are just having one URL you don’t need to add the final <code>&amp;#xF000;</code>, However if you are using multiple values you will need to add that to the end of the URL and then follow it up with you next URL.</p>
 
 

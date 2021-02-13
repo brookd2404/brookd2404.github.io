@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hugo.euc365.com/categories/azure/</loc>
+    <lastmod>2020-06-30T18:35:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/categories/azure-ad/</loc>
+    <lastmod>2020-06-30T18:35:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hugo.euc365.com/post/</loc>
     <lastmod>2020-06-30T18:35:00+00:00</lastmod>
   </url>
@@ -14,6 +24,11 @@
   
   <url>
     <loc>https://hugo.euc365.com/categories/</loc>
+    <lastmod>2020-06-30T18:35:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/create-an-azure-app-registration/</loc>
     <lastmod>2020-06-30T18:35:00+00:00</lastmod>
   </url>
   
