@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Application Deployment on Home</title>
-    <link>https://hugo.euc365.com/tags/application-deployment/</link>
+    <link>https://euc365.com/tags/application-deployment/</link>
     <description>Recent content in Application Deployment on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Tue, 05 Jan 2021 20:17:00 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/application-deployment/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Jan 2021 20:17:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/application-deployment/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating Intune Win32 Apps</title>
-      <link>https://hugo.euc365.com/creating-intune-win32-apps/</link>
+      <link>https://euc365.com/creating-intune-win32-apps/</link>
       <pubDate>Tue, 05 Jan 2021 20:17:00 +0000</pubDate>
       
-      <guid>https://hugo.euc365.com/creating-intune-win32-apps/</guid>
+      <guid>https://euc365.com/creating-intune-win32-apps/</guid>
       <description>Win32 Apps, What Are they? If you&amp;rsquo;re familiar with Configuration Manager/MEMCM then think of these files as your source directory, the difference being you are effectively zipping it up and then uploading to Intune.
 According to Microsoft, if you decide to use Win32 Apps, it is advised that you use these exclusively and NOT &amp;lsquo;Mix and Match&amp;rsquo; these with Line of Business applications when using Autopilot (See Microsoft Doc link below).</description>
     </item>
