@@ -3,52 +3,57 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hugo.euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</loc>
+    <lastmod>2020-08-11T11:54:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/categories/azure/</loc>
+    <lastmod>2020-08-11T11:54:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/categories/azure-ad/</loc>
+    <lastmod>2020-08-11T11:54:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/categories/azure-app-registrtions/</loc>
+    <lastmod>2020-08-11T11:54:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/post/</loc>
+    <lastmod>2020-08-11T11:54:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/categories/</loc>
+    <lastmod>2020-08-11T11:54:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/</loc>
+    <lastmod>2020-08-11T11:54:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/categories/intune/</loc>
+    <lastmod>2020-08-11T11:54:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/categories/powershell/</loc>
+    <lastmod>2020-08-11T11:54:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hugo.euc365.com/categories/autopilot/</loc>
     <lastmod>2020-08-07T17:17:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://hugo.euc365.com/categories/azure/</loc>
-    <lastmod>2020-08-07T17:17:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/categories/azure-ad/</loc>
-    <lastmod>2020-08-07T17:17:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/categories/azure-app-registrtions/</loc>
-    <lastmod>2020-08-07T17:17:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/post/</loc>
-    <lastmod>2020-08-07T17:17:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/categories/</loc>
-    <lastmod>2020-08-07T17:17:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</loc>
-    <lastmod>2020-08-07T17:17:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/</loc>
-    <lastmod>2020-08-07T17:17:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/categories/intune/</loc>
-    <lastmod>2020-08-07T17:17:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/categories/powershell/</loc>
     <lastmod>2020-08-07T17:17:00+00:00</lastmod>
   </url>
   
@@ -73,15 +78,7 @@
   </url>
   
   <url>
-    <loc>https://hugo.euc365.com/author/</loc>
-  </url>
-  
-  <url>
     <loc>https://hugo.euc365.com/contact/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/author/_david-brook/</loc>
   </url>
   
   <url>
@@ -90,14 +87,6 @@
   
   <url>
     <loc>https://hugo.euc365.com/404/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/privacy-policy/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/terms-conditions/</loc>
   </url>
   
   <url>

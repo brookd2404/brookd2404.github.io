@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>EUC365 | Add devices to an Azure AD Group using the Microsoft Graph API</title>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="description" content="Add devices to an AAD Group using PowerShell and the Microsoft Graph API">
+  <meta name="author" content="David Brook">
+  <meta name="generator" content="Hugo 0.75.1" />
+
+  
+  <link rel="preload" href="https://fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFWJ0bbck.woff2" style="font-display: optional;">
+  
+  
+  
+  <link rel="stylesheet" href="https://hugo.euc365.com/plugins/bootstrap/bootstrap.min.css" >
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:600%7cOpen&#43;Sans&amp;display=swap" >
+  
+  
+  
+  <link rel="stylesheet" href="https://hugo.euc365.com/plugins/themify-icons/themify-icons.css" >
+  
+  
+  
+  <link rel="stylesheet" href="https://hugo.euc365.com/plugins/slick/slick.css" >
+  
+  
+  
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.25/default/snipcart.css" >
+  
+  
+
+  
+  
+  <link rel="stylesheet" href="https://hugo.euc365.com/scss/style.css" media="screen">
+
+  
+  <link rel="shortcut icon" href="https://hugo.euc365.com/images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="https://hugo.euc365.com/images/favicon.png" type="image/x-icon">
+
+  <meta property="og:title" content="Add devices to an Azure AD Group using the Microsoft Graph API" />
+<meta property="og:description" content="Add devices to an AAD Group using PowerShell and the Microsoft Graph API" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hugo.euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/" />
+<meta property="og:image" content="https://hugo.euc365.com/images/post/addtoaadgroup/Featuredimage.png" />
+<meta property="article:published_time" content="2020-08-11T11:54:00+00:00" />
+<meta property="article:modified_time" content="2020-08-11T11:54:00+00:00" />
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-176926283-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-176926283-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</head><body><!-- navigation -->
+<header class="sticky-top bg-white border-bottom border-default">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white">
+      <a class="navbar-brand" href="/">
+        <img class="img-fluid" width="150px" src="https://hugo.euc365.com/images/logo.png" alt="Home"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://hugo.euc365.com/">Home</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Posts <i class="ti-angle-down ml-1"></i>
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="https://hugo.euc365.com/categories/autopilot">Autopilot</a>
+              
+              <a class="dropdown-item" href="https://hugo.euc365.com/categories/azure">Azure</a>
+              
+              <a class="dropdown-item" href="https://hugo.euc365.com/categories/intune">Intune</a>
+              
+              <a class="dropdown-item" href="https://hugo.euc365.com/categories/microsoft-graph-api">Microsoft Graph API</a>
+              
+              <a class="dropdown-item" href="https://hugo.euc365.com/categories/powershell">PowerShell</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://hugo.euc365.com/about">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://hugo.euc365.com/contact">Contact</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        
+
+        
+        <!-- search -->
+        <div class="search px-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="/search" class="h-100">
+              <input class="search-box pl-4" id="search-query" name="s" type="search" placeholder="Type &amp; Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+
+
+<section class="section">
+  <div class="container">
+    <article class="row mb-4">
+      <div class="col-lg-10 mx-auto mb-4">
+        <h1 class="h2 mb-3">Add devices to an Azure AD Group using the Microsoft Graph API</h1>
+        <ul class="list-inline post-meta mb-3">
+          <li class="list-inline-item"><i class="ti-user mr-2"></i><a
+              href="/author/david-brook/">David Brook</a></li>
+          <li class="list-inline-item">Date : 11 August, 2020</li>
+          <li class="list-inline-item">Categories :
+            <a
+              href="/categories/azure" class="ml-1">Azure </a>
+            ,<a
+              href="/categories/azure-ad" class="ml-1">Azure a d </a>
+            ,<a
+              href="/categories/azure-app-registrtions" class="ml-1">Azure app registrtions </a>
+            ,<a
+              href="/categories/powershell" class="ml-1">Powershell </a>
+            ,<a
+              href="/categories/intune" class="ml-1">Intune </a>
+            </li>
+          <li class="list-inline-item">Tags : 
+          </li>
+        </ul>
+      </div>
+      
+      
+      
+      <div class="col-lg-10 mx-auto">
+        <div class="content"><p>Have you ever needed to add a device to an Azure AD Group as part of your MEMCM or Autopilot deployment for specific app, profiles or scripts?</p>
+<p>Well it became the case that my organisation needed to do so for a couple of reason, one of those was to disable Windows Hello and the other for devices migrating from a previous Configuration Manager (Not MEMCM).</p>
+<p>Because I was using Hybrid AD Join Autopilot Deployments it became the case that I had to use the devices' computer name and get the device information that way.</p>
+<p>For you that don&rsquo;t use the Hybrid AD Join Autopilot method, This creates two Azure AD computers, The first been purely Azure AD Joined and the second is an Intune (MDM Enrolled) object. Microsoft do link these together for the Bitlocker Keys etc. and from my understanding they are looking at making them just one object but at the time this article was written they remain two separate objects&hellip;. I look forward to the day when two become one ;).</p>
+<p>Oh&hellip; did I also mention that you do not need to install any other modules for PowerShell to be able to run these script? No? Well that&rsquo;s the nature of the game for me is to have as little reliance on Modules etc so the scripts can be run practically anywhere :D.</p>
+<h2 id="the-script">The Script</h2>
+<p>You will notice that most of this (the authentication part and most of the param block at least) are the same as my other script&hellip; But if its not broke why fix it? (Those famous last words!!!).</p>
+<p>As mentioned above you will notice that this uses the computer name to identify the device and then use the information from that device object to add it to the Azure AD Group. When the device is identified from the name it gets the device Azure ID and then proceeds to create the JSON body for the request and then submits this to the API.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-posh" data-lang="posh"><span style="color:#069;font-weight:bold">param</span>(
+    [<span style="color:#069;font-weight:bold">Parameter</span>(DontShow = <span style="color:#033">$true</span>)]
+    <span style="color:#360">[string]</span>
+    <span style="color:#033">$MsGraphVersion</span> = <span style="color:#c30">&#34;beta&#34;</span>,
+    [<span style="color:#069;font-weight:bold">Parameter</span>(DontShow = <span style="color:#033">$true</span>)]
+    <span style="color:#360">[string]</span>
+    <span style="color:#033">$MsGraphHost</span> = <span style="color:#c30">&#34;graph.microsoft.com&#34;</span>,
+    <span style="color:#09f;font-style:italic">#The AzureAD ClientID (Application ID) of your registered AzureAD App</span>
+    <span style="color:#360">[string]</span>
+    <span style="color:#033">$ClientID</span> = <span style="color:#c30">&#34;&lt;YourClientID&gt;&#34;</span>,
+    <span style="color:#09f;font-style:italic">#The Client Secret for your AzureAD App</span>
+    <span style="color:#360">[string]</span>
+    <span style="color:#033">$ClientSecret</span> = <span style="color:#c30">&#34;&lt;YourClientSecret&gt;&#34;</span>,
+    <span style="color:#09f;font-style:italic">#Your Azure Tenent ID</span>
+    <span style="color:#360">[string]</span>
+    <span style="color:#033">$TenantId</span> = <span style="color:#c30">&#34;&lt;YourTenentID&gt;&#34;</span>,
+    <span style="color:#09f;font-style:italic">#The Azure AD Group Object ID</span>
+    <span style="color:#360">[string]</span>
+    <span style="color:#033">$GroupID</span> = <span style="color:#c30">&#34;&lt;YourGroupID&gt;&#34;</span>,
+    <span style="color:#09f;font-style:italic">#The name of the device</span>
+    <span style="color:#360">[string]</span>
+    <span style="color:#033">$InputDevice</span>
+)
+
+<span style="color:#069;font-weight:bold">IF</span> (!(<span style="color:#033">$InputDevice</span>)) {
+    <span style="color:#033">$InputDevice</span> = <span style="color:#033">$env:COMPUTERNAME</span>
+}
+
+<span style="color:#09f;font-style:italic">#Create the body of the Authentication of the request for the OAuth Token</span>
+<span style="color:#033">$Body</span> = @{client_id=<span style="color:#033">$ClientID</span>;client_secret=<span style="color:#033">$ClientSecret</span>;grant_type=<span style="color:#c30">&#34;client_credentials&#34;</span>;scope=<span style="color:#c30">&#34;https://$MSGraphHost/.default&#34;</span>;}
+<span style="color:#09f;font-style:italic">#Get the OAuth Token </span>
+<span style="color:#033">$OAuthReq</span> = <span style="color:#366">Invoke-RestMethod</span> -Method Post -Uri <span style="color:#c30">&#34;https://login.microsoftonline.com/$TenantId/oauth2/v2.0/token&#34;</span> -Body <span style="color:#033">$Body</span>
+<span style="color:#09f;font-style:italic">#Set your access token as a variable</span>
+<span style="color:#033">$global:AccessToken</span> = <span style="color:#033">$OAuthReq</span>.access_token
+
+<span style="color:#033">$GroupMembers</span> = <span style="color:#366">Invoke-RestMethod</span> -Method Get -uri <span style="color:#c30">&#34;https://$MSGraphHost/$MsGraphVersion/groups/$GroupID/members&#34;</span> -Headers @{Authorization = <span style="color:#c30">&#34;Bearer $AccessToken&#34;</span>} | <span style="color:#366">Select-Object</span> -ExpandProperty Value
+
+<span style="color:#033">$Devices</span> = <span style="color:#366">Invoke-RestMethod</span> -Method Get -uri <span style="color:#c30">&#34;https://$MSGraphHost/$MSGraphVersion/devices?</span><span style="color:#c30;font-weight:bold">`$</span><span style="color:#c30">filter=startswith(displayName,&#39;$InputDevice&#39;)&#34;</span> -Headers @{Authorization = <span style="color:#c30">&#34;Bearer $AccessToken&#34;</span>} | <span style="color:#366">Select-Object</span> -ExpandProperty Value | %{ 
+
+    <span style="color:#069;font-weight:bold">if</span> (<span style="color:#033">$GroupMembers</span>.ID <span style="color:#555">-contains</span> <span style="color:#033">$_</span>.id) {
+        <span style="color:#366">Write-Host</span> -ForegroundColor Yellow <span style="color:#c30">&#34;</span>$(<span style="color:#033">$_</span>.DisplayName)<span style="color:#c30"> (</span>$(<span style="color:#033">$_</span>.ID)<span style="color:#c30">) is in the Group&#34;</span>   
+    } <span style="color:#069;font-weight:bold">else</span> {
+        <span style="color:#366">Write-Host</span> -ForegroundColor Green <span style="color:#c30">&#34;Adding </span>$(<span style="color:#033">$_</span>.DisplayName)<span style="color:#c30"> (</span>$(<span style="color:#033">$_</span>.ID)<span style="color:#c30">) To The Group&#34;</span>
+        <span style="color:#033">$BodyContent</span> = @{
+            <span style="color:#c30">&#34;@odata.id&#34;</span>=<span style="color:#c30">&#34;https://graph.microsoft.com/v1.0/devices/</span>$(<span style="color:#033">$_</span>.id)<span style="color:#c30">&#34;</span>
+        } | <span style="color:#366">ConvertTo-Json</span>
+        <span style="color:#366">Invoke-RestMethod</span> -Method POST -uri <span style="color:#c30">&#34;https://$MSGraphHost/$MsGraphVersion/groups/$GroupID/members/</span><span style="color:#c30;font-weight:bold">`$</span><span style="color:#c30">ref&#34;</span> -Headers @{Authorization = <span style="color:#c30">&#34;Bearer $AccessToken&#34;</span>; <span style="color:#c30">&#39;Content-Type&#39;</span> = <span style="color:#c30">&#39;application/json&#39;</span>} -Body <span style="color:#033">$BodyContent</span>
+    }
+}
+
+</code></pre></div><h2 id="the-pre-reqs">The Pre-Reqs</h2>
+<p>To make the script work you will need an <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app">Azure App Registration</a> with the following permissions for the Microsoft Graph API;</p>
+<ul>
+ 	<li>GroupMember.ReadWrite.All</li>
+ 	<li>Group.ReadWrite.All</li>
+ 	<li>Directory.ReadWrite.All</li>
+</ul>
+<a href="https://docs.microsoft.com/en-us/graph/api/group-post-members?view=graph-rest-1.0&amp;tabs=http">GRAPH API DOCUMENTATION</a>
+<p>You will also need the Group ID and Tenant ID, to find this following these steps</p>
+<ul>
+ 	<li>Login to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade"><strong>Azure AD</strong></a> console (You can get your Tenant ID from the Overview tab under Tenant Information)</li>
+ 	<li>Select <strong><a href="https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups">Groups</a></strong></li>
+ 	<li>Search for the group you want to utilise and open it</li>
+ 	<li>From the Group overview page copy the <b>Object ID </b>as this is the Group ID we need.</li>
+</ul>
+If your not sure how to create an Azure AD App Registration head over to one of my other posts by clicking <a href="https://euc365.com/create_an_azure_app_registration">HERE</a>, Don't forget to store your Client ID and Secret securely and also have it to hand for the rest of the post :D.
+<h2 id="executing-the-script">Executing the Script</h2>
+<p>There are numerous ways you can execute this script, you could use it as a script in Script in MEMCM or Intune, In a Task Sequence, as an Application or Package (You will need to add some for of check file for the detection rule) or you could execute this directly from the command line.</p>
+<p>I will demonstrate the Script in MEMCM and Intune for you.</p>
+<h3 id="script-in-memcm">Script in MEMCM</h3>
+<p>This is the best option if you want to do it manually on a case by case basis (i.e. Right click on the computer object and select run script).</p>
+<p>Jump into the Script section in MEMCM (Software Library &gt; Scripts) and click <strong>Create Script</strong> from the ribbon.</p>
+<p>Give the script a Name, select the language as <strong>PowerShell </strong>and then copy and paste the script above (Tip: In the top right corner of the script block you can click <strong>Copy Script Text</strong>).</p>
+<p>Click <strong>Next,</strong> This is where you need the details we noted earlier. MEMCM is great at pulling through the Param block parameters, all we need to do is amend the ClientID, ClientSecret and TenantId arguments as below.</p>
+<p><img class="aligncenter" src="/images/post/addtoaadgroup/Script-Params-AADGroup_3.png" alt="" width="506" height="495" /></p>
+<p>As we are using the environment variable for the InputDevice we will need to Hide this from selection as the script will use the Environment Variable if the parameter is not used.</p>
+<p>Double Click on <strong>InputDevice</strong>, Change the<strong> Hidden</strong> drop down to <strong>True</strong> click <strong>OK</strong>.</p>
+<p><img class="aligncenter" src="/images/post/addtoaadgroup/Hide_Input.png" alt="" width="393" height="420" /></p>
+<p>When finished click Next review the settings and then click next and then close.</p>
+<p>
+
+<div class="notices note" ><p>Don&rsquo;t forget to Approve your Script</p></div>
+
+Now lets choose a client computer from <b>Assets and Compliance &gt; Devices</b>. Right click on the object and select <b>Run Script</b>, Select the script object you created and review the details and then let the script run.</p>
+<p>This does not take long to run and the output of the script if the device is successfully added to the group is as below;</p>
+<p><img class="aligncenter" src="/images/post/addtoaadgroup/ScriptOutput-1.png" alt="" width="692" height="745" /></p>
+<p>As mentioned before as these devices are Hybrid Joined they have two entries in Azure AD which is why the output shows its adding the device twice with two different GUIDS.</p>
+<h3 id="script-in-intune">Script in Intune</h3>
+<p>This time the script needs to be saved as a .ps1 file to be uploaded and used by Intune, unfortunately using the <b>Scripts</b> section in Intune you cannot specify parameters so you will need to put your Client ID, Secret, TenantID and Group ID into the script before uploading. You could use a Win32 App as an alternative method if you wish to use them via the command line. Once you&rsquo;ve saved the script launch the <a href="https://endpoint.microsoft.com"><strong>Endpoint Manager Console</strong></a> from your favourite web browser.</span></p>
+<p>Select <strong>Devices</strong> from the left hand pane, under the <strong>Policy</strong> section click <strong>Scripts.</strong></p>
+<p>Click <b>Add</b> &gt; <b>Windows 10</b>, Name your script appropriately and enter a short description (Even a link to this blog :P), Once you&rsquo;ve done hit next and then select your script to use.</p>
+<p>Leave all of the sliders as <b>No;</b></p>
+<p><img class="aligncenter" src="/images/post/addtoaadgroup/ScriptSliders.png" alt="" width="401" height="140" /></p>
+<p>Click Next, Add your Scope Tags (if any) and your assignments. Review the configuration and click <b>Add.</b></p>
+<p>This doesn&rsquo;t run instantaneously, please refer to the <a href="https://docs.microsoft.com/en-us/mem/intune/apps/intune-management-extension">Microsoft Documentation</a> this also has some other notable consideration listed.</p>
+<h3 id="to-conclude">To Conclude</h3>
+<p>These are just two of the ways you can run the script, you could also potentially run this in the back end of a web application for people who want to request to disable things like Windows Hello (As I mentioned at the start). I could spent days, weeks even months on writing articles for some of the uses. A user one will no doubt follow in due course so watch this space :D.</p>
+<p>I did fully test these methods at the time of writing the blog but if you come across any information you think may be wrong then please leave a comment or e-mail me on <a href="mailto:David@euc365.com"><a href="mailto:David@euc365.com">David@euc365.com</a></a>.</p>
+<p>I hope this is useful for your needs.</p>
+</div>
+      </div>
+    </article>
+    
+    
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <div class="mt-5">
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "euc365-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+
+
+
+<footer class="section-sm pb-0 border-top border-default">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-md-3 mb-4">
+        <a class="mb-4 d-block" href="/"><img class="img-fluid" width="150px" src="https://hugo.euc365.com/images/logo.png" alt="Home"></a>
+        <p>Thank you for looking at my Tech, Tips and other bits.</p>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6 mb-4">
+        <h6 class="mb-4">Quick Links</h6>
+        <ul class="list-unstyled footer-list">
+          
+          
+          <li><a href="https://hugo.euc365.com/about">About</a></li>
+          
+          
+          <li><a href="https://hugo.euc365.com/contact">Contact</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6 mb-4">
+        <h6 class="mb-4">Social Links</h6>
+        <ul class="list-unstyled footer-list">
+          
+          <li><a href="https://www.twitter.com/dbbrook24">Twitter</a></li>
+          
+          <li><a href="https://www.linkedin.com/in/david-brook-81796145/">linkedin</a></li>
+          
+          <li><a href="https://github.com/brookd2404">github</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="col-md-3 mb-4">
+        <h6 class="mb-4">Subscribe Newsletter</h6>
+        
+        <form class="subscription" action="https://euc365.us1.list-manage.com/subscribe/post?u=5be29b0e8342fd1942dd179e6&amp;amp;id=4afea5f508" method="post" name="mc-embedded-subscribe-form"
+          target="_blank">
+          <div class="position-relative">
+            <i class="ti-email email-icon"></i>
+            <input type="email" class="form-control" placeholder="Your Email Address">
+          </div>
+          <button class="btn btn-primary btn-block rounded" type="submit"
+            name="subscribe">Subscribe now</button>
+          <div style="position: absolute; left: -5000px;" aria-hidden="true">
+            <input type="text" name="b_5be29b0e8342fd1942dd179e6_4afea5f508" tabindex="-1">
+          </div>
+        </form>
+        
+      </div>
+      
+    </div>
+    <div class="scroll-top">
+      <a href="javascript:void(0);" id="scrollTop"><i class="ti-angle-up"></i></a>
+    </div>
+    <div class="text-center">
+      <p class="content">Design By <a href="https://euc365.com/">EUC365</a> Hosted By <a href="https://github.com/">GitHub</a></p>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+<script src="https://hugo.euc365.com/plugins/jQuery/jquery.min.js" ></script>
+
+
+
+<script src="https://hugo.euc365.com/plugins/bootstrap/bootstrap.min.js" async></script>
+
+
+
+<script src="https://hugo.euc365.com/plugins/slick/slick.min.js" ></script>
+
+
+
+
+
+
+
+
+
+<script src="https://hugo.euc365.com/plugins/turbolinks/turbolinks.js" ></script>
+
+
+
+<script src="https://cdn.snipcart.com/themes/v3.0.25/default/snipcart.js" async></script>
+
+
+
+
+<div class="hidden" id="cookie-banner">
+        <span class="cb-text">
+            This may use 3rd Party Cookies to provide a great user experience. By continuing, you accept the use of these Cookies.
+        </span>
+        <span id="consent-cookies" class="cb-background">
+            <b>Close</b>
+        </span>
+</div>
+
+<script src="https://hugo.euc365.com/js/cookiebanner.min.js"></script>
+
+
+
+
+<script src="https://hugo.euc365.com/js/script.min.js"></script></body>
+
+</html>

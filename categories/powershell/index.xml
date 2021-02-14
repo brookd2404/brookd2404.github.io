@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>PowerShell on Homepage</title>
+    <title>Powershell on Home</title>
     <link>https://hugo.euc365.com/categories/powershell/</link>
-    <description>Recent content in PowerShell on Homepage</description>
+    <description>Recent content in Powershell on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Fri, 07 Aug 2020 17:17:00 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Aug 2020 11:54:00 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Add devices to an Azure AD Group using the Microsoft Graph API</title>
+      <link>https://hugo.euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</link>
+      <pubDate>Tue, 11 Aug 2020 11:54:00 +0000</pubDate>
+      
+      <guid>https://hugo.euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</guid>
+      <description>Have you ever needed to add a device to an Azure AD Group as part of your MEMCM or Autopilot deployment for specific app, profiles or scripts?
+Well it became the case that my organisation needed to do so for a couple of reason, one of those was to disable Windows Hello and the other for devices migrating from a previous Configuration Manager (Not MEMCM).</description>
+    </item>
+    
     <item>
       <title>Enrol Devices to Autopilot (Unattended)</title>
       <link>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</link>
       <pubDate>Fri, 07 Aug 2020 17:17:00 +0000</pubDate>
       
       <guid>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</guid>
-      <description></description>
+      <description>I have been working on a project at the company I work for, and up to this point we have been primarily focused on getting new devices imported and deploying via Autopilot.
+Now we have successfully leaped over that hurdle with very little issues (apart from the odd TPM attestation issue here and there and the ESP Profile page been skipped), we moved onto focusing on our current estate and how to import these into Autopilot .</description>
     </item>
     
     <item>
@@ -23,7 +34,7 @@
       <pubDate>Tue, 30 Jun 2020 18:35:00 +0000</pubDate>
       
       <guid>https://hugo.euc365.com/breaking-down-custom-oma-uri-csp-policies/</guid>
-      <description>What is an OMA-URI Policy? Meaning: Open Mobile Alliance Uniform Resource Identifier Traditionally when you implement a new piece of software which contains Group Policy Objects (GPO&amp;rsquo;s) to customise the feature of the application you would import the .adml and .admx files into the PolicyDefinitions folder located within SysVol (SYSVOL) for the domain or into the local PolicyDefinitions (C:/WindowsPolicyDefinitions) folder.</description>
+      <description>What is an OMA-URI Policy? Meaning: Open Mobile Alliance Uniform Resource Identifier Traditionally when you implement a new piece of software which contains Group Policy Objects (GPO&amp;rsquo;s) to customise the feature of the application you would import the .</description>
     </item>
     
     <item>

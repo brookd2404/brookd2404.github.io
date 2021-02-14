@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Autopilot on Homepage</title>
+    <title>Autopilot on Home</title>
     <link>https://hugo.euc365.com/categories/autopilot/</link>
-    <description>Recent content in Autopilot on Homepage</description>
+    <description>Recent content in Autopilot on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
@@ -14,7 +14,8 @@
       <pubDate>Fri, 07 Aug 2020 17:17:00 +0000</pubDate>
       
       <guid>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</guid>
-      <description></description>
+      <description>I have been working on a project at the company I work for, and up to this point we have been primarily focused on getting new devices imported and deploying via Autopilot.
+Now we have successfully leaped over that hurdle with very little issues (apart from the odd TPM attestation issue here and there and the ESP Profile page been skipped), we moved onto focusing on our current estate and how to import these into Autopilot .</description>
     </item>
     
   </channel>

@@ -83,7 +83,7 @@ if (!doNotTrack) {
     
     <nav class="navbar navbar-expand-lg navbar-white">
       <a class="navbar-brand" href="/">
-        <img class="img-fluid" width="150px" src="https://hugo.euc365.com/images/logo.png" alt="Homepage"></a>
+        <img class="img-fluid" width="150px" src="https://hugo.euc365.com/images/logo.png" alt="Home"></a>
       <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="ti-menu"></i>
       </button>
@@ -93,7 +93,7 @@ if (!doNotTrack) {
           
           
           <li class="nav-item">
-            <a class="nav-link" href="https://hugo.euc365.com/">homepage</a>
+            <a class="nav-link" href="https://hugo.euc365.com/">Home</a>
           </li>
           
           
@@ -188,7 +188,192 @@ if (!doNotTrack) {
       
       
       <div class="col-lg-10 mx-auto">
-        <div class="content"></div>
+        <div class="content"><p>I have been working on a project at the company I work for, and up to this point we have been primarily focused on getting new devices imported and deploying via Autopilot.</p>
+<p>Now we have successfully leaped over that hurdle with very little issues (apart from the odd TPM attestation issue here and there and the ESP Profile page been skipped), we moved onto focusing on our current estate and how to import these into Autopilot .</p>
+<p>There is a couple of ways to do this, you could run this in a package, as an application, as a script or in a task sequence for when you decide to re-build the machines.</p>
+<p>Now the choice is yours on which method will suit your organisation the best.</p>
+<h2 id="the-script">The Script</h2>
+<p><a class="fusion-no-lightbox" href="https://github.com/brookd2404/Powershell_Scripts/blob/master/MS-Graph/Autopilot/Enroll_to_Autopliot_Unattended.ps1"><img src="/images/social-icons/github.png" alt="" width="50" height="50" /></a>Now on <a href="https://github.com/brookd2404/Powershell_Scripts/blob/master/MS-Graph/Autopilot/Enroll_to_Autopliot_Unattended.ps1">GitHub</a></p>
+<p>Now, lets talk about the script itself. When I started out on this path I used <a href="https://oofhours.com" target="_blank" rel="noopener noreferrer">Michael </a><a href="https://oofhours.com/" target="_blank" rel="noopener noreferrer">Niehaus</a>' <a href="https://www.powershellgallery.com/packages/Get-WindowsAutoPilotInfo" target="_blank" rel="noopener noreferrer">Get-WindowsAutoPilotInfo</a> script, even before this had the -online parameter. I was also hoping to leverage the same script for importing devices into Autopilot silently.</p>
+<p>There was however a couple of stumbling blocks for me not doing so, the first been the Connect-MSGraph would not connect using the ClientID and Secret from the Azure App Registration and kept prompting for credentials. The second being it downloaded other PowerShell Modules. This was an issue for us as firstly it added a further time delay to the script and secondly one of our security product blocked it during this process.</p>
+<p>I had also recently started leveraging the Microsoft Graph API and decided to find a way to do this without additional the modules while achieving the same outcome. And the following is the outcome.</p>
+<p>I have recently updated the script (28/08/2020) to include the use of Group Tags, but also to add the -Hash parameter. The hash parameter allows you to use any device has to register it with your tenant, for example if you had a folder with a set of .csv files containing the device hash&rsquo;s you could do a recursive import of all of these.</p>
+<p>If you want to export a device hash to a CSV file to test this use the following command which will create the CSV.</p>
+<p>You can either copy and paste the hash or import the CSV into PowerShell and reference it that way.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#366">Get-CimInstance</span> -Namespace root/cimv2/mdm/dmmap -Class MDM_DevDetail_Ext01 -Filter <span style="color:#c30">&#34;InstanceID=&#39;Ext&#39; AND ParentID=&#39;./DevDetail&#39;&#34;</span> | <span style="color:#366">Export-CSV</span> <span style="color:#c30">&#34;C:\</span>$(<span style="color:#033">$ENV:ComputerName</span>)<span style="color:#c30">_HardwareInformation.csv&#34;</span> -NoTypeInformation
+</code></pre></div><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-posh" data-lang="posh">  
+<span style="color:#09f;font-style:italic">&lt;#PSScriptInfo
+</span><span style="color:#09f;font-style:italic">.VERSION 2.0
+</span><span style="color:#09f;font-style:italic">.AUTHOR David Brook
+</span><span style="color:#09f;font-style:italic">.COMPANYNAME EUC365
+</span><span style="color:#09f;font-style:italic">.COPYRIGHT
+</span><span style="color:#09f;font-style:italic">.TAGS Autopilot; Intune; Mobile Device Management
+</span><span style="color:#09f;font-style:italic">.LICENSEURI
+</span><span style="color:#09f;font-style:italic">.PROJECTURI 
+</span><span style="color:#09f;font-style:italic">.ICONURI
+</span><span style="color:#09f;font-style:italic">.EXTERNALMODULEDEPENDENCIES
+</span><span style="color:#09f;font-style:italic">.REQUIREDSCRIPTS
+</span><span style="color:#09f;font-style:italic">.EXTERNALSCRIPTDEPENDENCIES
+</span><span style="color:#09f;font-style:italic">.RELEASENOTES
+</span><span style="color:#09f;font-style:italic">Version 2.0: Added the ability to make the script accept command line arguments for just the Hash and also allow Group Tags
+</span><span style="color:#09f;font-style:italic">Version 1.0: Original published version.
+</span><span style="color:#09f;font-style:italic">#&gt;</span>
+<span style="color:#09f;font-style:italic">&lt;#
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.SYNOPSIS</span><span style="color:#09f;font-style:italic">
+</span><span style="color:#09f;font-style:italic">This script will import devices to Microsoft Endpoint Manager Autopilot using the device&#39;s hardware hash.  
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.DESCRIPTION</span><span style="color:#09f;font-style:italic">
+</span><span style="color:#09f;font-style:italic">This script will import devices to Microsoft Endpoint Manager Autopilot using the device&#39;s hardware hash with the added capability of been able to add a Group Tag.
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.PARAMETER</span><span style="color:#09f;font-style:italic"> MSGraphVersion
+</span><span style="color:#09f;font-style:italic">The Version of the MS Graph API to use
+</span><span style="color:#09f;font-style:italic">Default: Beta
+</span><span style="color:#09f;font-style:italic">e.g: 1.0
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.PARAMETER</span><span style="color:#09f;font-style:italic"> MsGraphHost
+</span><span style="color:#09f;font-style:italic">The MS Graph API Host
+</span><span style="color:#09f;font-style:italic">Default: graph.microsoft.com
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.PARAMETER</span><span style="color:#09f;font-style:italic"> ClientID
+</span><span style="color:#09f;font-style:italic">This is the Azure AD App Registration Client ID
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.PARAMETER</span><span style="color:#09f;font-style:italic"> ClientSecret
+</span><span style="color:#09f;font-style:italic">This is the Azure AD App Registration Client Secret
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.PARAMETER</span><span style="color:#09f;font-style:italic"> TenantId
+</span><span style="color:#09f;font-style:italic">Your Azure Tenant ID
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.PARAMETER</span><span style="color:#09f;font-style:italic"> Hash
+</span><span style="color:#09f;font-style:italic">This parameter is to be used if you want to import a specific hash from either a file or copying and pasting from an application. 
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.PARAMETER</span><span style="color:#09f;font-style:italic"> GroupTag
+</span><span style="color:#09f;font-style:italic">This Parameter is to be used if you want to Tag your devices with a specific group tag. 
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.EXAMPLE</span><span style="color:#09f;font-style:italic">
+</span><span style="color:#09f;font-style:italic">.\Enroll_to_Autopliot_Unattended.ps1 -ClientID &#34;&lt;Your Client ID&gt;&#34; -Client Secret &#34;&lt;YourClientSecret&gt;&#34; -TenantID &#34;&lt;YourTenantID&gt;&#34;
+</span><span style="color:#09f;font-style:italic">This will enroll the device it is running on to Autopilot, Please note this will need to be done as an administrator
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.EXAMPLE</span><span style="color:#09f;font-style:italic">
+</span><span style="color:#09f;font-style:italic">.\Enroll_to_Autopliot_Unattended.ps1 -ClientID &#34;&lt;Your Client ID&gt;&#34; -Client Secret &#34;&lt;YourClientSecret&gt;&#34; -TenantID &#34;&lt;YourTenantID&gt;&#34; -GroupTag &#34;Sales Device&#34;
+</span><span style="color:#09f;font-style:italic">This will enroll the device it is running on to Autopilot with a Group Tag of Sales Device, Please note this will need to be done as an administrator
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.EXAMPLE</span><span style="color:#09f;font-style:italic">
+</span><span style="color:#09f;font-style:italic">.\Enroll_to_Autopliot_Unattended.ps1 -ClientID &#34;&lt;Your Client ID&gt;&#34; -Client Secret &#34;&lt;YourClientSecret&gt;&#34; -TenantID &#34;&lt;YourTenantID&gt;&#34; -Hash &#34;&lt;A Hash&gt;&#34;
+</span><span style="color:#09f;font-style:italic">This will enroll the inputed deivce Hash to Autopilot, this can be done against a group of CSV files etc. 
+</span><span style="color:#09f;font-style:italic">#&gt;</span>
+<span style="color:#069;font-weight:bold">param</span>(
+    [<span style="color:#069;font-weight:bold">Parameter</span>(DontShow = <span style="color:#033">$true</span>)]
+    <span style="color:#360">[string]</span>
+    <span style="color:#033">$MsGraphVersion</span> = <span style="color:#c30">&#34;beta&#34;</span>,
+    [<span style="color:#069;font-weight:bold">Parameter</span>(DontShow = <span style="color:#033">$true</span>)]
+    <span style="color:#360">[string]</span>
+    <span style="color:#033">$MsGraphHost</span> = <span style="color:#c30">&#34;graph.microsoft.com&#34;</span>,
+    <span style="color:#09f;font-style:italic">#The AzureAD ClientID (Application ID) of your registered AzureAD App</span>
+    <span style="color:#360">[string]</span>
+    <span style="color:#033">$ClientID</span> = <span style="color:#c30">&#34;&lt;YourClientID&gt;&#34;</span>,
+    <span style="color:#09f;font-style:italic">#The Client Secret for your AzureAD App</span>
+    <span style="color:#360">[string]</span>
+    <span style="color:#033">$ClientSecret</span> = <span style="color:#c30">&#34;&lt;YourSecret&gt;&#34;</span>,
+    <span style="color:#09f;font-style:italic">#Your Azure Tenent ID</span>
+    <span style="color:#360">[string]</span>
+    <span style="color:#033">$TenantId</span> = <span style="color:#c30">&#34;&lt;YourTenant&gt;&#34;</span>,
+    <span style="color:#360">[string]</span>
+    <span style="color:#033">$Hash</span>,
+    <span style="color:#360">[string]</span>
+    <span style="color:#033">$GroupTag</span>
+)
+
+<span style="color:#069;font-weight:bold">Begin</span>
+{
+    <span style="color:#09f;font-style:italic">#Create the body of the Authentication of the request for the OAuth Token</span>
+    <span style="color:#033">$Body</span> = @{client_id=<span style="color:#033">$ClientID</span>;client_secret=<span style="color:#033">$ClientSecret</span>;grant_type=<span style="color:#c30">&#34;client_credentials&#34;</span>;scope=<span style="color:#c30">&#34;https://$MSGraphHost/.default&#34;</span>;}
+    <span style="color:#09f;font-style:italic">#Get the OAuth Token </span>
+    <span style="color:#033">$OAuthReq</span> = <span style="color:#366">Invoke-RestMethod</span> -Method Post -Uri <span style="color:#c30">&#34;https://login.microsoftonline.com/$TenantId/oauth2/v2.0/token&#34;</span> -Body <span style="color:#033">$Body</span>
+    <span style="color:#09f;font-style:italic">#Set your access token as a variable</span>
+    <span style="color:#033">$global:AccessToken</span> = <span style="color:#033">$OAuthReq</span>.access_token
+}
+<span style="color:#069;font-weight:bold">Process</span>
+{
+    <span style="color:#069;font-weight:bold">if</span>(!<span style="color:#033">$Hash</span>) {
+        <span style="color:#033">$session</span> = <span style="color:#366">New-CimSession</span>
+        <span style="color:#09f;font-style:italic"># Get the common properties.</span>
+        <span style="color:#366">Write-Verbose</span> <span style="color:#c30">&#34;Checking $comp&#34;</span>
+        <span style="color:#033">$serial</span> = (<span style="color:#366">Get-CimInstance</span> -CimSession <span style="color:#033">$session</span> -Class Win32_BIOS).SerialNumber
+        <span style="color:#09f;font-style:italic"># Get the hash (if available)</span>
+        <span style="color:#033">$devDetail</span> = (<span style="color:#366">Get-CimInstance</span> -CimSession <span style="color:#033">$session</span> -Namespace root/cimv2/mdm/dmmap -Class MDM_DevDetail_Ext01 -Filter <span style="color:#c30">&#34;InstanceID=&#39;Ext&#39; AND ParentID=&#39;./DevDetail&#39;&#34;</span>)
+        <span style="color:#069;font-weight:bold">if</span> (<span style="color:#033">$devDetail</span>)
+        {
+            <span style="color:#033">$hash</span> = <span style="color:#033">$devDetail</span>.DeviceHardwareData
+        }
+        <span style="color:#069;font-weight:bold">else</span>
+        {
+            <span style="color:#033">$hash</span> = <span style="color:#c30">&#34;&#34;</span>
+        }
+        <span style="color:#366">Remove-CimSession</span> <span style="color:#033">$session</span>
+    }
+}
+<span style="color:#069;font-weight:bold">End</span>
+{
+    <span style="color:#069;font-weight:bold">if</span>(!(<span style="color:#033">$GroupTag</span>)) {
+        <span style="color:#033">$PostData</span> = @{
+            <span style="color:#c30">&#39;hardwareIdentifier&#39;</span> = <span style="color:#c30">&#34;$hash&#34;</span>
+        } | <span style="color:#366">ConvertTo-Json</span>
+    } <span style="color:#069;font-weight:bold">else</span> {
+        <span style="color:#033">$PostData</span> = @{
+            <span style="color:#c30">&#39;hardwareIdentifier&#39;</span> = <span style="color:#c30">&#34;$hash&#34;</span>
+            <span style="color:#c30">&#39;groupTag&#39;</span> = <span style="color:#c30">&#34;$GroupTag&#34;</span>
+        } | <span style="color:#366">ConvertTo-Json</span>
+    }
+
+    <span style="color:#033">$Post</span> =  <span style="color:#366">Invoke-RestMethod</span> -Method POST -Uri <span style="color:#c30">&#34;https://$MSGraphHost/$MsGraphVersion/devicemanagement/importedWindowsAutopilotDeviceIdentities&#34;</span> -Headers @{Authorization = <span style="color:#c30">&#34;Bearer $AccessToken&#34;</span>; <span style="color:#c30">&#39;Content-Type&#39;</span> = <span style="color:#c30">&#39;application/json&#39;</span>} -Body <span style="color:#033">$PostData</span>
+    <span style="color:#069;font-weight:bold">DO</span> {
+        <span style="color:#366">Write-Host</span> <span style="color:#c30">&#34;Waiting for device import&#34;</span>
+        <span style="color:#366">Start-Sleep</span> 10
+    }
+    <span style="color:#069;font-weight:bold">UNTIL</span> ((<span style="color:#366">Invoke-RestMethod</span> -Method Get -Uri <span style="color:#c30">&#34;https://$MsGraphHost/$MsGraphVersion/Devicemanagement/importedwindowsautopilotdeviceidentities/</span>$(<span style="color:#033">$Post</span>.ID)<span style="color:#c30">&#34;</span> -Headers @{Authorization = <span style="color:#c30">&#34;Bearer $AccessToken&#34;</span>} | <span style="color:#366">Select-Object</span> -ExpandProperty State) <span style="color:#555">-NOTmatch</span> <span style="color:#c30">&#34;unknown&#34;</span>)
+    <span style="color:#366">Invoke-RestMethod</span> -Method Get -Uri <span style="color:#c30">&#34;https://$MsGraphHost/$MsGraphVersion/Devicemanagement/importedwindowsautopilotdeviceidentities/</span>$(<span style="color:#033">$Post</span>.ID)<span style="color:#c30">&#34;</span> -Headers @{Authorization = <span style="color:#c30">&#34;Bearer $AccessToken&#34;</span>} | <span style="color:#366">Select-Object</span> -ExpandProperty State
+}</code></pre></div>
+<h2 id="the-pre-reqs">The Pre-Reqs</h2>
+<p>To make the script work you will need an <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app">Azure App Registration</a> with the DeviceManagementServiceConfig.ReadWrite.All permission for the Microsoft Graph API.</p>
+<p>If your not sure how to create an Azure AD App Registration head over to one of my other posts by clicking <a href="https://euc365.com/create_an_azure_app_registration">HERE</a>, Don&rsquo;t forget to store your Client ID and Secret securely and also have it to hand for the rest of the post :D.</p>
+<h2 id="executing-the-script">Executing the Script</h2>
+<p>As mentioned before there are numerous ways you can run this script, however I will demonstrate 2 different ways to do so, I will just mention though that if you do use this as an <strong>Application</strong> you will need to amend the script to add some form of check file or registry key.</p>
+<h3 id="script-in-memcm">Script in MEMCM</h3>
+<p>This is the best option if you want to do it manually on a case by case basis (i.e. Right click on the computer object and select run script).</p>
+<p>Jump into the Script section in MEMCM (Software Library &gt; Scripts) and click <strong>Create Script</strong> from the ribbon.</p>
+<p>Give the script a Name, select the language as <strong>PowerShell </strong>and then copy and paste the script above (Tip: In the top right corner of the script block you can click <strong>Copy Script Text</strong>).</p>
+<p><img class="aligncenter" src="/images/post/enroltoap/ScriptDetails.png" alt="" width="691" height="749" /></p>
+<p>Click Next, This is where you need the details we noted earlier. MEMCM is great at pulling through the Param block parameters, all we need to do is amend the ClientID, ClientSecret and TenantId arguments as below. When finished click Next review the settings and then click next and then close.</p>
+
+
+<div class="notices note" ><p>Don&rsquo;t forget to Approve your Script</p></div>
+
+<p>Now choose your victim&hellip; erm I mean client computer from <b>Assets and Compliance &gt; Devices</b>. Right click on the object and select <b>Run Script</b>, Select the script object you created and review the details and then let the script run :D. This can take about 2/5 minutes, as it keeps a loop going until the device is imported. When the script finishes if you look at the script out put you will see the following;</p>
+<p><img class="aligncenter" src="/images/post/enroltoap/ScriptOutput.png" alt="" width="689" height="742" /></p>
+<p>If you notice the last output shows the import status of the device.</p>
+<h3 id="in-a-task-sequence-in-memcm">In a Task Sequence in MEMCM</h3>
+<p>I wont go into how to create the entire Task Sequence for a device rebuild however I will explain how you can use the script to import the device into Autopilot during a Task Sequence weather it be a new one or a current one.</p>
+<p>Head over to <b>Software Library &gt; Operating System &gt; Task Sequences </b>so we can get started.</p>
+<p>I will be using a current Task Sequence for this Demo. There may be a future post on how to create a Task Sequence to re-build your device to a standard OS with Drivers and Import it to Autopilot.</p>
+<p>My existing Task Sequence looks like this;</p>
+<p><img class="aligncenter" src="/images/post/enroltoap/ExisitingTS.png" alt="" width="944" height="800" /></p>
+<p>This is a very basic TS which just boots to Win PE, Installs windows and loads driver packs for VMware Virtual Machines (Only a test TS).</p>
+<p>I no longer want to have to re-build the device and then import it to Autopilot Manually so instead we add the script to the top of the TS as follows.</p>
+<ul>
+ 	<li>Click <strong>Add</strong> <strong>&gt; General &gt; Run Powershell Script </strong></li>
+ 	<li>Enter a <b>Name </b>and <b>Description </b>for the script</li>
+ 	<li>Select <b>Enter a PowerShell Script</b></li>
+ 	<li>Click <b>Add Script</b></li>
+ 	<li>Copy the Script above and paste it into the window and click <b>OK</b></li>
+ 	<li>In the <b>Parameters</b> box enter
+<ul>
+ 	<li>-ClientID "" -ClientSecret "" -TenantId ""</li>
+</ul>
+</li>
+ 	<li>Select <b>Bypass </b>under the <b>PowerShell Execution Policy </b>drop-down</li>
+</ul>
+Your window should then look like this;
+<p>&lt;img class=&ldquo;aligncenter src=&quot;/images/post/enroltoap/AddedPStoTS.png&rdquo; alt=&quot;&quot; width=&ldquo;959&rdquo; height=&ldquo;653&rdquo; /&gt;</p>
+<p>Hit Apply and then OK and give it a whirl on your machine (well not yours&hellip; always be sure to test it first :P)</p>
+<p>When it runs you will see the following appear (depending on your Task Sequence);</p>
+<p><img class="aligncenter" src="/images/post/enroltoap/ScriptRunning.png" alt="" width="675" height="141" /></p>
+<p>The device will then be enrolled into Autopilot;</p>
+<p><img class="aligncenter" src="/images/post/enroltoap/DevInAP.png" alt="" width="299" height="814" /></p>
+<p>When the device then reboots after my task sequence I am presented with the expected Autopilot Enrolment window.</p>
+<h3 id="to-conclude">To Conclude</h3>
+<p>So I have shown two ways of using the script to enroll to Autopilot Unattended, now there is nothing preventing you running this from the command line with the same parameters however if you wanted to do it that way I would definitely look at Michael Niehaus' Get-WindowsAutopilotInfo script (See the opening few paragraphs with the links to these) as this does not require an App Registration.</p>
+<p>I did fully test these methods at the time of writing the blog but if you come across any information you think may be wrong then please leave a comment or e-mail me on <a href="mailto:David@euc365.com"><a href="mailto:David@euc365.com">David@euc365.com</a></a>.</p>
+<p>I hope this is useful for your needs.</p>
+</div>
       </div>
     </article>
     
@@ -230,7 +415,7 @@ if (!doNotTrack) {
   <div class="container">
     <div class="row justify-content-between">
       <div class="col-md-3 mb-4">
-        <a class="mb-4 d-block" href="/"><img class="img-fluid" width="150px" src="https://hugo.euc365.com/images/logo.png" alt="Homepage"></a>
+        <a class="mb-4 d-block" href="/"><img class="img-fluid" width="150px" src="https://hugo.euc365.com/images/logo.png" alt="Home"></a>
         <p>Thank you for looking at my Tech, Tips and other bits.</p>
       </div>
       <div class="col-lg-2 col-md-3 col-6 mb-4">
@@ -317,6 +502,19 @@ if (!doNotTrack) {
 
 <script src="https://cdn.snipcart.com/themes/v3.0.25/default/snipcart.js" async></script>
 
+
+
+
+<div class="hidden" id="cookie-banner">
+        <span class="cb-text">
+            This may use 3rd Party Cookies to provide a great user experience. By continuing, you accept the use of these Cookies.
+        </span>
+        <span id="consent-cookies" class="cb-background">
+            <b>Close</b>
+        </span>
+</div>
+
+<script src="https://hugo.euc365.com/js/cookiebanner.min.js"></script>
 
 
 

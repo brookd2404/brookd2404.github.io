@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Azure App Registrtions on Homepage</title>
+    <title>Azure App Registrtions on Home</title>
     <link>https://hugo.euc365.com/categories/azure-app-registrtions/</link>
-    <description>Recent content in Azure App Registrtions on Homepage</description>
+    <description>Recent content in Azure App Registrtions on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Fri, 07 Aug 2020 17:17:00 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/azure-app-registrtions/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Aug 2020 11:54:00 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/azure-app-registrtions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Add devices to an Azure AD Group using the Microsoft Graph API</title>
+      <link>https://hugo.euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</link>
+      <pubDate>Tue, 11 Aug 2020 11:54:00 +0000</pubDate>
+      
+      <guid>https://hugo.euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</guid>
+      <description>Have you ever needed to add a device to an Azure AD Group as part of your MEMCM or Autopilot deployment for specific app, profiles or scripts?
+Well it became the case that my organisation needed to do so for a couple of reason, one of those was to disable Windows Hello and the other for devices migrating from a previous Configuration Manager (Not MEMCM).</description>
+    </item>
+    
     <item>
       <title>Enrol Devices to Autopilot (Unattended)</title>
       <link>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</link>
       <pubDate>Fri, 07 Aug 2020 17:17:00 +0000</pubDate>
       
       <guid>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</guid>
-      <description></description>
+      <description>I have been working on a project at the company I work for, and up to this point we have been primarily focused on getting new devices imported and deploying via Autopilot.
+Now we have successfully leaped over that hurdle with very little issues (apart from the odd TPM attestation issue here and there and the ESP Profile page been skipped), we moved onto focusing on our current estate and how to import these into Autopilot .</description>
     </item>
     
     <item>
@@ -23,8 +34,7 @@
       <pubDate>Wed, 08 Jul 2020 10:00:00 +0000</pubDate>
       
       <guid>https://hugo.euc365.com/create-an-azure-app-registration/</guid>
-      <description>What can you use an Azure App Registration for An Azure App Registration has many uses, in my case I use it mainly for the Microsoft Graph API to perform Intune Configuration Profile backups, List devices, Update local CMDB dynamically and also enrol devices into Autopilot.
-You will see the vast amount of options you can use for the API when you start adding the API permissions below.</description>
+      <description>What can you use an Azure App Registration for An Azure App Registration has many uses, in my case I use it mainly for the Microsoft Graph API to perform Intune Configuration Profile backups, List devices, Update local CMDB dynamically and also enrol devices into Autopilot.</description>
     </item>
     
   </channel>
