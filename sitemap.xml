@@ -3,48 +3,133 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hugo.euc365.com/tags/application-deployment/</loc>
+    <lastmod>2021-01-05T20:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/post/</loc>
+    <lastmod>2021-01-05T20:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/categories/</loc>
+    <lastmod>2021-01-05T20:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/creating-intune-win32-apps/</loc>
+    <lastmod>2021-01-05T20:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/</loc>
+    <lastmod>2021-01-05T20:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/tags/intune/</loc>
+    <lastmod>2021-01-05T20:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/categories/intune/</loc>
+    <lastmod>2021-01-05T20:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/tags/powershell/</loc>
+    <lastmod>2021-01-05T20:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/categories/powershell/</loc>
+    <lastmod>2021-01-05T20:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/tags/</loc>
+    <lastmod>2021-01-05T20:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/tags/azure/</loc>
+    <lastmod>2020-10-05T16:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/categories/azure/</loc>
+    <lastmod>2020-10-05T16:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/finding-microsoft-graph-apis-from-the-web/</loc>
+    <lastmod>2020-10-05T16:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/tags/microsoft-graph-api/</loc>
+    <lastmod>2020-10-05T16:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/tags/app-protection/</loc>
+    <lastmod>2020-09-18T08:49:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/tags/azure-ad/</loc>
+    <lastmod>2020-09-18T08:49:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/tags/azure-app-registrtions/</loc>
+    <lastmod>2020-09-18T08:49:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/backup-and-import-app-protection-policies/</loc>
+    <lastmod>2020-09-18T08:49:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/backup-and-import-conditional-access-policies/</loc>
+    <lastmod>2020-09-14T13:20:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/tags/conditional-access/</loc>
+    <lastmod>2020-09-14T13:20:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/backup-and-import-intune-compliance-policies/</loc>
+    <lastmod>2020-09-09T16:09:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/tags/compliance/</loc>
+    <lastmod>2020-09-09T16:09:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/backup-and-import-intune-device-configuration-profiles/</loc>
+    <lastmod>2020-09-02T11:02:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/tags/configuration-profiles/</loc>
+    <lastmod>2020-09-02T11:02:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hugo.euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</loc>
     <lastmod>2020-08-11T11:54:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://hugo.euc365.com/categories/azure/</loc>
-    <lastmod>2020-08-11T11:54:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/categories/azure-ad/</loc>
-    <lastmod>2020-08-11T11:54:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/categories/azure-app-registrtions/</loc>
-    <lastmod>2020-08-11T11:54:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/post/</loc>
-    <lastmod>2020-08-11T11:54:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/categories/</loc>
-    <lastmod>2020-08-11T11:54:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/</loc>
-    <lastmod>2020-08-11T11:54:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/categories/intune/</loc>
-    <lastmod>2020-08-11T11:54:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/categories/powershell/</loc>
-    <lastmod>2020-08-11T11:54:00+00:00</lastmod>
+    <loc>https://hugo.euc365.com/tags/autopilot/</loc>
+    <lastmod>2020-08-07T17:17:00+00:00</lastmod>
   </url>
   
   <url>
@@ -68,12 +153,32 @@
   </url>
   
   <url>
-    <loc>https://hugo.euc365.com/categories/powershell-tools/</loc>
+    <loc>https://hugo.euc365.com/tags/configuration-profile/</loc>
+    <lastmod>2020-06-30T18:35:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/tags/group-policy/</loc>
+    <lastmod>2020-06-30T18:35:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/categories/group-policy/</loc>
+    <lastmod>2020-06-30T18:35:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/tags/powershell-tools/</loc>
     <lastmod>2020-06-30T18:35:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://hugo.euc365.com/getting-useful-device-information-troubleshooting-made-easy/</loc>
+    <lastmod>2020-05-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hugo.euc365.com/categories/powershell-tools/</loc>
     <lastmod>2020-05-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -91,10 +196,6 @@
   
   <url>
     <loc>https://hugo.euc365.com/search/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hugo.euc365.com/tags/</loc>
   </url>
   
 </urlset>

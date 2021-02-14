@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Configuration Profiles on Home</title>
+    <link>https://hugo.euc365.com/tags/configuration-profiles/</link>
+    <description>Recent content in Configuration Profiles on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
+    <lastBuildDate>Wed, 02 Sep 2020 11:02:00 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/configuration-profiles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Backup and Import Intune Device Configuration Profiles</title>
+      <link>https://hugo.euc365.com/backup-and-import-intune-device-configuration-profiles/</link>
+      <pubDate>Wed, 02 Sep 2020 11:02:00 +0000</pubDate>
+      
+      <guid>https://hugo.euc365.com/backup-and-import-intune-device-configuration-profiles/</guid>
+      <description>Why backup Device Configuration Profiles? Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.
+ If you make a change and you break something you can look back and analyse what it was You can make copies of the policy easily rather than having two windows side by side In case one is deleted.</description>
+    </item>
+    
+  </channel>
+</rss>
