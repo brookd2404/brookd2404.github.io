@@ -47,8 +47,8 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://euc365.com/deploy-windows-subsystem-for-linux/" />
 <meta property="og:image" content="https://euc365.com/images/post/deploywsl/FeaturedImage.png" />
-<meta property="article:published_time" content="2021-01-14T22:29:00+00:00" />
-<meta property="article:modified_time" content="2021-01-14T22:29:00+00:00" />
+<meta property="article:published_time" content="2021-01-15T22:29:00+00:00" />
+<meta property="article:modified_time" content="2021-01-15T22:29:00+00:00" />
 
   
 <script type="application/javascript">
@@ -165,7 +165,7 @@ if (!doNotTrack) {
         <ul class="list-inline post-meta mb-3">
           <li class="list-inline-item"><i class="ti-user mr-2"></i><a
               href="/author/david-brook/">David Brook</a></li>
-          <li class="list-inline-item">Date : 14 January, 2021</li>
+          <li class="list-inline-item">Date : 15 January, 2021</li>
           <li class="list-inline-item">Categories :
             <a
               href="/categories/powershell" class="ml-1">Powershell </a>
@@ -279,6 +279,45 @@ if (!doNotTrack) {
 </ul>
 Finish both of the off the dialog windows through the summary panes and then deploy the applications to your desired collections.
 <p>As mentioned above you will need to use a Linux distribution to use with the Windows Subsystem for Linux which are available in the Microsoft Store.</p>
+<h2 id="intune-application">Intune Application</h2>
+
+
+<div class="notices info" ><p>Please see <a href="/creating-intune-win32-apps">Creating Intune Win32 Apps</a> for creating an Intune Win32 App Package.</p></div>
+
+<ul>
+<li>Select <strong>Apps</strong> from the navigation pane</li>
+<li>Select <strong>All Apps</strong>, Click <strong>Add</strong></li>
+<li>Select App type <strong>Other&gt;Windows app (Win32)</strong>, Click <strong>Select</strong></li>
+<li>Click <strong>Select app package file</strong>, Click the <strong>Blue Folder</strong> icon to open the browse windows</li>
+<li>Select the .intunewin file you have created containing a copy of the script above, Click <strong>Open</strong> and then click <strong>OK</strong></li>
+<li>Fill out the <strong>Name</strong> and <strong>Publisher</strong> mandatory fields, and any other fields you desire</li>
+<li>Upload an icon if you desire, I would recommend doing this if you are deploying this to users via the Company Portal</li>
+<li>Click <strong>Next</strong></li>
+<li>Enter your install command <code>powershell.exe -executionpolicy bypass &quot;.\&lt;Script Name.ps1&gt;&quot; -Enable</code></li>
+<li>Enter your uninstall command <code>powershell.exe -executionpolicy bypass &quot;.\&lt;Script Name.ps1&gt;&quot; -Disable</code></li>
+<li>Select your install behavior as <strong>System</strong></li>
+<li>Select your desired restart behavior, Adding custom return codes if required
+
+
+<div class="notices note" ><p>WSL Does require a reboot to function, so please bear that in mind.</p></div>
+</li>
+<li>Click <strong>Next</strong></li>
+<li>Complete your <strong>OS Requirements</strong>, At a minimum you need to specify the <strong>Architecture</strong> (x86/x64) and the minimum <strong>OS Version</strong> (e.g. 1607/1703 etc.)</li>
+<li>Click <strong>Next</strong></li>
+<li>For Detection rules, select <strong>Use a custom detection script</strong>
+<ul>
+<li><strong>Script File</strong>: Browse to a copy of the Detection Script provided above.</li>
+</ul>
+</li>
+<li>Assign the application to your desired group</li>
+</ul>
+
+
+<div class="notices note" ><p>If you want to display the app in the company portal, it <strong>MUST</strong> be assigned to a group containing that user. <strong>Required</strong> Assignments will force the app to install, whereas <strong>Available</strong> will show this in the Company Portal. Click <strong>Next</strong></p></div>
+
+<ul>
+<li>Click <strong>Create</strong></li>
+</ul>
 <h2 id="microsoft-store-for-business">Microsoft Store For Business</h2>
 
 
