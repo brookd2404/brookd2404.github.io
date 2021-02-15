@@ -175,7 +175,7 @@ if (!doNotTrack) {
               href="/categories/intune" class="ml-1">Intune </a>
             </li>
           <li class="list-inline-item">Tags : <a
-              href="/tags/azure-app-registrtions" class="ml-1">Azure app registrtions </a> ,<a
+              href="/tags/azure-app-registrations" class="ml-1">Azure app registrations </a> ,<a
               href="/tags/powershell" class="ml-1">Powershell </a> ,<a
               href="/tags/intune" class="ml-1">Intune </a> ,<a
               href="/tags/microsoft-graph-api" class="ml-1">Microsoft graph a p i </a> ,<a
@@ -190,9 +190,9 @@ if (!doNotTrack) {
         <div class="content"><p>I have been working on a project at the company I work for, and up to this point we have been primarily focused on getting new devices imported and deploying via Autopilot.</p>
 <p>Now we have successfully leaped over that hurdle with very little issues (apart from the odd TPM attestation issue here and there and the ESP Profile page been skipped), we moved onto focusing on our current estate and how to import these into Autopilot .</p>
 <p>There is a couple of ways to do this, you could run this in a package, as an application, as a script or in a task sequence for when you decide to re-build the machines.</p>
-<p>Now the choice is yours on which method will suit your organisation the best.</p>
+<p>Now the choice is yours on which method will suit your organization the best.</p>
 <h2 id="the-script">The Script</h2>
-<p><a class="fusion-no-lightbox" href="https://github.com/brookd2404/Powershell_Scripts/blob/master/MS-Graph/Autopilot/Enroll_to_Autopliot_Unattended.ps1"><img src="/images/social-icons/github.png" alt="" width="50" height="50" /></a>Now on <a href="https://github.com/brookd2404/Powershell_Scripts/blob/master/MS-Graph/Autopilot/Enroll_to_Autopliot_Unattended.ps1">GitHub</a></p>
+<p><a  href="https://github.com/brookd2404/Powershell_Scripts/blob/master/MS-Graph/Autopilot/Enroll_to_Autopliot_Unattended.ps1"><img src="/images/social-icons/github.png" alt="" width="50" height="50" /></a>Now on <a href="https://github.com/brookd2404/Powershell_Scripts/blob/master/MS-Graph/Autopilot/Enroll_to_Autopliot_Unattended.ps1">GitHub</a></p>
 <p>Now, lets talk about the script itself. When I started out on this path I used <a href="https://oofhours.com" target="_blank" rel="noopener noreferrer">Michael </a><a href="https://oofhours.com/" target="_blank" rel="noopener noreferrer">Niehaus</a>' <a href="https://www.powershellgallery.com/packages/Get-WindowsAutoPilotInfo" target="_blank" rel="noopener noreferrer">Get-WindowsAutoPilotInfo</a> script, even before this had the -online parameter. I was also hoping to leverage the same script for importing devices into Autopilot silently.</p>
 <p>There was however a couple of stumbling blocks for me not doing so, the first been the Connect-MSGraph would not connect using the ClientID and Secret from the Azure App Registration and kept prompting for credentials. The second being it downloaded other PowerShell Modules. This was an issue for us as firstly it added a further time delay to the script and secondly one of our security product blocked it during this process.</p>
 <p>I had also recently started leveraging the Microsoft Graph API and decided to find a way to do this without additional the modules while achieving the same outcome. And the following is the outcome.</p>
