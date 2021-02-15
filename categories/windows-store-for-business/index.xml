@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows Store for Business on Home</title>
+    <link>https://euc365.com/categories/windows-store-for-business/</link>
+    <description>Recent content in Windows Store for Business on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
+    <lastBuildDate>Thu, 14 Jan 2021 22:29:00 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/windows-store-for-business/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploy Windows Subsystem for Linux</title>
+      <link>https://euc365.com/deploy-windows-subsystem-for-linux/</link>
+      <pubDate>Thu, 14 Jan 2021 22:29:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/deploy-windows-subsystem-for-linux/</guid>
+      <description>What is the Windows Susbsystem for Linux? As per the Microsoft Documentation , The Windows Subsystem for Linux (WSL) is a new Windows 10 feature that enables you to run native Linux command-line tools directly on Windows, alongside your traditional Windows desktop and modern store apps.</description>
+    </item>
+    
+  </channel>
+</rss>

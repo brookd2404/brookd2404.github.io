@@ -7,20 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Tue, 05 Jan 2021 20:17:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Jan 2021 22:29:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Application Deployment</title>
       <link>https://euc365.com/tags/application-deployment/</link>
-      <pubDate>Tue, 05 Jan 2021 20:17:00 +0000</pubDate>
+      <pubDate>Thu, 14 Jan 2021 22:29:00 +0000</pubDate>
       
       <guid>https://euc365.com/tags/application-deployment/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>ConfigMGR</title>
+      <link>https://euc365.com/tags/configmgr/</link>
+      <pubDate>Thu, 14 Jan 2021 22:29:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/configmgr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Intune</title>
       <link>https://euc365.com/tags/intune/</link>
-      <pubDate>Tue, 05 Jan 2021 20:17:00 +0000</pubDate>
+      <pubDate>Thu, 14 Jan 2021 22:29:00 +0000</pubDate>
       
       <guid>https://euc365.com/tags/intune/</guid>
       <description></description>
@@ -29,9 +38,18 @@
     <item>
       <title>Powershell</title>
       <link>https://euc365.com/tags/powershell/</link>
-      <pubDate>Tue, 05 Jan 2021 20:17:00 +0000</pubDate>
+      <pubDate>Thu, 14 Jan 2021 22:29:00 +0000</pubDate>
       
       <guid>https://euc365.com/tags/powershell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows Store for Business</title>
+      <link>https://euc365.com/tags/windows-store-for-business/</link>
+      <pubDate>Thu, 14 Jan 2021 22:29:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/windows-store-for-business/</guid>
       <description></description>
     </item>
     

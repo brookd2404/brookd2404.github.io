@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>EUC365 | Deploy Windows Subsystem for Linux</title>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="description" content="Deploy the Windows Subsystem for Linux using Intune or ConfigMGR with walk through guides">
+  <meta name="author" content="David Brook">
+  <meta name="generator" content="Hugo 0.75.1" />
+
+  
+  <link rel="preload" href="https://fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFWJ0bbck.woff2" style="font-display: optional;">
+  
+  
+  
+  <link rel="stylesheet" href="https://euc365.com/plugins/bootstrap/bootstrap.min.css" >
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:600%7cOpen&#43;Sans&amp;display=swap" >
+  
+  
+  
+  <link rel="stylesheet" href="https://euc365.com/plugins/themify-icons/themify-icons.css" >
+  
+  
+  
+  <link rel="stylesheet" href="https://euc365.com/plugins/slick/slick.css" >
+  
+  
+  
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.25/default/snipcart.css" >
+  
+  
+
+  
+  
+  <link rel="stylesheet" href="https://euc365.com/scss/style.css" media="screen">
+
+  
+  <link rel="shortcut icon" href="https://euc365.com/images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="https://euc365.com/images/favicon.png" type="image/x-icon">
+
+  <meta property="og:title" content="Deploy Windows Subsystem for Linux" />
+<meta property="og:description" content="Deploy the Windows Subsystem for Linux using Intune or ConfigMGR with walk through guides" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://euc365.com/deploy-windows-subsystem-for-linux/" />
+<meta property="og:image" content="https://euc365.com/images/post/deploywsl/FeaturedImage.png" />
+<meta property="article:published_time" content="2021-01-14T22:29:00+00:00" />
+<meta property="article:modified_time" content="2021-01-14T22:29:00+00:00" />
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-176926283-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-176926283-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</head><body><!-- navigation -->
+<header class="sticky-top bg-white border-bottom border-default">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white">
+      <a class="navbar-brand" href="/">
+        <img class="img-fluid" width="150px" src="https://euc365.com/images/logo.png" alt="Home"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://euc365.com/">Home</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Posts <i class="ti-angle-down ml-1"></i>
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="https://euc365.com/tags/autopilot">Autopilot</a>
+              
+              <a class="dropdown-item" href="https://euc365.com/tags/azure">Azure</a>
+              
+              <a class="dropdown-item" href="https://euc365.com/tags/intune">Intune</a>
+              
+              <a class="dropdown-item" href="https://euc365.com/tags/microsoft-graph-api">Microsoft Graph API</a>
+              
+              <a class="dropdown-item" href="https://euc365.com/tags/powershell">PowerShell</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://euc365.com/about">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://euc365.com/contact">Contact</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        
+
+        
+        <!-- search -->
+        <div class="search px-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="/search" class="h-100">
+              <input class="search-box pl-4" id="search-query" name="s" type="search" placeholder="Type &amp; Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+
+
+<section class="section">
+  <div class="container">
+    <article class="row mb-4">
+      <div class="col-lg-10 mx-auto mb-4">
+        <h1 class="h2 mb-3">Deploy Windows Subsystem for Linux</h1>
+        <ul class="list-inline post-meta mb-3">
+          <li class="list-inline-item"><i class="ti-user mr-2"></i><a
+              href="/author/david-brook/">David Brook</a></li>
+          <li class="list-inline-item">Date : 14 January, 2021</li>
+          <li class="list-inline-item">Categories :
+            <a
+              href="/categories/powershell" class="ml-1">Powershell </a>
+            ,<a
+              href="/categories/intune" class="ml-1">Intune </a>
+            ,<a
+              href="/categories/configmgr" class="ml-1">Config m g r </a>
+            ,<a
+              href="/categories/windows-store-for-business" class="ml-1">Windows store for business </a>
+            </li>
+          <li class="list-inline-item">Tags : <a
+              href="/tags/powershell" class="ml-1">Powershell </a> ,<a
+              href="/tags/intune" class="ml-1">Intune </a> ,<a
+              href="/tags/configmgr" class="ml-1">Config m g r </a> ,<a
+              href="/tags/application-deployment" class="ml-1">Application deployment </a> ,<a
+              href="/tags/windows-store-for-business" class="ml-1">Windows store for business </a> 
+          </li>
+        </ul>
+      </div>
+      
+      
+      
+      <div class="col-lg-10 mx-auto">
+        <div class="content"><h2 id="what-is-the-windows-susbsystem-for-linux">What is the Windows Susbsystem for Linux?</h2>
+<p>As per the <a href="https://docs.microsoft.com/en-us/windows/wsl/faq#:~:text=The%20Windows%20Subsystem%20for%20Linux,desktop%20and%20modern%20store%20apps." target="_blank">
+    Microsoft Documentation
+  </a>, <strong>The Windows Subsystem for Linux (WSL)</strong> is a new <strong>Windows 10 feature</strong> that enables you to run <strong>native Linux command-line tools directly on Windows</strong>, alongside your traditional Windows desktop and modern store apps.</p>
+<p>Now what does that mean? Can you run a full Linux setup in this way? Well the answer to that is <strong>NO</strong> unfortunately not. This tool is designed for developers and other users who use bash and other common Linux tools.</p>
+<p>I won&rsquo;t go on as all of the information about WSL is in the link on the Microsoft Documentation text above.</p>
+<p>I will however provide the two scripts I use and wrote (nothing special just a couple of lines) for deployment and detection and demonstrate how to deploy with MEMCM.</p>
+<p>Once the subsystem is installed it doesn&rsquo;t mean that a Linux distribution is automatically installed. You can access these distributions via the Public Microsoft Store, however if you use this in an Enterprise and would like them added to your Enterprise Store you will need to contact your Store Admin. I will touch on how to add these just for simple convenience.</p>
+<h3 id="uninstallation-script">(Un)Installation Script</h3>
+<p>The script below can be used to both Enable and Disable the Windows Subsystem for Linux depending on what command line switch you specify. As mentioned this is not a complex script and it is easily edited for other Windows Optional Features</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-posh" data-lang="posh"><span style="color:#09f;font-style:italic">&lt;#
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.SYNOPSIS</span><span style="color:#09f;font-style:italic">
+</span><span style="color:#09f;font-style:italic">  This script is used to Enable and Disable the Windows Subsystem for Linux Depending on the command line switch it is called with
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.DESCRIPTION</span><span style="color:#09f;font-style:italic">
+</span><span style="color:#09f;font-style:italic">  This script is used to Enable and Disable the Windows Subsystem for Linux Depending on the command line switch it is called with
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.PARAMETER</span><span style="color:#09f;font-style:italic"> Enable
+</span><span style="color:#09f;font-style:italic">    Enables the Windows Subsystem for Linux
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.PARAMETER</span><span style="color:#09f;font-style:italic"> Disable
+</span><span style="color:#09f;font-style:italic">    Disables the Windows Subsystem for Linux
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.INPUTS</span><span style="color:#09f;font-style:italic">
+</span><span style="color:#09f;font-style:italic">  None
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.OUTPUTS</span><span style="color:#09f;font-style:italic">
+</span><span style="color:#09f;font-style:italic">  None
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.NOTES</span><span style="color:#09f;font-style:italic">
+</span><span style="color:#09f;font-style:italic">  Version:        1.0
+</span><span style="color:#09f;font-style:italic">  Author:         David Brook
+</span><span style="color:#09f;font-style:italic">  Creation Date:  13/08/2020
+</span><span style="color:#09f;font-style:italic">  Purpose/Change: Initial script creation
+</span><span style="color:#09f;font-style:italic">  
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#c30;font-style:italic">.EXAMPLE</span><span style="color:#09f;font-style:italic">
+</span><span style="color:#09f;font-style:italic">  Windows_SubSystem_for_Linux.ps1 -Enable
+</span><span style="color:#09f;font-style:italic">#&gt;</span>
+
+<span style="color:#069;font-weight:bold">param</span> (
+    <span style="color:#360">[switch]</span>
+    <span style="color:#033">$Enable</span>,
+    <span style="color:#360">[switch]</span>
+    <span style="color:#033">$Disable</span>,
+    <span style="color:#360">[switch]</span>
+)
+
+<span style="color:#069;font-weight:bold">IF</span> (<span style="color:#033">$Enable</span>) {
+    <span style="color:#366">Enable-WindowsOptionalFeature</span> -Online -FeatureName <span style="color:#c30">&#34;Microsoft-Windows-Subsystem-Linux&#34;</span> -All -NoRestart
+}
+
+<span style="color:#069;font-weight:bold">IF</span> (<span style="color:#033">$Disable</span>) {
+    <span style="color:#366">Disable-WindowsOptionalFeature</span> -Online -FeatureName <span style="color:#c30">&#34;Microsoft-Windows-Subsystem-Linux&#34;</span> -NoRestart
+}
+</code></pre></div><h3 id="detection-script">Detection Script</h3>
+<p>The script below can be for detection of the Windows Subsystem for Linux. I did try to use the Get-WindowsOptionalFeature -Online however it seemed to never be detected.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-posh" data-lang="posh"><span style="color:#069;font-weight:bold">IF</span> ( <span style="color:#366">Get-WmiObject</span> -Class Win32_OptionalFeature | <span style="color:#366">Where-Object</span> {(<span style="color:#033">$_</span>.Name <span style="color:#555">-Match</span> <span style="color:#c30">&#34;Microsoft-Windows-Subsystem-Linux&#34;</span>) <span style="color:#555">-and</span> (<span style="color:#033">$_</span>.InstallState <span style="color:#555">-eq</span> 1)} ){
+  <span style="color:#033">$True</span>
+}
+</code></pre></div><h2 id="memcm-application">MEMCM Application</h2>
+<p>Head over to your Software Library and Start Creating an application in your desired folder</p>
+<ul>
+ 	<li><b>General Tab </b>- Select <b>Manually Specify the application information</b></li>
+ 	<li><b>General Information</b> - Input your desired information, I called this Windows Subsystem for Linux but this is entirely your choice</li>
+ 	<li><b>Software Center </b>- Check the information and upload an icon if you would like, I used the below feel free to save it :D</li>
+</ul>
+<p><img class="aligncenter" src="/images/post/deploywsl/FeaturedImage.png" alt="" width="432" height="512" /></h2></p>
+<ul>
+ 	<li><b>Deployment Types </b>- Click <b>Add</b></li>
+ 	<li><b>Deployment Type - General</b> - Change the <b>Type </b>to <b>Script Installer</b><b> </b></li>
+ 	<li><b>Deployment Type - General Information </b>- Provide a name and admin comments for your deployment type<b>
+</b></li>
+ 	<li><b>Deployment Type - Content </b>
+<ul>
+ 	<li><b>Content Location </b>- Select your content location (Where you saved the PowerShell Script)</li>
+ 	<li><b>Installation Program </b>- Powershell.exe -ExecutionPolicy Bypass -File "..ps1" -Enable</li>
+ 	<li><b>Uninstall Program -</b> Powershell.exe -ExecutionPolicy Bypass -File "..ps1" -Disable</li>
+</ul>
+</li>
+ 	<li><b>Deployment Type - Detection Method </b>- Select Use custom script to detect the presence of this deployment type and click <b>Edit</b>
+<ul>
+ 	<li><b>Script Type </b>- PowerShell</li>
+ 	<li><b>Script Content</b> - Use the detection method script above</li>
+</ul>
+</li>
+ 	<li><b>Deployment Type - User Experience
+</b>
+<ul>
+ 	<li><b>Installation Behavior</b> - Install for System (Leave the reset as default or change as you desire)</li>
+</ul>
+</li>
+ 	<li><b>Deployment Type - Requirements </b>- Add any requirements you want it to meet (The application does not require anything to install)</li>
+ 	<li><b>Deployment Type - Dependencies - </b>Add any dependencies you want it to meet (The application does not require any to install)</li>
+</ul>
+Finish both of the off the dialog windows through the summary panes and then deploy the applications to your desired collections.
+<p>As mentioned above you will need to use a Linux distribution to use with the Windows Subsystem for Linux which are available in the Microsoft Store.</p>
+<h2 id="microsoft-store-for-business">Microsoft Store For Business</h2>
+
+
+<div class="notices note" ><p>The assignments are only user targeted, if you use groups and only the device you are using is in that group and not the user nothing will appear in the store.</p></div>
+
+<p>The Linux Distributions are available in the Microsoft Store for Business (MSfB), you and/or your company may restrict what apps can be installed from the store.</p>
+<p>Below is a run down on how to deploy these Distros to Azure AD/Microsoft 365 Groups.</p>
+<p>We will also look at how to deploy these in <strong>Offline</strong> mode.</p>
+<p>To get started launch the <a href="https://businessstore.microsoft.com/" target="_blank">
+    Microsoft Store for Business
+  </a> page.</p>
+<ul>
+<li>Click <strong>Sign in</strong> in the top right-hand corner and complete the sign-in process</li>
+<li>Type <strong>Linux</strong> in the search bar</li>
+</ul>
+
+
+<div class="notices tip" ><p>You will receive the WSL Distros at the top if you use the <strong>Developer Tools</strong> category filter</p></div>
+
+<p><img src="/images/post/deploywsl/linuxdistros.png" alt="Image"></p>
+<ul>
+<li>Click on the Distro you would like to use/deploy</li>
+<li>Select you Licence Type, See <a href="https://docs.microsoft.com/en-us/microsoft-store/acquire-apps-microsoft-store-for-business#:~:text=The%20Microsoft%20Store%20supports%20two%20options%20to%20license,is%20a%20new%20licensing%20option%20for%20Windows%2010." target="_blank">
+    Microsoft Documentation
+  </a>, Click <strong>Get App</strong>.</li>
+<li>Select the drop down below for your method of distribution.</li>
+</ul>
+
+
+<div class="border border-default collapse-wrapper">
+  <a class="d-flex p-2 collapse-head" data-toggle="collapse" href="#online" role="button">
+    Online <i class="ti-plus ml-auto"></i>
+  </a>
+  <div class="collapse" id="online"><div class="p-2"><p>This option allows you to publish the Distro to the Microsoft Private Store.</p>
+<ul>
+<li>Click the <strong>Ellipses (&hellip;)</strong> next to the Install button, Select <strong>Manage</strong></li>
+<li>See the options in the drop downs below</li>
+</ul>
+<div class="border border-default collapse-wrapper">
+  <a class="d-flex p-2 collapse-head" data-toggle="collapse" href="#users" role="button">
+    Users <i class="ti-plus ml-auto"></i>
+  </a>
+  <div class="collapse" id="users"><div class="p-2"><div class="notices tip" ><p>I would suggest using groups instead of assigning this to individual users. Please see the <strong>Private store availability</strong> section below</p></div>
+<p>If you want to deploy the application to just a specific user(s), you can just add them individually.</p>
+<ul>
+<li>Click <strong>Assign to Users</strong></li>
+<li>Enter their <strong>Name</strong> or <strong>Email Address</strong></li>
+<li>Select the User</li>
+<li>Click <strong>Assign</strong></li>
+<li>Wait for the process to complete, click <strong>Close</strong></li>
+</ul>
+</div></div>
+</div>
+<div class="border border-default collapse-wrapper">
+  <a class="d-flex p-2 collapse-head" data-toggle="collapse" href="#private-store-availability" role="button">
+    Private store availability <i class="ti-plus ml-auto"></i>
+  </a>
+  <div class="collapse" id="private-store-availability"><div class="p-2"><div class="notices tip" ><p>I would suggest using <strong>Specific Groups</strong> for the distros, As this have a requirement of WSL been enabled, unless you deploy this as a required deployment.</p></div>
+<div class="border border-default collapse-wrapper">
+  <a class="d-flex p-2 collapse-head" data-toggle="collapse" href="#no-one" role="button">
+    No one <i class="ti-plus ml-auto"></i>
+  </a>
+  <div class="collapse" id="no-one"><div class="p-2"><div class="notices tip" ><p>Make sure you remove it from any Users in the users tab if you want to ensure <strong>No One</strong> has access to it.</p></div>
+<p>If you want to stop deploying the application, you simply have to select <strong>No one</strong>. No options for confirmation, it just removes ot from the Microsoft Store.</p>
+</div></div>
+</div>
+<div class="border border-default collapse-wrapper">
+  <a class="d-flex p-2 collapse-head" data-toggle="collapse" href="#everyone" role="button">
+    Everyone <i class="ti-plus ml-auto"></i>
+  </a>
+  <div class="collapse" id="everyone"><div class="p-2">If you want to deploy the application to your whole organisation, you simply have to select <strong>Everyone</strong>. No options for confirmation, it just makes this available in the Microsoft Store.</div></div>
+</div>
+<div class="border border-default collapse-wrapper">
+  <a class="d-flex p-2 collapse-head" data-toggle="collapse" href="#specific-groups" role="button">
+    Specific Groups <i class="ti-plus ml-auto"></i>
+  </a>
+  <div class="collapse" id="specific-groups"><div class="p-2"><p>If you want to deploy the application to a group of <strong>Users</strong> select <strong>Specific Groups</strong>.</p>
+<ul>
+<li>Click <strong>Assign Groups</strong></li>
+<li>Enter the <strong>Name</strong> of the group</li>
+<li>Select the Group</li>
+<li>Click <strong>Add Groups</strong></li>
+</ul>
+</div></div>
+</div>
+</div></div>
+</div>
+</div></div>
+</div>
+<p>
+
+<div class="border border-default collapse-wrapper">
+  <a class="d-flex p-2 collapse-head" data-toggle="collapse" href="#offline" role="button">
+    Offline <i class="ti-plus ml-auto"></i>
+  </a>
+  <div class="collapse" id="offline"><div class="p-2"><p>This option allows you to download the AppX Package for installation with DISM, PowerShell CmdLets or your MDM Provider.</p>
+<ul>
+<li>Click <strong>Manage</strong></li>
+<li>Select your <strong>Platform</strong>, <strong>Minimum Version</strong>, <strong>Architecture</strong>, <strong>App Metadata</strong></li>
+<li>You will then see something like the image below, this contains the <strong>Package Identity Name</strong>, <strong>Package family name</strong>, <strong>Package full name</strong>, <strong>Package format</strong> and the <strong>Supported architectures</strong>.
+<img src="/images/post/deploywsl/offlineoptions.png" alt="Image"></li>
+<li>Click <strong>Download</strong></li>
+</ul>
+<div class="notices tip" ><p>I will demonstrate how to install this using PowerShell, however, please see the <a href="https://docs.microsoft.com/en-us/microsoft-store/distribute-offline-apps">Distribute Offline Apps</a> Microsoft Documentation for alternative methods.</p></div>
+<ul>
+<li>Launch a <strong>Admin</strong> PowerShell console</li>
+<li>Browse to the directory the AppXBundle is stored</li>
+<li>Type <code>Add-AppxPackage -Path .\&lt;PackageName&gt;.AppxBundle</code>, Hit <strong>Enter</strong></li>
+<li>The distro is now installed</li>
+</ul>
+<div class="notices tip" ><p>You can check that the distro is installed by using the <strong>Package Identity Name</strong>.<br>
+<code>Get-AppxPackage -Name &lt;Package Identity Name</code></p></div>
+</div></div>
+</div>
+<br></p>
+<ul>
+<li>Distribute the content using your preferred method</li>
+<li>The Distro will now appear in your Start Menu</li>
+</ul>
+
+
+<div class="notices info" ><p>To Enable WSL for use the device must be restarted, If you see the below message, WSL is either not installed or your device is pending a reboot.<br>
+<img src="/images/post/deploywsl/wslnotenabled.png" alt="Image"></p></div>
+
+<h2 id="summary">Summary</h2>
+<p>I hope that you find this useful if you ever need to deploy WSL. If you have any questions please do not hesitate to reach out using the <a href="/contact">
+    Contact
+  </a> page or in the comment section below.</p>
+
+
+<div class="notices note" ><p>I had to use WSL the other day when deploying Docker Desktop as a dependency, the script came in handy for sure.</p></div>
+
+</div>
+      </div>
+    </article>
+    
+    
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <div class="mt-5">
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "euc365-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+
+
+
+<footer class="section-sm pb-0 border-top border-default">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-md-3 mb-4">
+        <a class="mb-4 d-block" href="/"><img class="img-fluid" width="150px" src="https://euc365.com/images/logo.png" alt="Home"></a>
+        <p>Thank you for looking at my Tech, Tips and other bits.</p>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6 mb-4">
+        <h6 class="mb-4">Quick Links</h6>
+        <ul class="list-unstyled footer-list">
+          
+          
+          <li><a href="https://euc365.com/about">About</a></li>
+          
+          
+          <li><a href="https://euc365.com/contact">Contact</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6 mb-4">
+        <h6 class="mb-4">Social Links</h6>
+        <ul class="list-unstyled footer-list">
+          
+          <li><a href="https://www.twitter.com/dbbrook24">Twitter</a></li>
+          
+          <li><a href="https://www.linkedin.com/in/david-brook-81796145/">linkedin</a></li>
+          
+          <li><a href="https://github.com/brookd2404">github</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="col-md-3 mb-4">
+        <h6 class="mb-4">Subscribe Newsletter</h6>
+        
+        <form class="subscription" action="https://euc365.us1.list-manage.com/subscribe/post?u=5be29b0e8342fd1942dd179e6&amp;amp;id=4afea5f508" method="post" name="mc-embedded-subscribe-form"
+          target="_blank">
+          <div class="position-relative">
+            <i class="ti-email email-icon"></i>
+            <input type="email" class="form-control" placeholder="Your Email Address">
+          </div>
+          <button class="btn btn-primary btn-block rounded" type="submit"
+            name="subscribe">Subscribe now</button>
+          <div style="position: absolute; left: -5000px;" aria-hidden="true">
+            <input type="text" name="b_5be29b0e8342fd1942dd179e6_4afea5f508" tabindex="-1">
+          </div>
+        </form>
+        
+      </div>
+      
+    </div>
+    <div class="scroll-top">
+      <a href="javascript:void(0);" id="scrollTop"><i class="ti-angle-up"></i></a>
+    </div>
+    <div class="text-center">
+      <p class="content">Design By <a href="https://euc365.com/">EUC365</a> Hosted By <a href="https://github.com/">GitHub</a></p>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+<script src="https://euc365.com/plugins/jQuery/jquery.min.js" ></script>
+
+
+
+<script src="https://euc365.com/plugins/bootstrap/bootstrap.min.js" async></script>
+
+
+
+<script src="https://euc365.com/plugins/slick/slick.min.js" ></script>
+
+
+
+
+
+
+
+
+
+<script src="https://euc365.com/plugins/turbolinks/turbolinks.js" ></script>
+
+
+
+<script src="https://cdn.snipcart.com/themes/v3.0.25/default/snipcart.js" async></script>
+
+
+
+
+<div class="hidden" id="cookie-banner">
+        <span class="cb-text">
+            This may use 3rd Party Cookies to provide a great user experience. By continuing, you accept the use of these Cookies.
+        </span>
+        <span id="consent-cookies" class="cb-background">
+            <b>Close</b>
+        </span>
+</div>
+
+<script src="https://euc365.com/js/cookiebanner.min.js"></script>
+
+
+
+
+<script src="https://euc365.com/js/script.min.js"></script></body>
+
+</html>
