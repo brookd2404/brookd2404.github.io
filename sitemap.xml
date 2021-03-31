@@ -4,61 +4,76 @@
   
   <url>
     <loc>https://euc365.com/tags/application-deployment/</loc>
-    <lastmod>2021-02-15T22:29:00+00:00</lastmod>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://euc365.com/post/</loc>
-    <lastmod>2021-02-15T22:29:00+00:00</lastmod>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://euc365.com/categories/</loc>
-    <lastmod>2021-02-15T22:29:00+00:00</lastmod>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://euc365.com/tags/configmgr/</loc>
-    <lastmod>2021-02-15T22:29:00+00:00</lastmod>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://euc365.com/categories/configmgr/</loc>
-    <lastmod>2021-02-15T22:29:00+00:00</lastmod>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://euc365.com/deploy-windows-subsystem-for-linux/</loc>
-    <lastmod>2021-02-15T22:29:00+00:00</lastmod>
+    <loc>https://euc365.com/create-dynamic-application-packages-with-powershell/</loc>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/tags/github-api/</loc>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://euc365.com/</loc>
-    <lastmod>2021-02-15T22:29:00+00:00</lastmod>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/tags/html-web-scraping/</loc>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://euc365.com/tags/intune/</loc>
-    <lastmod>2021-02-15T22:29:00+00:00</lastmod>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://euc365.com/categories/intune/</loc>
-    <lastmod>2021-02-15T22:29:00+00:00</lastmod>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://euc365.com/tags/powershell/</loc>
-    <lastmod>2021-02-15T22:29:00+00:00</lastmod>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://euc365.com/categories/powershell/</loc>
-    <lastmod>2021-02-15T22:29:00+00:00</lastmod>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://euc365.com/tags/</loc>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/deploy-windows-subsystem-for-linux/</loc>
     <lastmod>2021-02-15T22:29:00+00:00</lastmod>
   </url>
   
@@ -108,7 +123,7 @@
   </url>
   
   <url>
-    <loc>https://euc365.com/tags/azure-app-registrtions/</loc>
+    <loc>https://euc365.com/tags/azure-app-registrations/</loc>
     <lastmod>2020-09-18T08:49:00+00:00</lastmod>
   </url>
   
@@ -159,11 +174,6 @@
   
   <url>
     <loc>https://euc365.com/categories/autopilot/</loc>
-    <lastmod>2020-08-07T17:17:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/tags/azure-app-registrations/</loc>
     <lastmod>2020-08-07T17:17:00+00:00</lastmod>
   </url>
   

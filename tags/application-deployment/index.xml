@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Mon, 15 Feb 2021 22:29:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/application-deployment/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Mar 2021 03:08:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/application-deployment/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create Dynamic Application Packages with PowerShell</title>
+      <link>https://euc365.com/create-dynamic-application-packages-with-powershell/</link>
+      <pubDate>Wed, 31 Mar 2021 03:08:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/create-dynamic-application-packages-with-powershell/</guid>
+      <description>Dynamic? In what way? When I say the packages are dynamic, I mean that you don&amp;rsquo;t have to update the application package when a new version is released by the vendor.
+There are caveats to both methods that we walk through below, there are also other community and paid for tools to do similar things.</description>
+    </item>
+    
     <item>
       <title>Deploy Windows Subsystem for Linux</title>
       <link>https://euc365.com/deploy-windows-subsystem-for-linux/</link>
