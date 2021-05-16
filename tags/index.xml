@@ -7,61 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Sun, 16 May 2021 08:06:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Autopilot</title>
-      <link>https://euc365.com/tags/autopilot/</link>
-      <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/autopilot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Azure</title>
-      <link>https://euc365.com/tags/azure/</link>
-      <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/azure/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Azure AD</title>
-      <link>https://euc365.com/tags/azure-ad/</link>
-      <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/azure-ad/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Conditional Access</title>
-      <link>https://euc365.com/tags/conditional-access/</link>
-      <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/conditional-access/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Intune</title>
-      <link>https://euc365.com/tags/intune/</link>
-      <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/intune/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Terms of Use</title>
-      <link>https://euc365.com/tags/terms-of-use/</link>
-      <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/terms-of-use/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Wed, 31 Mar 2021 03:08:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Application Deployment</title>
       <link>https://euc365.com/tags/application-deployment/</link>
@@ -99,6 +45,15 @@
     </item>
     
     <item>
+      <title>Intune</title>
+      <link>https://euc365.com/tags/intune/</link>
+      <pubDate>Wed, 31 Mar 2021 03:08:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/intune/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Powershell</title>
       <link>https://euc365.com/tags/powershell/</link>
       <pubDate>Wed, 31 Mar 2021 03:08:00 +0000</pubDate>
@@ -113,6 +68,15 @@
       <pubDate>Mon, 15 Feb 2021 22:29:00 +0000</pubDate>
       
       <guid>https://euc365.com/tags/windows-store-for-business/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Azure</title>
+      <link>https://euc365.com/tags/azure/</link>
+      <pubDate>Mon, 05 Oct 2020 16:18:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/azure/</guid>
       <description></description>
     </item>
     
@@ -135,11 +99,29 @@
     </item>
     
     <item>
+      <title>Azure AD</title>
+      <link>https://euc365.com/tags/azure-ad/</link>
+      <pubDate>Fri, 18 Sep 2020 08:49:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/azure-ad/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Azure App Registrations</title>
       <link>https://euc365.com/tags/azure-app-registrations/</link>
       <pubDate>Fri, 18 Sep 2020 08:49:00 +0000</pubDate>
       
       <guid>https://euc365.com/tags/azure-app-registrations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Conditional Access</title>
+      <link>https://euc365.com/tags/conditional-access/</link>
+      <pubDate>Mon, 14 Sep 2020 13:20:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/conditional-access/</guid>
       <description></description>
     </item>
     
@@ -158,6 +140,15 @@
       <pubDate>Wed, 02 Sep 2020 11:02:00 +0000</pubDate>
       
       <guid>https://euc365.com/tags/configuration-profiles/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Autopilot</title>
+      <link>https://euc365.com/tags/autopilot/</link>
+      <pubDate>Fri, 07 Aug 2020 17:17:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/autopilot/</guid>
       <description></description>
     </item>
     

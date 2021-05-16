@@ -3,87 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://euc365.com/tags/autopilot/</loc>
-    <lastmod>2021-05-16T08:06:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/categories/autopilot/</loc>
-    <lastmod>2021-05-16T08:06:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/autopilot-enrolment-terms-of-use/</loc>
-    <lastmod>2021-05-16T08:06:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/tags/azure/</loc>
-    <lastmod>2021-05-16T08:06:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/categories/azure/</loc>
-    <lastmod>2021-05-16T08:06:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/tags/azure-ad/</loc>
-    <lastmod>2021-05-16T08:06:00+00:00</lastmod>
+    <loc>https://euc365.com/tags/application-deployment/</loc>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://euc365.com/post/</loc>
-    <lastmod>2021-05-16T08:06:00+00:00</lastmod>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://euc365.com/categories/</loc>
-    <lastmod>2021-05-16T08:06:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/tags/conditional-access/</loc>
-    <lastmod>2021-05-16T08:06:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/categories/conditional-access/</loc>
-    <lastmod>2021-05-16T08:06:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/</loc>
-    <lastmod>2021-05-16T08:06:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/tags/intune/</loc>
-    <lastmod>2021-05-16T08:06:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/categories/intune/</loc>
-    <lastmod>2021-05-16T08:06:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/tags/</loc>
-    <lastmod>2021-05-16T08:06:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/tags/terms-of-use/</loc>
-    <lastmod>2021-05-16T08:06:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/categories/terms-of-use/</loc>
-    <lastmod>2021-05-16T08:06:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/tags/application-deployment/</loc>
     <lastmod>2021-03-31T03:08:00+00:00</lastmod>
   </url>
   
@@ -108,7 +38,22 @@
   </url>
   
   <url>
+    <loc>https://euc365.com/</loc>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://euc365.com/tags/html-web-scraping/</loc>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/tags/intune/</loc>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/categories/intune/</loc>
     <lastmod>2021-03-31T03:08:00+00:00</lastmod>
   </url>
   
@@ -119,6 +64,11 @@
   
   <url>
     <loc>https://euc365.com/categories/powershell/</loc>
+    <lastmod>2021-03-31T03:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/tags/</loc>
     <lastmod>2021-03-31T03:08:00+00:00</lastmod>
   </url>
   
@@ -143,6 +93,16 @@
   </url>
   
   <url>
+    <loc>https://euc365.com/tags/azure/</loc>
+    <lastmod>2020-10-05T16:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/categories/azure/</loc>
+    <lastmod>2020-10-05T16:18:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://euc365.com/finding-microsoft-graph-apis-from-the-web/</loc>
     <lastmod>2020-10-05T16:18:00+00:00</lastmod>
   </url>
@@ -158,6 +118,11 @@
   </url>
   
   <url>
+    <loc>https://euc365.com/tags/azure-ad/</loc>
+    <lastmod>2020-09-18T08:49:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://euc365.com/tags/azure-app-registrations/</loc>
     <lastmod>2020-09-18T08:49:00+00:00</lastmod>
   </url>
@@ -169,6 +134,11 @@
   
   <url>
     <loc>https://euc365.com/backup-and-import-conditional-access-policies/</loc>
+    <lastmod>2020-09-14T13:20:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/tags/conditional-access/</loc>
     <lastmod>2020-09-14T13:20:00+00:00</lastmod>
   </url>
   
@@ -195,6 +165,16 @@
   <url>
     <loc>https://euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</loc>
     <lastmod>2020-08-11T11:54:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/tags/autopilot/</loc>
+    <lastmod>2020-08-07T17:17:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/categories/autopilot/</loc>
+    <lastmod>2020-08-07T17:17:00+00:00</lastmod>
   </url>
   
   <url>

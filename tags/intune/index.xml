@@ -7,16 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Sun, 16 May 2021 08:06:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/intune/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Autopilot Enrolment Terms of Use</title>
-      <link>https://euc365.com/autopilot-enrolment-terms-of-use/</link>
-      <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/autopilot-enrolment-terms-of-use/</guid>
-      <description>Why would I want to do this? Whats the Purpose? You maybe asking yourself why should I be adding Terms of use to Autopilot Enrolment? Well there are a few use cases that spring to mind.</description>
-    </item>
-    
+    <lastBuildDate>Wed, 31 Mar 2021 03:08:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/intune/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Create Dynamic Application Packages with PowerShell</title>
       <link>https://euc365.com/create-dynamic-application-packages-with-powershell/</link>
