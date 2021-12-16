@@ -325,7 +325,7 @@ if (!doNotTrack) {
     <span style="color:#366">Invoke-RestMethod</span> -Method Get -Uri <span style="color:#c30">&#34;https://$MsGraphHost/$MsGraphVersion/Devicemanagement/importedwindowsautopilotdeviceidentities/</span>$(<span style="color:#033">$Post</span>.ID)<span style="color:#c30">&#34;</span> -Headers @{Authorization = <span style="color:#c30">&#34;Bearer $AccessToken&#34;</span>} | <span style="color:#366">Select-Object</span> -ExpandProperty State
 }</code></pre></div>
 <h2 id="the-pre-reqs">The Pre-Reqs</h2>
-<p>To make the script work you will need an <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app">Azure App Registration</a> with the DeviceManagementServiceConfig.ReadWrite.All permission for the Microsoft Graph API.</p>
+<p>To make the script work you will need an <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app">Azure App Registration</a> with the <strong>DeviceManagementServiceConfig.ReadWrite.All</strong> Application permission for the Microsoft Graph API.</p>
 <p>If your not sure how to create an Azure AD App Registration head over to one of my other posts by clicking <a href="https://euc365.com/create_an_azure_app_registration">HERE</a>, Don&rsquo;t forget to store your Client ID and Secret securely and also have it to hand for the rest of the post :D.</p>
 <h2 id="executing-the-script">Executing the Script</h2>
 <p>As mentioned before there are numerous ways you can run this script, however I will demonstrate 2 different ways to do so, I will just mention though that if you do use this as an <strong>Application</strong> you will need to amend the script to add some form of check file or registry key.</p>
