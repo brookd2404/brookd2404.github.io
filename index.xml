@@ -161,11 +161,11 @@ Now we have successfully leaped over that hurdle with very little issues (apart 
     </item>
     
     <item>
-      <title>Cookie List</title>
-      <link>https://euc365.com/cookielist/</link>
+      <title>Cookies</title>
+      <link>https://euc365.com/cookies/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://euc365.com/cookielist/</guid>
+      <guid>https://euc365.com/cookies/</guid>
       <description></description>
     </item>
     
@@ -177,6 +177,15 @@ Now we have successfully leaped over that hurdle with very little issues (apart 
       <guid>https://euc365.com/about/</guid>
       <description>I am an experienced End User Computing Engineer who works on delivering Modern Desktop concepts using Microsoft Intune and Configuration Manager.
 I’ve worked in IT for the past 8+ years with over 6 of those been a 3rd Line/Senior Engineer delivering solution to Medium/Large enterprise environments.</description>
+    </item>
+    
+    <item>
+      <title>Privacy Policy</title>
+      <link>https://euc365.com/privacy-policy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/privacy-policy/</guid>
+      <description></description>
     </item>
     
     <item>
