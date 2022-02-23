@@ -852,38 +852,3 @@ a:hover {
 
 .price s {
   opacity: .8; }
-
-.hidden {
-  display: none; }
-
-#cookie-banner {
-  padding: 1rem;
-  width: 100%;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  background-color: #3398db; }
-
-#cookie-banner div {
-  color: #ebf8ff;
-  border-radius: 9999px;
-  padding: 0.5rem 0.75rem;
-  line-height: 1;
-  align-items: center;
-  display: inline-flex; }
-
-#cookie-banner .cb-text {
-  color: #ebf8ff;
-  font-weight: bold; }
-
-#cookie-banner .cb-background {
-  background-color: #2c5282;
-  border-radius: 9999px;
-  padding: 5px;
-  cursor: pointer;
-  color: #ebf8ff;
-  font-weight: bolder; }
-
-#cookie-banner .cb-background:hover {
-  background-color: #000; }
