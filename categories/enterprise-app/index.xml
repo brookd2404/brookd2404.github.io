@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Enterprise App on Home</title>
+    <link>https://euc365.com/categories/enterprise-app/</link>
+    <description>Recent content in Enterprise App on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
+    <lastBuildDate>Sun, 08 May 2022 15:23:00 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/enterprise-app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Update Apple SCIM Token</title>
+      <link>https://euc365.com/update-apple-scim-token/</link>
+      <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/update-apple-scim-token/</guid>
+      <description>What is SCIM? Meaning: SCIM (System for Cross-domain Identity Management)
+Purpose: SCIM allows organisations to provision Managed Apple IDs immediately and to combine Apple School Manager or Apple Business Manager properties (such as SIS username and grade levels for Apple School Manager and roles) over account data imported from Azure AD.</description>
+    </item>
+    
+  </channel>
+</rss>

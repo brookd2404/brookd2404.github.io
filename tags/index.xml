@@ -7,20 +7,47 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Sun, 16 May 2021 08:06:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 May 2022 15:23:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Autopilot</title>
-      <link>https://euc365.com/tags/autopilot/</link>
-      <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
+      <title>ABM</title>
+      <link>https://euc365.com/tags/abm/</link>
+      <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/autopilot/</guid>
+      <guid>https://euc365.com/tags/abm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Apple Business Manager</title>
+      <link>https://euc365.com/tags/apple-business-manager/</link>
+      <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/apple-business-manager/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Apple School Manager</title>
+      <link>https://euc365.com/tags/apple-school-manager/</link>
+      <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/apple-school-manager/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ASM</title>
+      <link>https://euc365.com/tags/asm/</link>
+      <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/asm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Azure</title>
       <link>https://euc365.com/tags/azure/</link>
-      <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
+      <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
       
       <guid>https://euc365.com/tags/azure/</guid>
       <description></description>
@@ -29,9 +56,36 @@
     <item>
       <title>Azure AD</title>
       <link>https://euc365.com/tags/azure-ad/</link>
-      <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
+      <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
       
       <guid>https://euc365.com/tags/azure-ad/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Azure Enterprise App</title>
+      <link>https://euc365.com/tags/azure-enterprise-app/</link>
+      <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/azure-enterprise-app/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SCIM</title>
+      <link>https://euc365.com/tags/scim/</link>
+      <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/scim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Autopilot</title>
+      <link>https://euc365.com/tags/autopilot/</link>
+      <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/autopilot/</guid>
       <description></description>
     </item>
     
