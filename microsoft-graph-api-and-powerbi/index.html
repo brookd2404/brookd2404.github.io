@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="e7d8426b-68f5-43ed-8007-318355ad5ade-test" ></script>
+<script type="text/javascript">
+function OptanonWrapper() { }
+</script>
+
+  <meta charset="utf-8">
+  <title>EUC365 | Microsoft Graph API and PowerBI</title>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="description" content="Microsoft Graph and PowerBI | EUC365, A post that offers a solution to paginating data from the GraphAPI into PowerBI.">
+  <meta name="author" content="David Brook">
+  <meta name="generator" content="Hugo 0.75.1" />
+
+  
+  <link rel="preload" href="https://fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFWJ0bbck.woff2" style="font-display: optional;">
+  
+  
+  
+  <link rel="stylesheet" href="https://euc365.com/plugins/bootstrap/bootstrap.min.css" >
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:600%7cOpen&#43;Sans&amp;display=swap" >
+  
+  
+  
+  <link rel="stylesheet" href="https://euc365.com/plugins/themify-icons/themify-icons.css" >
+  
+  
+  
+  <link rel="stylesheet" href="https://euc365.com/plugins/slick/slick.css" >
+  
+  
+  
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.25/default/snipcart.css" >
+  
+  
+
+  <script data-ad-client="ca-pub-6095977771709914" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  
+  
+  <link rel="stylesheet" href="https://euc365.com/scss/style.css" media="screen">
+
+  
+  <link rel="shortcut icon" href="https://euc365.com/images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="https://euc365.com/images/favicon.png" type="image/x-icon">
+
+  <meta property="og:title" content="Microsoft Graph API and PowerBI" />
+<meta property="og:description" content="Microsoft Graph and PowerBI | EUC365, A post that offers a solution to paginating data from the GraphAPI into PowerBI." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://euc365.com/microsoft-graph-api-and-powerbi/" />
+<meta property="og:image" content="https://euc365.com/images/post/graphbi/logo.png" />
+<meta property="article:published_time" content="2022-05-25T10:05:00+00:00" />
+<meta property="article:modified_time" content="2022-05-25T10:05:00+00:00" />
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-176926283-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-176926283-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head><body><!-- navigation -->
+<header class="sticky-top bg-white border-bottom border-default">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white">
+      <a class="navbar-brand" href="/">
+        <img class="img-fluid" width="150px" src="https://euc365.com/images/logo.png" alt="Home"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://euc365.com/">Home</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Posts <i class="ti-angle-down ml-1"></i>
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="https://euc365.com/tags/autopilot">Autopilot</a>
+              
+              <a class="dropdown-item" href="https://euc365.com/tags/azure">Azure</a>
+              
+              <a class="dropdown-item" href="https://euc365.com/tags/intune">Intune</a>
+              
+              <a class="dropdown-item" href="https://euc365.com/tags/microsoft-graph-api">Microsoft Graph API</a>
+              
+              <a class="dropdown-item" href="https://euc365.com/tags/powershell">PowerShell</a>
+              
+            </div>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://euc365.com/about">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://euc365.com/contact">Contact</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        
+
+        
+        <!-- search -->
+        <div class="search px-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="/search" class="h-100">
+              <input class="search-box pl-4" id="search-query" name="s" type="search" placeholder="Type &amp; Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+
+
+<section class="section">
+  <div class="container">
+    <article class="row mb-4">
+      <div class="col-lg-10 mx-auto mb-4">
+        <h1 class="h2 mb-3">Microsoft Graph API and PowerBI</h1>
+        <ul class="list-inline post-meta mb-3">
+          <li class="list-inline-item"><i class="ti-user mr-2"></i><a
+              href="/author/david-brook/">David Brook</a></li>
+          <li class="list-inline-item">Date : 25 May, 2022</li>
+          <li class="list-inline-item">Categories :
+            <a
+              href="/categories/azure" class="ml-1">Azure </a>
+            ,<a
+              href="/categories/powershell" class="ml-1">Powershell </a>
+            ,<a
+              href="/categories/intune" class="ml-1">Intune </a>
+            ,<a
+              href="/categories/graph-api" class="ml-1">Graph a p i </a>
+            ,<a
+              href="/categories/powerbi" class="ml-1">Power b i </a>
+            ,<a
+              href="/categories/logic-apps" class="ml-1">Logic apps </a>
+            </li>
+          <li class="list-inline-item">Tags : <a
+              href="/tags/azure" class="ml-1">Azure </a> ,<a
+              href="/tags/azure-ad" class="ml-1">Azure a d </a> ,<a
+              href="/tags/azure-app-registrations" class="ml-1">Azure app registrations </a> ,<a
+              href="/tags/powershell" class="ml-1">Powershell </a> ,<a
+              href="/tags/intune" class="ml-1">Intune </a> ,<a
+              href="/tags/microsoft-graph-api" class="ml-1">Microsoft graph a p i </a> ,<a
+              href="/tags/powerbi" class="ml-1">Power b i </a> ,<a
+              href="/tags/logic-apps" class="ml-1">Logic apps </a> 
+          </li>
+        </ul>
+      </div>
+      
+      
+
+    
+      <div class="col-lg-10 mx-auto">
+        <div class="content"><h1 id="a-little-bit-about-this-post">A little bit about this post</h1>
+<p>At <a href="http://mmsmoa.com" target="_blank">
+    MMS 2022
+  </a> I took a huge leap and briefly presented this in the <strong>Tips &amp; Tricks</strong> Session. This was the first time I had ever presented in front of an audience.</p>
+<p>I thought it would be good to give a bit of context on how this was conceptualised and why certain aspects are the way they are (some of them still make me shudder).</p>
+<p>On a day to day basis, I work for a company that provides both Professional and Managed Services. As part of our service offering, we provide reporting for technical and C-Suite stakeholders. While functional, our original report ran from the Intune Data Warehouse, and it wasn&rsquo;t extensible and didn&rsquo;t offer much room for adding in additional metrics and visuals.</p>
+<p>As a man who likes working with the Graph API, I thought, why can we not use the data directly from there??? Here began many hours of visiting dead ends and rabbit holes. Before we get going, lets talk about some of the challenges faced.</p>
+<p>The first challenge was authentication. We wanted to make this work without the need for Service Accounts and Passwords etc., so we decided to use App Registrations. Unfortunately, OData feeds in PowerBI did not like using dynamically generated content within the headers for authentication when creating our dashboards. This may have changed now, but if it ain&rsquo;t broke don&rsquo;t fix it right?</p>
+<p>The next challenge after overcoming authentication was pagination. Now, it&rsquo;s tough to do without some very complex PowerBI wizardry with loops etc. So this led me to look at using Logic Apps to <strong>paginate</strong> the data for me and send it back in a response JSON.</p>
+<p>One of the final challenges was publishing the report to the PowerBI service. When published, the data refresh schedule was not available. The first issue I faced was PowerBI telling me that I had an issue with Query1&hellip; This query didn&rsquo;t even exist. After hours of stripping the report right back, we found it to be the way we were passing in the authentication bearer token. We resolved this by nesting (Yes!!! Nesting, I told you things made me shudder.) the Authentication function within each query. After we fixed this and re-published the report, we were hopeful, but that hope lasted no more than a minute. PowerBI then suggested the data was not directly, again back into the Transform Data screen to see what we could do&hellip; The final solution to this??? (Shudders at the ready!!) Nest our other two functions into the queries too.</p>
+<p>Moving swiftly on, let&rsquo;s look at some of this in action. During this post, we will create a basic report with PowerBI. We will pull in two tables, Devices and Device Hardware information.</p>
+<h2 id="we-do-we-need-for-the-basics">We do we need for the basics?</h2>
+<p>If you would like to follow along with the post you will need the following;</p>
+<ol>
+<li>The ability to create an Azure AD App Registration and Grant Admin Consent</li>
+<li>The ability to create an Azure Logic App</li>
+<li><a href="https://www.microsoft.com/en-gb/download/details.aspx?id=58494" target="_blank">
+    PowerBI Desktop
+  </a></li>
+</ol>
+<h1 id="lets-get-started">Let&rsquo;s get started</h1>
+<p>During this post, we will be looking at the web call to gather the bearer token and two different methods of getting data from the Graph API, and how we use them side by side to ensure we are not burning money on a consumption Logic Apps.</p>
+<h2 id="authentication">Authentication</h2>
+<p>Lets start by creating an App Registration with the following <strong>Application</strong> permissions.</p>
+<ul>
+<li><strong>DeviceManagementManagedDevices.Read.All</strong></li>
+</ul>
+<p>If you are not familiar with creating App Registrations, take a look at my <a href="/create-an-azure-app-registration">
+    Create an Azure App Registration
+  </a> post.</p>
+<p>Once you have added permissions and granted consent, you need to obtain a secret, this can be done from the App Registration by;</p>
+<ol>
+<li>Clicking <strong>Certificates &amp; Secrets</strong></li>
+<li>Click <strong>New client secret</strong></li>
+<li>Enter a description and select the validity period of the secret, then click <strong>Add</strong></li>
+<li>Click the Copy icon next to the <strong>Value</strong> contents</li>
+</ol>
+<p>The last step is important, as once you navigate away from this page it disappears and cannot be retrieved. You can always create another, so all is not lost.</p>
+<p>You now have the start of the authentication piece, lets head over to PowerBI and enter the Power Query Editor (Transform Data) and create three Parameters.</p>
+<ul>
+<li><strong>ApplicationID</strong>: This will be the Application (client) ID of the App Registration</li>
+<li><strong>ApplicationSecret</strong>: This will be the secret value copied previously</li>
+<li><strong>TenantID</strong>: Your Azure Tenant ID</li>
+</ul>
+<p>We will halt the authentication section here for now as we need some other components to start retrieving data.</p>
+<h2 id="the-logic-app">The Logic App</h2>
+<ol>
+<li>Logic App Blade</li>
+<li>Click <strong>Add</strong></li>
+<li>Select your <strong>Subscription</strong> and <strong>Resource Group</strong></li>
+<li>Give you Logic App a meaningful name (e.g. EUC-MSGRAPHCALL-v1)</li>
+<li>For Publish Select <strong>Workflow</strong> and select your desired <strong>Region</strong></li>
+<li>Select your desired plan, for this post I will be using <strong>Consumption</strong></li>
+<li>(Optional) Select <strong>Zone Redundancy</strong></li>
+<li>(Optional) Add <strong>Tags</strong></li>
+<li>Click <strong>Review + Create</strong>, then click <strong>Create</strong></li>
+<li>Once the deployment is complete click <strong>Go to resource</strong></li>
+<li>Select a trigger, template or click <strong>Blank Logic App</strong></li>
+<li>From the ribbon, click the <strong>Code view</strong> button</li>
+<li>Copy and paste the JSON from the <strong>Logic App Code</strong> drop down below</li>
+<li>Click <strong>Save</strong></li>
+</ol>
+<p>
+
+<div class="border border-default collapse-wrapper">
+  <a class="d-flex p-2 collapse-head" data-toggle="collapse" href="#logic-app-code" role="button">
+    Logic App Code <i class="ti-plus ml-auto"></i>
+  </a>
+  <div class="collapse" id="logic-app-code"><div class="p-2"><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#309;font-weight:bold">&#34;definition&#34;</span>: {
+        <span style="color:#309;font-weight:bold">&#34;$schema&#34;</span>: <span style="color:#c30">&#34;https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#&#34;</span>,
+        <span style="color:#309;font-weight:bold">&#34;actions&#34;</span>: {
+            <span style="color:#309;font-weight:bold">&#34;Append_to_array_variable_-_GraphReturn&#34;</span>: {
+                <span style="color:#309;font-weight:bold">&#34;inputs&#34;</span>: {
+                    <span style="color:#309;font-weight:bold">&#34;name&#34;</span>: <span style="color:#c30">&#34;GraphReturn&#34;</span>,
+                    <span style="color:#309;font-weight:bold">&#34;value&#34;</span>: <span style="color:#c30">&#34;@body(&#39;HTTP_-_Initial_Request&#39;)&#34;</span>
+                },
+                <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {
+                    <span style="color:#309;font-weight:bold">&#34;Parse_JSON_-_Initial_Response_(for_NextLink)&#34;</span>: [
+                        <span style="color:#c30">&#34;Succeeded&#34;</span>
+                    ]
+                },
+                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;AppendToArrayVariable&#34;</span>
+            },
+            <span style="color:#309;font-weight:bold">&#34;Condition_-_If_response_contains_@odata.nextlink&#34;</span>: {
+                <span style="color:#309;font-weight:bold">&#34;actions&#34;</span>: {
+                    <span style="color:#309;font-weight:bold">&#34;Response_-_NextLink&#34;</span>: {
+                        <span style="color:#309;font-weight:bold">&#34;inputs&#34;</span>: {
+                            <span style="color:#309;font-weight:bold">&#34;body&#34;</span>: <span style="color:#c30">&#34;@variables(&#39;GraphReturn&#39;)&#34;</span>,
+                            <span style="color:#309;font-weight:bold">&#34;statusCode&#34;</span>: <span style="color:#f60">200</span>
+                        },
+                        <span style="color:#309;font-weight:bold">&#34;kind&#34;</span>: <span style="color:#c30">&#34;Http&#34;</span>,
+                        <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {
+                            <span style="color:#309;font-weight:bold">&#34;Until_-_NextLink_is_Blank&#34;</span>: [
+                                <span style="color:#c30">&#34;Succeeded&#34;</span>
+                            ]
+                        },
+                        <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;Response&#34;</span>
+                    },
+                    <span style="color:#309;font-weight:bold">&#34;Set_variable_-_NextLink_for_Next_Call&#34;</span>: {
+                        <span style="color:#309;font-weight:bold">&#34;inputs&#34;</span>: {
+                            <span style="color:#309;font-weight:bold">&#34;name&#34;</span>: <span style="color:#c30">&#34;nextlink&#34;</span>,
+                            <span style="color:#309;font-weight:bold">&#34;value&#34;</span>: <span style="color:#c30">&#34;@body(&#39;Parse_JSON_-_Initial_Response_(for_NextLink)&#39;)?[&#39;@odata.nextLink&#39;]&#34;</span>
+                        },
+                        <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {},
+                        <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;SetVariable&#34;</span>
+                    },
+                    <span style="color:#309;font-weight:bold">&#34;Until_-_NextLink_is_Blank&#34;</span>: {
+                        <span style="color:#309;font-weight:bold">&#34;actions&#34;</span>: {
+                            <span style="color:#309;font-weight:bold">&#34;Compose_-_Union_GraphReturn_and_the_additional_data_from_NextLink_Call&#34;</span>: {
+                                <span style="color:#309;font-weight:bold">&#34;inputs&#34;</span>: <span style="color:#c30">&#34;@union(variables(&#39;GraphReturn&#39;),body(&#39;HTTP__-_Get_NextLink_Data&#39;)[&#39;value&#39;])&#34;</span>,
+                                <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {
+                                    <span style="color:#309;font-weight:bold">&#34;Parse_JSON_-_NextLink_Response_(for_NextLink)&#34;</span>: [
+                                        <span style="color:#c30">&#34;Succeeded&#34;</span>
+                                    ]
+                                },
+                                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;Compose&#34;</span>
+                            },
+                            <span style="color:#309;font-weight:bold">&#34;Condition_-_If_@Odata.nextlink_is_not_blank_(Until_Loop)&#34;</span>: {
+                                <span style="color:#309;font-weight:bold">&#34;actions&#34;</span>: {
+                                    <span style="color:#309;font-weight:bold">&#34;Set_variable_-_NextLink_to_Blank&#34;</span>: {
+                                        <span style="color:#309;font-weight:bold">&#34;inputs&#34;</span>: {
+                                            <span style="color:#309;font-weight:bold">&#34;name&#34;</span>: <span style="color:#c30">&#34;nextlink&#34;</span>,
+                                            <span style="color:#309;font-weight:bold">&#34;value&#34;</span>: <span style="color:#c30">&#34;\&#34;\&#34;&#34;</span>
+                                        },
+                                        <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {},
+                                        <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;SetVariable&#34;</span>
+                                    }
+                                },
+                                <span style="color:#309;font-weight:bold">&#34;else&#34;</span>: {
+                                    <span style="color:#309;font-weight:bold">&#34;actions&#34;</span>: {
+                                        <span style="color:#309;font-weight:bold">&#34;Set_variable_-_NextLink_to_@odata.nextlink&#34;</span>: {
+                                            <span style="color:#309;font-weight:bold">&#34;inputs&#34;</span>: {
+                                                <span style="color:#309;font-weight:bold">&#34;name&#34;</span>: <span style="color:#c30">&#34;nextlink&#34;</span>,
+                                                <span style="color:#309;font-weight:bold">&#34;value&#34;</span>: <span style="color:#c30">&#34;@body(&#39;Parse_JSON_-_NextLink_Response_(for_NextLink)&#39;)?[&#39;@odata.nextLink&#39;]&#34;</span>
+                                            },
+                                            <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {},
+                                            <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;SetVariable&#34;</span>
+                                        }
+                                    }
+                                },
+                                <span style="color:#309;font-weight:bold">&#34;expression&#34;</span>: {
+                                    <span style="color:#309;font-weight:bold">&#34;and&#34;</span>: [
+                                        {
+                                            <span style="color:#309;font-weight:bold">&#34;equals&#34;</span>: [
+                                                <span style="color:#c30">&#34;@body(&#39;Parse_JSON_-_NextLink_Response_(for_NextLink)&#39;)?[&#39;@odata.nextLink&#39;]&#34;</span>,
+                                                <span style="color:#c30">&#34;&#34;</span>
+                                            ]
+                                        }
+                                    ]
+                                },
+                                <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {
+                                    <span style="color:#309;font-weight:bold">&#34;Set_variable_-_GraphReturn_from_Compose_Output&#34;</span>: [
+                                        <span style="color:#c30">&#34;Succeeded&#34;</span>
+                                    ]
+                                },
+                                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;If&#34;</span>
+                            },
+                            <span style="color:#309;font-weight:bold">&#34;HTTP__-_Get_NextLink_Data&#34;</span>: {
+                                <span style="color:#309;font-weight:bold">&#34;inputs&#34;</span>: {
+                                    <span style="color:#309;font-weight:bold">&#34;headers&#34;</span>: {
+                                        <span style="color:#309;font-weight:bold">&#34;Authorization&#34;</span>: <span style="color:#c30">&#34;bearer @{triggerBody()?[&#39;accesstoken&#39;]}&#34;</span>,
+                                        <span style="color:#309;font-weight:bold">&#34;content-type&#34;</span>: <span style="color:#c30">&#34;application/json&#34;</span>
+                                    },
+                                    <span style="color:#309;font-weight:bold">&#34;method&#34;</span>: <span style="color:#c30">&#34;GET&#34;</span>,
+                                    <span style="color:#309;font-weight:bold">&#34;uri&#34;</span>: <span style="color:#c30">&#34;@variables(&#39;nextlink&#39;)&#34;</span>
+                                },
+                                <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {},
+                                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;Http&#34;</span>
+                            },
+                            <span style="color:#309;font-weight:bold">&#34;Parse_JSON_-_NextLink_Response_(for_NextLink)&#34;</span>: {
+                                <span style="color:#309;font-weight:bold">&#34;inputs&#34;</span>: {
+                                    <span style="color:#309;font-weight:bold">&#34;content&#34;</span>: <span style="color:#c30">&#34;@body(&#39;HTTP__-_Get_NextLink_Data&#39;)&#34;</span>,
+                                    <span style="color:#309;font-weight:bold">&#34;schema&#34;</span>: {
+                                        <span style="color:#309;font-weight:bold">&#34;properties&#34;</span>: {
+                                            <span style="color:#309;font-weight:bold">&#34;@@odata.context&#34;</span>: {
+                                                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;string&#34;</span>
+                                            },
+                                            <span style="color:#309;font-weight:bold">&#34;@@odata.nextLink&#34;</span>: {
+                                                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;string&#34;</span>
+                                            }
+                                        },
+                                        <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;object&#34;</span>
+                                    }
+                                },
+                                <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {
+                                    <span style="color:#309;font-weight:bold">&#34;HTTP__-_Get_NextLink_Data&#34;</span>: [
+                                        <span style="color:#c30">&#34;Succeeded&#34;</span>
+                                    ]
+                                },
+                                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;ParseJson&#34;</span>
+                            },
+                            <span style="color:#309;font-weight:bold">&#34;Set_variable_-_GraphReturn_from_Compose_Output&#34;</span>: {
+                                <span style="color:#309;font-weight:bold">&#34;inputs&#34;</span>: {
+                                    <span style="color:#309;font-weight:bold">&#34;name&#34;</span>: <span style="color:#c30">&#34;GraphReturn&#34;</span>,
+                                    <span style="color:#309;font-weight:bold">&#34;value&#34;</span>: <span style="color:#c30">&#34;@outputs(&#39;Compose_-_Union_GraphReturn_and_the_additional_data_from_NextLink_Call&#39;)&#34;</span>
+                                },
+                                <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {
+                                    <span style="color:#309;font-weight:bold">&#34;Compose_-_Union_GraphReturn_and_the_additional_data_from_NextLink_Call&#34;</span>: [
+                                        <span style="color:#c30">&#34;Succeeded&#34;</span>
+                                    ]
+                                },
+                                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;SetVariable&#34;</span>
+                            }
+                        },
+                        <span style="color:#309;font-weight:bold">&#34;expression&#34;</span>: <span style="color:#c30">&#34;@equals(variables(&#39;nextlink&#39;), &#39;&#39;)&#34;</span>,
+                        <span style="color:#309;font-weight:bold">&#34;limit&#34;</span>: {
+                            <span style="color:#309;font-weight:bold">&#34;count&#34;</span>: <span style="color:#f60">60</span>,
+                            <span style="color:#309;font-weight:bold">&#34;timeout&#34;</span>: <span style="color:#c30">&#34;PT1H&#34;</span>
+                        },
+                        <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {
+                            <span style="color:#309;font-weight:bold">&#34;Set_variable_-_NextLink_for_Next_Call&#34;</span>: [
+                                <span style="color:#c30">&#34;Succeeded&#34;</span>
+                            ]
+                        },
+                        <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;Until&#34;</span>
+                    }
+                },
+                <span style="color:#309;font-weight:bold">&#34;else&#34;</span>: {
+                    <span style="color:#309;font-weight:bold">&#34;actions&#34;</span>: {
+                        <span style="color:#309;font-weight:bold">&#34;Response_-_No_NextLink&#34;</span>: {
+                            <span style="color:#309;font-weight:bold">&#34;inputs&#34;</span>: {
+                                <span style="color:#309;font-weight:bold">&#34;body&#34;</span>: <span style="color:#c30">&#34;@variables(&#39;GraphReturn&#39;)&#34;</span>,
+                                <span style="color:#309;font-weight:bold">&#34;statusCode&#34;</span>: <span style="color:#f60">200</span>
+                            },
+                            <span style="color:#309;font-weight:bold">&#34;kind&#34;</span>: <span style="color:#c30">&#34;Http&#34;</span>,
+                            <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {},
+                            <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;Response&#34;</span>
+                        }
+                    }
+                },
+                <span style="color:#309;font-weight:bold">&#34;expression&#34;</span>: {
+                    <span style="color:#309;font-weight:bold">&#34;and&#34;</span>: [
+                        {
+                            <span style="color:#309;font-weight:bold">&#34;not&#34;</span>: {
+                                <span style="color:#309;font-weight:bold">&#34;equals&#34;</span>: [
+                                    <span style="color:#c30">&#34;@body(&#39;Parse_JSON_-_Initial_Response_(for_NextLink)&#39;)?[&#39;@odata.nextLink&#39;]&#34;</span>,
+                                    <span style="color:#c30">&#34;&#34;</span>
+                                ]
+                            }
+                        },
+                        {
+                            <span style="color:#309;font-weight:bold">&#34;not&#34;</span>: {
+                                <span style="color:#309;font-weight:bold">&#34;equals&#34;</span>: [
+                                    <span style="color:#c30">&#34;@body(&#39;Parse_JSON_-_Initial_Response_(for_NextLink)&#39;)?[&#39;@odata.nextLink&#39;]&#34;</span>,
+                                    <span style="color:#c30">&#34;@null&#34;</span>
+                                ]
+                            }
+                        }
+                    ]
+                },
+                <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {
+                    <span style="color:#309;font-weight:bold">&#34;Append_to_array_variable_-_GraphReturn&#34;</span>: [
+                        <span style="color:#c30">&#34;Succeeded&#34;</span>
+                    ]
+                },
+                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;If&#34;</span>
+            },
+            <span style="color:#309;font-weight:bold">&#34;HTTP_-_Initial_Request&#34;</span>: {
+                <span style="color:#309;font-weight:bold">&#34;inputs&#34;</span>: {
+                    <span style="color:#309;font-weight:bold">&#34;headers&#34;</span>: {
+                        <span style="color:#309;font-weight:bold">&#34;Authorization&#34;</span>: <span style="color:#c30">&#34;bearer @{variables(&#39;AccessToken&#39;)}&#34;</span>,
+                        <span style="color:#309;font-weight:bold">&#34;content-type&#34;</span>: <span style="color:#c30">&#34;application/json&#34;</span>
+                    },
+                    <span style="color:#309;font-weight:bold">&#34;method&#34;</span>: <span style="color:#c30">&#34;GET&#34;</span>,
+                    <span style="color:#309;font-weight:bold">&#34;uri&#34;</span>: <span style="color:#c30">&#34;@triggerBody()?[&#39;Url&#39;]&#34;</span>
+                },
+                <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {
+                    <span style="color:#309;font-weight:bold">&#34;Initialize_variable_-_AccessToken&#34;</span>: [
+                        <span style="color:#c30">&#34;Succeeded&#34;</span>
+                    ]
+                },
+                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;Http&#34;</span>
+            },
+            <span style="color:#309;font-weight:bold">&#34;Initialize_variable_-_AccessToken&#34;</span>: {
+                <span style="color:#309;font-weight:bold">&#34;inputs&#34;</span>: {
+                    <span style="color:#309;font-weight:bold">&#34;variables&#34;</span>: [
+                        {
+                            <span style="color:#309;font-weight:bold">&#34;name&#34;</span>: <span style="color:#c30">&#34;AccessToken&#34;</span>,
+                            <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;string&#34;</span>,
+                            <span style="color:#309;font-weight:bold">&#34;value&#34;</span>: <span style="color:#c30">&#34;@{string(triggerBody()?[&#39;accesstoken&#39;])}&#34;</span>
+                        }
+                    ]
+                },
+                <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {
+                    <span style="color:#309;font-weight:bold">&#34;Initialize_variable__-_NextLink&#34;</span>: [
+                        <span style="color:#c30">&#34;Succeeded&#34;</span>
+                    ]
+                },
+                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;InitializeVariable&#34;</span>
+            },
+            <span style="color:#309;font-weight:bold">&#34;Initialize_variable_-_Graph_Return&#34;</span>: {
+                <span style="color:#309;font-weight:bold">&#34;inputs&#34;</span>: {
+                    <span style="color:#309;font-weight:bold">&#34;variables&#34;</span>: [
+                        {
+                            <span style="color:#309;font-weight:bold">&#34;name&#34;</span>: <span style="color:#c30">&#34;GraphReturn&#34;</span>,
+                            <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;array&#34;</span>
+                        }
+                    ]
+                },
+                <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {},
+                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;InitializeVariable&#34;</span>
+            },
+            <span style="color:#309;font-weight:bold">&#34;Initialize_variable__-_NextLink&#34;</span>: {
+                <span style="color:#309;font-weight:bold">&#34;inputs&#34;</span>: {
+                    <span style="color:#309;font-weight:bold">&#34;variables&#34;</span>: [
+                        {
+                            <span style="color:#309;font-weight:bold">&#34;name&#34;</span>: <span style="color:#c30">&#34;nextlink&#34;</span>,
+                            <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;string&#34;</span>
+                        }
+                    ]
+                },
+                <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {
+                    <span style="color:#309;font-weight:bold">&#34;Initialize_variable_-_Graph_Return&#34;</span>: [
+                        <span style="color:#c30">&#34;Succeeded&#34;</span>
+                    ]
+                },
+                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;InitializeVariable&#34;</span>
+            },
+            <span style="color:#309;font-weight:bold">&#34;Parse_JSON_-_Initial_Response_(for_NextLink)&#34;</span>: {
+                <span style="color:#309;font-weight:bold">&#34;inputs&#34;</span>: {
+                    <span style="color:#309;font-weight:bold">&#34;content&#34;</span>: <span style="color:#c30">&#34;@body(&#39;HTTP_-_Initial_Request&#39;)&#34;</span>,
+                    <span style="color:#309;font-weight:bold">&#34;schema&#34;</span>: {
+                        <span style="color:#309;font-weight:bold">&#34;properties&#34;</span>: {
+                            <span style="color:#309;font-weight:bold">&#34;@@odata.context&#34;</span>: {
+                                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;string&#34;</span>
+                            },
+                            <span style="color:#309;font-weight:bold">&#34;@@odata.nextLink&#34;</span>: {
+                                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;string&#34;</span>
+                            }
+                        },
+                        <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;object&#34;</span>
+                    }
+                },
+                <span style="color:#309;font-weight:bold">&#34;runAfter&#34;</span>: {
+                    <span style="color:#309;font-weight:bold">&#34;HTTP_-_Initial_Request&#34;</span>: [
+                        <span style="color:#c30">&#34;Succeeded&#34;</span>
+                    ]
+                },
+                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;ParseJson&#34;</span>
+            }
+        },
+        <span style="color:#309;font-weight:bold">&#34;contentVersion&#34;</span>: <span style="color:#c30">&#34;1.0.0.0&#34;</span>,
+        <span style="color:#309;font-weight:bold">&#34;outputs&#34;</span>: {},
+        <span style="color:#309;font-weight:bold">&#34;parameters&#34;</span>: {},
+        <span style="color:#309;font-weight:bold">&#34;triggers&#34;</span>: {
+            <span style="color:#309;font-weight:bold">&#34;manual&#34;</span>: {
+                <span style="color:#309;font-weight:bold">&#34;inputs&#34;</span>: {
+                    <span style="color:#309;font-weight:bold">&#34;schema&#34;</span>: {
+                        <span style="color:#309;font-weight:bold">&#34;properties&#34;</span>: {
+                            <span style="color:#309;font-weight:bold">&#34;Url&#34;</span>: {
+                                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;string&#34;</span>
+                            },
+                            <span style="color:#309;font-weight:bold">&#34;accesstoken&#34;</span>: {
+                                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;string&#34;</span>
+                            }
+                        },
+                        <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;object&#34;</span>
+                    }
+                },
+                <span style="color:#309;font-weight:bold">&#34;kind&#34;</span>: <span style="color:#c30">&#34;Http&#34;</span>,
+                <span style="color:#309;font-weight:bold">&#34;type&#34;</span>: <span style="color:#c30">&#34;Request&#34;</span>
+            }
+        }
+    },
+    <span style="color:#309;font-weight:bold">&#34;parameters&#34;</span>: {}
+}
+</code></pre></div></div></div>
+</div>
+<br>
+Feel free to dig into the Logic App and look at how the data is being processed, but for now the logic ready for use!!!</p>
+<p>One of the final things to do before we start building up a queries is to add a parameter in PowerBI called <strong>LogicAppURL</strong>. The value of this parameter can be found on the HTTP trigger from within the logic app as shown below.</p>
+<p><img class="aligncenter" src="/images/post/graphbi/logicapphttptrigger.png" alt="Edit Sync" width="600px" height="375px" /></p>
+<br> 
+## Creating the first query
+<p>Lets head back in to the Power Query Editor (Transform Data) and start building up our first query.</p>
+<ol>
+<li>From the ribbon select <strong>New Source &gt; Blank Query</strong></li>
+<li>Right-click on your new query, select <strong>Rename</strong> and enter Devices</li>
+<li>Right-click on the <strong>Devices</strong> query, select <strong>Advanced Editor</strong></li>
+<li>Paste the following content into the editor, then click <strong>Done</strong></li>
+</ol>
+
+
+<div class="border border-default collapse-wrapper">
+  <a class="d-flex p-2 collapse-head" data-toggle="collapse" href="#powerbi-query" role="button">
+    PowerBI Query <i class="ti-plus ml-auto"></i>
+  </a>
+  <div class="collapse" id="powerbi-query"><div class="p-2"><pre><code class="language-pq" data-lang="pq">// All functions and the SessionToken Query must be within EACH query as when publishing to PowerBI Online you will receive and unable to access data source. 
+
+let
+
+// ************************************* SessionToken *************************************
+SessionToken =
+let
+     TokenUri = &quot;https://login.microsoftonline.com/&quot;,
+     ResourceId = &quot;https://graph.microsoft.com&quot;,
+     TokenResponse = Json.Document(Web.Contents(TokenUri,
+     [
+     Content = Text.ToBinary(Uri.BuildQueryString([client_id = #&quot;ApplicationID&quot;, resource = ResourceId, grant_type = &quot;client_credentials&quot;, client_secret = #&quot;ApplicationSecret&quot;])),
+     Headers = [Accept = &quot;application/json&quot;], ManualStatusHandling = {400},
+     RelativePath = #&quot;TenantID&quot; &amp; &quot;/oauth2/token&quot;
+         ]
+     )),
+     AzureAccessToken = TokenResponse[access_token]
+
+in
+     AzureAccessToken,
+
+// ************************************* SessionToken *************************************
+
+// ************************************* LogicAppCall *************************************
+
+MSGraphLA = 
+let
+    Source = (#&quot;GraphURL&quot; as any) =&gt; let
+
+    Url = LogicAppURL,
+    body = &quot;{&quot;&quot;accesstoken&quot;&quot;:&quot;&quot;&quot; &amp; SessionToken &amp; &quot;&quot;&quot;, &quot;&quot;URL&quot;&quot;:&quot;&quot;&quot; &amp; #&quot;GraphURL&quot; &amp; &quot;&quot;&quot;}&quot;,
+    Source = Json.Document(Web.Contents(Url, [Headers=[#&quot;Content-Type&quot;=&quot;application/json&quot;],Content = Text.ToBinary(body)]))
+    
+    in
+
+    Source
+in
+    Source,
+// ************************************* LogicAppCall *************************************
+
+// ************************************* MS Graph Call *************************************
+GraphCall = 
+let
+    Source = (#&quot;GraphURL&quot; as any) =&gt; let
+        Source = Json.Document(
+            Web.Contents(
+                &quot;https://graph.microsoft.com/beta/&quot;, 
+                [
+                    RelativePath = #&quot;GraphURL&quot;,
+                    Headers=
+                    [
+                        Authorization= &quot;Bearer &quot; &amp; #&quot;SessionToken&quot;,Accept=&quot;application/json&quot;
+                    ]
+                ]
+            )
+        )
+    in
+        Source
+in
+    Source,
+// ************************************* MS Graph Call *************************************
+
+
+    Source = #&quot;MSGraphLA&quot;(&quot;https://graph.microsoft.com/beta/deviceManagement/managedDevices&quot;)
+
+in
+    Source
+</code></pre></div></div>
+</div>
+<ol start="5">
+<li>A yellow banner will appear stating <strong>Information is required about data privacy</strong>, click <strong>Continue</strong></li>
+<li>Select Ignore Privacy (as per below screenshot), Alternatively, change the data sources to private, then click <strong>Save</strong></li>
+</ol>
+<p><img class="aligncenter" src="/images/post/graphbi/biignoreprivacy.png" alt="Ignore Privacy PowerBIx" width="500px" height="250px" /></p>
+<p>Let&rsquo;s break the query down to gain further understanding of it. First lets look at the <strong>SessionToken</strong> nested function, this is where the bearer token is obtained by using the provided <strong>ApplicationID</strong> and <strong>ApplicationSecret</strong> values. The function builds up a <strong>web</strong> call with additional headers and requests the response as a JSON, from this point we then extract the returned <strong>access_token</strong>.</p>
+<p>The second of three nested functions is the <strong>MSGraphLA</strong>, this is the function used to send information to the Logic App that you created. The way it handles the data is pretty simple, again this function uses a <strong>web</strong> call to post a JSON object to the Logic App. The JSON is made up of the <strong>SessionToken</strong> which slots into the <strong>accesstoken</strong> JSON value, and the <strong>GraphURL</strong> which is the value that is put into the function.</p>
+<p>THe final nested function is <strong>GraphCall</strong>, this function is to be used on an ad-hoc basis. For example, I use this function when I collect the Hardware Information for a device, and the reason I do that is because when you query the device endpoint like we have done here, you do not get all of the values from the Hardware Information field. This function is basically the direct call to the Graph API, without pagination.</p>
+<p>Ok, so that&rsquo;s a start, you are now at a point were you have data within you PowerBI Report, Now you can feel free to continue the drill down of data yourself, however for anyone who wants that old Art Attack moment of <strong>&lsquo;Here&rsquo;s one I made earlier&rsquo;</strong> you can use the below query.</p>
+<p><strong>NOTE: There is still unexpanded columns with the query below, please expand them if required.</strong></p>
+<p>
+
+<div class="border border-default collapse-wrapper">
+  <a class="d-flex p-2 collapse-head" data-toggle="collapse" href="#powerbi-query-drilled-down" role="button">
+    PowerBI Query (Drilled Down) <i class="ti-plus ml-auto"></i>
+  </a>
+  <div class="collapse" id="powerbi-query-drilled-down"><div class="p-2"><pre><code class="language-pq" data-lang="pq">// All funtions and the SessionToken Query must be within EACH qury as when publishig to PowerBI Online you will recieve and unable to access data source. 
+
+let
+
+// ************************************* SessionToken *************************************
+SessionToken =
+let
+     TokenUri = &quot;https://login.microsoftonline.com/&quot;,
+     ResourceId = &quot;https://graph.microsoft.com&quot;,
+     TokenResponse = Json.Document(Web.Contents(TokenUri,
+     [
+     Content = Text.ToBinary(Uri.BuildQueryString([client_id = #&quot;ApplicationID&quot;, resource = ResourceId, grant_type = &quot;client_credentials&quot;, client_secret = #&quot;ApplicationSecret&quot;])),
+     Headers = [Accept = &quot;application/json&quot;], ManualStatusHandling = {400},
+     RelativePath = #&quot;TenantID&quot; &amp; &quot;/oauth2/token&quot;
+         ]
+     )),
+     AzureAccessToken = TokenResponse[access_token]
+
+in
+     AzureAccessToken,
+
+// ************************************* SessionToken *************************************
+
+// ************************************* LogicAppCall *************************************
+
+MSGraphLA = 
+let
+    Source = (#&quot;GraphURL&quot; as any) =&gt; let
+
+    Url = LogicAppURL,
+    body = &quot;{&quot;&quot;accesstoken&quot;&quot;:&quot;&quot;&quot; &amp; SessionToken &amp; &quot;&quot;&quot;, &quot;&quot;URL&quot;&quot;:&quot;&quot;&quot; &amp; #&quot;GraphURL&quot; &amp; &quot;&quot;&quot;}&quot;,
+    Source = Json.Document(Web.Contents(Url, [Headers=[#&quot;Content-Type&quot;=&quot;application/json&quot;],Content = Text.ToBinary(body)]))
+    
+    in
+
+    Source
+in
+    Source,
+// ************************************* LogicAppCall *************************************
+
+// ************************************* MS Graph Call *************************************
+GraphCall = 
+let
+    Source = (#&quot;GraphURL&quot; as any) =&gt; let
+        Source = Json.Document(
+            Web.Contents(
+                &quot;https://graph.microsoft.com/beta/&quot;, 
+                [
+                    RelativePath = #&quot;GraphURL&quot;,
+                    Headers=
+                    [
+                        Authorization= &quot;Bearer &quot; &amp; #&quot;SessionToken&quot;,Accept=&quot;application/json&quot;
+                    ]
+                ]
+            )
+        )
+    in
+        Source
+in
+    Source,
+// ************************************* MS Graph Call *************************************
+
+
+    Source = #&quot;MSGraphLA&quot;(&quot;https://graph.microsoft.com/beta/deviceManagement/managedDevices&quot;),
+    // ************************************* MS Graph Call *************************************
+    Source1 = Source{0},
+    #&quot;Converted to Table&quot; = Record.ToTable(Source1),
+    Value = #&quot;Converted to Table&quot;{2}[Value],
+    #&quot;Converted to Table1&quot; = Table.FromList(Value, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+    #&quot;Expanded Column1&quot; = Table.ExpandRecordColumn(#&quot;Converted to Table1&quot;, &quot;Column1&quot;, {&quot;id&quot;, &quot;userId&quot;, &quot;deviceName&quot;, &quot;ownerType&quot;, &quot;managedDeviceOwnerType&quot;, &quot;managementState&quot;, &quot;enrolledDateTime&quot;, &quot;lastSyncDateTime&quot;, &quot;chassisType&quot;, &quot;operatingSystem&quot;, &quot;deviceType&quot;, &quot;complianceState&quot;, &quot;jailBroken&quot;, &quot;managementAgent&quot;, &quot;osVersion&quot;, &quot;easActivated&quot;, &quot;easDeviceId&quot;, &quot;easActivationDateTime&quot;, &quot;aadRegistered&quot;, &quot;azureADRegistered&quot;, &quot;deviceEnrollmentType&quot;, &quot;lostModeState&quot;, &quot;activationLockBypassCode&quot;, &quot;emailAddress&quot;, &quot;azureActiveDirectoryDeviceId&quot;, &quot;azureADDeviceId&quot;, &quot;deviceRegistrationState&quot;, &quot;deviceCategoryDisplayName&quot;, &quot;isSupervised&quot;, &quot;exchangeLastSuccessfulSyncDateTime&quot;, &quot;exchangeAccessState&quot;, &quot;exchangeAccessStateReason&quot;, &quot;remoteAssistanceSessionUrl&quot;, &quot;remoteAssistanceSessionErrorDetails&quot;, &quot;isEncrypted&quot;, &quot;userPrincipalName&quot;, &quot;model&quot;, &quot;manufacturer&quot;, &quot;imei&quot;, &quot;complianceGracePeriodExpirationDateTime&quot;, &quot;serialNumber&quot;, &quot;phoneNumber&quot;, &quot;androidSecurityPatchLevel&quot;, &quot;userDisplayName&quot;, &quot;configurationManagerClientEnabledFeatures&quot;, &quot;wiFiMacAddress&quot;, &quot;deviceHealthAttestationState&quot;, &quot;subscriberCarrier&quot;, &quot;meid&quot;, &quot;totalStorageSpaceInBytes&quot;, &quot;freeStorageSpaceInBytes&quot;, &quot;managedDeviceName&quot;, &quot;partnerReportedThreatState&quot;, &quot;retireAfterDateTime&quot;, &quot;preferMdmOverGroupPolicyAppliedDateTime&quot;, &quot;autopilotEnrolled&quot;, &quot;requireUserEnrollmentApproval&quot;, &quot;managementCertificateExpirationDate&quot;, &quot;iccid&quot;, &quot;udid&quot;, &quot;roleScopeTagIds&quot;, &quot;windowsActiveMalwareCount&quot;, &quot;windowsRemediatedMalwareCount&quot;, &quot;notes&quot;, &quot;configurationManagerClientHealthState&quot;, &quot;configurationManagerClientInformation&quot;, &quot;ethernetMacAddress&quot;, &quot;physicalMemoryInBytes&quot;, &quot;processorArchitecture&quot;, &quot;specificationVersion&quot;, &quot;joinType&quot;, &quot;skuFamily&quot;, &quot;skuNumber&quot;, &quot;managementFeatures&quot;, &quot;enrollmentProfileName&quot;, &quot;hardwareInformation&quot;, &quot;deviceActionResults&quot;, &quot;usersLoggedOn&quot;, &quot;chromeOSDeviceInfo&quot;}, {&quot;id&quot;, &quot;userId&quot;, &quot;deviceName&quot;, &quot;ownerType&quot;, &quot;managedDeviceOwnerType&quot;, &quot;managementState&quot;, &quot;enrolledDateTime&quot;, &quot;lastSyncDateTime&quot;, &quot;chassisType&quot;, &quot;operatingSystem&quot;, &quot;deviceType&quot;, &quot;complianceState&quot;, &quot;jailBroken&quot;, &quot;managementAgent&quot;, &quot;osVersion&quot;, &quot;easActivated&quot;, &quot;easDeviceId&quot;, &quot;easActivationDateTime&quot;, &quot;aadRegistered&quot;, &quot;azureADRegistered&quot;, &quot;deviceEnrollmentType&quot;, &quot;lostModeState&quot;, &quot;activationLockBypassCode&quot;, &quot;emailAddress&quot;, &quot;azureActiveDirectoryDeviceId&quot;, &quot;azureADDeviceId&quot;, &quot;deviceRegistrationState&quot;, &quot;deviceCategoryDisplayName&quot;, &quot;isSupervised&quot;, &quot;exchangeLastSuccessfulSyncDateTime&quot;, &quot;exchangeAccessState&quot;, &quot;exchangeAccessStateReason&quot;, &quot;remoteAssistanceSessionUrl&quot;, &quot;remoteAssistanceSessionErrorDetails&quot;, &quot;isEncrypted&quot;, &quot;userPrincipalName&quot;, &quot;model&quot;, &quot;manufacturer&quot;, &quot;imei&quot;, &quot;complianceGracePeriodExpirationDateTime&quot;, &quot;serialNumber&quot;, &quot;phoneNumber&quot;, &quot;androidSecurityPatchLevel&quot;, &quot;userDisplayName&quot;, &quot;configurationManagerClientEnabledFeatures&quot;, &quot;wiFiMacAddress&quot;, &quot;deviceHealthAttestationState&quot;, &quot;subscriberCarrier&quot;, &quot;meid&quot;, &quot;totalStorageSpaceInBytes&quot;, &quot;freeStorageSpaceInBytes&quot;, &quot;managedDeviceName&quot;, &quot;partnerReportedThreatState&quot;, &quot;retireAfterDateTime&quot;, &quot;preferMdmOverGroupPolicyAppliedDateTime&quot;, &quot;autopilotEnrolled&quot;, &quot;requireUserEnrollmentApproval&quot;, &quot;managementCertificateExpirationDate&quot;, &quot;iccid&quot;, &quot;udid&quot;, &quot;roleScopeTagIds&quot;, &quot;windowsActiveMalwareCount&quot;, &quot;windowsRemediatedMalwareCount&quot;, &quot;notes&quot;, &quot;configurationManagerClientHealthState&quot;, &quot;configurationManagerClientInformation&quot;, &quot;ethernetMacAddress&quot;, &quot;physicalMemoryInBytes&quot;, &quot;processorArchitecture&quot;, &quot;specificationVersion&quot;, &quot;joinType&quot;, &quot;skuFamily&quot;, &quot;skuNumber&quot;, &quot;managementFeatures&quot;, &quot;enrollmentProfileName&quot;, &quot;hardwareInformation&quot;, &quot;deviceActionResults&quot;, &quot;usersLoggedOn&quot;, &quot;chromeOSDeviceInfo&quot;})
+in
+    #&quot;Expanded Column1&quot;
+</code></pre></div></div>
+</div>
+<br></p>
+<h2 id="using-the-ad-hoc-graphcall-function">Using the Ad-hoc GraphCall Function</h2>
+<p>In the previous part of this post, you created the first query which used the Logic App to gather all of its data. This section will explain how to use this side by side with an ad-hoc function to gather additional data from the Graph API.</p>
+<p>For this example we will focus on gathering the <strong>Hardware Information</strong> of the devices. As mentioned above, calling the API Endpoint for the devices does not provide all of the information within the <strong>Hardware Information</strong> object, so to get the most of the dataset available we need to call device endpoint with the device id to expand the hardware information. Lets jump in and get going.</p>
+<ol>
+<li>From the ribbon select <strong>New Source &gt; Blank Query</strong></li>
+<li>Right-click on your new query, select <strong>Rename</strong> and enter <strong>Device Hardware Information</strong></li>
+<li>Right-click on the <strong>Device Hardware Information</strong> query, select <strong>Advanced Editor</strong></li>
+<li>Paste the following content into the editor, then click <strong>Done</strong></li>
+</ol>
+
+
+<div class="border border-default collapse-wrapper">
+  <a class="d-flex p-2 collapse-head" data-toggle="collapse" href="#powerbi-query-device-ids" role="button">
+    PowerBI Query (Device IDs) <i class="ti-plus ml-auto"></i>
+  </a>
+  <div class="collapse" id="powerbi-query-device-ids"><div class="p-2"><pre><code class="language-pq" data-lang="pq">// All functions and the SessionToken Query must be within EACH query as when publishing to PowerBI Online you will receive and unable to access data source. 
+
+let
+
+// ************************************* SessionToken *************************************
+SessionToken =
+let
+     TokenUri = &quot;https://login.microsoftonline.com/&quot;,
+     ResourceId = &quot;https://graph.microsoft.com&quot;,
+     TokenResponse = Json.Document(Web.Contents(TokenUri,
+     [
+     Content = Text.ToBinary(Uri.BuildQueryString([client_id = #&quot;ApplicationID&quot;, resource = ResourceId, grant_type = &quot;client_credentials&quot;, client_secret = #&quot;ApplicationSecret&quot;])),
+     Headers = [Accept = &quot;application/json&quot;], ManualStatusHandling = {400},
+     RelativePath = #&quot;TenantID&quot; &amp; &quot;/oauth2/token&quot;
+         ]
+     )),
+     AzureAccessToken = TokenResponse[access_token]
+
+in
+     AzureAccessToken,
+
+// ************************************* SessionToken *************************************
+
+// ************************************* LogicAppCall *************************************
+
+MSGraphLA = 
+let
+    Source = (#&quot;GraphURL&quot; as any) =&gt; let
+
+    Url = LogicAppURL,
+    body = &quot;{&quot;&quot;accesstoken&quot;&quot;:&quot;&quot;&quot; &amp; SessionToken &amp; &quot;&quot;&quot;, &quot;&quot;URL&quot;&quot;:&quot;&quot;&quot; &amp; #&quot;GraphURL&quot; &amp; &quot;&quot;&quot;}&quot;,
+    Source = Json.Document(Web.Contents(Url, [Headers=[#&quot;Content-Type&quot;=&quot;application/json&quot;],Content = Text.ToBinary(body)]))
+    
+    in
+
+    Source
+in
+    Source,
+// ************************************* LogicAppCall *************************************
+
+// ************************************* MS Graph Call *************************************
+GraphCall = 
+let
+    Source = (#&quot;GraphURL&quot; as any) =&gt; let
+        Source = Json.Document(
+            Web.Contents(
+                &quot;https://graph.microsoft.com/beta/&quot;, 
+                [
+                    RelativePath = #&quot;GraphURL&quot;,
+                    Headers=
+                    [
+                        Authorization= &quot;Bearer &quot; &amp; #&quot;SessionToken&quot;,Accept=&quot;application/json&quot;
+                    ]
+                ]
+            )
+        )
+    in
+        Source
+in
+    Source,
+// ************************************* MS Graph Call *************************************
+
+
+    Source = #&quot;MSGraphLA&quot;(&quot;https://graph.microsoft.com/beta/deviceManagement/managedDevices?$select=id&quot;),
+    // ************************************* MS Graph Call *************************************
+    Source1 = Source{0},
+    #&quot;Converted to Table&quot; = Record.ToTable(Source1),
+    Value = #&quot;Converted to Table&quot;{2}[Value],
+    #&quot;Converted to Table1&quot; = Table.FromList(Value, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+    ShowIDs = Table.ExpandRecordColumn(#&quot;Converted to Table1&quot;, &quot;Column1&quot;, {&quot;id&quot;}, {&quot;id&quot;})
+
+in
+    ShowIDs
+</code></pre></div></div>
+</div>
+</br>
+<ol start="6">
+<li>Notice you now have all of your device ids, from the ribbon click <strong>Add Column</strong></li>
+<li>Click <strong>Custom Column</strong>, enter <strong>CallURL</strong> as the column name</li>
+<li>Enter <code>each &quot;deviceManagement/managedDevices/&quot; &amp; [id] &amp; &quot;?$select=hardwareInformation&quot;</code>, then click <strong>OK</strong></li>
+<li>Create another <strong>Custom Column</strong>, enter <strong>Graph Web Call</strong> as the name</li>
+<li>Enter <code>each #&quot;GraphCall&quot;([CallURL])</code>, then click <strong>OK</strong></li>
+<li>You will be prompted to <strong>Enter Credentials</strong>, click on the button, ensure <strong>Anonymous</strong> is selected, then click <strong>Connect</strong> (This may fail the first time, if it does cancel the prompt and then click <strong>Edit Credentials</strong> again)</li>
+<li>You will now see an additional column per device, click on the icon next to <strong>Graph Web Call</strong> in the column header</li>
+</ol>
+<p><img class="aligncenter" src="/images/post/graphbi/expandgraphcall.png" alt="Expand Graph Call Table" width="167px" height="200px" /></p>
+<ol start="13">
+<li>Un-tick all options but <strong>hardwareInformation</strong> (I would also un-tick <strong>Use original column name as prefix</strong>), then click <strong>OK</strong></li>
+<li>(Optional) Right-click the <strong>CallURL</strong> column, then select <strong>Remove</strong></li>
+<li>Click on the icon next to <strong>hardwareInformation</strong> in the column header, un-tick <strong>Use original column name as prefix</strong>, then click <strong>Load More</strong>, then click <strong>OK</strong></li>
+</ol>
+<p><img class="aligncenter" src="/images/post/graphbi/expandhwinfo.png" alt="Expand hardwareInformation" width="300px" height="450px" /></p>
+<br>
+Voilà!, you now have the hardware information for each device. There are still further columns you can expand should you see fit, but the data is now usable to create some lovely visuals. 
+<p>You can compare the hardwareInformation from this table to the one in the devices table and you will see the comparable difference in the datasets.</p>
+<h2 id="linking-the-datasets">Linking the datasets</h2>
+<p>The final piece of the puzzle is to link the tables together do you can create free flowing reports and visuals. You may find that this has been done Automagically for you, however it is better to cover it just in the edge case that it doesn&rsquo;t.</p>
+<p>If you haven&rsquo;t already done so, hit the save button and save your progress. Once saved minimise or close the Transform data window as it is not required.</p>
+<ol>
+<li>From the main PowerBI Screen click the <strong>Model</strong> button in the left-hand pane</li>
+</ol>
+<p><img class="aligncenter" src="/images/post/graphbi/modelbutton.png" alt="Model button" width="216px" height="252px" /></p>
+<ol start="2">
+<li>Find <strong>id</strong> in the <strong>Devices</strong> table, drag this to the <strong>id</strong> field within the <strong>Device Hardware Information</strong> table</li>
+</ol>
+<p><img class="aligncenter" src="/images/post/graphbi/linktables.gif" alt="Model button" width="800px" height="500px" /></p>
+<h1 id="conclusion">Conclusion</h1>
+<p>You now have the tools to gather all of your data into PowerBI, one thing to note is that depending on amount of objects you are querying your refresh time may be extended. Using the method where you collect devices ids and then call on each object to gather data also extends the refresh time. However, if you are running this on a refresh cycle that may not be such an issue, but it is worth noting.</p>
+<p>There may be better ways to do this, but this is only the first iteration of a working model, there may very well be more to come in the future.</p>
+<p>If you manage multiple environments, you will only need the one Logic App. The ApplicationID, ApplicationSecret and TenantID are the only changes that would need to be made.</p>
+<p>If you like the post, be sure to leave feedback below.</p>
+</div>
+      </div>
+    </article>
+    
+    
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <div class="mt-5">
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "euc365-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+
+
+
+<footer class="section-sm pb-0 border-top border-default">
+  <div class="container">
+    <div class="row justify-content-between">
+      
+      <div class="col-lg-2 col-md-3 col-6 mb-4">
+        <h6 class="mb-4">Quick Links</h6>
+        <ul class="list-unstyled footer-list">
+          
+          
+          <li><a href="https://euc365.com/about">About</a></li>
+          
+          
+          <li><a href="https://euc365.com/contact">Contact</a></li>
+          
+          
+          <li><a id="ot-sdk-btn" class="optanon-toggle-display">Cookie Settings</a></li>
+          <li><a href="https://euc365.com/cookies/" target="_blank">Cookies</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6 mb-4">
+        <h6 class="mb-4">Social Links</h6>
+        <ul class="list-unstyled footer-list">
+          
+          <li><a href="https://www.twitter.com/dbbrook24" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://www.linkedin.com/in/david-brook-81796145/" target="_blank">linkedin</a></li>
+          
+          <li><a href="https://github.com/brookd2404" target="_blank">github</a></li>
+          
+        </ul>
+      </div>
+      
+      <div class="col-md-3 mb-4">
+        <h6 class="mb-4">Subscribe Newsletter</h6>
+        
+        <form class="subscription" action="https://euc365.us1.list-manage.com/subscribe/post?u=5be29b0e8342fd1942dd179e6&amp;amp;id=4afea5f508" method="post" name="mc-embedded-subscribe-form"
+          target="_blank">
+          <div class="position-relative">
+            <i class="ti-email email-icon"></i>
+            <input type="email" class="form-control" placeholder="Your Email Address">
+          </div>
+          <button class="btn btn-primary btn-block rounded" type="submit"
+            name="subscribe">Subscribe now</button>
+          <div style="position: absolute; left: -5000px;" aria-hidden="true">
+            <input type="text" name="b_5be29b0e8342fd1942dd179e6_4afea5f508" tabindex="-1">
+          </div>
+        </form>
+        
+      </div>
+      
+    </div>
+    <div class="scroll-top">
+      <a href="javascript:void(0);" id="scrollTop"><i class="ti-angle-up"></i></a>
+    </div>
+    <div class="text-center">
+      <p class="content">Design By <a href="https://euc365.com/">EUC365</a> Hosted By <a href="https://github.com/">GitHub</a></p>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+<script src="https://euc365.com/plugins/jQuery/jquery.min.js" ></script>
+
+
+
+<script src="https://euc365.com/plugins/bootstrap/bootstrap.min.js" async></script>
+
+
+
+<script src="https://euc365.com/plugins/slick/slick.min.js" ></script>
+
+
+
+
+
+
+
+
+
+<script src="https://euc365.com/plugins/turbolinks/turbolinks.js" ></script>
+
+
+
+<script src="https://cdn.snipcart.com/themes/v3.0.25/default/snipcart.js" async></script>
+
+
+
+
+
+<script src="https://euc365.com/js/script.min.js"></script></body>
+
+</html>

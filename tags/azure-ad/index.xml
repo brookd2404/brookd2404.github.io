@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Sun, 08 May 2022 15:23:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/azure-ad/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 May 2022 10:05:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/azure-ad/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microsoft Graph API and PowerBI</title>
+      <link>https://euc365.com/microsoft-graph-api-and-powerbi/</link>
+      <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/microsoft-graph-api-and-powerbi/</guid>
+      <description>A little bit about this post At MMS 2022  I took a huge leap and briefly presented this in the Tips &amp;amp; Tricks Session. This was the first time I had ever presented in front of an audience.</description>
+    </item>
+    
     <item>
       <title>Update Apple SCIM Token</title>
       <link>https://euc365.com/update-apple-scim-token/</link>
