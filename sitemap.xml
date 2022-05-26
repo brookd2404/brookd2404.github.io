@@ -3,6 +3,56 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://euc365.com/post/</loc>
+    <lastmod>2022-05-26T14:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/categories/</loc>
+    <lastmod>2022-05-26T14:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/getting-started-with-samsung-knox-for-enterprise/</loc>
+    <lastmod>2022-05-26T14:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/</loc>
+    <lastmod>2022-05-26T14:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/tags/intune/</loc>
+    <lastmod>2022-05-26T14:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/tags/knox/</loc>
+    <lastmod>2022-05-26T14:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/categories/microsoft-endpoint-manager/</loc>
+    <lastmod>2022-05-26T14:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/categories/mobile-device-management/</loc>
+    <lastmod>2022-05-26T14:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/tags/samsung/</loc>
+    <lastmod>2022-05-26T14:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/tags/</loc>
+    <lastmod>2022-05-26T14:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://euc365.com/tags/azure/</loc>
     <lastmod>2022-05-25T10:05:00+00:00</lastmod>
   </url>
@@ -23,27 +73,7 @@
   </url>
   
   <url>
-    <loc>https://euc365.com/post/</loc>
-    <lastmod>2022-05-25T10:05:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/categories/</loc>
-    <lastmod>2022-05-25T10:05:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://euc365.com/categories/graph-api/</loc>
-    <lastmod>2022-05-25T10:05:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/</loc>
-    <lastmod>2022-05-25T10:05:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/tags/intune/</loc>
     <lastmod>2022-05-25T10:05:00+00:00</lastmod>
   </url>
   
@@ -89,11 +119,6 @@
   
   <url>
     <loc>https://euc365.com/categories/powershell/</loc>
-    <lastmod>2022-05-25T10:05:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/tags/</loc>
     <lastmod>2022-05-25T10:05:00+00:00</lastmod>
   </url>
   

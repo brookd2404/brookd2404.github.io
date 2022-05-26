@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Wed, 25 May 2022 10:05:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/intune/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 May 2022 14:00:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/intune/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting Started with Samsung Knox for Enterprise</title>
+      <link>https://euc365.com/getting-started-with-samsung-knox-for-enterprise/</link>
+      <pubDate>Thu, 26 May 2022 14:00:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/getting-started-with-samsung-knox-for-enterprise/</guid>
+      <description>What is Samsung Knox? Samsung Knox is a service made up of a number of solutions such as Knox Mobile Enrollment and Knox Platform for Enterprise. Samsung Knox solutions provide extra security, and configurability and also improve the end-user onboarding experience.</description>
+    </item>
+    
     <item>
       <title>Microsoft Graph API and PowerBI</title>
       <link>https://euc365.com/microsoft-graph-api-and-powerbi/</link>
