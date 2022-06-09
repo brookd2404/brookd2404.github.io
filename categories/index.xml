@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Home</title>
+    <title>Categories on EUC365</title>
     <link>https://euc365.com/categories/</link>
-    <description>Recent content in Categories on Home</description>
+    <description>Recent content in Categories on EUC365</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Thu, 26 May 2022 14:00:00 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Jun 2022 12:52:16 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Microsoft Endpoint Manager</title>
       <link>https://euc365.com/categories/microsoft-endpoint-manager/</link>
-      <pubDate>Thu, 26 May 2022 14:00:00 +0000</pubDate>
+      <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
       
       <guid>https://euc365.com/categories/microsoft-endpoint-manager/</guid>
       <description></description>
@@ -20,9 +19,18 @@
     <item>
       <title>Mobile Device Management</title>
       <link>https://euc365.com/categories/mobile-device-management/</link>
-      <pubDate>Thu, 26 May 2022 14:00:00 +0000</pubDate>
+      <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
       
       <guid>https://euc365.com/categories/mobile-device-management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Samsung Knox</title>
+      <link>https://euc365.com/categories/samsung-knox/</link>
+      <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
+      
+      <guid>https://euc365.com/categories/samsung-knox/</guid>
       <description></description>
     </item>
     
@@ -45,38 +53,11 @@
     </item>
     
     <item>
-      <title>Intune</title>
-      <link>https://euc365.com/categories/intune/</link>
-      <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/categories/intune/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Logic Apps</title>
-      <link>https://euc365.com/categories/logic-apps/</link>
-      <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/categories/logic-apps/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>PowerBI</title>
       <link>https://euc365.com/categories/powerbi/</link>
       <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
       
       <guid>https://euc365.com/categories/powerbi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Powershell</title>
-      <link>https://euc365.com/categories/powershell/</link>
-      <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/categories/powershell/</guid>
       <description></description>
     </item>
     
@@ -90,65 +71,20 @@
     </item>
     
     <item>
-      <title>Enterprise App</title>
-      <link>https://euc365.com/categories/enterprise-app/</link>
-      <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/categories/enterprise-app/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>iOS</title>
-      <link>https://euc365.com/categories/ios/</link>
-      <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/categories/ios/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SCIM</title>
-      <link>https://euc365.com/categories/scim/</link>
-      <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/categories/scim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Autopilot</title>
-      <link>https://euc365.com/categories/autopilot/</link>
-      <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/categories/autopilot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Conditional Access</title>
-      <link>https://euc365.com/categories/conditional-access/</link>
-      <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/categories/conditional-access/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Terms of Use</title>
-      <link>https://euc365.com/categories/terms-of-use/</link>
-      <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/categories/terms-of-use/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ConfigMGR</title>
-      <link>https://euc365.com/categories/configmgr/</link>
+      <title>MEMCM</title>
+      <link>https://euc365.com/categories/memcm/</link>
       <pubDate>Wed, 31 Mar 2021 03:08:00 +0000</pubDate>
       
-      <guid>https://euc365.com/categories/configmgr/</guid>
+      <guid>https://euc365.com/categories/memcm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Powershell</title>
+      <link>https://euc365.com/categories/powershell/</link>
+      <pubDate>Wed, 31 Mar 2021 03:08:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/categories/powershell/</guid>
       <description></description>
     </item>
     
@@ -171,11 +107,11 @@
     </item>
     
     <item>
-      <title>PowerShell Tools</title>
-      <link>https://euc365.com/categories/powershell-tools/</link>
+      <title>Community Tools</title>
+      <link>https://euc365.com/categories/community-tools/</link>
       <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euc365.com/categories/powershell-tools/</guid>
+      <guid>https://euc365.com/categories/community-tools/</guid>
       <description></description>
     </item>
     

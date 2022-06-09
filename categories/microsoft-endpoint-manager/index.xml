@@ -1,20 +1,136 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Microsoft Endpoint Manager on Home</title>
+    <title>Microsoft Endpoint Manager on EUC365</title>
     <link>https://euc365.com/categories/microsoft-endpoint-manager/</link>
-    <description>Recent content in Microsoft Endpoint Manager on Home</description>
+    <description>Recent content in Microsoft Endpoint Manager on EUC365</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Thu, 26 May 2022 14:00:00 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/microsoft-endpoint-manager/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Jun 2022 12:52:16 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/microsoft-endpoint-manager/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Getting Started with Samsung Knox for Enterprise</title>
-      <link>https://euc365.com/getting-started-with-samsung-knox-for-enterprise/</link>
-      <pubDate>Thu, 26 May 2022 14:00:00 +0000</pubDate>
+      <title>Configure Samsung Knox SSO with Azure </title>
+      <link>https://euc365.com/post/configure-samsung-knox-sso-azure/</link>
+      <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
       
-      <guid>https://euc365.com/getting-started-with-samsung-knox-for-enterprise/</guid>
-      <description>What is Samsung Knox? Samsung Knox is a service made up of a number of solutions such as Knox Mobile Enrollment and Knox Platform for Enterprise. Samsung Knox solutions provide extra security, and configurability and also improve the end-user onboarding experience.</description>
+      <guid>https://euc365.com/post/configure-samsung-knox-sso-azure/</guid>
+      <description>Why should I configure SSO? Configuring SSO in Knox   Login to Samsung Knox</description>
+    </item>
+    
+    <item>
+      <title>Microsoft Graph API and PowerBI</title>
+      <link>https://euc365.com/post/microsoft-graph-and-powerbi/</link>
+      <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/microsoft-graph-and-powerbi/</guid>
+      <description>A little bit about this post At MMS 2022 I took a huge leap and briefly presented this in the Tips &amp;amp; Tricks Session.</description>
+    </item>
+    
+    <item>
+      <title>Autopilot Enrolment Terms of Use</title>
+      <link>https://euc365.com/post/autopilot-enrolment-terms-of-use/</link>
+      <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/autopilot-enrolment-terms-of-use/</guid>
+      <description>Why would I want to do this? Whats the Purpose?</description>
+    </item>
+    
+    <item>
+      <title>Create Dynamic Application Packages with PowerShell</title>
+      <link>https://euc365.com/post/create-dynamic-application-packages-with-powershell/</link>
+      <pubDate>Wed, 31 Mar 2021 03:08:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/create-dynamic-application-packages-with-powershell/</guid>
+      <description>Dynamic? In what way? When I say the packages are dynamic, I mean that you don&amp;rsquo;t have to update the application package when a new version is released by the vendor.</description>
+    </item>
+    
+    <item>
+      <title>Deploy Windows Subsystem for Linux</title>
+      <link>https://euc365.com/post/deploy-windows-subsystem-for-linux/</link>
+      <pubDate>Mon, 15 Feb 2021 22:29:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/deploy-windows-subsystem-for-linux/</guid>
+      <description>What is the Windows Susbsystem for Linux? As per the Microsoft Documentation, The Windows Subsystem for Linux (WSL) is a new Windows 10 feature that enables you to run native Linux command-line tools directly on Windows, alongside your traditional Windows desktop and modern store apps.</description>
+    </item>
+    
+    <item>
+      <title>Creating Intune Win32 Apps</title>
+      <link>https://euc365.com/post/create-intune-win32-apps/</link>
+      <pubDate>Tue, 05 Jan 2021 20:17:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/create-intune-win32-apps/</guid>
+      <description>Win32 Apps, What Are they? If you&amp;rsquo;re familiar with Configuration Manager/MEMCM then think of these files as your source directory, the difference being you are effectively zipping it up and then uploading to Intune.</description>
+    </item>
+    
+    <item>
+      <title>Finding Microsoft Graph API&#39;s from the Web</title>
+      <link>https://euc365.com/post/finding-microsoft-graph-apis-from-the-web/</link>
+      <pubDate>Mon, 05 Oct 2020 16:18:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/finding-microsoft-graph-apis-from-the-web/</guid>
+      <description>Why do I need to find these? Welcome (Back) to another post about the graph API&amp;rsquo;s, This time it isn&amp;rsquo;t so much about rambling through documentation but about giving you a nice handy tip on your route to finding what API is been called when browsing in the Web Console.</description>
+    </item>
+    
+    <item>
+      <title>Backup and Import App Protection Policies</title>
+      <link>https://euc365.com/post/backup-and-import-app-protection-policies/</link>
+      <pubDate>Fri, 18 Sep 2020 08:49:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/backup-and-import-app-protection-policies/</guid>
+      <description>Why backup App Protection Policies? Why would you need to back up something that runs in stored and hosted on Azure?</description>
+    </item>
+    
+    <item>
+      <title>Backup and Import Conditional Access Policies</title>
+      <link>https://euc365.com/post/backup-and-import-conditional-access-policies/</link>
+      <pubDate>Mon, 14 Sep 2020 13:20:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/backup-and-import-conditional-access-policies/</guid>
+      <description>Why backup Conditional Access Policies? Why would you need to back up something that runs in stored and hosted on Azure?</description>
+    </item>
+    
+    <item>
+      <title>Backup and Import Intune Compliance Policies</title>
+      <link>https://euc365.com/post/backup-import-intune-compliance-policies/</link>
+      <pubDate>Wed, 09 Sep 2020 16:09:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/backup-import-intune-compliance-policies/</guid>
+      <description>Why backup Compliance Policies Why would you need to back up something that runs in stored and hosted on Azure?</description>
+    </item>
+    
+    <item>
+      <title>Backup and Import Intune Device Configuration Profiles</title>
+      <link>https://euc365.com/post/backup-import-intune-device-configuration-profiles/</link>
+      <pubDate>Wed, 02 Sep 2020 11:02:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/backup-import-intune-device-configuration-profiles/</guid>
+      <description>Why backup Device Configuration Profiles? Why would you need to back up something that runs in stored and hosted on Azure?</description>
+    </item>
+    
+    <item>
+      <title>Add devices to an Azure Group using the Microsoft Graph API</title>
+      <link>https://euc365.com/post/add-devices-azure-group-microsoft-graph-api/</link>
+      <pubDate>Tue, 11 Aug 2020 11:54:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/add-devices-azure-group-microsoft-graph-api/</guid>
+      <description>Have you ever needed to add a device to an Azure AD Group as part of your MEMCM or Autopilot deployment for specific app, profiles or scripts?</description>
+    </item>
+    
+    <item>
+      <title>Enrol Devices to Autopilot (Unattended)</title>
+      <link>https://euc365.com/post/enrol-devices-autopilot-unattended/</link>
+      <pubDate>Fri, 07 Aug 2020 17:17:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/enrol-devices-autopilot-unattended/</guid>
+      <description>I have been working on a project at the company I work for, and up to this point we have been primarily focused on getting new devices imported and deploying via Autopilot.</description>
+    </item>
+    
+    <item>
+      <title>Breaking Down Custom OMA-URI (CSP) Policies</title>
+      <link>https://euc365.com/post/breaking-custom-oma-uri-csp-policies/</link>
+      <pubDate>Tue, 30 Jun 2020 18:35:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/breaking-custom-oma-uri-csp-policies/</guid>
+      <description>What is an OMA-URI Policy? Meaning: Open Mobile Alliance Uniform Resource Identifier Traditionally when you implement a new piece of software which contains Group Policy Objects (GPO&amp;rsquo;s) to customise the feature of the application you would import the .</description>
     </item>
     
   </channel>

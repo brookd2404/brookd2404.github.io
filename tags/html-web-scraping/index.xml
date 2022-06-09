@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>HTML Web Scraping on Home</title>
+    <title>HTML Web Scraping on EUC365</title>
     <link>https://euc365.com/tags/html-web-scraping/</link>
-    <description>Recent content in HTML Web Scraping on Home</description>
+    <description>Recent content in HTML Web Scraping on EUC365</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
     <lastBuildDate>Wed, 31 Mar 2021 03:08:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/html-web-scraping/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Create Dynamic Application Packages with PowerShell</title>
-      <link>https://euc365.com/create-dynamic-application-packages-with-powershell/</link>
+      <link>https://euc365.com/post/create-dynamic-application-packages-with-powershell/</link>
       <pubDate>Wed, 31 Mar 2021 03:08:00 +0000</pubDate>
       
-      <guid>https://euc365.com/create-dynamic-application-packages-with-powershell/</guid>
-      <description>Dynamic? In what way? When I say the packages are dynamic, I mean that you don&amp;rsquo;t have to update the application package when a new version is released by the vendor.
-There are caveats to both methods that we walk through below, there are also other community and paid for tools to do similar things.</description>
+      <guid>https://euc365.com/post/create-dynamic-application-packages-with-powershell/</guid>
+      <description>Dynamic? In what way? When I say the packages are dynamic, I mean that you don&amp;rsquo;t have to update the application package when a new version is released by the vendor.</description>
     </item>
     
   </channel>

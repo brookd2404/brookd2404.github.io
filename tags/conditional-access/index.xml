@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Conditional Access on Home</title>
+    <title>Conditional Access on EUC365</title>
     <link>https://euc365.com/tags/conditional-access/</link>
-    <description>Recent content in Conditional Access on Home</description>
+    <description>Recent content in Conditional Access on EUC365</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
     <lastBuildDate>Sun, 16 May 2021 08:06:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/conditional-access/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Autopilot Enrolment Terms of Use</title>
-      <link>https://euc365.com/autopilot-enrolment-terms-of-use/</link>
+      <link>https://euc365.com/post/autopilot-enrolment-terms-of-use/</link>
       <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
       
-      <guid>https://euc365.com/autopilot-enrolment-terms-of-use/</guid>
-      <description>Why would I want to do this? Whats the Purpose? You maybe asking yourself why should I be adding Terms of use to Autopilot Enrolment? Well there are a few use cases that spring to mind.</description>
+      <guid>https://euc365.com/post/autopilot-enrolment-terms-of-use/</guid>
+      <description>Why would I want to do this? Whats the Purpose?</description>
     </item>
     
     <item>
       <title>Backup and Import Conditional Access Policies</title>
-      <link>https://euc365.com/backup-and-import-conditional-access-policies/</link>
+      <link>https://euc365.com/post/backup-and-import-conditional-access-policies/</link>
       <pubDate>Mon, 14 Sep 2020 13:20:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backup-and-import-conditional-access-policies/</guid>
-      <description>Why backup Conditional Access Policies? Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.
- If you make a change and you break something you can look back and analyse what it was You can make copies of the policy easily rather than having two windows side by side In case one is deleted… (Let’s hope this is never the case) To review the maturity of your policies (Lets say you started from ground zero and now have over 100 policy settings… Might be nice to review what you’ve done)  We also live in a world of change management and service improvement so there is always a need to make changes to policies and configurations.</description>
+      <guid>https://euc365.com/post/backup-and-import-conditional-access-policies/</guid>
+      <description>Why backup Conditional Access Policies? Why would you need to back up something that runs in stored and hosted on Azure?</description>
     </item>
     
   </channel>

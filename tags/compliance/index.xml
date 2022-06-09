@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Compliance on Home</title>
+    <title>Compliance on EUC365</title>
     <link>https://euc365.com/tags/compliance/</link>
-    <description>Recent content in Compliance on Home</description>
+    <description>Recent content in Compliance on EUC365</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
     <lastBuildDate>Wed, 09 Sep 2020 16:09:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/compliance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Backup and Import Intune Compliance Policies</title>
-      <link>https://euc365.com/backup-and-import-intune-compliance-policies/</link>
+      <link>https://euc365.com/post/backup-import-intune-compliance-policies/</link>
       <pubDate>Wed, 09 Sep 2020 16:09:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backup-and-import-intune-compliance-policies/</guid>
-      <description>Why backup Compliance Policies Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.
- If you make a change and you break something you can look back and analyse what it was You can make copies of the policy easily rather than having two windows side by side In case one is deleted… (Let’s hope this is never the case) To review the maturity of your policies (Lets say you started from ground zero and now have over 100 policy settings… Might be nice to review what you’ve done)  We also live in a world of change management and service improvement so there is always a need to make changes to policies and configurations.</description>
+      <guid>https://euc365.com/post/backup-import-intune-compliance-policies/</guid>
+      <description>Why backup Compliance Policies Why would you need to back up something that runs in stored and hosted on Azure?</description>
     </item>
     
   </channel>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SSO on EUC365</title>
+    <link>https://euc365.com/tags/sso/</link>
+    <description>Recent content in SSO on EUC365</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Jun 2022 12:52:16 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/sso/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Configure Samsung Knox SSO with Azure </title>
+      <link>https://euc365.com/post/configure-samsung-knox-sso-azure/</link>
+      <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/configure-samsung-knox-sso-azure/</guid>
+      <description>Why should I configure SSO? Configuring SSO in Knox   Login to Samsung Knox</description>
+    </item>
+    
+  </channel>
+</rss>

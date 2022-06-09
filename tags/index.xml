@@ -1,13 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Home</title>
+    <title>Tags on EUC365</title>
     <link>https://euc365.com/tags/</link>
-    <description>Recent content in Tags on Home</description>
+    <description>Recent content in Tags on EUC365</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Design By [EUC365](https://euc365.com/) Hosted By [GitHub](https://github.com/)</copyright>
-    <lastBuildDate>Thu, 26 May 2022 14:00:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Jun 2022 12:52:16 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Azure</title>
+      <link>https://euc365.com/tags/azure/</link>
+      <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Knox</title>
+      <link>https://euc365.com/tags/knox/</link>
+      <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/knox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Samsung</title>
+      <link>https://euc365.com/tags/samsung/</link>
+      <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/samsung/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSO</title>
+      <link>https://euc365.com/tags/sso/</link>
+      <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/sso/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Intune</title>
       <link>https://euc365.com/tags/intune/</link>
@@ -18,29 +53,11 @@
     </item>
     
     <item>
-      <title>Knox</title>
-      <link>https://euc365.com/tags/knox/</link>
-      <pubDate>Thu, 26 May 2022 14:00:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/knox/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Samsung</title>
-      <link>https://euc365.com/tags/samsung/</link>
-      <pubDate>Thu, 26 May 2022 14:00:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/samsung/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Azure</title>
-      <link>https://euc365.com/tags/azure/</link>
+      <title>App Registrations</title>
+      <link>https://euc365.com/tags/app-registrations/</link>
       <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/azure/</guid>
+      <guid>https://euc365.com/tags/app-registrations/</guid>
       <description></description>
     </item>
     
@@ -54,11 +71,11 @@
     </item>
     
     <item>
-      <title>Azure App Registrations</title>
-      <link>https://euc365.com/tags/azure-app-registrations/</link>
+      <title>Graph API</title>
+      <link>https://euc365.com/tags/graph-api/</link>
       <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/azure-app-registrations/</guid>
+      <guid>https://euc365.com/tags/graph-api/</guid>
       <description></description>
     </item>
     
@@ -68,15 +85,6 @@
       <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
       
       <guid>https://euc365.com/tags/logic-apps/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Microsoft Graph API</title>
-      <link>https://euc365.com/tags/microsoft-graph-api/</link>
-      <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/microsoft-graph-api/</guid>
       <description></description>
     </item>
     
@@ -99,15 +107,6 @@
     </item>
     
     <item>
-      <title>ABM</title>
-      <link>https://euc365.com/tags/abm/</link>
-      <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/abm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Apple Business Manager</title>
       <link>https://euc365.com/tags/apple-business-manager/</link>
       <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
@@ -126,29 +125,11 @@
     </item>
     
     <item>
-      <title>ASM</title>
-      <link>https://euc365.com/tags/asm/</link>
-      <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/asm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Azure Enterprise App</title>
       <link>https://euc365.com/tags/azure-enterprise-app/</link>
       <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
       
       <guid>https://euc365.com/tags/azure-enterprise-app/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SCIM</title>
-      <link>https://euc365.com/tags/scim/</link>
-      <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/scim/</guid>
       <description></description>
     </item>
     
@@ -189,15 +170,6 @@
     </item>
     
     <item>
-      <title>ConfigMGR</title>
-      <link>https://euc365.com/tags/configmgr/</link>
-      <pubDate>Wed, 31 Mar 2021 03:08:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/configmgr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>GitHub API</title>
       <link>https://euc365.com/tags/github-api/</link>
       <pubDate>Wed, 31 Mar 2021 03:08:00 +0000</pubDate>
@@ -216,11 +188,11 @@
     </item>
     
     <item>
-      <title>Windows Store for Business</title>
-      <link>https://euc365.com/tags/windows-store-for-business/</link>
+      <title>MEMCM</title>
+      <link>https://euc365.com/tags/memcm/</link>
       <pubDate>Mon, 15 Feb 2021 22:29:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/windows-store-for-business/</guid>
+      <guid>https://euc365.com/tags/memcm/</guid>
       <description></description>
     </item>
     
@@ -252,15 +224,6 @@
     </item>
     
     <item>
-      <title>Configuration Profile</title>
-      <link>https://euc365.com/tags/configuration-profile/</link>
-      <pubDate>Tue, 30 Jun 2020 18:35:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/configuration-profile/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Group Policy</title>
       <link>https://euc365.com/tags/group-policy/</link>
       <pubDate>Tue, 30 Jun 2020 18:35:00 +0000</pubDate>
@@ -270,9 +233,9 @@
     </item>
     
     <item>
-      <title>Powershell Tools</title>
+      <title>PowerShell Tools</title>
       <link>https://euc365.com/tags/powershell-tools/</link>
-      <pubDate>Tue, 30 Jun 2020 18:35:00 +0000</pubDate>
+      <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://euc365.com/tags/powershell-tools/</guid>
       <description></description>
