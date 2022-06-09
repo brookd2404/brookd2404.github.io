@@ -9,64 +9,64 @@
     <lastBuildDate>Wed, 25 May 2022 10:05:00 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/azure/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Microsoft Graph API and PowerBI</title>
-      <link>https://euc365.com/post/microsoft-graph-and-powerbi/</link>
+      <link>https://euc365.com/microsoft-graph-and-powerbi/</link>
       <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/microsoft-graph-and-powerbi/</guid>
+      <guid>https://euc365.com/microsoft-graph-and-powerbi/</guid>
       <description>A little bit about this post At MMS 2022 I took a huge leap and briefly presented this in the Tips &amp;amp; Tricks Session.</description>
     </item>
     
     <item>
       <title>Update Apple SCIM Token</title>
-      <link>https://euc365.com/post/update-apple-scim-token/</link>
+      <link>https://euc365.com/update-apple-scim-token/</link>
       <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/update-apple-scim-token/</guid>
+      <guid>https://euc365.com/update-apple-scim-token/</guid>
       <description>What is SCIM? Meaning: SCIM (System for Cross-domain Identity Management)</description>
     </item>
     
     <item>
       <title>Autopilot Enrolment Terms of Use</title>
-      <link>https://euc365.com/post/autopilot-enrolment-terms-of-use/</link>
+      <link>https://euc365.com/autopilot-enrolment-terms-of-use/</link>
       <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/autopilot-enrolment-terms-of-use/</guid>
+      <guid>https://euc365.com/autopilot-enrolment-terms-of-use/</guid>
       <description>Why would I want to do this? Whats the Purpose?</description>
     </item>
     
     <item>
       <title>Finding Microsoft Graph API&#39;s from the Web</title>
-      <link>https://euc365.com/post/finding-microsoft-graph-apis-from-the-web/</link>
+      <link>https://euc365.com/finding-microsoft-graph-apis-from-the-web/</link>
       <pubDate>Mon, 05 Oct 2020 16:18:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/finding-microsoft-graph-apis-from-the-web/</guid>
+      <guid>https://euc365.com/finding-microsoft-graph-apis-from-the-web/</guid>
       <description>Why do I need to find these? Welcome (Back) to another post about the graph API&amp;rsquo;s, This time it isn&amp;rsquo;t so much about rambling through documentation but about giving you a nice handy tip on your route to finding what API is been called when browsing in the Web Console.</description>
     </item>
     
     <item>
       <title>Backup and Import Conditional Access Policies</title>
-      <link>https://euc365.com/post/backup-and-import-conditional-access-policies/</link>
+      <link>https://euc365.com/backup-and-import-conditional-access-policies/</link>
       <pubDate>Mon, 14 Sep 2020 13:20:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/backup-and-import-conditional-access-policies/</guid>
+      <guid>https://euc365.com/backup-and-import-conditional-access-policies/</guid>
       <description>Why backup Conditional Access Policies? Why would you need to back up something that runs in stored and hosted on Azure?</description>
     </item>
     
     <item>
       <title>Add devices to an Azure Group using the Microsoft Graph API</title>
-      <link>https://euc365.com/post/add-devices-azure-group-microsoft-graph-api/</link>
+      <link>https://euc365.com/add-devices-azure-group-microsoft-graph-api/</link>
       <pubDate>Tue, 11 Aug 2020 11:54:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/add-devices-azure-group-microsoft-graph-api/</guid>
+      <guid>https://euc365.com/add-devices-azure-group-microsoft-graph-api/</guid>
       <description>Have you ever needed to add a device to an Azure AD Group as part of your MEMCM or Autopilot deployment for specific app, profiles or scripts?</description>
     </item>
     
     <item>
       <title>Create an Azure App Registration</title>
-      <link>https://euc365.com/post/create-azure-app-registration/</link>
+      <link>https://euc365.com/create-azure-app-registration/</link>
       <pubDate>Wed, 08 Jul 2020 10:00:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/create-azure-app-registration/</guid>
+      <guid>https://euc365.com/create-azure-app-registration/</guid>
       <description>What can you use an Azure App Registration for An Azure App Registration has many uses, in my case I use it mainly for the Microsoft Graph API to perform Intune Configuration Profile backups, List devices, Update local CMDB dynamically and also enrol devices into Autopilot.</description>
     </item>
     

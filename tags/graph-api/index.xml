@@ -9,73 +9,73 @@
     <lastBuildDate>Wed, 25 May 2022 10:05:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/graph-api/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Microsoft Graph API and PowerBI</title>
-      <link>https://euc365.com/post/microsoft-graph-and-powerbi/</link>
+      <link>https://euc365.com/microsoft-graph-and-powerbi/</link>
       <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/microsoft-graph-and-powerbi/</guid>
+      <guid>https://euc365.com/microsoft-graph-and-powerbi/</guid>
       <description>A little bit about this post At MMS 2022 I took a huge leap and briefly presented this in the Tips &amp;amp; Tricks Session.</description>
     </item>
     
     <item>
       <title>Finding Microsoft Graph API&#39;s from the Web</title>
-      <link>https://euc365.com/post/finding-microsoft-graph-apis-from-the-web/</link>
+      <link>https://euc365.com/finding-microsoft-graph-apis-from-the-web/</link>
       <pubDate>Mon, 05 Oct 2020 16:18:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/finding-microsoft-graph-apis-from-the-web/</guid>
+      <guid>https://euc365.com/finding-microsoft-graph-apis-from-the-web/</guid>
       <description>Why do I need to find these? Welcome (Back) to another post about the graph API&amp;rsquo;s, This time it isn&amp;rsquo;t so much about rambling through documentation but about giving you a nice handy tip on your route to finding what API is been called when browsing in the Web Console.</description>
     </item>
     
     <item>
       <title>Backup and Import App Protection Policies</title>
-      <link>https://euc365.com/post/backup-and-import-app-protection-policies/</link>
+      <link>https://euc365.com/backup-and-import-app-protection-policies/</link>
       <pubDate>Fri, 18 Sep 2020 08:49:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/backup-and-import-app-protection-policies/</guid>
+      <guid>https://euc365.com/backup-and-import-app-protection-policies/</guid>
       <description>Why backup App Protection Policies? Why would you need to back up something that runs in stored and hosted on Azure?</description>
     </item>
     
     <item>
       <title>Backup and Import Conditional Access Policies</title>
-      <link>https://euc365.com/post/backup-and-import-conditional-access-policies/</link>
+      <link>https://euc365.com/backup-and-import-conditional-access-policies/</link>
       <pubDate>Mon, 14 Sep 2020 13:20:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/backup-and-import-conditional-access-policies/</guid>
+      <guid>https://euc365.com/backup-and-import-conditional-access-policies/</guid>
       <description>Why backup Conditional Access Policies? Why would you need to back up something that runs in stored and hosted on Azure?</description>
     </item>
     
     <item>
       <title>Backup and Import Intune Compliance Policies</title>
-      <link>https://euc365.com/post/backup-import-intune-compliance-policies/</link>
+      <link>https://euc365.com/backup-import-intune-compliance-policies/</link>
       <pubDate>Wed, 09 Sep 2020 16:09:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/backup-import-intune-compliance-policies/</guid>
+      <guid>https://euc365.com/backup-import-intune-compliance-policies/</guid>
       <description>Why backup Compliance Policies Why would you need to back up something that runs in stored and hosted on Azure?</description>
     </item>
     
     <item>
       <title>Backup and Import Intune Device Configuration Profiles</title>
-      <link>https://euc365.com/post/backup-import-intune-device-configuration-profiles/</link>
+      <link>https://euc365.com/backup-import-intune-device-configuration-profiles/</link>
       <pubDate>Wed, 02 Sep 2020 11:02:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/backup-import-intune-device-configuration-profiles/</guid>
+      <guid>https://euc365.com/backup-import-intune-device-configuration-profiles/</guid>
       <description>Why backup Device Configuration Profiles? Why would you need to back up something that runs in stored and hosted on Azure?</description>
     </item>
     
     <item>
       <title>Add devices to an Azure Group using the Microsoft Graph API</title>
-      <link>https://euc365.com/post/add-devices-azure-group-microsoft-graph-api/</link>
+      <link>https://euc365.com/add-devices-azure-group-microsoft-graph-api/</link>
       <pubDate>Tue, 11 Aug 2020 11:54:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/add-devices-azure-group-microsoft-graph-api/</guid>
+      <guid>https://euc365.com/add-devices-azure-group-microsoft-graph-api/</guid>
       <description>Have you ever needed to add a device to an Azure AD Group as part of your MEMCM or Autopilot deployment for specific app, profiles or scripts?</description>
     </item>
     
     <item>
       <title>Enrol Devices to Autopilot (Unattended)</title>
-      <link>https://euc365.com/post/enrol-devices-autopilot-unattended/</link>
+      <link>https://euc365.com/enrol-devices-autopilot-unattended/</link>
       <pubDate>Fri, 07 Aug 2020 17:17:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/enrol-devices-autopilot-unattended/</guid>
+      <guid>https://euc365.com/enrol-devices-autopilot-unattended/</guid>
       <description>I have been working on a project at the company I work for, and up to this point we have been primarily focused on getting new devices imported and deploying via Autopilot.</description>
     </item>
     

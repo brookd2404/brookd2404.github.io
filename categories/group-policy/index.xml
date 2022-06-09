@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 30 Jun 2020 18:35:00 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/group-policy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Breaking Down Custom OMA-URI (CSP) Policies</title>
-      <link>https://euc365.com/post/breaking-custom-oma-uri-csp-policies/</link>
+      <link>https://euc365.com/breaking-custom-oma-uri-csp-policies/</link>
       <pubDate>Tue, 30 Jun 2020 18:35:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/breaking-custom-oma-uri-csp-policies/</guid>
+      <guid>https://euc365.com/breaking-custom-oma-uri-csp-policies/</guid>
       <description>What is an OMA-URI Policy? Meaning: Open Mobile Alliance Uniform Resource Identifier Traditionally when you implement a new piece of software which contains Group Policy Objects (GPO&amp;rsquo;s) to customise the feature of the application you would import the .</description>
     </item>
     
