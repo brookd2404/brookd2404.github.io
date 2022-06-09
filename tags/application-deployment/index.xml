@@ -27,10 +27,10 @@
     
     <item>
       <title>Creating Intune Win32 Apps</title>
-      <link>https://euc365.com/create-intune-win32-apps/</link>
+      <link>https://euc365.com/creating-intune-win32-apps/</link>
       <pubDate>Tue, 05 Jan 2021 20:17:00 +0000</pubDate>
       
-      <guid>https://euc365.com/create-intune-win32-apps/</guid>
+      <guid>https://euc365.com/creating-intune-win32-apps/</guid>
       <description>Win32 Apps, What Are they? If you&amp;rsquo;re familiar with Configuration Manager/MEMCM then think of these files as your source directory, the difference being you are effectively zipping it up and then uploading to Intune.</description>
     </item>
     

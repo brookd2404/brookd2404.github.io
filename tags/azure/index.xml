@@ -63,19 +63,19 @@
     
     <item>
       <title>Add devices to an Azure Group using the Microsoft Graph API</title>
-      <link>https://euc365.com/add-devices-azure-group-microsoft-graph-api/</link>
+      <link>https://euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</link>
       <pubDate>Tue, 11 Aug 2020 11:54:00 +0000</pubDate>
       
-      <guid>https://euc365.com/add-devices-azure-group-microsoft-graph-api/</guid>
+      <guid>https://euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</guid>
       <description>Have you ever needed to add a device to an Azure AD Group as part of your MEMCM or Autopilot deployment for specific app, profiles or scripts?</description>
     </item>
     
     <item>
       <title>Create an Azure App Registration</title>
-      <link>https://euc365.com/create-azure-app-registration/</link>
+      <link>https://euc365.com/create_an_azure_app_registration/</link>
       <pubDate>Wed, 08 Jul 2020 10:00:00 +0000</pubDate>
       
-      <guid>https://euc365.com/create-azure-app-registration/</guid>
+      <guid>https://euc365.com/create_an_azure_app_registration/</guid>
       <description>What can you use an Azure App Registration for An Azure App Registration has many uses, in my case I use it mainly for the Microsoft Graph API to perform Intune Configuration Profile backups, List devices, Update local CMDB dynamically and also enrol devices into Autopilot.</description>
     </item>
     
