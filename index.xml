@@ -6,7 +6,7 @@
     <description>Recent content on EUC365</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jun 2022 12:52:16 +0000</lastBuildDate><atom:link href="https://euc365.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Jun 2022 16:46:25 +0000</lastBuildDate><atom:link href="https://euc365.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Configure Samsung Knox SSO with Azure </title>
       <link>https://euc365.com/configure-samsung-knox-sso-azure/</link>
@@ -153,10 +153,10 @@
     
     <item>
       <title>Enrol Devices to Autopilot (Unattended)</title>
-      <link>https://euc365.com/enrol-devices-autopilot-unattended/</link>
+      <link>https://euc365.com/enrol-devices-to-autopilot-unattended/</link>
       <pubDate>Fri, 07 Aug 2020 17:17:00 +0000</pubDate>
       
-      <guid>https://euc365.com/enrol-devices-autopilot-unattended/</guid>
+      <guid>https://euc365.com/enrol-devices-to-autopilot-unattended/</guid>
       <description>I have been working on a project at the company I work for, and up to this point we have been primarily focused on getting new devices imported and deploying via Autopilot.</description>
     </item>
     

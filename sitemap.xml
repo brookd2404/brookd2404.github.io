@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://euc365.com/</loc>
+    <lastmod>2022-06-09T16:46:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/post/</loc>
+    <lastmod>2022-06-09T16:46:25+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://euc365.com/tags/azure/</loc>
     <lastmod>2022-06-09T15:27:24+00:00</lastmod>
   </url>
@@ -18,11 +28,6 @@
   </url>
   
   <url>
-    <loc>https://euc365.com/</loc>
-    <lastmod>2022-06-09T15:27:24+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://euc365.com/tags/knox/</loc>
     <lastmod>2022-06-09T13:17:03+00:00</lastmod>
   </url>
@@ -35,11 +40,6 @@
   <url>
     <loc>https://euc365.com/categories/mobile-device-management/</loc>
     <lastmod>2022-06-09T13:17:03+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/post/</loc>
-    <lastmod>2022-06-09T15:27:24+00:00</lastmod>
   </url>
   
   <url>
@@ -273,7 +273,7 @@
   </url>
   
   <url>
-    <loc>https://euc365.com/enrol-devices-autopilot-unattended/</loc>
+    <loc>https://euc365.com/enrol-devices-to-autopilot-unattended/</loc>
     <lastmod>2022-06-09T14:46:38+00:00</lastmod>
   </url>
   
