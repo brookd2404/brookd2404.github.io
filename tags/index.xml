@@ -6,20 +6,11 @@
     <description>Recent content in Tags on EUC365</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jun 2022 12:52:16 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Azure</title>
-      <link>https://euc365.com/tags/azure/</link>
-      <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/azure/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Fri, 17 Jun 2022 14:19:57 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Knox</title>
       <link>https://euc365.com/tags/knox/</link>
-      <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
+      <pubDate>Fri, 17 Jun 2022 14:19:57 +0000</pubDate>
       
       <guid>https://euc365.com/tags/knox/</guid>
       <description></description>
@@ -28,9 +19,18 @@
     <item>
       <title>Samsung</title>
       <link>https://euc365.com/tags/samsung/</link>
-      <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
+      <pubDate>Fri, 17 Jun 2022 14:19:57 +0000</pubDate>
       
       <guid>https://euc365.com/tags/samsung/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Azure</title>
+      <link>https://euc365.com/tags/azure/</link>
+      <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/azure/</guid>
       <description></description>
     </item>
     

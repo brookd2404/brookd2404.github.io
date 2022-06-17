@@ -3,22 +3,57 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://euc365.com/categories/</loc>
+    <lastmod>2022-06-17T14:19:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/post/disable-wifi-mac-randomization-samsung-devices/</loc>
+    <lastmod>2022-06-17T14:19:58+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://euc365.com/</loc>
-    <lastmod>2022-06-09T16:46:25+00:00</lastmod>
+    <lastmod>2022-06-17T14:19:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/tags/knox/</loc>
+    <lastmod>2022-06-17T14:19:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/categories/microsoft-endpoint-manager/</loc>
+    <lastmod>2022-06-17T14:19:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/categories/mobile-device-management/</loc>
+    <lastmod>2022-06-17T14:19:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/tags/samsung/</loc>
+    <lastmod>2022-06-17T14:19:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/categories/samsung-knox/</loc>
+    <lastmod>2022-06-17T14:19:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://euc365.com/tags/</loc>
+    <lastmod>2022-06-17T14:19:58+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://euc365.com/post/</loc>
-    <lastmod>2022-06-09T16:46:25+00:00</lastmod>
+    <lastmod>2022-06-10T09:08:42+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://euc365.com/tags/azure/</loc>
-    <lastmod>2022-06-09T15:27:24+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/categories/</loc>
     <lastmod>2022-06-09T15:27:24+00:00</lastmod>
   </url>
   
@@ -28,38 +63,8 @@
   </url>
   
   <url>
-    <loc>https://euc365.com/tags/knox/</loc>
-    <lastmod>2022-06-09T13:17:03+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/categories/microsoft-endpoint-manager/</loc>
-    <lastmod>2022-06-09T15:25:03+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/categories/mobile-device-management/</loc>
-    <lastmod>2022-06-09T13:17:03+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/tags/samsung/</loc>
-    <lastmod>2022-06-09T13:17:03+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/categories/samsung-knox/</loc>
-    <lastmod>2022-06-09T13:17:03+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://euc365.com/tags/sso/</loc>
     <lastmod>2022-06-09T13:17:03+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://euc365.com/tags/</loc>
-    <lastmod>2022-06-09T15:27:24+00:00</lastmod>
   </url>
   
   <url>
@@ -74,12 +79,12 @@
   
   <url>
     <loc>https://euc365.com/getting-started-with-knox-mobile-enrollment/</loc>
-    <lastmod>2022-06-09T11:09:13+00:00</lastmod>
+    <lastmod>2022-06-10T13:42:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://euc365.com/tags/intune/</loc>
-    <lastmod>2022-06-09T15:25:03+00:00</lastmod>
+    <lastmod>2022-06-10T13:42:00+00:00</lastmod>
   </url>
   
   <url>
