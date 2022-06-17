@@ -1,348 +1,208 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://euc365.com/categories/</loc>
     <lastmod>2022-06-17T14:19:58+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/post/disable-wifi-mac-randomization-samsung-devices/</loc>
     <lastmod>2022-06-17T14:19:58+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/</loc>
     <lastmod>2022-06-17T14:19:58+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/knox/</loc>
     <lastmod>2022-06-17T14:19:58+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/categories/microsoft-endpoint-manager/</loc>
     <lastmod>2022-06-17T14:19:58+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/categories/mobile-device-management/</loc>
     <lastmod>2022-06-17T14:19:58+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/samsung/</loc>
     <lastmod>2022-06-17T14:19:58+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/categories/samsung-knox/</loc>
     <lastmod>2022-06-17T14:19:58+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/</loc>
     <lastmod>2022-06-17T14:19:58+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/post/</loc>
     <lastmod>2022-06-10T09:08:42+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/azure/</loc>
     <lastmod>2022-06-09T15:27:24+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/configure-samsung-knox-sso-azure/</loc>
     <lastmod>2022-06-09T13:17:03+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/sso/</loc>
     <lastmod>2022-06-09T13:17:03+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/contact/</loc>
     <lastmod>2022-06-08T15:52:36+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/about-me/</loc>
     <lastmod>2022-06-07T15:08:06+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/getting-started-with-knox-mobile-enrollment/</loc>
     <lastmod>2022-06-10T13:42:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/intune/</loc>
     <lastmod>2022-06-10T13:42:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/app-registrations/</loc>
     <lastmod>2022-06-09T14:46:38+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/categories/azure/</loc>
     <lastmod>2022-06-09T15:27:24+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/azure-ad/</loc>
     <lastmod>2022-06-09T15:27:24+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/graph-api/</loc>
     <lastmod>2022-06-09T14:46:38+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/categories/graph-api/</loc>
     <lastmod>2022-06-09T14:46:38+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/logic-apps/</loc>
     <lastmod>2022-06-09T13:32:54+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/microsoft-graph-and-powerbi/</loc>
     <lastmod>2022-06-09T13:32:54+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/powerbi/</loc>
     <lastmod>2022-06-09T13:32:54+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/categories/powerbi/</loc>
     <lastmod>2022-06-09T13:32:54+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/powershell/</loc>
     <lastmod>2022-06-09T15:25:03+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/categories/apple/</loc>
     <lastmod>2022-06-09T15:27:24+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/apple-business-manager/</loc>
     <lastmod>2022-06-09T15:27:24+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/apple-school-manager/</loc>
     <lastmod>2022-06-09T15:27:24+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/azure-enterprise-app/</loc>
     <lastmod>2022-06-09T15:27:24+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/update-apple-scim-token/</loc>
     <lastmod>2022-06-09T15:27:24+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/autopilot/</loc>
     <lastmod>2022-06-09T15:17:43+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/autopilot-enrolment-terms-of-use/</loc>
     <lastmod>2022-06-09T15:17:43+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/conditional-access/</loc>
     <lastmod>2022-06-09T15:17:43+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/terms-of-use/</loc>
     <lastmod>2022-06-09T15:17:43+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/application-deployment/</loc>
     <lastmod>2022-06-09T15:25:03+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/create-dynamic-application-packages-with-powershell/</loc>
     <lastmod>2022-06-09T15:24:28+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/github-api/</loc>
     <lastmod>2022-06-09T15:24:28+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/html-web-scraping/</loc>
     <lastmod>2022-06-09T15:24:28+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/categories/memcm/</loc>
     <lastmod>2022-06-09T15:25:03+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/categories/powershell/</loc>
     <lastmod>2022-06-09T15:25:03+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/deploy-windows-subsystem-for-linux/</loc>
     <lastmod>2022-06-09T15:25:03+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/memcm/</loc>
     <lastmod>2022-06-09T15:25:03+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/categories/windows-store-for-business/</loc>
     <lastmod>2022-06-09T15:25:03+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/creating-intune-win32-apps/</loc>
     <lastmod>2022-06-09T13:24:55+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/finding-microsoft-graph-apis-from-the-web/</loc>
     <lastmod>2022-06-09T13:25:48+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/app-protection/</loc>
     <lastmod>2022-06-09T07:54:12+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/backup-and-import-app-protection-policies/</loc>
     <lastmod>2022-06-09T07:54:12+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/backup-and-import-conditional-access-policies/</loc>
     <lastmod>2022-06-09T13:27:25+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/backup-and-import-intune-compliance-policies/</loc>
     <lastmod>2022-06-09T13:26:18+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/compliance/</loc>
     <lastmod>2022-06-09T13:26:18+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/backing-up-intune-device-configuration-profiles/</loc>
     <lastmod>2022-06-07T14:39:46+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/configuration-profiles/</loc>
     <lastmod>2022-06-09T07:41:05+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</loc>
     <lastmod>2022-06-09T13:33:28+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/enrol-devices-to-autopilot-unattended/</loc>
     <lastmod>2022-06-09T14:46:38+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/create_an_azure_app_registration/</loc>
     <lastmod>2020-07-08T10:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/breaking-custom-oma-uri-csp-policies/</loc>
     <lastmod>2022-06-09T07:41:05+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/group-policy/</loc>
     <lastmod>2022-06-09T07:41:05+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/categories/group-policy/</loc>
     <lastmod>2022-06-09T07:41:05+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/categories/community-tools/</loc>
     <lastmod>2022-06-07T14:11:30+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/getdeviceinfo/</loc>
     <lastmod>2022-06-07T14:11:30+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/tags/powershell-tools/</loc>
     <lastmod>2022-06-07T14:11:30+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/404/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/about-us/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/author/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/cookies/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/author/david-brook/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/privacy-policy/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://euc365.com/search/</loc>
   </url>
-  
 </urlset>

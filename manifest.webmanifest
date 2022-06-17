@@ -1,0 +1,54 @@
+{
+  "name": "EUC365 | Modern Technology Blog",
+  "short_name": "EUC365 | Modern Technology Blog",
+  "lang": "en-us",
+  
+  "background_color": "#fff",
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  "icons": [
+    {
+      "src": "/images/favicon_hu4755f8269edb59e26e9c58e4493f89a7_5743_48x0_resize_box_3.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon_hu4755f8269edb59e26e9c58e4493f89a7_5743_72x0_resize_box_3.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon_hu4755f8269edb59e26e9c58e4493f89a7_5743_96x0_resize_box_3.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon_hu4755f8269edb59e26e9c58e4493f89a7_5743_144x0_resize_box_3.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon_hu4755f8269edb59e26e9c58e4493f89a7_5743_192x0_resize_box_3.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon_hu4755f8269edb59e26e9c58e4493f89a7_5743_512x0_resize_box_3.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  
+  
+  "display": "standalone",
+  "start_url": "/?utm_source=web_app_manifest"
+}
