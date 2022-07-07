@@ -6,7 +6,16 @@
     <description>Recent content in Azure on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 May 2022 10:05:00 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/azure/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Jul 2022 10:34:57 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/azure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deny Resource Type Creation with Azure Policy</title>
+      <link>https://euc365.com/post/deny-resource-type-creation-azure-policy/</link>
+      <pubDate>Thu, 07 Jul 2022 10:34:57 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/deny-resource-type-creation-azure-policy/</guid>
+      <description>What is Azure Policy? Azure Policy is a way to help organisations enforce standards and compliance.</description>
+    </item>
+    
     <item>
       <title>Microsoft Graph API and PowerBI</title>
       <link>https://euc365.com/microsoft-graph-and-powerbi/</link>
