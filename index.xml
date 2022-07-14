@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 07 Jul 2022 10:34:57 +0000</lastBuildDate><atom:link href="https://euc365.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>About Me</title>
+      <link>https://euc365.com/about-me/</link>
+      <pubDate>Thu, 14 Jul 2022 21:31:36 +0000</pubDate>
+      
+      <guid>https://euc365.com/about-me/</guid>
+      <description>Hey there! I’m David Brook. Microsoft Modern Management Evangelist.</description>
+    </item>
+    
+    <item>
       <title>Deny Resource Type Creation with Azure Policy</title>
       <link>https://euc365.com/post/deny-resource-type-creation-azure-policy/</link>
       <pubDate>Thu, 07 Jul 2022 10:34:57 +0000</pubDate>
@@ -41,15 +50,6 @@
       
       <guid>https://euc365.com/contact/</guid>
       <description>I would Love To Hear From You&amp;hellip;. </description>
-    </item>
-    
-    <item>
-      <title>About Me</title>
-      <link>https://euc365.com/about-me/</link>
-      <pubDate>Tue, 07 Jun 2022 15:08:06 +0000</pubDate>
-      
-      <guid>https://euc365.com/about-me/</guid>
-      <description>Hey there! I’m David Brook. Microsoft Modern Management Evangelist.</description>
     </item>
     
     <item>
