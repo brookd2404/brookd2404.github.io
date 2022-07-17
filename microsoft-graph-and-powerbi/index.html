@@ -54,7 +54,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://euc365.com/microsoft-graph-and-powerbi/" /><meta property="og:image" content="https://euc365.com/images/post/graphbi/logo.png" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-05-25T10:05:00+00:00" />
-<meta property="article:modified_time" content="2022-07-17T10:07:44+00:00" />
+<meta property="article:modified_time" content="2022-07-17T10:54:30+00:00" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -401,6 +401,7 @@ if (!doNotTrack) {
 <li>The ability to create an Azure Logic App</li>
 <li><a href="https://www.microsoft.com/en-gb/download/details.aspx?id=58494">PowerBI Desktop</a></li>
 </ol>
+<hr>
 <h2 id="lets-get-started">Let&rsquo;s get started</h2>
 <p>During this post, we will be looking at the web call to gather the bearer token and two different methods of getting data from the Graph API, and how we use them side by side to ensure we are not burning money on a consumption Logic Apps.</p>
 <h3 id="authentication">Authentication</h3>
@@ -775,8 +776,8 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-<br> 
-## Creating the first query
+<hr>
+<h2 id="creating-the-first-query">Creating the first query</h2>
 <p>Lets head back in to the Power Query Editor (Transform Data) and start building up our first query.</p>
 <ol>
 <li>From the ribbon select <strong>New Source &gt; Blank Query</strong></li>
@@ -890,7 +891,7 @@ MSGraphLA <span style="color:#f92672">=</span>
 <p>THe final nested function is <strong>GraphCall</strong>, this function is to be used on an ad-hoc basis. For example, I use this function when I collect the Hardware Information for a device, and the reason I do that is because when you query the device endpoint like we have done here, you do not get all of the values from the Hardware Information field. This function is basically the direct call to the Graph API, without pagination.</p>
 <p>Ok, so that&rsquo;s a start, you are now at a point were you have data within you PowerBI Report, Now you can feel free to continue the drill down of data yourself, however for anyone who wants that old Art Attack moment of <strong>&lsquo;Here&rsquo;s one I made earlier&rsquo;</strong> you can use the below query.</p>
 <p><strong>NOTE: There is still unexpanded columns with the query below, please expand them if required.</strong></p>
-<p>
+
 
 <div class="border border-default collapse-wrapper">
   <a class="d-flex p-2 collapse-head" data-toggle="collapse" href="#powerbi-query-drilled-down" role="button">
@@ -970,7 +971,7 @@ MSGraphLA <span style="color:#f92672">=</span>
     #&#34;Expanded Column1&#34;
 </code></pre></div></div></div>
 </div>
-<br></p>
+<hr>
 <h2 id="using-the-ad-hoc-graphcall-function">Using the Ad-hoc GraphCall Function</h2>
 <p>In the previous part of this post, you created the first query which used the Logic App to gather all of its data. This section will explain how to use this side by side with an ad-hoc function to gather additional data from the Graph API.</p>
 <p>For this example we will focus on gathering the <strong>Hardware Information</strong> of the devices. As mentioned above, calling the API Endpoint for the devices does not provide all of the information within the <strong>Hardware Information</strong> object, so to get the most of the dataset available we need to call device endpoint with the device id to expand the hardware information. Lets jump in and get going.</p>
@@ -1173,6 +1174,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
+<hr>
 <h2 id="conclusion">Conclusion</h2>
 <p>You now have the tools to gather all of your data into PowerBI, one thing to note is that depending on amount of objects you are querying your refresh time may be extended. Using the method where you collect devices ids and then call on each object to gather data also extends the refresh time. However, if you are running this on a refresh cycle that may not be such an issue, but it is worth noting.</p>
 <p>There may be better ways to do this, but this is only the first iteration of a working model, there may very well be more to come in the future.</p>
@@ -1238,6 +1240,8 @@ Voilà!, you now have the hardware information for each device. There are still 
   <ul class="list-unstyled widget-list">
     <li><a href="/categories/apple" class="d-flex">Apple <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/azure" class="d-flex">Azure <small class="ml-auto">(8)</small></a></li>
+    <li><a href="/categories/azure-resource-manager" class="d-flex">Azure resource manager <small class="ml-auto">(1)</small></a></li>
+    <li><a href="/categories/bicep" class="d-flex">Bicep <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/community-tools" class="d-flex">Community tools <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/governance" class="d-flex">Governance <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/graph-api" class="d-flex">Graph API <small class="ml-auto">(6)</small></a></li>
@@ -1265,6 +1269,8 @@ Voilà!, you now have the hardware information for each device. There are still 
     <li class="list-inline-item"><a
         href="/tags/application-deployment">Application deployment</a></li>
     <li class="list-inline-item"><a
+        href="/tags/arm">Arm</a></li>
+    <li class="list-inline-item"><a
         href="/tags/autopilot">Autopilot</a></li>
     <li class="list-inline-item"><a
         href="/tags/azure">Azure</a></li>
@@ -1274,6 +1280,8 @@ Voilà!, you now have the hardware information for each device. There are still 
         href="/tags/azure-enterprise-app">Azure enterprise app</a></li>
     <li class="list-inline-item"><a
         href="/tags/azure-policy">Azure policy</a></li>
+    <li class="list-inline-item"><a
+        href="/tags/bicep">Bicep</a></li>
     <li class="list-inline-item"><a
         href="/tags/compliance">Compliance</a></li>
     <li class="list-inline-item"><a
@@ -1288,6 +1296,8 @@ Voilà!, you now have the hardware information for each device. There are still 
         href="/tags/group-policy">Group policy</a></li>
     <li class="list-inline-item"><a
         href="/tags/html-web-scraping">HTML web scraping</a></li>
+    <li class="list-inline-item"><a
+        href="/tags/infrastructure-as-code">Infrastructure as code</a></li>
     <li class="list-inline-item"><a
         href="/tags/intune">Intune</a></li>
     <li class="list-inline-item"><a

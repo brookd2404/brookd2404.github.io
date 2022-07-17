@@ -2,17 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://euc365.com/tags/arm/</loc>
+    <lastmod>2022-07-17T11:50:11+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/azure-resource-manager/</loc>
+    <lastmod>2022-07-17T11:50:11+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/bicep/</loc>
+    <lastmod>2022-07-17T11:50:11+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/bicep/</loc>
+    <lastmod>2022-07-17T11:50:11+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/</loc>
+    <lastmod>2022-07-17T11:50:11+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/</loc>
+    <lastmod>2022-07-17T11:50:11+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/infrastructure-as-code/</loc>
+    <lastmod>2022-07-17T11:50:11+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/</loc>
+    <lastmod>2022-07-17T11:50:11+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/post/use-bicep-to-compile-or-decompile-arm-templates/</loc>
+    <lastmod>2022-07-17T11:50:11+00:00</lastmod>
+  </url><url>
     <loc>https://euc365.com/about-me/</loc>
     <lastmod>2022-07-14T21:31:36+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/azure/</loc>
-    <lastmod>2022-07-17T10:07:44+00:00</lastmod>
+    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/azure-policy/</loc>
     <lastmod>2022-07-07T13:14:43+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/categories/</loc>
-    <lastmod>2022-07-17T10:07:44+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/compliance/</loc>
     <lastmod>2022-07-07T13:14:43+00:00</lastmod>
@@ -20,14 +44,8 @@
     <loc>https://euc365.com/post/deny-resource-type-creation-azure-policy/</loc>
     <lastmod>2022-07-07T13:14:43+00:00</lastmod>
   </url><url>
-    <loc>https://euc365.com/</loc>
-    <lastmod>2022-07-17T10:07:44+00:00</lastmod>
-  </url><url>
     <loc>https://euc365.com/categories/governance/</loc>
     <lastmod>2022-07-07T13:14:43+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/</loc>
-    <lastmod>2022-07-17T10:07:44+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/post/disable-wifi-mac-randomization-samsung-devices/</loc>
     <lastmod>2022-06-17T14:19:58+00:00</lastmod>
@@ -36,7 +54,7 @@
     <lastmod>2022-06-17T14:19:58+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/microsoft-endpoint-manager/</loc>
-    <lastmod>2022-07-17T10:07:44+00:00</lastmod>
+    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/mobile-device-management/</loc>
     <lastmod>2022-06-17T14:19:58+00:00</lastmod>
@@ -51,7 +69,7 @@
     <lastmod>2022-06-10T09:08:42+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/azure/</loc>
-    <lastmod>2022-07-17T10:07:44+00:00</lastmod>
+    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/configure-samsung-knox-sso-azure/</loc>
     <lastmod>2022-06-09T13:17:03+00:00</lastmod>
@@ -66,34 +84,34 @@
     <lastmod>2022-06-10T13:42:00+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/intune/</loc>
-    <lastmod>2022-07-17T10:07:44+00:00</lastmod>
+    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/app-registrations/</loc>
-    <lastmod>2022-07-17T10:07:44+00:00</lastmod>
+    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/azure-ad/</loc>
-    <lastmod>2022-07-17T10:07:44+00:00</lastmod>
+    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/graph-api/</loc>
-    <lastmod>2022-07-17T10:07:44+00:00</lastmod>
+    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/graph-api/</loc>
-    <lastmod>2022-07-17T10:07:44+00:00</lastmod>
+    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/logic-apps/</loc>
-    <lastmod>2022-07-17T10:07:44+00:00</lastmod>
+    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/microsoft-graph-and-powerbi/</loc>
-    <lastmod>2022-07-17T10:07:44+00:00</lastmod>
+    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/powerbi/</loc>
-    <lastmod>2022-07-17T10:07:44+00:00</lastmod>
+    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/powerbi/</loc>
-    <lastmod>2022-07-17T10:07:44+00:00</lastmod>
+    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/powershell/</loc>
-    <lastmod>2022-07-17T10:07:44+00:00</lastmod>
+    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/apple/</loc>
     <lastmod>2022-06-09T15:27:24+00:00</lastmod>
