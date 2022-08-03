@@ -6,7 +6,43 @@
     <description>Recent content in Tags on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Jul 2022 11:50:17 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Aug 2022 19:31:42 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graph API</title>
+      <link>https://euc365.com/tags/graph-api/</link>
+      <pubDate>Wed, 03 Aug 2022 19:31:42 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/graph-api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microsoft Graph Module</title>
+      <link>https://euc365.com/tags/microsoft-graph-module/</link>
+      <pubDate>Wed, 03 Aug 2022 19:31:42 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/microsoft-graph-module/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PowerShell</title>
+      <link>https://euc365.com/tags/powershell/</link>
+      <pubDate>Wed, 03 Aug 2022 19:31:42 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/powershell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Teams</title>
+      <link>https://euc365.com/tags/teams/</link>
+      <pubDate>Wed, 03 Aug 2022 19:31:42 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/teams/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ARM</title>
       <link>https://euc365.com/tags/arm/</link>
@@ -116,15 +152,6 @@
     </item>
     
     <item>
-      <title>Graph API</title>
-      <link>https://euc365.com/tags/graph-api/</link>
-      <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/graph-api/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Logic Apps</title>
       <link>https://euc365.com/tags/logic-apps/</link>
       <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
@@ -139,15 +166,6 @@
       <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
       
       <guid>https://euc365.com/tags/powerbi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Powershell</title>
-      <link>https://euc365.com/tags/powershell/</link>
-      <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/powershell/</guid>
       <description></description>
     </item>
     

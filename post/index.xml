@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 10 Jun 2022 09:08:42 +0000</lastBuildDate><atom:link href="https://euc365.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Create a Microsoft Team with Graph API and PowerShell</title>
+      <link>https://euc365.com/post/2022-07-18-create-a-microsoft-team-with-graph-api-powershell/</link>
+      <pubDate>Wed, 03 Aug 2022 19:31:42 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/2022-07-18-create-a-microsoft-team-with-graph-api-powershell/</guid>
+      <description>Why use an API to create a Teams Channel?</description>
+    </item>
+    
+    <item>
       <title>Use Bicep to Compile or Decompile ARM Templates</title>
       <link>https://euc365.com/post/use-bicep-to-compile-or-decompile-arm-templates/</link>
       <pubDate>Sun, 17 Jul 2022 11:50:17 +0000</pubDate>

@@ -2,6 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://euc365.com/categories/</loc>
+    <lastmod>2022-08-03T19:30:15+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/post/2022-07-18-create-a-microsoft-team-with-graph-api-powershell/</loc>
+    <lastmod>2022-08-03T19:30:15+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/</loc>
+    <lastmod>2022-08-03T19:30:15+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/graph-api/</loc>
+    <lastmod>2022-08-03T19:30:15+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/graph-api/</loc>
+    <lastmod>2022-08-03T19:30:15+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/microsoft-graph-module/</loc>
+    <lastmod>2022-08-03T19:30:15+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/powershell/</loc>
+    <lastmod>2022-08-03T19:30:15+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/powershell/</loc>
+    <lastmod>2022-08-03T19:30:15+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/</loc>
+    <lastmod>2022-08-03T19:30:15+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/teams/</loc>
+    <lastmod>2022-08-03T19:30:15+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/teams/</loc>
+    <lastmod>2022-08-03T19:30:15+00:00</lastmod>
+  </url><url>
     <loc>https://euc365.com/tags/arm/</loc>
     <lastmod>2022-07-17T11:50:11+00:00</lastmod>
   </url><url>
@@ -14,16 +47,7 @@
     <loc>https://euc365.com/categories/bicep/</loc>
     <lastmod>2022-07-17T11:50:11+00:00</lastmod>
   </url><url>
-    <loc>https://euc365.com/categories/</loc>
-    <lastmod>2022-07-17T11:50:11+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/</loc>
-    <lastmod>2022-07-17T11:50:11+00:00</lastmod>
-  </url><url>
     <loc>https://euc365.com/tags/infrastructure-as-code/</loc>
-    <lastmod>2022-07-17T11:50:11+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/</loc>
     <lastmod>2022-07-17T11:50:11+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/post/use-bicep-to-compile-or-decompile-arm-templates/</loc>
@@ -92,12 +116,6 @@
     <loc>https://euc365.com/tags/azure-ad/</loc>
     <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
-    <loc>https://euc365.com/tags/graph-api/</loc>
-    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/categories/graph-api/</loc>
-    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
-  </url><url>
     <loc>https://euc365.com/tags/logic-apps/</loc>
     <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
@@ -108,9 +126,6 @@
     <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/powerbi/</loc>
-    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/powershell/</loc>
     <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/apple/</loc>
@@ -153,9 +168,6 @@
     <lastmod>2022-06-09T15:24:28+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/memcm/</loc>
-    <lastmod>2022-06-09T15:25:03+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/categories/powershell/</loc>
     <lastmod>2022-06-09T15:25:03+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/deploy-windows-subsystem-for-linux/</loc>
