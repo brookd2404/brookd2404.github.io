@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 03 Aug 2022 19:31:42 +0000</lastBuildDate><atom:link href="https://euc365.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Create a Microsoft Team with Graph API and PowerShell</title>
-      <link>https://euc365.com/post/2022-07-18-create-a-microsoft-team-with-graph-api-powershell/</link>
+      <link>https://euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</link>
       <pubDate>Wed, 03 Aug 2022 19:31:42 +0000</pubDate>
       
-      <guid>https://euc365.com/post/2022-07-18-create-a-microsoft-team-with-graph-api-powershell/</guid>
+      <guid>https://euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</guid>
       <description>Why use an API to create a Teams Channel?</description>
     </item>
     
