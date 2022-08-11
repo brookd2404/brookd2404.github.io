@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://euc365.com/about-me/</loc>
+    <lastmod>2022-08-11T21:57:39+00:00</lastmod>
+  </url><url>
     <loc>https://euc365.com/categories/</loc>
     <lastmod>2022-08-03T19:30:15+00:00</lastmod>
   </url><url>
@@ -52,9 +55,6 @@
   </url><url>
     <loc>https://euc365.com/post/use-bicep-to-compile-or-decompile-arm-templates/</loc>
     <lastmod>2022-07-17T11:50:11+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/about-me/</loc>
-    <lastmod>2022-07-14T21:31:36+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/azure/</loc>
     <lastmod>2022-07-17T10:54:30+00:00</lastmod>

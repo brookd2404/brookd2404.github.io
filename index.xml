@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 03 Aug 2022 19:31:42 +0000</lastBuildDate><atom:link href="https://euc365.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>About Me</title>
+      <link>https://euc365.com/about-me/</link>
+      <pubDate>Thu, 11 Aug 2022 21:57:39 +0000</pubDate>
+      
+      <guid>https://euc365.com/about-me/</guid>
+      <description>Hey there! I’m David Brook. Microsoft Modern Management Evangelist.</description>
+    </item>
+    
+    <item>
       <title>Create a Microsoft Team with Graph API and PowerShell</title>
       <link>https://euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</link>
       <pubDate>Wed, 03 Aug 2022 19:31:42 +0000</pubDate>
@@ -23,15 +32,6 @@
       
       <guid>https://euc365.com/post/use-bicep-to-compile-or-decompile-arm-templates/</guid>
       <description>What is Bicep? Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources.</description>
-    </item>
-    
-    <item>
-      <title>About Me</title>
-      <link>https://euc365.com/about-me/</link>
-      <pubDate>Thu, 14 Jul 2022 21:31:36 +0000</pubDate>
-      
-      <guid>https://euc365.com/about-me/</guid>
-      <description>Hey there! I’m David Brook. Microsoft Modern Management Evangelist.</description>
     </item>
     
     <item>
