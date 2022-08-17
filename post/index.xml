@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 10 Jun 2022 09:08:42 +0000</lastBuildDate><atom:link href="https://euc365.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>VLOG - Isolate your Hyper V Lab Environment from your network</title>
+      <link>https://euc365.com/post/vlog-isolate-hyper-v-lab-environment/</link>
+      <pubDate>Wed, 17 Aug 2022 13:25:30 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/vlog-isolate-hyper-v-lab-environment/</guid>
+      <description>My first Vlog Post This video, is the first, of what I hope to be many Vlog&amp;rsquo;s.</description>
+    </item>
+    
+    <item>
       <title>Create a Microsoft Team with Graph API and PowerShell</title>
       <link>https://euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</link>
       <pubDate>Wed, 03 Aug 2022 19:31:42 +0000</pubDate>
