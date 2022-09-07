@@ -6,7 +6,16 @@
     <description>Recent content in Azure on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jun 2022 12:52:16 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/azure/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Sep 2022 15:35:50 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/azure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VLOG - Azure AD Connect Cloud Sync</title>
+      <link>https://euc365.com/post/vlog-azuread-connect-cloud-sync/</link>
+      <pubDate>Wed, 07 Sep 2022 15:35:50 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/vlog-azuread-connect-cloud-sync/</guid>
+      <description>What is this video about? This video goes over the configuration of Azure AD Connect Cloud Sync, with some insight into what the differences are with its bigger brother AADC, the Pre-Reqs and some other insights.</description>
+    </item>
+    
     <item>
       <title>Configure Samsung Knox SSO with Azure </title>
       <link>https://euc365.com/configure-samsung-knox-sso-azure/</link>
