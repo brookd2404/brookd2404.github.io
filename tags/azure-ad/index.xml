@@ -6,7 +6,16 @@
     <description>Recent content in Azure AD on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 07 Sep 2022 15:35:50 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/azure-ad/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Sep 2022 12:25:57 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/azure-ad/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Configure Self-Service Password Reset with Cloud Sync</title>
+      <link>https://euc365.com/post/configure-service-password-reset-cloud-sync/</link>
+      <pubDate>Thu, 22 Sep 2022 12:25:57 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/configure-service-password-reset-cloud-sync/</guid>
+      <description>Self-Service Password reset is just one of many features that reduce the pressure on support staff.</description>
+    </item>
+    
     <item>
       <title>VLOG - Azure AD Connect Cloud Sync</title>
       <link>https://euc365.com/post/vlog-azuread-connect-cloud-sync/</link>
