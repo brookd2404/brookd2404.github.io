@@ -6,7 +6,16 @@
     <description>Recent content on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Sep 2022 12:25:57 +0000</lastBuildDate><atom:link href="https://euc365.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Nov 2022 19:24:35 +0000</lastBuildDate><atom:link href="https://euc365.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VLOG - Getting Started with Windows Autopatch</title>
+      <link>https://euc365.com/post/vlog-windows-autopatch/</link>
+      <pubDate>Tue, 01 Nov 2022 19:24:35 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/vlog-windows-autopatch/</guid>
+      <description>This video goes over what Windows Autopatch is, and how the tenant enrollment flow happens.</description>
+    </item>
+    
     <item>
       <title>Configure Self-Service Password Reset with Cloud Sync</title>
       <link>https://euc365.com/post/configure-service-password-reset-cloud-sync/</link>

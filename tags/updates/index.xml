@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Updates on EUC365 | Modern Technology Blog</title>
+    <link>https://euc365.com/tags/updates/</link>
+    <description>Recent content in Updates on EUC365 | Modern Technology Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Nov 2022 19:24:35 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/updates/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VLOG - Getting Started with Windows Autopatch</title>
+      <link>https://euc365.com/post/vlog-windows-autopatch/</link>
+      <pubDate>Tue, 01 Nov 2022 19:24:35 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/vlog-windows-autopatch/</guid>
+      <description>This video goes over what Windows Autopatch is, and how the tenant enrollment flow happens.</description>
+    </item>
+    
+  </channel>
+</rss>
