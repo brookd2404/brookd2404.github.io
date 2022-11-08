@@ -13,7 +13,211 @@
       <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
       
       <guid>https://euc365.com/autopilot-enrolment-terms-of-use/</guid>
-      <description>Why would I want to do this? Whats the Purpose?</description>
+      <description>&lt;h2 id=&#34;why-would-i-want-to-do-this-whats-the-purpose&#34;&gt;Why would I want to do this? Whats the Purpose?&lt;/h2&gt;
+&lt;p&gt;You maybe asking yourself why should I be adding Terms of use to Autopilot Enrolment? Well there are a few use cases that spring to mind.&lt;/p&gt;
+&lt;p&gt;The first been accepting an It acceptable use policy, for many years users have come to collect devices from a field office and/or had the devices delivered to them by an internal tech. Well in the current day and age of Modern Management and Windows Autopilot you now have the option to ship straight from the vendor to the end user, ensuring that the user accepts the policy prior to using the device maybe an absolute must for your organisation.&lt;/p&gt;
+&lt;p&gt;Not only can you present these terms of use, but you can also see who has accepted and or denied these from the Azure portal, cool right?&lt;/p&gt;
+&lt;p&gt;Did I also mention that you can add multiple languages for your terms of use, No? Well it&amp;rsquo;s actually super easy to do so without creating additional policies etc.&lt;/p&gt;
+&lt;h2 id=&#34;creating-your-terms-of-use&#34;&gt;Creating your Terms of Use&lt;/h2&gt;
+&lt;p&gt;We will be making use of conditional access and the inbuilt terms of use from the Azure portal, meaning we are taking advantage of products you may already have licenses for.&lt;/p&gt;
+&lt;p&gt;Without further ado, lets get started.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Head over to the &lt;a href=&#34;https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies&#34;&gt;Conditional Access Pane&lt;/a&gt; in the Azure portal.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Under the &lt;strong&gt;Manage&lt;/strong&gt; section, click &lt;strong&gt;Terms of Use&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the right-hand pane, click &lt;strong&gt;New terms&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Complete the &lt;strong&gt;Name&lt;/strong&gt; and &lt;strong&gt;Display Name&lt;/strong&gt; fields
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termsnameanddisplay_hub8ff1006e3bc9242cc17866791a4f670_26243_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Name and DisplayName&#34; height=&#34;138px&#34; width=&#34;587px&#34;&gt;
+
+
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click on the box that says &lt;strong&gt;Upload required PDF&lt;/strong&gt;, Locate and upload the PDF of your Terms.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select your default language&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/termsmultiplepdfs.png&#34; alt=&#34;Terms MultiplePDFS&#34; width=&#34;587px&#34; height=&#34;175px&#34; /&gt;
+&lt;br&gt;At this point you can upload the same terms in a different language, simply click **+ Add language**, Upload the PDF and then select its language from the drop down to the right-hand side.&lt;/p&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Require user to expand the terms of use&lt;/strong&gt;, now this is optional, you can choose to require the users to expand the terms of use or not. Personally, I prefer too as if the terms are broken you can show that they would have had to read them.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Require users to consent on every device&lt;/strong&gt;, This one &lt;strong&gt;HAS&lt;/strong&gt; to be set to &lt;strong&gt;Off&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/consentwarning.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;650px&#34; height=&#34;138px&#34; /&gt;&lt;br&gt;
+This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on the device has to be Joined to Azure AD Already and in fully working order. You will see this warning if you do attempt to switch it on.&lt;/p&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Expire Consents&lt;/strong&gt;, again this one is optional, if you would like the user to accept it once in then never have to see it again then you can leave this off. However, If you would like users to have to accept this on another Autopilot build after a specified period of time then flick the switch on.
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Expire Starting On&lt;/strong&gt;, use the date picker and select the date you are on.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Frequency&lt;/strong&gt;, Set this to your desired frequency. I like to set this to Monthly.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Duration before re-acceptance required (days)&lt;/strong&gt;, set this to the amount of days you would like before the end user has to perform re-acceptance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Your final terms of use setting should look something like this;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termscomplete_hu78f625e649dfc516ebb0eba7978febd3_121537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;650px&#34;&gt;
+
+
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Conditional Access&lt;/strong&gt;, you can choose to create a policy later, or select &lt;strong&gt;Custom Policy&lt;/strong&gt; which will allow you to create the policy now.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Create&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you chose to create a &lt;strong&gt;Custom Policy&lt;/strong&gt; you will be redirected to a Conditional Access policy configuration.&lt;/li&gt;
+&lt;li&gt;Give your Policy a name e.g. &lt;strong&gt;Autopilot Enrolment Terms of Use Policy&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Assignments&lt;/strong&gt;, To start with I would test this out with a bunch of your techs, or users who give good feedback to ensure that this suits your organizational needs. Make sure this is targeted to users.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cloud apps and actions&lt;/strong&gt;, now this is where we specify it to only apply to Intune Enrolment (Autopilot).
+&lt;ul&gt;
+&lt;li&gt;Under the &lt;strong&gt;Cloud Apps Slider&lt;/strong&gt;, select &lt;strong&gt;Select Apps&lt;/strong&gt;, Click on the selections&lt;/li&gt;
+&lt;li&gt;Type &lt;strong&gt;Microsoft Intune Enrollment&lt;/strong&gt; and click the app to select it, Click &lt;strong&gt;Select&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Conditions&lt;/strong&gt;, You can change this to suit your needs, I generally select the Device Platform as Windows&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Access Control - Grant&lt;/strong&gt;, Select &lt;strong&gt;Grant Access&lt;/strong&gt;, and then select your Terms of Use policy like below&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/grantselectterms_hu18dde69c3568addac427ca6104d8369f_93291_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;250px&#34;&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;Click &lt;strong&gt;Select&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Session&lt;/strong&gt;, You don&amp;rsquo;t need to select a Session&lt;/li&gt;
+&lt;li&gt;At the bottom of the browser window, ensure that you have set &lt;strong&gt;Enable Policy&lt;/strong&gt; to &lt;strong&gt;On&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Create&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Well that&amp;rsquo;s a wrap from a configuration perspective, lets jump into some testing and see what the end user will experience.&lt;/p&gt;
+&lt;h2 id=&#34;so-what-does-it-look-like&#34;&gt;So what does it look like?&lt;/h2&gt;
+&lt;p&gt;Firstly, you will hit the standard Autopilot Screen where you log in with your details and MFA etc. You will then notice that you are re-directed to a screen that represents the below;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termsduringap_hu243e40b91a29d7e929c678b53a0b3d64_18595_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;300px&#34; width=&#34;1000px&#34;&gt;
+
+
+
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;If you selected to force the users to expand the terms, but just click accept you will see the message below pop up.
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/termsnoexpand.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;450px&#34; height=&#34;150px&#34; /&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;If you expand the terms you will see your terms in an embedded PDF viewer, once you have finished click &lt;strong&gt;Accept&lt;/strong&gt;, you will then just continue along your way on a standard Autopilot build.&lt;/p&gt;
+
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;If you have this conditional access policy enabled and a user does not accept the policy, they will be prevented from performing an Intune Enrolment. They are however able to Accept the policy on further attempts.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;how-do-i-see-whoc-accepteddeclined&#34;&gt;How do I see who&amp;rsquo;c Accepted/Declined?&lt;/h2&gt;
+&lt;p&gt;This is super easy to check, Head back over to the &lt;a href=&#34;https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies&#34;&gt;Conditional Access Pane&lt;/a&gt; in the Azure portal. From here click &lt;strong&gt;Terms of Use&lt;/strong&gt;, Straight away you can see the numbers for Accepted and Declined.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/acceptteddeclinenumbers_hufcb2f10437b382c8df62e46426bbab6e_3110_635x0_resize_q100_h2_box_3.webp&#34; alt=&#34;acceptteddeclinenumbers&#34; height=&#34;75px&#34; width=&#34;600px&#34;&gt;
+
+
+
+&lt;p&gt;If you go ahead and click those numbers, you can see who has/hasn&amp;rsquo;t accepted the policy, you can also download the list should it be required.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;For something so simple, it is quite effective an there may be a ton of use cases for this in other scenarios, however, I was asked to scope this out for a customer I was working with.&lt;/p&gt;
+&lt;p&gt;I hope it may be some use :D, enjoy your day guys and girls!!!.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -22,7 +226,314 @@
       <pubDate>Fri, 07 Aug 2020 17:17:00 +0000</pubDate>
       
       <guid>https://euc365.com/enrol-devices-to-autopilot-unattended/</guid>
-      <description>I have been working on a project at the company I work for, and up to this point we have been primarily focused on getting new devices imported and deploying via Autopilot.</description>
+      <description>&lt;p&gt;I have been working on a project at the company I work for, and up to this point we have been primarily focused on getting new devices imported and deploying via Autopilot.&lt;/p&gt;
+&lt;p&gt;Now we have successfully leaped over that hurdle with very little issues (apart from the odd TPM attestation issue here and there and the ESP Profile page been skipped), we moved onto focusing on our current estate and how to import these into Autopilot .&lt;/p&gt;
+&lt;p&gt;There is a couple of ways to do this, you could run this in a package, as an application, as a script or in a task sequence for when you decide to re-build the machines.&lt;/p&gt;
+&lt;p&gt;Now the choice is yours on which method will suit your organization the best.&lt;/p&gt;
+&lt;h2 id=&#34;the-script&#34;&gt;The Script&lt;/h2&gt;
+&lt;h3 id=&#34;now-on-a-hrefhttpsgithubcombrookd2404powershell_scriptsblobmasterms-graphautopilotenroll_to_autopliot_unattendedps1githuba&#34;&gt;Now on &lt;a href=&#34;https://github.com/brookd2404/Powershell_Scripts/blob/master/MS-Graph/Autopilot/Enroll_to_Autopliot_Unattended.ps1&#34;&gt;GitHub&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Now, lets talk about the script itself. When I started out on this path I used &lt;a href=&#34;https://oofhours.com&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Michael Niehaus&amp;rsquo;&lt;/a&gt; &lt;a href=&#34;https://www.powershellgallery.com/packages/Get-WindowsAutoPilotInfo&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Get-WindowsAutoPilotInfo&lt;/a&gt; script, even before this had the -online parameter. I was also hoping to leverage the same script for importing devices into Autopilot silently.&lt;/p&gt;
+&lt;p&gt;There was however a couple of stumbling blocks for me not doing so, the first been the Connect-MSGraph would not connect using the ClientID and Secret from the Azure App Registration and kept prompting for credentials. The second being it downloaded other PowerShell Modules. This was an issue for us as firstly it added a further time delay to the script and secondly one of our security product blocked it during this process.&lt;/p&gt;
+&lt;p&gt;I had also recently started leveraging the Microsoft Graph API and decided to find a way to do this without additional the modules while achieving the same outcome. And the following is the outcome.&lt;/p&gt;
+&lt;p&gt;I have recently updated the script (28/08/2020) to include the use of Group Tags, but also to add the -Hash parameter. The hash parameter allows you to use any device has to register it with your tenant, for example if you had a folder with a set of .csv files containing the device hash&amp;rsquo;s you could do a recursive import of all of these.&lt;/p&gt;
+&lt;p&gt;If you want to export a device hash to a CSV file to test this use the following command which will create the CSV.&lt;/p&gt;
+&lt;p&gt;You can either copy and paste the hash or import the CSV into PowerShell and reference it that way.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Get-CimInstance -Namespace root/cimv2/mdm/dmmap -Class MDM_DevDetail_Ext01 -Filter &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;InstanceID=&amp;#39;Ext&amp;#39; AND ParentID=&amp;#39;./DevDetail&amp;#39;&amp;#34;&lt;/span&gt; | Export-CSV &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C:\&lt;/span&gt;$($ENV:ComputerName)&lt;span style=&#34;color:#e6db74&#34;&gt;_HardwareInformation.csv&amp;#34;&lt;/span&gt; -NoTypeInformation
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;#PSScriptInfo
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;.VERSION 2.0
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;.AUTHOR David Brook
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;.COMPANYNAME EUC365
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;.COPYRIGHT
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;.TAGS Autopilot; Intune; Mobile Device Management
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;.LICENSEURI
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;.PROJECTURI 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;.ICONURI
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;.EXTERNALMODULEDEPENDENCIES
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;.REQUIREDSCRIPTS
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;.EXTERNALSCRIPTDEPENDENCIES
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;.RELEASENOTES
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;Version 2.0: Added the ability to make the script accept command line arguments for just the Hash and also allow Group Tags
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;Version 1.0: Original published version.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;#
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.SYNOPSIS&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;This script will import devices to Microsoft Endpoint Manager Autopilot using the device&amp;#39;s hardware hash.  
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;This script will import devices to Microsoft Endpoint Manager Autopilot using the device&amp;#39;s hardware hash with the added capability of been able to add a Group Tag.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.PARAMETER&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; MSGraphVersion
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;The Version of the MS Graph API to use
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;Default: Beta
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;e.g: 1.0
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.PARAMETER&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; MsGraphHost
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;The MS Graph API Host
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;Default: graph.microsoft.com
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.PARAMETER&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; ClientID
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;This is the Azure AD App Registration Client ID
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.PARAMETER&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; ClientSecret
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;This is the Azure AD App Registration Client Secret
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.PARAMETER&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; TenantId
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;Your Azure Tenant ID
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.PARAMETER&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; Hash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;This parameter is to be used if you want to import a specific hash from either a file or copying and pasting from an application. 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.PARAMETER&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; GroupTag
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;This Parameter is to be used if you want to Tag your devices with a specific group tag. 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.EXAMPLE&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;.\Enroll_to_Autopliot_Unattended.ps1 -ClientID &amp;#34;&amp;lt;Your Client ID&amp;gt;&amp;#34; -Client Secret &amp;#34;&amp;lt;YourClientSecret&amp;gt;&amp;#34; -TenantID &amp;#34;&amp;lt;YourTenantID&amp;gt;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;This will enroll the device it is running on to Autopilot, Please note this will need to be done as an administrator
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.EXAMPLE&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;.\Enroll_to_Autopliot_Unattended.ps1 -ClientID &amp;#34;&amp;lt;Your Client ID&amp;gt;&amp;#34; -Client Secret &amp;#34;&amp;lt;YourClientSecret&amp;gt;&amp;#34; -TenantID &amp;#34;&amp;lt;YourTenantID&amp;gt;&amp;#34; -GroupTag &amp;#34;Sales Device&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;This will enroll the device it is running on to Autopilot with a Group Tag of Sales Device, Please note this will need to be done as an administrator
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.EXAMPLE&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;.\Enroll_to_Autopliot_Unattended.ps1 -ClientID &amp;#34;&amp;lt;Your Client ID&amp;gt;&amp;#34; -Client Secret &amp;#34;&amp;lt;YourClientSecret&amp;gt;&amp;#34; -TenantID &amp;#34;&amp;lt;YourTenantID&amp;gt;&amp;#34; -Hash &amp;#34;&amp;lt;A Hash&amp;gt;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;This will enroll the inputed deivce Hash to Autopilot, this can be done against a group of CSV files etc. 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;param&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;Parameter&lt;/span&gt;(DontShow = $true)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $MsGraphVersion = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;beta&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;Parameter&lt;/span&gt;(DontShow = $true)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $MsGraphHost = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;graph.microsoft.com&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#The AzureAD ClientID (Application ID) of your registered AzureAD App&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ClientID = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;YourClientID&amp;gt;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#The Client Secret for your AzureAD App&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ClientSecret = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;YourSecret&amp;gt;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#Your Azure Tenent ID&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $TenantId = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;YourTenant&amp;gt;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $Hash,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $GroupTag
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#Create the body of the Authentication of the request for the OAuth Token&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $Body = @{client_id=$ClientID;client_secret=$ClientSecret;grant_type=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;client_credentials&amp;#34;&lt;/span&gt;;scope=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://$MSGraphHost/.default&amp;#34;&lt;/span&gt;;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#Get the OAuth Token &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $OAuthReq = Invoke-RestMethod -Method Post -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://login.microsoftonline.com/$TenantId/oauth2/v2.0/token&amp;#34;&lt;/span&gt; -Body $Body
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#Set your access token as a variable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $global:AccessToken = $OAuthReq.access_token
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Process&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(!$Hash) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $session = New-CimSession
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# Get the common properties.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Verbose &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Checking $comp&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $serial = (Get-CimInstance -CimSession $session -Class Win32_BIOS).SerialNumber
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# Get the hash (if available)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $devDetail = (Get-CimInstance -CimSession $session -Namespace root/cimv2/mdm/dmmap -Class MDM_DevDetail_Ext01 -Filter &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;InstanceID=&amp;#39;Ext&amp;#39; AND ParentID=&amp;#39;./DevDetail&amp;#39;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; ($devDetail)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            $hash = $devDetail.DeviceHardwareData
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            $hash = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Remove-CimSession $session
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;End&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(!($GroupTag)) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $PostData = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;hardwareIdentifier&amp;#39;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$hash&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        } | ConvertTo-Json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $PostData = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;hardwareIdentifier&amp;#39;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$hash&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;groupTag&amp;#39;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$GroupTag&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        } | ConvertTo-Json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $Post =  Invoke-RestMethod -Method POST -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://$MSGraphHost/$MsGraphVersion/devicemanagement/importedWindowsAutopilotDeviceIdentities&amp;#34;&lt;/span&gt; -Headers @{Authorization = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bearer $AccessToken&amp;#34;&lt;/span&gt;; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;application/json&amp;#39;&lt;/span&gt;} -Body $PostData
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;DO&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Host &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Waiting for device import&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Start-Sleep 10
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;UNTIL&lt;/span&gt; ((Invoke-RestMethod -Method Get -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://$MsGraphHost/$MsGraphVersion/Devicemanagement/importedwindowsautopilotdeviceidentities/&lt;/span&gt;$($Post.ID)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; -Headers @{Authorization = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bearer $AccessToken&amp;#34;&lt;/span&gt;} | Select-Object -ExpandProperty State) &lt;span style=&#34;color:#f92672&#34;&gt;-NOTmatch&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;unknown&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Invoke-RestMethod -Method Get -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://$MsGraphHost/$MsGraphVersion/Devicemanagement/importedwindowsautopilotdeviceidentities/&lt;/span&gt;$($Post.ID)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; -Headers @{Authorization = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bearer $AccessToken&amp;#34;&lt;/span&gt;} | Select-Object -ExpandProperty State
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&#34;the-pre-reqs&#34;&gt;The Pre-Reqs&lt;/h2&gt;
+&lt;p&gt;To make the script work you will need an &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app&#34;&gt;Azure App Registration&lt;/a&gt; with the &lt;strong&gt;DeviceManagementServiceConfig.ReadWrite.All&lt;/strong&gt; Application permission for the Microsoft Graph API.&lt;/p&gt;
+&lt;p&gt;If your not sure how to create an Azure AD App Registration head over to one of my other posts by clicking &lt;a href=&#34;https://euc365.com/create_an_azure_app_registration&#34;&gt;HERE&lt;/a&gt;, Don&amp;rsquo;t forget to store your Client ID and Secret securely and also have it to hand for the rest of the post :D.&lt;/p&gt;
+&lt;h2 id=&#34;executing-the-script&#34;&gt;Executing the Script&lt;/h2&gt;
+&lt;p&gt;As mentioned before there are numerous ways you can run this script, however I will demonstrate 2 different ways to do so, I will just mention though that if you do use this as an &lt;strong&gt;Application&lt;/strong&gt; you will need to amend the script to add some form of check file or registry key.&lt;/p&gt;
+&lt;h3 id=&#34;script-in-memcm&#34;&gt;Script in MEMCM&lt;/h3&gt;
+&lt;p&gt;This is the best option if you want to do it manually on a case by case basis (i.e. Right click on the computer object and select run script).&lt;/p&gt;
+&lt;p&gt;Jump into the Script section in MEMCM (Software Library &amp;gt; Scripts) and click &lt;strong&gt;Create Script&lt;/strong&gt; from the ribbon.&lt;/p&gt;
+&lt;p&gt;Give the script a Name, select the language as &lt;strong&gt;PowerShell &lt;/strong&gt;and then copy and paste the script above (Tip: In the top right corner of the script block you can click &lt;strong&gt;Copy Script Text&lt;/strong&gt;).&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ScriptDetails_huffb502f169b84fe148c90c7f2f982cd5_56051_691x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;p&gt;Click Next, This is where you need the details we noted earlier. MEMCM is great at pulling through the Param block parameters, all we need to do is amend the ClientID, ClientSecret and TenantId arguments as below. When finished click Next review the settings and then click next and then close.&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;Don&amp;rsquo;t forget to Approve your Script&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Now choose your victim&amp;hellip; erm I mean client computer from &lt;b&gt;Assets and Compliance &amp;gt; Devices&lt;/b&gt;. Right click on the object and select &lt;b&gt;Run Script&lt;/b&gt;, Select the script object you created and review the details and then let the script run :D. This can take about 2/5 minutes, as it keeps a loop going until the device is imported. When the script finishes if you look at the script out put you will see the following;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ScriptOutput_hu553da8b8a7270aa60479ecb1f20212da_42524_689x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;742&#34; width=&#34;689&#34;&gt;
+
+
+
+&lt;p&gt;If you notice the last output shows the import status of the device.&lt;/p&gt;
+&lt;h3 id=&#34;in-a-task-sequence-in-memcm&#34;&gt;In a Task Sequence in MEMCM&lt;/h3&gt;
+&lt;p&gt;I wont go into how to create the entire Task Sequence for a device rebuild however I will explain how you can use the script to import the device into Autopilot during a Task Sequence weather it be a new one or a current one.&lt;/p&gt;
+&lt;p&gt;Head over to &lt;b&gt;Software Library &amp;gt; Operating System &amp;gt; Task Sequences &lt;/b&gt;so we can get started.&lt;/p&gt;
+&lt;p&gt;I will be using a current Task Sequence for this Demo. There may be a future post on how to create a Task Sequence to re-build your device to a standard OS with Drivers and Import it to Autopilot.&lt;/p&gt;
+&lt;p&gt;My existing Task Sequence looks like this;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ExisitingTS_hu65d58b8f3b5a1e165321170cdfcb01dc_65154_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;p&gt;This is a very basic TS which just boots to Win PE, Installs windows and loads driver packs for VMware Virtual Machines (Only a test TS).&lt;/p&gt;
+&lt;p&gt;I no longer want to have to re-build the device and then import it to Autopilot Manually so instead we add the script to the top of the TS as follows.&lt;/p&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;Click &lt;strong&gt;Add&lt;/strong&gt; &lt;strong&gt;&amp;gt; General &amp;gt; Run Powershell Script &lt;/strong&gt;&lt;/li&gt;
+ 	&lt;li&gt;Enter a &lt;b&gt;Name &lt;/b&gt;and &lt;b&gt;Description &lt;/b&gt;for the script&lt;/li&gt;
+ 	&lt;li&gt;Select &lt;b&gt;Enter a PowerShell Script&lt;/b&gt;&lt;/li&gt;
+ 	&lt;li&gt;Click &lt;b&gt;Add Script&lt;/b&gt;&lt;/li&gt;
+ 	&lt;li&gt;Copy the Script above and paste it into the window and click &lt;b&gt;OK&lt;/b&gt;&lt;/li&gt;
+ 	&lt;li&gt;In the &lt;b&gt;Parameters&lt;/b&gt; box enter
+&lt;ul&gt;
+ 	&lt;li&gt;-ClientID &#34;&#34; -ClientSecret &#34;&#34; -TenantId &#34;&#34;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+ 	&lt;li&gt;Select &lt;b&gt;Bypass &lt;/b&gt;under the &lt;b&gt;PowerShell Execution Policy &lt;/b&gt;drop-down&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Your window should then look like this;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/AddedPStoTS_huc17e98f7bc193bccfffa80135edbc451_71594_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;653&#34; width=&#34;959&#34;&gt;
+
+
+
+&lt;p&gt;Hit Apply and then OK and give it a whirl on your machine (well not yours&amp;hellip; always be sure to test it first :P)&lt;/p&gt;
+&lt;p&gt;When it runs you will see the following appear (depending on your Task Sequence);&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ScriptRunning_hu8c821047757f90b60671961d0e039542_16087_675x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;141&#34; width=&#34;675&#34;&gt;
+
+
+
+&lt;p&gt;The device will then be enrolled into Autopilot;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/DevInAP_huef4c9c829fe1307dbd7eb33e8076c322_45112_299x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;814&#34; width=&#34;299&#34;&gt;
+
+
+
+&lt;p&gt;When the device then reboots after my task sequence I am presented with the expected Autopilot Enrolment window.&lt;/p&gt;
+&lt;h3 id=&#34;to-conclude&#34;&gt;To Conclude&lt;/h3&gt;
+&lt;p&gt;So I have shown two ways of using the script to enroll to Autopilot Unattended, now there is nothing preventing you running this from the command line with the same parameters however if you wanted to do it that way I would definitely look at Michael Niehaus&amp;rsquo; Get-WindowsAutopilotInfo script (See the opening few paragraphs with the links to these) as this does not require an App Registration.&lt;/p&gt;
+&lt;p&gt;I did fully test these methods at the time of writing the blog but if you come across any information you think may be wrong then please leave a comment or e-mail me on &lt;a href=&#34;mailto:David@euc365.com&#34;&gt;&lt;a href=&#34;mailto:David@euc365.com&#34;&gt;David@euc365.com&lt;/a&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I hope this is useful for your needs.&lt;/p&gt;
+</description>
     </item>
     
   </channel>

@@ -13,7 +13,229 @@
       <pubDate>Wed, 02 Sep 2020 11:02:00 +0000</pubDate>
       
       <guid>https://euc365.com/backing-up-intune-device-configuration-profiles/</guid>
-      <description>Why backup Device Configuration Profiles? Why would you need to back up something that runs in stored and hosted on Azure?</description>
+      <description>&lt;h2 id=&#34;why-backup-device-configuration-profiles&#34;&gt;Why backup Device Configuration Profiles?&lt;/h2&gt;
+&lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;If you make a change and you break something you can look back and analyse what it was&lt;/li&gt;
+ 	&lt;li&gt;You can make copies of the policy easily rather than having two windows side by side&lt;/li&gt;
+ 	&lt;li&gt;In case one is deleted... (Let&#39;s hope this is never the case)&lt;/li&gt;
+ 	&lt;li&gt;To review the maturity of your policies (Lets say you started from ground zero and now have over 100 policy settings... Might be nice to review what you&#39;ve done)&lt;/li&gt;
+&lt;/ul&gt;
+We also live in a world of change management and service improvement  so there is always a need to make changes to policies and configurations. If you have or 9are moving from traditional group policy you will know that you can run an HTML report or a backup before you go ahead and make any changes.
+&lt;p&gt;Well when using Intune there was no way to export or backup your profiles or policies from the console&amp;hellip; I have seen people taking screenshots of the pages as a backup of the policies which is far from an ideal scenario.&lt;/p&gt;
+&lt;p&gt;What if I told you there is a way you can back-up your configuration policies using the Microsoft Graph API?? Well it&amp;rsquo;s possible and it&amp;rsquo;s easier than you think.&lt;/p&gt;
+&lt;p&gt;This is the first of a series of guides on how to backup and import different types of policies and profiles using the API. This one will be focusing on &lt;strong&gt;Device Configuration Profiles.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;the-script&#34;&gt;The Script&lt;/h2&gt;
+&lt;p&gt;You will notice that most of this (the authentication part and most of the param block at least) are the same as my other script&amp;hellip; But if its not broke why fix it? (Those famous last words!!!). Although this script does have an alternative run method, if you run it directly without the ClientID, ClientSecret and TenantID parameters it will install the Azure AD Powershell module and use a custom Function &lt;strong&gt;Connect-AzAD_Token&lt;/strong&gt; to enable users to interact with a login Window if they do not wish to use Azure AD App Registrations with client secrets.&lt;/p&gt;
+&lt;p&gt;This script can be run from anywhere, as a user, as an Admin or even as System. You could put this into an Automation Engine to do backups on a schedule if that is your desire.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;param&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;Parameter&lt;/span&gt;(DontShow = $true)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $MsGraphVersion = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;beta&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;Parameter&lt;/span&gt;(DontShow = $true)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $MsGraphHost = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;graph.microsoft.com&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#The AzureAD ClientID (Application ID) of your registered AzureAD App&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ClientID,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#The Client Secret for your AzureAD App&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ClientSecret,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#Your Azure Tenent ID&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $TenantId,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;Parameter&lt;/span&gt;()]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $OutputFolder = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.\ConfigurationProfileBackup&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[switch]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $Import,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $importJSON
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FUNCTION&lt;/span&gt; Connect-AzAD_Token {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Write-Host -ForegroundColor Cyan &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Checking for AzureAD module...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $AADMod = Get-Module -Name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureAD&amp;#34;&lt;/span&gt; -ListAvailable
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (!($AADMod)) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Host -ForegroundColor Yellow &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureAD PowerShell module not found, looking for AzureADPreview&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $AADModPrev = Get-Module -Name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureADPreview&amp;#34;&lt;/span&gt; -ListAvailable
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;#Check to see if the AzureAD Preview Module is insalled, If so se that as the AAD Module Else Insall the AzureAD Module&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; ($AADModPrev) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            $AADMod = Get-Module -Name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureADPreview&amp;#34;&lt;/span&gt; -ListAvailable
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Write-Host -ForegroundColor Yello &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureAD Preview is not installed...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Write-Host -ForegroundColor Cyan &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Attempting to Install the AzureAD Powershell module...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -ErrorAction Stop | Out-Null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Install-Module AzureAD -Force -ErrorAction Stop
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Write-Host -ForegroundColor Red &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Failed to install the AzureAD PowerShell Module &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;`n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; &lt;/span&gt;$($Error[0])&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Host -ForegroundColor Green &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureAD Powershell Module Found&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $AADMod = ($AADMod | Select-Object -Unique | Sort-Object)[-1]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ADAL = Join-Path $AADMod.ModuleBase &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft.IdentityModel.Clients.ActiveDirectory.dll&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ADALForms = Join-Path $AADMod.ModuleBase &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[System.Reflection.Assembly]&lt;/span&gt;::LoadFrom($ADAL) | Out-Null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[System.Reflection.Assembly]&lt;/span&gt;::LoadFrom($ADALForms) | Out-Null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $UserInfo = Connect-AzureAD
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Microsoft Intune PowerShell Enterprise Application ID &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $MIPEAClientID = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;d1ddf0e4-d672-4dae-b554-9d5bdfd93547&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# The redirectURI&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $RedirectURI = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;urn:ietf:wg:oauth:2.0:oob&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#The Authority to connect with (YOur Tenant)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Write-Host -Foregroundcolor Cyan &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Connected to Tenant: &lt;/span&gt;$($UserInfo.TenantID)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $Auth = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://login.microsoftonline.com/&lt;/span&gt;$($UserInfo.TenantID)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $AuthContext = New-Object &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext&amp;#34;&lt;/span&gt; -ArgumentList $Auth
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# https://msdn.microsoft.com/en-us/library/azure/microsoft.identitymodel.clients.activedirectory.promptbehavior.aspx&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# Change the prompt behaviour to force credentials each time: Auto, Always, Never, RefreshSession&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $platformParameters = New-Object &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters&amp;#34;&lt;/span&gt; -ArgumentList &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Auto&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $userId = New-Object &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft.IdentityModel.Clients.ActiveDirectory.UserIdentifier&amp;#34;&lt;/span&gt; -ArgumentList ($UserInfo.Account, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;OptionalDisplayableId&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $authResult = $AuthContext.AcquireTokenAsync((&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://&amp;#34;&lt;/span&gt; + $MSGraphHost),$MIPEAClientID,$RedirectURI,$platformParameters,$userId).Result
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# If the accesstoken is valid then create the authentication header&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;($authResult.AccessToken){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;# Creating header for Authorization token&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            $AADAccessToken = $authResult.AccessToken
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; $AADAccessToken
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Write-Host -ForegroundColor Red &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Authorization Access Token is null, please re-run authentication...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Host -ForegroundColor Red $_.Exception.Message
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Host -ForegroundColor Red $_.Exception.ItemName
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Web page used to help with getting the access token &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#https://morgantechspace.com/2019/08/get-graph-api-access-token-using-client-id-and-client-secret.html &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (($ClientID) &lt;span style=&#34;color:#f92672&#34;&gt;-and&lt;/span&gt; ($ClientSecret) &lt;span style=&#34;color:#f92672&#34;&gt;-and&lt;/span&gt; ($TenantId) ) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#Create the body of the Authentication of the request for the OAuth Token&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $Body = @{client_id=$ClientID;client_secret=$ClientSecret;grant_type=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;client_credentials&amp;#34;&lt;/span&gt;;scope=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://$MSGraphHost/.default&amp;#34;&lt;/span&gt;;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#Get the OAuth Token &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $OAuthReq = Invoke-RestMethod -Method Post -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://login.microsoftonline.com/$TenantId/oauth2/v2.0/token&amp;#34;&lt;/span&gt; -Body $Body
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#Set your access token as a variable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $global:AccessToken = $OAuthReq.access_token
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $global:AccessToken = Connect-AzAD_Token
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; ($Import)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; ($ImportJSON){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;#$JSON = GET-Content $ImportJSON&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $JSON = Get-Content $ImportJSON | ConvertFrom-Json | Select-Object -Property * -ExcludeProperty Version,LastModifiedTime,CreatedDateTime,id,supportsScopeTags | ConvertTo-Json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Invoke-RestMethod -Method POST -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://$MSGraphHost/$MsGraphVersion/deviceManagement/deviceConfigurations&amp;#34;&lt;/span&gt; -Headers @{Authorization = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bearer $AccessToken&amp;#34;&lt;/span&gt;} -Body $JSON -ContentType &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;application/json&amp;#34;&lt;/span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Host -ForegroundColor RED &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;You must specify an a JSON file using the -ImportJSON parameter&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $FormattedOutputFolder = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$OutputFolder\&lt;/span&gt;$(Get-Date -Format yyyyMMdd_HH-mm-ss)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; (!(Test-Path $FormattedOutputFolder)){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        mkdir $FormattedOutputFolder -ErrorAction Stop | Out-Null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Host -ForegroundColor Red &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Failed to create $FormattedOutputFolder&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $Error[0]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Invoke-RestMethod -Method GET -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://$MSGraphHost/$MsGraphVersion/deviceManagement/deviceConfigurations&amp;#34;&lt;/span&gt; -Headers @{Authorization = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bearer $AccessToken&amp;#34;&lt;/span&gt;} | Select-Object -ExpandProperty &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Value&amp;#34;&lt;/span&gt; | %{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $_ | ConvertTo-Json | Out-File &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$FormattedOutputFolder\&lt;/span&gt;$($_.displayname)&lt;span style=&#34;color:#e6db74&#34;&gt;.json&amp;#34;&lt;/span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;pre-reqs&#34;&gt;Pre-Reqs&lt;/h2&gt;
+&lt;h3 id=&#34;azure-ad-app-registration&#34;&gt;Azure AD App Registration&lt;/h3&gt;
+&lt;p&gt;To make the script work without any interaction you will need an &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app&#34;&gt;Azure App Registration&lt;/a&gt; with the following permissions for the Microsoft Graph API.&lt;/p&gt;
+&lt;h3 id=&#34;backing-up-device-configuration-profiles&#34;&gt;Backing Up Device Configuration Profiles&lt;/h3&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;&lt;strong&gt;DeviceManagementConfiguration.Read.All&lt;/strong&gt; (Application Permission)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;importing-device-configuration-profiles&#34;&gt;Importing Device Configuration Profiles&lt;/h3&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;&lt;strong&gt;DeviceManagementConfiguration.ReadWrite.All&lt;/strong&gt; (Application Permission)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a href=&#34;https://docs.microsoft.com/en-us/graph/api/intune-deviceconfig-windows10customconfiguration-list?view=graph-rest-beta&#34;&gt;GRAPH API DOCUMENTATION&lt;/a&gt;
+&lt;p&gt;If you are not executing the script directly, you will also need the Tenant ID and the account that the script will be running as will need permission to the Output folder for backups.&lt;/p&gt;
+&lt;p&gt;If your not sure how to create an Azure AD App Registration head over to one of my other posts by clicking &lt;a href=&#34;https://euc365.com/create_an_azure_app_registration&#34;&gt;HERE&lt;/a&gt;, Don&amp;rsquo;t forget to store your Client ID and Secret securely and also have it to hand for the rest of the post :D.&lt;/p&gt;
+&lt;h2 id=&#34;executing-the-script&#34;&gt;Executing the Script&lt;/h2&gt;
+&lt;h3 id=&#34;using-azure-ad-app-registrations&#34;&gt;Using Azure AD App Registrations&lt;/h3&gt;
+&lt;p&gt;You can run this script directly from a PowerShell console, using Task Scheduler or using a 3rd party automation product that supports PowerShell.&lt;/p&gt;
+&lt;p&gt;The main thing we will go through here is just the parameters and then putting them all together from the command line, it’s really that simple.&lt;/p&gt;
+&lt;h4 id=&#34;for-backup-only&#34;&gt;For Backup Only&lt;/h4&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;Client ID: This is the Client ID for your Azure AD App&lt;/li&gt;
+ 	&lt;li&gt;ClientSecret: The Client Secret for the Azure AD App&lt;/li&gt;
+ 	&lt;li&gt;TenantID: Your Azure Tenant ID&lt;/li&gt;
+ 	&lt;li&gt;OutputFolder: Your desired Output folder&lt;/li&gt;
+&lt;/ul&gt;
+./Backup_Import_DeviceConfigurationPolicies.ps1 -ClientID “” -ClientSecret “” -TenantID “” -OutputFolder “./YourServerBackups/ConfigurationPolicies”
+&lt;h4 id=&#34;for-importing-policies&#34;&gt;For Importing Policies&lt;/h4&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;Client ID: This is the Client ID for your Azure AD App&lt;/li&gt;
+ 	&lt;li&gt;ClientSecret: The Client Secret for the Azure AD App&lt;/li&gt;
+ 	&lt;li&gt;TenantID: Your Azure Tenant ID&lt;/li&gt;
+ 	&lt;li&gt;Import: This is a switch parameter which states if your intention is to import or not&lt;/li&gt;
+ 	&lt;li&gt;ImportJSON: the path to your JSON file.&lt;/li&gt;
+&lt;/ul&gt;
+You will finally end up with something like this;
+&lt;p&gt;./Backup_DeviceConfigurationPolicies.ps1 -ClientID “” -ClientSecret “” -TenantID “” -Import -ImportJSON “./YourServerBackups/ConfigurationPolicies/ImportMe.JSON”&lt;/p&gt;
+&lt;h3&gt;Direct Execution&lt;/h3&gt;
+If you launch the script without the Client ID, Secret and Tenant ID you will be prompted with a Microsoft Logon Window similar to the below.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupconfigprofile/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
+
+
+
+&lt;p&gt;Once you login the script will continue to run and then output the configuration files in the same way it would using the App Registration. You will need an account with permissions to be able to read (for backups only) or Read and Write the &lt;strong&gt;Device Configuration Profiles&lt;/strong&gt;. However the likelihood is that if you are looking at this guide you are probably an Intune Service Administrator or Global Administrator on your Tenant.&lt;/p&gt;
+&lt;p&gt;When you run it directly without any switches the script will prompt you to log in and it would only perform a backup of your profiles and output the configurations to the the folder you are executing it from.&lt;/p&gt;
+&lt;p&gt;If you add the &lt;strong&gt;-OutputFolder&lt;/strong&gt; parameter you can change the destination of the base output folder. However if you are wishing to use the script to Import policies you can add the &lt;strong&gt;-Import &lt;/strong&gt;and &lt;strong&gt;-ImportJSON &lt;/strong&gt;parameters, If you specify the &lt;strong&gt;-Import &lt;/strong&gt; parameter you must also specify the &lt;strong&gt;-ImportJSON &lt;/strong&gt;parameter with a path to the JSON file (e.g. C:/ImportMe.json) otherwise the script will display a message that you did not specify the &lt;strong&gt;-ImportJSON&lt;/strong&gt; Parameter.&lt;/p&gt;
+&lt;p&gt;You will notice that when you run the script, if the folder does not exist it will create it. It also put its into a dated folder in the &lt;strong&gt;yyyyMMdd_HH-mm-ss&lt;/strong&gt; format leaving you with something like &lt;strong&gt;20200901_16_05_36&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
+&lt;p&gt;This can also be useful if you are wanting to make a copy of your policies to assign to a test machine. All you will need to do is backup your current policies and amend the JSON file, If you find the &lt;strong&gt;displayName&lt;/strong&gt; field in the JSON file and amend it and save the file you will be able to re-import this the same settings. All you then need to do is assign it.&lt;/p&gt;
+&lt;p&gt;I have tested this myself at the time of writing the post but if you come across any information you think may be wrong then please leave a comment or e-mail me on &lt;a href=&#34;mailto:David@euc365.com&#34;&gt;&lt;a href=&#34;mailto:david@euc365.com&#34;&gt;david@euc365.com&lt;/a&gt;&lt;/a&gt;.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -22,7 +244,437 @@
       <pubDate>Tue, 30 Jun 2020 18:35:00 +0000</pubDate>
       
       <guid>https://euc365.com/breaking-custom-oma-uri-csp-policies/</guid>
-      <description>What is an OMA-URI Policy? Meaning: Open Mobile Alliance Uniform Resource Identifier Traditionally when you implement a new piece of software which contains Group Policy Objects (GPO&amp;rsquo;s) to customise the feature of the application you would import the .</description>
+      <description>&lt;h2 id=&#34;what-is-an-oma-uri-policy&#34;&gt;What is an OMA-URI Policy?&lt;/h2&gt;
+&lt;h4 id=&#34;meaning-open-mobile-alliance-uniform-resource-identifier&#34;&gt;Meaning: Open Mobile Alliance Uniform Resource Identifier&lt;/h4&gt;
+&lt;p&gt;Traditionally when you implement a new piece of software which contains Group Policy Objects (GPO&amp;rsquo;s) to customise the feature of the application you would import the .adml and .admx files into the PolicyDefinitions folder located within SysVol (SYSVOL) for the domain or into the local PolicyDefinitions (C:\WindowsPolicyDefinitions) folder.&lt;/p&gt;
+&lt;p&gt;If like me you are wanting to move most if not all of your policies to Intune for better MDM (Mobile Device Management) then you can run into a rather complex scenario where you need to ingest the .admx file and then work out how to configure your policies correctly. Now the first time I looked at this I thought &amp;lsquo;Oh man this looks tricky, its a job for later on&amp;rsquo;. However after putting it off for so long I finally dived into it and it turns out it isn&amp;rsquo;t as complicated as it looks.&lt;/p&gt;
+&lt;p&gt;The link to the Microsoft Guide can be found &lt;a href=&#34;https://docs.microsoft.com/en-us/windows/client-management/mdm/win32-and-centennial-app-policy-configuration&#34;&gt;HERE!!&lt;/a&gt;, Feel free to head over and check it out. Hopefully this post/guide can help you out when it comes to creating your own.&lt;/p&gt;
+&lt;h2 id=&#34;importing-your-admx-file&#34;&gt;Importing your ADMX file&lt;/h2&gt;
+&lt;p&gt;For this example we will be using Google Chrome&amp;rsquo;s GPO&amp;rsquo;s, Not because they are simple because each policy has its own complexities but because it will be a common policy people will look to migrate to Intune. The ADMX files can be found on the &lt;a href=&#34;https://chromeenterprise.google/browser/download/&#34;&gt;Chrome for Enterprise Download Page&lt;/a&gt;, you can obtain the gpo files only be finding the Manage Chrome Browser section.&lt;/p&gt;
+&lt;p&gt;Once downloaded extract the .zip file and find the &lt;strong&gt;Chrome.admx&lt;/strong&gt; (Normally located within WindowsADMX), Open this in a text editor (Notepad will do fine). Now we will switch over to Intune, From the Endpoint Manager Admin Center Homepage select &lt;strong&gt;Devices &amp;gt; Configuration Profiles&lt;/strong&gt; from the navigation bar. Click &lt;strong&gt;Create profile.&lt;/strong&gt;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Dev_ConfigProfiles-1_hub4c1dfb37001814860e4d54f32983feb_70857_495x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Profile&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;Click &lt;strong&gt;Create Profile&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select the following and click &lt;strong&gt;Create&lt;/strong&gt;;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/profileselection_Custom_hu3a861b27495a45dcd027da4c8c3fe959_8956_579x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;60%&#34; width=&#34;60%&#34;&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;Enter the name for your profile (i.e Windows - Google Chrome Policy) and any other information you wish to add, click &lt;strong&gt;Next&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Now here is the fun part, Click &lt;strong&gt;Add&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Add_Custom_hu20dddc9b2feb72a03cde2c793a07b7a4_18488_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;90%&#34; width=&#34;90%&#34;&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;Enter a Name (Use something Descriptive) and Enter a description&lt;/li&gt;
+&lt;li&gt;The OMA-URI Field Should be something like the below
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;./Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/{AppName}/Policy/{ADMXFileName}&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Data Type: &lt;strong&gt;String&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Value: Paste the contents of the chrome.admx file&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/chromeadmx_hu086cffa5b21ffbc253f5dbda429b76b0_25205_580x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;402&#34; width=&#34;580&#34;&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;Click &lt;strong&gt;Add&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Now Proceed to deploy the policy (I would recommend doing this to a test group first)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The above path determines what the OMA-URI is for future policies, for example if you enter &lt;code&gt;./Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/Chrome/Policy/ChromeAdmx&lt;/code&gt; as the OMA-URI for the device import the policies within the ADMX will then be formatted like &lt;code&gt;Chrome~Policy~googlechrome~Startup&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The full path for the OMA-URI for the Homepage Setting would be &lt;code&gt;./{AppName}/Vendor/MSFT/Policy/Config/Chrome~Policy~googlechrome~Startup/HomepageLocation&lt;/code&gt;. The format of the URI is is &lt;code&gt;{AppName}~{SettingType}~{CategoryandSubCategory}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Now the category path may not just be a root category for example the startup settings will look like this &lt;code&gt;Chrome~Policy~googlechrome~Startup&lt;/code&gt; to break it down&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AppName: &lt;strong&gt;Chrome&lt;/strong&gt; (Set in the ADMX File Ingest)&lt;/li&gt;
+&lt;li&gt;SettingType: &lt;strong&gt;Policy&lt;/strong&gt; (Set in the ADMX File Ingest)&lt;/li&gt;
+&lt;li&gt;CategoryAndSubCategory:
+&lt;ul&gt;
+&lt;li&gt;Category: &lt;strong&gt;googlechrome&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Sub Category: &lt;strong&gt;Startup&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now this may seem complicated at first glance, however do keep reading and I will explain how to obtain the paths and settings.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;finding-and-creating-policies&#34;&gt;Finding and Creating Policies&lt;/h2&gt;
+&lt;p&gt;Before we get started, if you haven&amp;rsquo;t already re-open the properties of the policy you created previously. You will also need to open the .admx files in your favourite text editor. Personally I use VSCode as it has syntax highlighting for XML files and many other useful features.&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;This section requires this to be published to a device.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;To get started Open the &lt;strong&gt;Chrome.admx&lt;/strong&gt; and &lt;strong&gt;Chrome.adml&lt;/strong&gt; (This will be in the language folder i.e. en-US within the .zip file) and launch &lt;strong&gt;REGEDIT (Registry Editor)&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s get started, within &lt;strong&gt;REGEDIT&lt;/strong&gt; browse to &lt;code&gt;HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/PolicyManager/AdmxDefault&lt;/code&gt; (There is always a random GUID per device, however this doesn&amp;rsquo;t make a difference to the policy so don&amp;rsquo;t worry), from here if you deployed the Chrome Policy as per the above steps you will see something like the below. (Note: this is showing Google Updates, but we will&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/RegSnap_PolicyADMX-1_hu3417758c36cd16322956ffede1fcbad1_49454_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;p&gt;As mentioned above they are broken down like below, we will be sticking with the Homepage setting which is within the startup category.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AppName: &lt;strong&gt;Chrome&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;SettingType: &lt;strong&gt;Policy&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Categories:
+&lt;ul&gt;
+&lt;li&gt;Root Category: &lt;strong&gt;googlechrome&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Sub Category: &lt;strong&gt;startup&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now if you look at the .admx file, you will see the following under the categories section&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Cat_SUbCat_GC-1_hub42571b1e7175f5ba0c0e1438475c4aa_7404_642x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;117&#34; width=&#34;642&#34;&gt;
+
+
+
+&lt;p&gt;As you can see that this correlates with with policy in the registry, now if you expand the policy within the registry you can see that the HomePage Location settings is created from within there&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Startup_Shot_hu9f38fa4a4a71e72eb893fd1012ed0316_11776_415x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;187&#34; width=&#34;415&#34;&gt;
+
+
+
+&lt;p&gt;This is the part where you actually need the .admx file. Lets start by explaining why you need to use .admx file. For this example you are not only enabling or disabling a policy but you will be actually specifying a value. When you go to specify this value in Intune you will need to use the &lt;code&gt;ValueName&lt;/code&gt; from within the ADMX File. See the below example;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/HomepageSetting_hue9c27d273b99d181e2a4d31e1ca3ec72_19374_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
+
+
+
+&lt;p&gt;Lets break the policy setting down first, As always I would recommend naming the setting descriptively and also adding a description if you want more information about it. The OMA-URI would then be &lt;code&gt;./Device/Vendor/MSFT/Policy/Config/Chrome~Policy~googlechrome~Startup/HomepageLocation.&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;class-device-or-user&#34;&gt;Class (Device or User)&lt;/h4&gt;
+&lt;p&gt;One things to note here is the first section of the OMA-URI, It seems simple but you will need to specify if you want to apply this to a &lt;strong&gt;Device&lt;/strong&gt; or &lt;strong&gt;User&lt;/strong&gt;. Some policies are only available for &lt;strong&gt;Devices&lt;/strong&gt; and likewise for &lt;strong&gt;Users&lt;/strong&gt;. You can see this in the ADMX File by looking at the policy like below&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/PolicyClass_hu0a32aa200859219a652c97f51ac08d29_7084_477x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;157&#34; width=&#34;477&#34;&gt;
+
+
+
+&lt;p&gt;Now the HomePageLocation setting can be User or Device based so the class shows as Both. If this was a device only policy &lt;strong&gt;class=&amp;ldquo;Machine&amp;rdquo;&lt;/strong&gt; and for a user only policy it would show as &lt;strong&gt;class=&amp;ldquo;User&amp;rdquo;.&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;appname&#34;&gt;AppName&lt;/h4&gt;
+&lt;p&gt;As mentioned above the AppName is can be totally customisable however I wouldn&amp;rsquo;t advise that and I would keep it as simple and descriptive as possible.&lt;/p&gt;
+&lt;p&gt;For example, For this post I used &lt;strong&gt;Chrome&lt;/strong&gt; as the AppName so the Policies show as &lt;code&gt;Chrome~{SettingType}~{Root Category}~{Sub** **Category}&lt;/code&gt;. If i was to do another policy for Lenovo Vantage for example and set the AppName to &lt;strong&gt;LenovoVantage&lt;/strong&gt; the polcies would show &lt;code&gt;LenovoVantage~{SettingType}~{Root Category}~{Sub Category}&lt;/code&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;settingtype&#34;&gt;SettingType&lt;/h4&gt;
+&lt;p&gt;As we imported the ADMX into the Policy section (&lt;code&gt;./Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/{AppName}/Policy/{ADMXFileName}&lt;/code&gt;) of the ADMXInstall OMA-URI this part of the OMA-URI would always be policy.&lt;/p&gt;
+&lt;h4 id=&#34;categories-and-sub-categories&#34;&gt;Categories and Sub-Categories&lt;/h4&gt;
+&lt;p&gt;This is detailed above but I will elaborate a little bit more here.&lt;/p&gt;
+&lt;p&gt;If you look at the .admx file, and browse to the categories section you will see lots of categories set with a parent category within there.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Cat_SUbCat_GC-1_hub42571b1e7175f5ba0c0e1438475c4aa_7404_642x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;p&gt;If you work backwards you can see how this all comes together,&lt;/p&gt;
+&lt;p&gt;The OMA-URI is &lt;code&gt;Chrome~Policy~{Root Category}~{Sub Category}&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Sub Category:&lt;/strong&gt; Startup&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Root Category:&lt;/strong&gt; googlechrome&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Something to not here is that it is possible for a parent category to have another parent category to make matters more confusing. You could end up having a policy like &lt;code&gt;{AppName}~Policy~{Parent Category 1}~{Parent Category 2}~{Sub Category}&lt;/code&gt; and so on&amp;hellip; Just something to always check.&lt;/p&gt;
+&lt;p&gt;This is partly the reason to always check the registry when creating polices.&lt;/p&gt;
+&lt;h4 id=&#34;the-policy-itself&#34;&gt;The Policy Itself&lt;/h4&gt;
+&lt;p&gt;So finally we come to the policy itself, at the end all the OMA-URI string comes the setting, in this case &lt;strong&gt;HomePageLocation&lt;/strong&gt;.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/HomepageKey-1024x120_hu34eee4ff45c257f80c9ec29ab62b54dc_40615_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;p&gt;This is derived again from the .admx file, if you search for the policy you will come across something like the above screenshot. You will notice that the policy is based on the &lt;strong&gt;DisplayName&lt;/strong&gt; property. We won&amp;rsquo;t cover setting the value in this section as I feel it deserves its own.&lt;/p&gt;
+&lt;h4 id=&#34;the-policy-valuesetting&#34;&gt;The Policy Value/Setting&lt;/h4&gt;
+&lt;p&gt;Some setting are really simple to configure, for example if you want to disable something like &lt;code&gt;MetricsReportingEnabled&lt;/code&gt; you can simply just add like below&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/simpledisable_hua57b6aeb75d1078af8ae4b713891b1e7_18118_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
+
+
+
+&lt;p&gt;Others like the &lt;code&gt;HomePageLocation&lt;/code&gt; are not complicated but require a little bit more than just a simple disable or enable switch as you need to specify a value for the property.&lt;/p&gt;
+&lt;p&gt;Again jumping back into the .admx file, if you look at the last highlighted section of the below screenshot you can see that there is a &lt;code&gt;ValueName&lt;/code&gt;, now this is the value we need want to change.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/HomepageKey-1024x120_hu34eee4ff45c257f80c9ec29ab62b54dc_40615_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;p&gt;to do this you would need to write the policy string like the below screenshot&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/HomepageSetting_hue9c27d273b99d181e2a4d31e1ca3ec72_19374_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
+
+
+
+&lt;p&gt;If you look at the &lt;code&gt;data id&lt;/code&gt; section, this is where you would put the value name in out of the .admx file, from there you would then set the value of that property for example &lt;a href=&#34;https://euc365.com&#34;&gt;https://euc365.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you apply this policy and sync it to your device you will notice that it will change the Homepage upon start up.&lt;/p&gt;
+&lt;p&gt;Now&amp;hellip; Here is another example of adding a string to a policy which requires multiple values. This once is not so much tricky but its messy.&lt;/p&gt;
+&lt;p&gt;For this example we will use the Allow Pop ups for certain sites, I will start off by showing you the screenshot of the policy itself&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Annotation-2020-07-02-123120_hu7cc69084f089061c99f2d44353ac98a4_23518_586x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;408&#34; width=&#34;586&#34;&gt;
+
+
+
+&lt;p&gt;You will notice that at the start and end of each URL there is a rather ugly looking set of characters, now this is where is can get messy. The pre-URL string is the only one that needs to be changed per entry. If you think of this like a list, &lt;strong&gt;option 1&lt;/strong&gt; in the list is &lt;a href=&#34;http://euc365.com&#34;&gt;http://euc365.com&lt;/a&gt; and &lt;strong&gt;option 2&lt;/strong&gt; is &lt;a href=&#34;http://bbc.co.uk&#34;&gt;http://bbc.co.uk&lt;/a&gt;, As you can see in the screenshot the pre-URL has a number which needs to be incremented each time you add another URL.&lt;/p&gt;
+&lt;p&gt;If you are just having one URL you don’t need to add the final &lt;code&gt;&amp;amp;#xF000;&lt;/code&gt;, However if you are using multiple values you will need to add that to the end of the URL and then follow it up with you next URL.&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;The last URL in the sequence should not be followed by &lt;code&gt;&amp;amp;#xF000;&lt;/code&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Looking at putting the URL together you will end up with something like &lt;code&gt;1&amp;amp;#xF000; + https://euc365.com + &amp;amp;#xF000; + Following URLs&lt;/code&gt;, For a single url it would be &lt;code&gt;1&amp;amp;#xF000; + https://euc365.com&lt;/code&gt;&lt;/p&gt;
+</description>
     </item>
     
   </channel>

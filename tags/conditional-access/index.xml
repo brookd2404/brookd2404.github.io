@@ -13,7 +13,211 @@
       <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
       
       <guid>https://euc365.com/autopilot-enrolment-terms-of-use/</guid>
-      <description>Why would I want to do this? Whats the Purpose?</description>
+      <description>&lt;h2 id=&#34;why-would-i-want-to-do-this-whats-the-purpose&#34;&gt;Why would I want to do this? Whats the Purpose?&lt;/h2&gt;
+&lt;p&gt;You maybe asking yourself why should I be adding Terms of use to Autopilot Enrolment? Well there are a few use cases that spring to mind.&lt;/p&gt;
+&lt;p&gt;The first been accepting an It acceptable use policy, for many years users have come to collect devices from a field office and/or had the devices delivered to them by an internal tech. Well in the current day and age of Modern Management and Windows Autopilot you now have the option to ship straight from the vendor to the end user, ensuring that the user accepts the policy prior to using the device maybe an absolute must for your organisation.&lt;/p&gt;
+&lt;p&gt;Not only can you present these terms of use, but you can also see who has accepted and or denied these from the Azure portal, cool right?&lt;/p&gt;
+&lt;p&gt;Did I also mention that you can add multiple languages for your terms of use, No? Well it&amp;rsquo;s actually super easy to do so without creating additional policies etc.&lt;/p&gt;
+&lt;h2 id=&#34;creating-your-terms-of-use&#34;&gt;Creating your Terms of Use&lt;/h2&gt;
+&lt;p&gt;We will be making use of conditional access and the inbuilt terms of use from the Azure portal, meaning we are taking advantage of products you may already have licenses for.&lt;/p&gt;
+&lt;p&gt;Without further ado, lets get started.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Head over to the &lt;a href=&#34;https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies&#34;&gt;Conditional Access Pane&lt;/a&gt; in the Azure portal.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Under the &lt;strong&gt;Manage&lt;/strong&gt; section, click &lt;strong&gt;Terms of Use&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the right-hand pane, click &lt;strong&gt;New terms&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Complete the &lt;strong&gt;Name&lt;/strong&gt; and &lt;strong&gt;Display Name&lt;/strong&gt; fields
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termsnameanddisplay_hub8ff1006e3bc9242cc17866791a4f670_26243_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Name and DisplayName&#34; height=&#34;138px&#34; width=&#34;587px&#34;&gt;
+
+
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click on the box that says &lt;strong&gt;Upload required PDF&lt;/strong&gt;, Locate and upload the PDF of your Terms.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select your default language&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/termsmultiplepdfs.png&#34; alt=&#34;Terms MultiplePDFS&#34; width=&#34;587px&#34; height=&#34;175px&#34; /&gt;
+&lt;br&gt;At this point you can upload the same terms in a different language, simply click **+ Add language**, Upload the PDF and then select its language from the drop down to the right-hand side.&lt;/p&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Require user to expand the terms of use&lt;/strong&gt;, now this is optional, you can choose to require the users to expand the terms of use or not. Personally, I prefer too as if the terms are broken you can show that they would have had to read them.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Require users to consent on every device&lt;/strong&gt;, This one &lt;strong&gt;HAS&lt;/strong&gt; to be set to &lt;strong&gt;Off&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/consentwarning.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;650px&#34; height=&#34;138px&#34; /&gt;&lt;br&gt;
+This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on the device has to be Joined to Azure AD Already and in fully working order. You will see this warning if you do attempt to switch it on.&lt;/p&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Expire Consents&lt;/strong&gt;, again this one is optional, if you would like the user to accept it once in then never have to see it again then you can leave this off. However, If you would like users to have to accept this on another Autopilot build after a specified period of time then flick the switch on.
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Expire Starting On&lt;/strong&gt;, use the date picker and select the date you are on.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Frequency&lt;/strong&gt;, Set this to your desired frequency. I like to set this to Monthly.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Duration before re-acceptance required (days)&lt;/strong&gt;, set this to the amount of days you would like before the end user has to perform re-acceptance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Your final terms of use setting should look something like this;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termscomplete_hu78f625e649dfc516ebb0eba7978febd3_121537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;650px&#34;&gt;
+
+
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Conditional Access&lt;/strong&gt;, you can choose to create a policy later, or select &lt;strong&gt;Custom Policy&lt;/strong&gt; which will allow you to create the policy now.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Create&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you chose to create a &lt;strong&gt;Custom Policy&lt;/strong&gt; you will be redirected to a Conditional Access policy configuration.&lt;/li&gt;
+&lt;li&gt;Give your Policy a name e.g. &lt;strong&gt;Autopilot Enrolment Terms of Use Policy&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Assignments&lt;/strong&gt;, To start with I would test this out with a bunch of your techs, or users who give good feedback to ensure that this suits your organizational needs. Make sure this is targeted to users.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cloud apps and actions&lt;/strong&gt;, now this is where we specify it to only apply to Intune Enrolment (Autopilot).
+&lt;ul&gt;
+&lt;li&gt;Under the &lt;strong&gt;Cloud Apps Slider&lt;/strong&gt;, select &lt;strong&gt;Select Apps&lt;/strong&gt;, Click on the selections&lt;/li&gt;
+&lt;li&gt;Type &lt;strong&gt;Microsoft Intune Enrollment&lt;/strong&gt; and click the app to select it, Click &lt;strong&gt;Select&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Conditions&lt;/strong&gt;, You can change this to suit your needs, I generally select the Device Platform as Windows&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Access Control - Grant&lt;/strong&gt;, Select &lt;strong&gt;Grant Access&lt;/strong&gt;, and then select your Terms of Use policy like below&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/grantselectterms_hu18dde69c3568addac427ca6104d8369f_93291_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;250px&#34;&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;Click &lt;strong&gt;Select&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Session&lt;/strong&gt;, You don&amp;rsquo;t need to select a Session&lt;/li&gt;
+&lt;li&gt;At the bottom of the browser window, ensure that you have set &lt;strong&gt;Enable Policy&lt;/strong&gt; to &lt;strong&gt;On&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Create&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Well that&amp;rsquo;s a wrap from a configuration perspective, lets jump into some testing and see what the end user will experience.&lt;/p&gt;
+&lt;h2 id=&#34;so-what-does-it-look-like&#34;&gt;So what does it look like?&lt;/h2&gt;
+&lt;p&gt;Firstly, you will hit the standard Autopilot Screen where you log in with your details and MFA etc. You will then notice that you are re-directed to a screen that represents the below;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termsduringap_hu243e40b91a29d7e929c678b53a0b3d64_18595_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;300px&#34; width=&#34;1000px&#34;&gt;
+
+
+
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;If you selected to force the users to expand the terms, but just click accept you will see the message below pop up.
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/termsnoexpand.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;450px&#34; height=&#34;150px&#34; /&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;If you expand the terms you will see your terms in an embedded PDF viewer, once you have finished click &lt;strong&gt;Accept&lt;/strong&gt;, you will then just continue along your way on a standard Autopilot build.&lt;/p&gt;
+
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;If you have this conditional access policy enabled and a user does not accept the policy, they will be prevented from performing an Intune Enrolment. They are however able to Accept the policy on further attempts.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;how-do-i-see-whoc-accepteddeclined&#34;&gt;How do I see who&amp;rsquo;c Accepted/Declined?&lt;/h2&gt;
+&lt;p&gt;This is super easy to check, Head back over to the &lt;a href=&#34;https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies&#34;&gt;Conditional Access Pane&lt;/a&gt; in the Azure portal. From here click &lt;strong&gt;Terms of Use&lt;/strong&gt;, Straight away you can see the numbers for Accepted and Declined.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/acceptteddeclinenumbers_hufcb2f10437b382c8df62e46426bbab6e_3110_635x0_resize_q100_h2_box_3.webp&#34; alt=&#34;acceptteddeclinenumbers&#34; height=&#34;75px&#34; width=&#34;600px&#34;&gt;
+
+
+
+&lt;p&gt;If you go ahead and click those numbers, you can see who has/hasn&amp;rsquo;t accepted the policy, you can also download the list should it be required.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;For something so simple, it is quite effective an there may be a ton of use cases for this in other scenarios, however, I was asked to scope this out for a customer I was working with.&lt;/p&gt;
+&lt;p&gt;I hope it may be some use :D, enjoy your day guys and girls!!!.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -22,7 +226,287 @@
       <pubDate>Mon, 14 Sep 2020 13:20:00 +0000</pubDate>
       
       <guid>https://euc365.com/backup-and-import-conditional-access-policies/</guid>
-      <description>Why backup Conditional Access Policies? Why would you need to back up something that runs in stored and hosted on Azure?</description>
+      <description>&lt;h2 id=&#34;why-backup-conditional-access-policies&#34;&gt;Why backup Conditional Access Policies?&lt;/h2&gt;
+&lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;If you make a change and you break something you can look back and analyse what it was&lt;/li&gt;
+ 	&lt;li&gt;You can make copies of the policy easily rather than having two windows side by side&lt;/li&gt;
+ 	&lt;li&gt;In case one is deleted… (Let’s hope this is never the case)&lt;/li&gt;
+ 	&lt;li&gt;To review the maturity of your policies (Lets say you started from ground zero and now have over 100 policy settings… Might be nice to review what you’ve done)&lt;/li&gt;
+&lt;/ul&gt;
+We also live in a world of change management and service improvement  so there is always a need to make changes to policies and configurations. If you have or are moving from traditional group policy you will know that you can run an HTML report or a backup before you go ahead and make any changes.
+&lt;p&gt;Well when using Intune there was no way to export or backup your profiles or policies from the console… I have seen people taking screenshots of the pages as a backup of the policies which is far from an ideal scenario.&lt;/p&gt;
+&lt;p&gt;What if I told you there is a way you can back-up your configuration policies using the Microsoft Graph API?? Well it’s possible and it’s easier than you think.&lt;/p&gt;
+&lt;p&gt;This is part of a series of posts about backing up and importing policies and profiles, so if you feel like you&amp;rsquo;ve read this part before then you probably have.&lt;/p&gt;
+&lt;p&gt;Back when I wrote my first post about these (&lt;a href=&#34;https://euc365.com/backing-up-intune-device-configuration-profiles/&#34;&gt;&lt;strong&gt;HERE&lt;/strong&gt;&lt;/a&gt;) the script just backed up the policies/profiles, however over time they have grown into scripts that you can also use to re-import these policies/profile.&lt;/p&gt;
+&lt;p&gt;This one is the &lt;strong&gt;Third&lt;/strong&gt; in the series, where we will focus on &lt;b&gt;Conditional Access Policies&lt;/b&gt;.Each one has brought its own challenges which are hopefully mitigated within the script, but if not you can always get in touch and let me know.&lt;/p&gt;
+&lt;h2 id=&#34;the-script&#34;&gt;The Script&lt;/h2&gt;
+&lt;p&gt;You will notice that most of this (the authentication part and most of the param block at least) are the same as my other script&amp;hellip; But if its not broke why fix it? (Those famous last words!!!). Although this script&lt;strong&gt; &lt;/strong&gt;does have an alternative run method, if you run it directly without the ClientID, ClientSecret and TenantID parameters it will install the Azure AD Powershell module and use a custom Function (&lt;strong&gt;Connect-AzAD_Token)&lt;/strong&gt; to enable users to interact with a login Window if they do not wish to use Azure AD App Registrations with client secrets.&lt;/p&gt;
+&lt;p&gt;This &lt;strong&gt;Conditional Access &lt;/strong&gt;script &lt;b&gt;WILL ALWAYS REQUIRE A CUSTOM APP REGISTRATION.&lt;/b&gt; I&amp;rsquo;ve not put that in bold to be shouty but just to highlight it and stand out, as I was going around in circles for a couple of days trying to figure out why this one would not work!!!.&lt;/p&gt;
+&lt;p&gt;This script can be run from anywhere, as a user (If the using the command line parameters or if the AzureAD Module is installed already), as an Administrator or even as System. You could put this into an Automation Engine to do backups on a schedule if that is your desire but this would need to be done with an Azure App Registration.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;param&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;Parameter&lt;/span&gt;(DontShow = $true)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $MsGraphVersion = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;beta&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;Parameter&lt;/span&gt;(DontShow = $true)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $MsGraphHost = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;graph.microsoft.com&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#The AzureAD ClientID (Application ID) of your registered AzureAD App with Delegate permissions&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $DelegateClientID,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#The AzureAD ClientID (Application ID) of your registered AzureAD App&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ClientID,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#The Client Secret for your AzureAD App&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ClientSecret,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#Your Azure Tenent ID&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $TenantId,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;Parameter&lt;/span&gt;()]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $OutputFolder = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.ConditionalAccessPolicyBackup&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[switch]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $Import,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ImportJSON
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)&lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FUNCTION&lt;/span&gt; Connect-AzAD_Token ($DelegateID){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Write-Host -ForegroundColor Cyan &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Checking for AzureAD module...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $AADMod = Get-Module -Name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureAD&amp;#34;&lt;/span&gt; -ListAvailable
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (!($AADMod)) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Host -ForegroundColor Yellow &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureAD PowerShell module not found, looking for AzureADPreview&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $AADModPrev = Get-Module -Name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureADPreview&amp;#34;&lt;/span&gt; -ListAvailable
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;#Check to see if the AzureAD Preview Module is insalled, If so se that as the AAD Module Else Insall the AzureAD Module&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; ($AADModPrev) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            $AADMod = Get-Module -Name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureADPreview&amp;#34;&lt;/span&gt; -ListAvailable
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Write-Host -ForegroundColor Yello &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureAD Preview is not installed...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Write-Host -ForegroundColor Cyan &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Attempting to Install the AzureAD Powershell module...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -ErrorAction Stop | Out-Null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Install-Module AzureAD -Force -ErrorAction Stop
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Write-Host -ForegroundColor Red &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Failed to install the AzureAD PowerShell Module &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;`n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; &lt;/span&gt;$($Error[0])&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Host -ForegroundColor Green &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureAD Powershell Module Found&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $AADMod = ($AADMod | Select-Object -Unique | Sort-Object)[-1]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ADAL = Join-Path $AADMod.ModuleBase &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft.IdentityModel.Clients.ActiveDirectory.dll&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ADALForms = Join-Path $AADMod.ModuleBase &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[System.Reflection.Assembly]&lt;/span&gt;::LoadFrom($ADAL) | Out-Null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[System.Reflection.Assembly]&lt;/span&gt;::LoadFrom($ADALForms) | Out-Null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $UserInfo = Connect-AzureAD
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Your Azure Application ID &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $MIPEAClientID = $DelegateID
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# The redirectURI&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $RedirectURI = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;urn:ietf:wg:oauth:2.0:oob&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#The Authority to connect with (YOur Tenant)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Write-Host -Foregroundcolor Cyan &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Connected to Tenant: &lt;/span&gt;$($UserInfo.TenantID)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $Auth = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://login.microsoftonline.com/&lt;/span&gt;$($UserInfo.TenantID)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $AuthContext = New-Object &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext&amp;#34;&lt;/span&gt; -ArgumentList $Auth
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# https://msdn.microsoft.com/en-us/library/azure/microsoft.identitymodel.clients.activedirectory.promptbehavior.aspx&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# Change the prompt behaviour to force credentials each time: Auto, Always, Never, RefreshSession&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $platformParameters = New-Object &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters&amp;#34;&lt;/span&gt; -ArgumentList &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Auto&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $userId = New-Object &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft.IdentityModel.Clients.ActiveDirectory.UserIdentifier&amp;#34;&lt;/span&gt; -ArgumentList ($UserInfo.Account, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;OptionalDisplayableId&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $authResult = $AuthContext.AcquireTokenAsync((&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://&amp;#34;&lt;/span&gt; + $MSGraphHost),$MIPEAClientID,$RedirectURI,$platformParameters,$userId).Result
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# If the accesstoken is valid then create the authentication header&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;($authResult.AccessToken){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;# Creating header for Authorization token&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            $AADAccessToken = $authResult.AccessToken
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; $AADAccessToken
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Write-Host -ForegroundColor Red &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Authorization Access Token is null, please re-run authentication...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Host -ForegroundColor Red $_.Exception.Message
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Host -ForegroundColor Red $_.Exception.ItemName
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Web page used to help with getting the access token &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#https://morgantechspace.com/2019/08/get-graph-api-access-token-using-client-id-and-client-secret.html &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (($ClientID) &lt;span style=&#34;color:#f92672&#34;&gt;-and&lt;/span&gt; ($ClientSecret) &lt;span style=&#34;color:#f92672&#34;&gt;-and&lt;/span&gt; ($TenantId) ) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#Create the body of the Authentication of the request for the OAuth Token&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $Body = @{client_id=$ClientID;client_secret=$ClientSecret;grant_type=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;client_credentials&amp;#34;&lt;/span&gt;;scope=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://$MSGraphHost/.default&amp;#34;&lt;/span&gt;;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#Get the OAuth Token &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $OAuthReq = Invoke-RestMethod -Method Post -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://login.microsoftonline.com/$TenantId/oauth2/v2.0/token&amp;#34;&lt;/span&gt; -Body $Body
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#Set your access token as a variable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $global:AccessToken = $OAuthReq.access_token
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (!($DelegateClientID))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Host -ForegroundColor Red &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;You must specify a clientID which has the correct delegate permissions and URI Re-write configuration &amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $global:AccessToken = Connect-AzAD_Token -DelegateID $DelegateClientID
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; (!($Import)) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $FormattedOutputFolder = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$OutputFolder&lt;/span&gt;$(Get-Date -Format yyyyMMdd_HH-mm-ss)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; (!(Test-Path $FormattedOutputFolder)){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            mkdir $FormattedOutputFolder -ErrorAction Stop | Out-Null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Write-Host -ForegroundColor Red &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Failed to create $FormattedOutputFolder&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            $Error[0]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Invoke-RestMethod -Method GET -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://$MSGraphHost/$MsGraphVersion/identity/conditionalAccess/policies&amp;#34;&lt;/span&gt; -Headers @{Authorization = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bearer $AccessToken&amp;#34;&lt;/span&gt;} -ContentType &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;application/json&amp;#34;&lt;/span&gt; | Select-Object -ExpandProperty &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Value&amp;#34;&lt;/span&gt; | %{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       $_ | ConvertTo-Json -Depth 10 | Out-File &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$FormattedOutputFolder&lt;/span&gt;$($_.displayname)&lt;span style=&#34;color:#e6db74&#34;&gt;.json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;span style=&#34;color:#66d9ef&#34;&gt;elseif&lt;/span&gt; ($Import) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $JSON = Get-Content $ImportJSON | ConvertFrom-Json | Select-Object -Property * -ExcludeProperty Version,modifiedDateTime,CreatedDateTime,id,sessionControls | ConvertTo-Json -Depth 10
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Invoke-RestMethod -Method POST -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://$MSGraphHost/$MsGraphVersion/identity/conditionalAccess/policies&amp;#34;&lt;/span&gt; -Headers @{Authorization = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bearer $AccessToken&amp;#34;&lt;/span&gt;} -Body $JSON -ContentType &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;application/json&amp;#34;&lt;/span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;the-pre-reqs&#34;&gt;The Pre-Reqs&lt;/h2&gt;
+&lt;h3 id=&#34;azure-ad-app-registration&#34;&gt;Azure AD App Registration&lt;/h3&gt;
+&lt;p&gt;To make the script work you will need an &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app&#34;&gt;Azure App Registration&lt;/a&gt; with the following permissions for the Microsoft Graph API;&lt;/p&gt;
+&lt;h4 id=&#34;backing-up-conditional-access-policies-only&#34;&gt;Backing Up &lt;strong&gt;Conditional Access&lt;/strong&gt; Policies Only&lt;/h4&gt;
+&lt;p&gt;For Direct Execution (Using the login box) you will need;&lt;/p&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;&lt;strong&gt;Policy.Read.All &lt;/strong&gt;(Delegate Permission)&lt;/li&gt;
+&lt;/ul&gt;
+Using the ClientID, ClientSecret and TenantID (Unattended) you will need;
+&lt;ul&gt;
+ 	&lt;li&gt;&lt;strong&gt;Policy.Read.All &lt;/strong&gt;(Application Permission)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;importing-conditional-access-policies&#34;&gt;Importing &lt;strong&gt;Conditional Access&lt;/strong&gt; Policies&lt;/h4&gt;
+&lt;p&gt;For Direct Execution (Using the login box) you will need;&lt;/p&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;&lt;strong&gt;Policy.Read.All &lt;/strong&gt;(Delegate Permission)&lt;/li&gt;
+ 	&lt;li&gt;&lt;strong&gt;Policy.ReadWrite.ConditionalAccess &lt;/strong&gt;(Delegate Permission)&lt;/li&gt;
+ 	&lt;li&gt;&lt;strong&gt;Application.Read.All &lt;/strong&gt;(Delegate Permission)&lt;/li&gt;
+&lt;/ul&gt;
+Using the ClientID, ClientSecret and TenantID (Unattended) you will need;
+&lt;ul&gt;
+ 	&lt;li&gt;&lt;strong&gt;Policy.Read.All &lt;/strong&gt;(Application Permission)&lt;/li&gt;
+ 	&lt;li&gt;&lt;strong&gt;Policy.ReadWrite.ConditionalAccess &lt;/strong&gt;(ApplicationPermission)&lt;/li&gt;
+ 	&lt;li&gt;&lt;strong&gt;Application.Read.All &lt;/strong&gt;(Application Permission)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a href=&#34;https://docs.microsoft.com/en-us/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta&#34;&gt;GRAPH API DOCUMENTATION&lt;/a&gt;
+&lt;p&gt;If you are not executing the script directly, you will also need the Tenant ID and the account that the script will be running as will need permission to the Output folder for backups.&lt;/p&gt;
+&lt;p&gt;If your not sure how to create an Azure AD App Registration head over to one of my other posts by clicking &lt;a href=&#34;https://euc365.com/create_an_azure_app_registration&#34;&gt;HERE&lt;/a&gt;, Don&amp;rsquo;t forget to store your Client ID and Secret securely and also have it to hand for the rest of the post :D.&lt;/p&gt;
+&lt;h3 id=&#34;redirect-uri&#34;&gt;Redirect URI&lt;/h3&gt;
+&lt;p&gt;For this one, there is a little bit more to do with the Azure AD Application. We are going to need to add a re-write URI for Authentication when using the Login Prompt (Delegated Permissions). If you do not have a Redirect URI or it is not the correct one you will recieve an error like below.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupconditionalaccess/NoRedirectURI_hu6ae5db7a752f041bfb3ec13814289dc1_8084_399x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;192&#34; width=&#34;399&#34;&gt;
+
+
+
+&lt;p&gt;We need to add &lt;strong&gt;urn:ietf:wg:oauth:2.0:oob&lt;/strong&gt; as a redirect URI for the application. To do so follow the below steps;&lt;/p&gt;
+&lt;ol&gt;
+ 	&lt;li&gt;Browse to your &lt;strong&gt;Azure AD Application Registration&lt;/strong&gt;&lt;/li&gt;
+ 	&lt;li&gt;Click on &lt;strong&gt;Authntication &lt;/strong&gt;located in the left pane&lt;/li&gt;
+ 	&lt;li&gt;Click &lt;strong&gt;Add a Platform&lt;/strong&gt;&lt;/li&gt;
+ 	&lt;li&gt;Click &lt;strong&gt;Mobile and Desktop applications&lt;/strong&gt;&lt;/li&gt;
+ 	&lt;li&gt;Copy and paste &lt;strong&gt;urn:ietf:wg:oauth:2.0:oob &lt;/strong&gt;into the Redirect URI field&lt;/li&gt;
+ 	&lt;li&gt;Click &lt;strong&gt;Configure&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+This will enable the Authentication box to work with Conditional Access. Unfortunately I was unable to add these Permissions to the &lt;strong&gt;Microsoft Intune PowerShell &lt;/strong&gt;Enterprise Application so I could have left this as a default ClientID for that in each tenant.
+&lt;h2 id=&#34;executing-the-script&#34;&gt;Executing the Script&lt;/h2&gt;
+&lt;h3 id=&#34;unattended-with-an-azure-ad-app-registration&#34;&gt;Unattended with an Azure AD App Registration&lt;/h3&gt;
+&lt;p&gt;You can run this script directly from a PowerShell console, using Task Scheduler or using a 3rd party automation product that supports Powershell.&lt;/p&gt;
+&lt;p&gt;The main thing we will go through here is just the parameters and then putting them all together from the command line, it&amp;rsquo;s really that simple.&lt;/p&gt;
+&lt;h4 id=&#34;for-backup-only&#34;&gt;For Backup Only&lt;/h4&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;Client ID: This is the Client ID for your Azure AD App&lt;/li&gt;
+ 	&lt;li&gt;ClientSecret: The Client Secret for the Azure AD App&lt;/li&gt;
+ 	&lt;li&gt;TenantID: Your Azure Tenant ID&lt;/li&gt;
+ 	&lt;li&gt;OutputFolder: Your desired Output folder&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;./Backup_Import_ConditionalAccessPolicies.ps1 -ClientID &amp;quot;&amp;quot; -ClientSecret &amp;quot;&amp;quot; -TenantID &amp;quot;&amp;quot; -OutputFolder &amp;quot;./YourServerBackups/ConditionalAccessPolicies&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;for-importing-policies&#34;&gt;For Importing Policies&lt;/h4&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;Client ID: This is the Client ID for your Azure AD App&lt;/li&gt;
+ 	&lt;li&gt;ClientSecret: The Client Secret for the Azure AD App&lt;/li&gt;
+ 	&lt;li&gt;TenantID: Your Azure Tenant ID&lt;/li&gt;
+ 	&lt;li&gt;Import: This is a switch parameter which states if your intention is to import or not&lt;/li&gt;
+ 	&lt;li&gt;ImportJSON: the path to your JSON file.&lt;/li&gt;
+&lt;/ul&gt;
+You will finally end up with something like this;
+&lt;p&gt;&lt;code&gt;./Backup_Import_ConditionalAccessPolicies.ps1 -ClientID &amp;quot;&amp;quot; -ClientSecret &amp;quot;&amp;quot; -TenantID &amp;quot;&amp;quot; -Import -ImportJSON &amp;quot;./YourServerBackups/ConditionalAccessPolicies/ImportMe.JSON&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;direct-execution-with-your-azure-ad-app-registration&#34;&gt;Direct Execution (With your Azure AD App Registration)&lt;/h3&gt;
+&lt;p&gt;There is a slight change here from my previous posts as mentioned above in the &lt;strong&gt;Script&lt;/strong&gt; section we need an Azure AD App registration for this one in any case. The fundamental difference here though is the permission type (Delegate) and it does not require a Secret and TenantID.&lt;/p&gt;
+&lt;p&gt;If you launch the script without the required -DelegateClientID parameter you will be prompted with a message saying you need to launch it with one. So for this direct execution you will need to launch the script like below;&lt;/p&gt;
+&lt;h4 id=&#34;for-backup&#34;&gt;For Backup&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;./Backup_Import_ConditionalAccessPolicies.ps1 -DelegateClientID &amp;quot;&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;for-import&#34;&gt;For Import&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;./Backup_Import_ConditionalAccessPolicies.ps1 -DelegateClientID &amp;quot;&amp;quot; -Import -ImportJSON &amp;quot;./YourServerBackups/ConditionalAccessPolicies/ImportMe.JSON&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You will then be prompted with a Microsoft Logon Window similar to the below.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupconditionalaccess/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
+
+
+
+&lt;p&gt;Once you login the script will continue to run and then output the policy files in the same way it would using the App Registration.&lt;/p&gt;
+&lt;p&gt;If you add the &lt;strong&gt;-OutputFolder&lt;/strong&gt; parameter you can change the destination of the base output folder. However if you are wishing to use the script to Import policies you can add the &lt;strong&gt;-Import &lt;/strong&gt; and &lt;strong&gt;-ImportJSON &lt;/strong&gt;parameters, If you specify the &lt;strong&gt;-Import &lt;/strong&gt; parameter you must also specify the &lt;strong&gt;-ImportJSON &lt;/strong&gt;parameter with a path to the JSON file (e.g. C:/ImportMe.json) otherwise the script will display a message that you did not specify the &lt;strong&gt;-ImportJSON&lt;/strong&gt; Parameter.&lt;/p&gt;
+&lt;p&gt;You will notice that when you run the script, if the folder does not exist it will create it. It also put its into a dated folder in the &lt;strong&gt;yyyyMMdd_HH-mm-ss&lt;/strong&gt; format leaving you with something like &lt;strong&gt;20200914_11-52-22&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
+&lt;p&gt;This can also be useful if you are wanting to make a copy of your policies to assign to a test machine. All you will need to do is backup your current policies and amend the JSON file, If you find the &lt;strong&gt;displayName&lt;/strong&gt; field in the JSON file and amend it and save the file you will be able to re-import this the same settings. All you then need to do is assign it.&lt;/p&gt;
+&lt;p&gt;I have tested this myself at the time of writing the post but if you come across any information you think may be wrong then please leave a comment or e-mail me on &lt;a href=&#34;mailto:David@euc365.com&#34;&gt;&lt;a href=&#34;mailto:david@euc365.com&#34;&gt;david@euc365.com&lt;/a&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I hope this is useful for your needs.&lt;/p&gt;
+</description>
     </item>
     
   </channel>

@@ -13,7 +13,168 @@
       <pubDate>Fri, 17 Jun 2022 14:19:57 +0000</pubDate>
       
       <guid>https://euc365.com/post/disable-wifi-mac-randomization-samsung-devices/</guid>
-      <description>Why disable MAC Randomization? In some scenarios setting static IP Addresses for mobile devices is a requirement (such as EPOS, Kiosks, Meeting Room Self-Service Tablets etc.</description>
+      <description>&lt;h2 id=&#34;why-disable-mac-randomization&#34;&gt;Why disable MAC Randomization?&lt;/h2&gt;
+&lt;p&gt;In some scenarios setting static IP Addresses for mobile devices is a requirement (such as EPOS, Kiosks, Meeting Room Self-Service Tablets etc.). With most modern Mobile Devices, they are shipped with MAC Randomization enabled by default, and that is certainly the case for Samsung Tablets.&lt;/p&gt;
+&lt;p&gt;This was introduced back in Android 8.0 when probing for new networks, however, starting in Android 10 this was enabled by default for client mode activities as mentioned in the &lt;a href=&#34;https://source.android.com/devices/tech/connect/wifi-mac-randomization#:~:text=In%20Android%2010%2C%20MAC%20randomization%20is%20enabled%20by,part%20of%20Wi-Fi%20Aware%20and%20Wi-Fi%20RTT%20operations.&#34; title=&#34;Implementing MAC Randomization&#34;&gt;Android Documentation&lt;/a&gt;.&lt;/p&gt;
+
+
+&lt;div class=&#34;quote&#34;&gt;
+  &lt;i class=&#34;ti-quote-left&#34;&gt;&lt;/i&gt;
+  &lt;div&gt;
+    &lt;p&gt;MAC randomization prevents listeners from using MAC addresses to build a history of device activity, thus increasing user privacy.&lt;/p&gt;
+    
+    &lt;span class=&#34;quote-by&#34;&gt; -Samsung Documentation&lt;/span&gt;
+    
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;h2 id=&#34;what-is-the-solution&#34;&gt;What is the solution?&lt;/h2&gt;
+&lt;p&gt;The solution is to use the &lt;strong&gt;Knox Service Plugin&lt;/strong&gt; from Samsung, coupled with an Intune OEM Configuration profile. By using both of these elements you can control various aspects of the device configuration, however, we are only going to to cover MAC Randomization.&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;Myself and my colleague have seen issues with this when using Certificate Authentication for your WiFi. That is not to say it will not work, you will have to configure the Knox Service Plugin to connect to your network with certificate.
+For this post I will be focusing on the core configuration and a WPA2 network.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h3&gt;
+&lt;p&gt;To have the ability to disable MAC Randomization on Samsung Devices with Intune you will need the following;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Samsung Knox Platform for Enterprise Commercial Key&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Samsung Knox Service Plugin Managed Google Play App&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Intune Licenses&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Intune Administrator Role&lt;/strong&gt; (Custom RBAC Roles are not in scope)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you do not have a &lt;strong&gt;Samsung Knox&lt;/strong&gt; license or account, take a look at my &lt;a href=&#34;https://euc365.com/getting-started-with-knox-mobile-enrollment/&#34;&gt;&lt;strong&gt;Getting Started with Samsung Knox for Enterprise&lt;/strong&gt;&lt;/a&gt; post.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;import-the-samsung-knox-service-plugin-app&#34;&gt;Import the Samsung Knox Service Plugin App&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Browse to &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;&lt;strong&gt;Microsoft Endpoint Manager&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Apps&lt;/strong&gt; from the left-hand pane, then select &lt;strong&gt;Android&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Managed Google Play app&lt;/strong&gt; from the &lt;strong&gt;App type&lt;/strong&gt; list, then press &lt;strong&gt;Select&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Search &lt;strong&gt;Knox Service Plugin&lt;/strong&gt;, select the app shown below&lt;/li&gt;
+&lt;/ol&gt;
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/samsungknoxmgp_hu01467152f4833310a9ec4237097e7c1c_80248_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox Service Plugin MGP&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+  
+  
+
+&lt;br&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Select &lt;strong&gt;Approve&lt;/strong&gt;, read the permission page, if you are happy click &lt;strong&gt;Approve&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Keep approved when app requests new permissions&lt;/strong&gt;, then click &lt;strong&gt;Done&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Sync&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Allow up to 15 minutes for the application to appear, if it doesn&amp;rsquo;t appear go back to the &lt;strong&gt;Managed Google Play Store&lt;/strong&gt; and click &lt;strong&gt;Sync&lt;/strong&gt; again.&lt;/p&gt;
+&lt;p&gt;Once the application has synced assign this to your devices.&lt;/p&gt;
+&lt;/br&gt;
+&lt;h3 id=&#34;obtain-the-commercial-key-for-knox&#34;&gt;Obtain the commercial key for Knox&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Login to &lt;a href=&#34;https://www2.samsungknox.com/&#34;&gt;&lt;strong&gt;Samsung Knox&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hover over &lt;strong&gt;Knox Platform for Enterprise&lt;/strong&gt;, then click &lt;strong&gt;See License&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select the &lt;strong&gt;Commercial Keys&lt;/strong&gt;, locate the &lt;strong&gt;Knox Platform for Enterprise: Premium Edition&lt;/strong&gt; key&lt;/li&gt;
+&lt;li&gt;Copy the contents of the &lt;strong&gt;License Number&lt;/strong&gt; field.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;creating-the-oem-config-profile&#34;&gt;Creating the OEM Config Profile&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Browse to &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;&lt;strong&gt;Microsoft Endpoint Manager&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Devices&lt;/strong&gt; from the left-hand pane, then select &lt;strong&gt;Android&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Configuration Profiles&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Create Profile&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Platform:&lt;/strong&gt; Android Enterprise&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Profile Type:&lt;/strong&gt; OEMConfig&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Create&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Enter a &lt;strong&gt;Name&lt;/strong&gt; and &lt;strong&gt;Descriptions&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Select an OEMConfig app&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Knox Service Plugin&lt;/strong&gt;, then click &lt;strong&gt;Select&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Configure the following settings:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Profile name:&lt;/strong&gt;: &amp;lt;suitable name for your organization&amp;gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KPE Premium or Knox Suite License key:&lt;/strong&gt; The commercial key you obtained in the previous section&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Debug Mode:&lt;/strong&gt; I would only change this to true during testing, I would not change this if your devices in production have the KSP installed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Locate &lt;strong&gt;Device-wide policies (Selectively applicable to Fully Manage Device (DO) or Work Profile-on company owned devices (WP-C) mode as noted)&lt;/strong&gt;, then click &lt;strong&gt;Configure&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;true&lt;/strong&gt; on the &lt;strong&gt;Enable device policy controls&lt;/strong&gt; slider&lt;/li&gt;
+&lt;li&gt;Locate &lt;strong&gt;Device customization controls (Premium)&lt;/strong&gt;, then click &lt;strong&gt;Configure&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;true&lt;/strong&gt; on the &lt;strong&gt;Enable device customization&lt;/strong&gt; slider&lt;/li&gt;
+&lt;li&gt;In the left-pane select &lt;strong&gt;Device-wide policies (Selectively applicable to Fully Manage Device (DO) or Work Profile-on company owned devices (WP-C) mode as noted)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Locate &lt;strong&gt;Device Controls&lt;/strong&gt;, then click &lt;strong&gt;Configure&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Locate &lt;strong&gt;Wi-Fi Policy,&lt;/strong&gt; then click &lt;strong&gt;Configure&lt;/strong&gt; and set the following settings
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Enable Wi-Fi policy controls:&lt;/strong&gt; true&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Allow Automatic Wi-Fi Connection to saved SSIDs:&lt;/strong&gt; true&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Allow Wi-Fi State Change:&lt;/strong&gt; true&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Allow to configure Wi-Fi (Configure details below):&lt;/strong&gt; true&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;In the left-pane select &lt;strong&gt;Knox Service Plugin&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Locate &lt;strong&gt;Wi-Fi Configuration&lt;/strong&gt;, then click &lt;strong&gt;Configure&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;In the left-hand pane click the three ellipses (&lt;strong&gt;&amp;hellip;&lt;/strong&gt;) next to &lt;strong&gt;Wi-Fi Configurations&lt;/strong&gt;, then click &lt;strong&gt;Add Setting&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Enter you network details, then change the &lt;strong&gt;Skip Mac randomization&lt;/strong&gt; slider to &lt;strong&gt;true&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;Your Wireless Credentials can be seen in plain text when using a PSK.&lt;/p&gt;&lt;/div&gt;
+
+&lt;ol start=&#34;21&#34;&gt;
+&lt;li&gt;The policy is not in a state to disable MAC randomization, complete the policy creation and add any scope tags and Assignments on the next pages.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;testing&#34;&gt;Testing&lt;/h2&gt;
+&lt;p&gt;Now the policy is created, if you haven&amp;rsquo;t already done so assign this to a group that contains test devices. If you want visibility that the settings have applied properly, change the &lt;strong&gt;Debug mode&lt;/strong&gt; setting to true within your OEMConfig policy.&lt;/p&gt;
+
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;You will also need to assign the Knox Service plugin to the same group as the OEMConfig Profile.&lt;/p&gt;&lt;/div&gt;
+
+
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;You can only assign one KSP profile to a device at any given time.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Once you deploy the application and configuration to the device, you will be prompted to to &lt;strong&gt;Agree&lt;/strong&gt; the licence terms first, without doing so the Knox Service Plugin will not function.&lt;/p&gt;
+&lt;p&gt;After you have agreed the licence terms, launch the &lt;strong&gt;Knox Service Plugin&lt;/strong&gt; app. Press on the &lt;strong&gt;Configuration on &amp;hellip;.&lt;/strong&gt; section, here you will see the configuration applied to your device. If you press on the &lt;strong&gt;Configuration results&lt;/strong&gt; in the top left-hand corner, and then select &lt;strong&gt;Policies received&lt;/strong&gt; you will see the JSON representation of the policy you have defined.&lt;/p&gt;
+&lt;p&gt;As mentioned previously, you will see your PSK in plain text, as shown below.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/wifipskcleartext_hu06e6b74b362d8c1e65f35aefe8ec9bf9_25941_383x0_resize_q100_h2_box_3.webp&#34; alt=&#34;KSP PSK in Clear Text&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;p&gt;You will not be able to see on the network side, that this device is connecting with the correct MAC Address.&lt;/p&gt;
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;Please don&amp;rsquo;t forget to change debug mode to false before a production rollout&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;There are many many things you can do with the Knox Service Plugin, and I have been told by a Samsung Support rep that this can work with a Certificate Based network. However, I do not have the means to test therefore it is not included in this guide. Should I have a requirement for it in the future you can bet your last dollar I will blog about it :).&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -22,7 +183,155 @@
       <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
       
       <guid>https://euc365.com/configure-samsung-knox-sso-azure/</guid>
-      <description>Why should I configure SSO? Configuring SSO in Knox Login to Samsung Knox</description>
+      <description>&lt;h2 id=&#34;why-should-i-configure-sso&#34;&gt;Why should I configure SSO?&lt;/h2&gt;
+&lt;h2 id=&#34;configuring-sso-in-knox&#34;&gt;Configuring SSO in Knox&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Login to &lt;a href=&#34;https://www.samsungknox.com/en&#34;&gt;Samsung Knox&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the top-right hand corner, click your Avatar icon, then select &lt;strong&gt;Account Information&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On the left-hand side click &lt;strong&gt;SSO Settings&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Browse to the &lt;a href=&#34;https://aad.portal.azure.com&#34;&gt;Azure Active Directory Portal&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the left-hand pane, click &lt;strong&gt;Azure Active Directory&lt;/strong&gt;, then click &lt;strong&gt;Enterprise Applications&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;New Application&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Enter &lt;strong&gt;Samsung Knox and Business Services&lt;/strong&gt; into the search box
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/samsungsearchsso_hud98b4c801f7d168b2c055739a31b2a1e_19212_465x0_resize_q100_h2_box_3.webp&#34; alt=&#34;AAD Search for Samsung&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+    
+    
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click the app, then click &lt;strong&gt;Create&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Once created, click &lt;strong&gt;Users and group&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Add user/group&lt;/strong&gt;, then click &lt;strong&gt;None Selected&lt;/strong&gt; under Users and Groups to add your assignment.&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;I recommend using a dedicated Azure AD group for Samsung Knox Administrators&lt;/p&gt;&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Once you have selected your user/group, click &lt;strong&gt;Assign&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Single sign-on&lt;/strong&gt; in the left-hand pane&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;SAML&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Configure the following &lt;strong&gt;Basic SAML Configuration&lt;/strong&gt; settings, then click &lt;strong&gt;Save&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Identifier (Entity ID):&lt;/strong&gt; Leave default (&lt;a href=&#34;https://www.samsungknox.com&#34; title=&#34;https://www.samsungknox.com&#34;&gt;https://www.samsungknox.com&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reply URL:&lt;/strong&gt; &lt;a href=&#34;https://central.samsungknox.com/ams/ad/saml/acs&#34; title=&#34;https://central.samsungknox.com/ams/ad/saml/acs&#34;&gt;https://central.samsungknox.com/ams/ad/saml/acs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sign on URL:&lt;/strong&gt; &lt;a href=&#34;https://accounts.samsung.com/&#34; title=&#34;https://accounts.samsung.com/&#34;&gt;https://accounts.samsung.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Copy the contents of the &lt;strong&gt;App Federation Metadata Url&lt;/strong&gt; under &lt;strong&gt;SAML Signing Certificate&lt;/strong&gt;&lt;/p&gt;
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/samlconfig_hua9e69e5bc687730f4e87018779e9fdad_50013_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSO SAML Config&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+    
+    
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Navigate back to the &lt;strong&gt;SSO Settings&lt;/strong&gt; page in &lt;strong&gt;Samsung Knox&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Paste the copied contents into the &lt;strong&gt;App federation metadata URL box&lt;/strong&gt;&lt;/p&gt;
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/samsungssosettings_hu0b7a21d533ed5e5d25ecce878a9aa789_56330_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSO Settings&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+    
+    
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Connect to SSO&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sign in with your AAD Credential&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;The user you initially configure SSO with must be the Super Admin Account. Ensure the user was selected or is within a selected group in steps 10/11.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;things-to-be-aware-of&#34;&gt;Things to be aware of&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;If your account already has permissions to another Knox Suite, you will not be able to use your account&lt;/li&gt;
+&lt;li&gt;Once you configure SSO for Knox, you can not use a mixture of Samsung and SSO Accounts, you can only use SSO Accounts.&lt;/li&gt;
+&lt;li&gt;The App on the &lt;a href=&#34;https://myapps.microsoft.com&#34;&gt;My Apps&lt;/a&gt; will not sign you into Knox&lt;/li&gt;
+&lt;li&gt;Any account that has already been configured will continue to work with their SSO Credentials providing they are in scope of enterprise app&lt;/li&gt;
+&lt;li&gt;To add a user to Knox, you are still required to send the invite in the first instance from Knox, Adding them to the scope  does not suffice&lt;/li&gt;
+&lt;li&gt;If when you sign-in you receive a &lt;strong&gt;Sorry, you don&amp;rsquo;t have access&lt;/strong&gt; screen, ensure that a Samsung Knox administrator within your organization has configured an account for you.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Using SSO for applications such as Knox will save admins time and effort storing multiple password and identities.&lt;/p&gt;
+&lt;p&gt;I tried numerous ways to configure the application to open the Knox portal from the MyApps page to no avail. If you have managed to succeed in doing so, I would love to hear from you :).&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -31,7 +340,238 @@
       <pubDate>Thu, 26 May 2022 14:00:00 +0000</pubDate>
       
       <guid>https://euc365.com/getting-started-with-knox-mobile-enrollment/</guid>
-      <description>What is Samsung Knox? Samsung Knox is a service made up of a number of solutions such as Knox Mobile Enrollment and Knox Platform for Enterprise.</description>
+      <description>&lt;h2 id=&#34;what-is-samsung-knox&#34;&gt;What is Samsung Knox?&lt;/h2&gt;
+&lt;p&gt;Samsung Knox is a service made up of a number of solutions such as &lt;strong&gt;Knox Mobile Enrollment&lt;/strong&gt; and &lt;strong&gt;Knox Platform for Enterprise&lt;/strong&gt;. Samsung Knox solutions provide extra security, and configurability and also improve the end-user onboarding experience.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Knox Mobile Enrollment&lt;/strong&gt; is Samsung&amp;rsquo;s alternative to Apple Business/School manager for devices. KME offers the ability to upload devices using an app on Samsung devices, or via a vendor/reseller channel.&lt;/p&gt;
+&lt;p&gt;Once devices are onboarded into Samsung Knox you can assign profiles to those devices to integrate with your chosen MDM provider. Using profiles linked to your MDM will vastly improve your onboarding experience for end-users and also secure the device further.&lt;/p&gt;
+&lt;h2 id=&#34;what-do-i-need-to-get-started&#34;&gt;What do I need to get started?&lt;/h2&gt;
+&lt;h3 id=&#34;do-i-need-a-license&#34;&gt;Do I need a license?&lt;/h3&gt;
+
+
+&lt;div class=&#34;quote&#34;&gt;
+  &lt;i class=&#34;ti-quote-left&#34;&gt;&lt;/i&gt;
+  &lt;div&gt;
+    &lt;p&gt;Knox Mobile Enrollment is a free IT solution offered by Samsung and does not require a license key.&lt;/p&gt;
+    
+    &lt;span class=&#34;quote-by&#34;&gt; -Samsung&lt;/span&gt;
+    
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;As the quote says, no license is required for the KME service. All you need to do is sign up for an account on the &lt;a href=&#34;https://www2.samsungknox.com/en/register&#34;&gt;Register for Knox &lt;/a&gt;page.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Enter your &lt;strong&gt;Work&lt;/strong&gt; email address, then click &lt;strong&gt;Next&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Agree&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Complete the information on the &lt;strong&gt;Create your Samsung account&lt;/strong&gt; form, then click &lt;strong&gt;Next&lt;/strong&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src = &#34;/images/knox/15charpwd.png&#34; /&gt;
+   If you try enter a password longer than 15 characters you will be presented with the above message.&lt;/p&gt;&lt;/div&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Enter the &lt;strong&gt;Verification Code&lt;/strong&gt; sent to the e-mail provided, then click &lt;strong&gt;Next&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Done&lt;/strong&gt; (Optional, You can at this point choose to configure Multi-factor Authentication, I would recommend doing so, however this is not a requirement.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Once you have returned to the Registration system, click &lt;strong&gt;Next&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Enter your Company Information, then click &lt;strong&gt;Next&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Review each of the agreements, and if you accept them tick each box (excl. marketing information), then click &lt;strong&gt;Submit&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You will now be taken to the Knox Landing page where you see all of the services that are available through the Knox Platform. As you can see, once you first configure your account the available solutions are set to Pending.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/knoxlanding_hu3f67c15ae1ec4e4cab1339bee0c789ec_29738_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox Landing Page&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;p&gt;If you click on the &lt;strong&gt;Licenses&lt;/strong&gt; tab on the top ribbon, then click on &lt;strong&gt;Knox license keys&lt;/strong&gt; this will then submit a request automatically for the solutions.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/knoxregistration_hu142dde179b6461c36fcbe80e462b607e_37636_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox License Registration&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;p&gt;At this point, it is a case of awaiting a response from Samsung. The SLA for this is 48hours (Working Days only). &lt;/br&gt;&lt;/p&gt;
+&lt;h4 id=&#34;knox-service-plugin&#34;&gt;Knox Service Plugin&lt;/h4&gt;
+&lt;p&gt;If you plan to use the Knox Service Plugin on your device estate, you will need to &lt;strong&gt;Generate&lt;/strong&gt; a Commercial Key from the Samsung Knox Portal, you can achieve this by doing the following;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Log into &lt;a href=&#34;https://www2.samsungknox.com/en/&#34;&gt;Samsung Knox&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hover over the &lt;strong&gt;Knox Platform for Enterprise&lt;/strong&gt; tile, then click &lt;strong&gt;Generate&lt;/strong&gt;&lt;/p&gt;
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/knoxpfegen_hu75139081cc03e92ca6cbea5ab2e17e86_21992_399x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox PFE License Generation&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+   
+   
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To obtain the key, hover back over the &lt;strong&gt;Knox Platform for Enterprise&lt;/strong&gt; tile, then click &lt;strong&gt;See License&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The &lt;strong&gt;Knox Platform for Enterprise: Premium Edition&lt;/strong&gt; license is the one required for the Knox Service Plugin.&lt;/p&gt;
+&lt;h2 id=&#34;getting-started-with-knox-mobile-enrollment&#34;&gt;Getting started with Knox Mobile Enrollment&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Hover over &lt;strong&gt;Knox Mobile Enrollment&lt;/strong&gt;, select &lt;strong&gt;Launch Console&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Tick &lt;strong&gt;Don&amp;rsquo;t show me again&lt;/strong&gt;, then click &lt;strong&gt;Got It&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select your services, for this post I will be selecting the following;
+&lt;ol&gt;
+&lt;li&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/selectknoxservices_hu680a76a443555c318d2af7a350372cc4_79956_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox Service Select&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Confirm&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Knox Mobile Enrollment is now configured, we can now start to take a look at adding devices, creating Profiles and reseller registration.&lt;/p&gt;
+&lt;/br&gt;
+&lt;h3 id=&#34;manually-adding-a-device&#34;&gt;Manually adding a device&lt;/h3&gt;
+&lt;p&gt;To manually add devices to the Knox Mobile Enrollment solution you will need the &lt;strong&gt;Knox Deployment&lt;/strong&gt; app on two devices. The first device being a device you are logged into the Knox Deployment app as an Admin from the Knox solution, and the second a device you wish to import.&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;The device where the Admin is going to be signing in cannot already have an account that is not an Administrator within your Knox solution signed in. &lt;/br&gt;If you are, the Knox Deployment app will advise you to log out of your Samsung account and log in with an account which has Knox Deployment permission.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Samsung has a comprehensive guide on using the Knox Deployment app for enrolling devices.  (See: &lt;a href=&#34;https://docs.samsungknox.com/admin/knox-mobile-enrollment/about-kda.htm&#34;&gt;Samsung Knox Deployment App&lt;/a&gt;)&lt;/p&gt;
+&lt;h3 id=&#34;reseller-registration&#34;&gt;Reseller Registration&lt;/h3&gt;
+&lt;p&gt;To streamline the process further, you can have your device Resellers import your devices for you. The major benefit of doing this is reducing the time taken by engineers to configure the device ready for enterprise use.&lt;/p&gt;
+&lt;p&gt;A list of Resellers can be found using the following link: &lt;a href=&#34;https://www.samsungknox.com/en/resellers&#34;&gt;Resellers | Samsung Knox&lt;/a&gt;. Configuring a reseller is simple and can be done so by following &lt;a href=&#34;https://docs.samsungknox.com/admin/knox-mobile-enrollment/Register-resellers.htm&#34;&gt;Register resellers | Knox Mobile Enrollment&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;creating-a-mdm-profile-for-intune&#34;&gt;Creating a MDM profile for Intune&lt;/h3&gt;
+&lt;p&gt;One of the biggest benefits of Knox Mobile Enrollment in an enterprise which uses Intune is the ability to assign a device profile to an enrollment token to remove the need to scan QR codes or enter enrollment tokens. Configuring the profile for this is easy, and in the long run, you will thank yourself for doing it.&lt;/p&gt;
+
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;If you plan to use this for Corporate, Dedicated devices, please note that the Enrollment Token expires after a maximum of 90 days. The enrollment profile within Samsung Knox would need to be updated when the token is renewed.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h4 id=&#34;obtaining-your-enrollment-token-from-intune&#34;&gt;Obtaining your enrollment token from Intune&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Login to &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;Microsoft Endpoint Manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Devices&lt;/strong&gt; in the left-hand pane, then select &lt;strong&gt;Android&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Android Enrollment&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Corporate-owned, fully managed user devices&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;Click &lt;strong&gt;Corporate-owned, fully managed user devices&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;(If applicable) Switch the slider to &lt;strong&gt;Yes&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Take a note of the Token above the QR code&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Corporate-owned dedicated devices&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;Click &lt;strong&gt;Corporate-owned dedicated devices&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select your desired token&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Token&lt;/strong&gt; from the left-hand pane, then click &lt;strong&gt;Show token&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Take note of the Token above the QR code&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Corporate-owned devices with work profile&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;Click &lt;strong&gt;Corporate-owned devices with work profile&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select your desired token&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Token&lt;/strong&gt; from the left-hand pane, then click &lt;strong&gt;Show token&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Take note of the Token above the QR code&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;creating-your-profile-in-samsung-knox&#34;&gt;Creating your profile in Samsung Knox&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Log into &lt;a href=&#34;https://www2.samsungknox.com/en/&#34;&gt;Samsung Knox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hover over &lt;strong&gt;Knox Mobile Enrollment&lt;/strong&gt;, select &lt;strong&gt;Launch Console&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Profiles&lt;/strong&gt; from the left-hand pane&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Create Profile&lt;/strong&gt; in the top right-hand corner&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Android Enterprise&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Enter a &lt;strong&gt;Profile Name&lt;/strong&gt; and &lt;strong&gt;Description&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;In the &lt;strong&gt;Pick you MDM&lt;/strong&gt; drop-down, select &lt;strong&gt;Microsoft Intune&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Leave the rest as default, click &lt;strong&gt;Continue&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Enter &lt;code&gt;{&amp;quot;com.google.android.apps.work.clouddpc.EXTRA_ENROLLMENT_TOKEN&amp;quot;:&amp;quot;&amp;lt;TOKENHERE&amp;gt;&amp;quot;}&lt;/code&gt; into the &lt;strong&gt;Custom JSON data&lt;/strong&gt;, field replacing &lt;strong&gt;&lt;TOKENHERE&gt;&lt;/strong&gt; with your Token&lt;/li&gt;
+&lt;li&gt;(Optional) To remove the default bloatware, select &lt;strong&gt;Disable system applications&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Enter your &lt;strong&gt;Company Name&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Create&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;assigning-a-profile-to-a-device&#34;&gt;Assigning a profile to a device&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Click &lt;strong&gt;Devices&lt;/strong&gt; in the left-hand pane&lt;/li&gt;
+&lt;li&gt;Locate the &lt;strong&gt;Device&lt;/strong&gt; using the IMEI or Serial Number&lt;/li&gt;
+&lt;li&gt;Select the device by placing a tick in the selection box, then select &lt;strong&gt;Actions&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Configure Device&lt;/strong&gt;, then select the relevant profile for the enrollment&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Save&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;After you have assigned a profile to the device and it is then powered on, the end-user will be able to self-enroll the device without having to worry about pressing the screen 5 times and then scanning a QR code. This makes it a lot easier to ship a device directly to an end-user.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;There are going to be further blogs covering the Knox Service Plugin and other Samsung Knox services, however, I hope this post gives you insight into the benefits this solution can provide along with a nice guide to get you started.&lt;/p&gt;
+</description>
     </item>
     
   </channel>

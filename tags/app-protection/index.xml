@@ -13,7 +13,227 @@
       <pubDate>Fri, 18 Sep 2020 08:49:00 +0000</pubDate>
       
       <guid>https://euc365.com/backup-and-import-app-protection-policies/</guid>
-      <description>Why backup App Protection Policies? Why would you need to back up something that runs in stored and hosted on Azure?</description>
+      <description>&lt;h2 id=&#34;why-backup-app-protection-policies&#34;&gt;Why backup App Protection Policies?&lt;/h2&gt;
+&lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;If you make a change and you break something you can look back and analyse what it was&lt;/li&gt;
+ 	&lt;li&gt;You can make copies of the policy easily rather than having two windows side by side&lt;/li&gt;
+ 	&lt;li&gt;In case one is deleted… (Let’s hope this is never the case)&lt;/li&gt;
+ 	&lt;li&gt;To review the maturity of your policies (Lets say you started from ground zero and now have over 100 policy settings… Might be nice to review what you’ve done)&lt;/li&gt;
+&lt;/ul&gt;
+We also live in a world of change management and service improvement  so there is always a need to make changes to policies and configurations. If you have or are moving from traditional group policy you will know that you can run an HTML report or a backup before you go ahead and make any changes.
+&lt;p&gt;Well when using Intune there was no way to export or backup your profiles or policies from the console… I have seen people taking screenshots of the pages as a backup of the policies which is far from an ideal scenario.&lt;/p&gt;
+&lt;p&gt;What if I told you there is a way you can back-up your configuration policies using the Microsoft Graph API?? Well it’s possible and it’s easier than you think.&lt;/p&gt;
+&lt;p&gt;This is part of a series of posts about backing up and importing policies and profiles, so if you feel like you&amp;rsquo;ve read this part before then you probably have.&lt;/p&gt;
+&lt;p&gt;Back when I wrote my first post about these (&lt;a href=&#34;https://euc365.com/backing-up-intune-device-configuration-profiles/&#34;&gt;&lt;strong&gt;HERE&lt;/strong&gt;&lt;/a&gt;) the script just backed up the policies/profiles, however over time they have grown into scripts that you can also use to re-import these policies/profile.&lt;/p&gt;
+&lt;p&gt;This one is the &lt;b&gt;Fourth &lt;/b&gt;in the series, where we will focus on &lt;strong&gt;App Protection Policies&lt;/strong&gt;. Each one has brought its own challenges which are hopefully mitigated within the script, but if not you can always get in touch and let me know.&lt;/p&gt;
+&lt;h2 id=&#34;the-script&#34;&gt;The Script&lt;/h2&gt;
+&lt;p&gt;You will notice that most of this (the authentication part and most of the param block at least) are the same as my other script&amp;hellip; But if its not broke why fix it? (Those famous last words!!!). Although this script&lt;strong&gt; &lt;/strong&gt;does have an alternative run method, if you run it directly without the ClientID, ClientSecret and TenantID parameters it will install the Azure AD Powershell module and use a custom Function (&lt;strong&gt;Connect-AzAD_Token)&lt;/strong&gt; to enable users to interact with a login Window if they do not wish to use Azure AD App Registrations with client secrets.&lt;/p&gt;
+&lt;p&gt;This script can be run from anywhere, as a user (If the using the command line parameters or if the AzureAD Module is installed already), as an Administrator or even as System. You could put this into an Automation Engine to do backups on a schedule if that is your desire but this would need to be done with an Azure App Registration.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;param&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;Parameter&lt;/span&gt;(DontShow = $true)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $MsGraphVersion = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;beta&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;Parameter&lt;/span&gt;(DontShow = $true)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $MsGraphHost = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;graph.microsoft.com&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#The AzureAD ClientID (Application ID) of your registered AzureAD App&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ClientID,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#The Client Secret for your AzureAD App&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ClientSecret,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#Your Azure Tenent ID&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $TenantId,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;Parameter&lt;/span&gt;()]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $OutputFolder = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.\AppProtectionPolicyBackup&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[switch]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $Import,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[string]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ImportJSON
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)&lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FUNCTION&lt;/span&gt; Connect-AzAD_Token {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Write-Host -ForegroundColor Cyan &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Checking for AzureAD module...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $AADMod = Get-Module -Name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureAD&amp;#34;&lt;/span&gt; -ListAvailable
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (!($AADMod)) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Host -ForegroundColor Yellow &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureAD PowerShell module not found, looking for AzureADPreview&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $AADModPrev = Get-Module -Name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureADPreview&amp;#34;&lt;/span&gt; -ListAvailable
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;#Check to see if the AzureAD Preview Module is insalled, If so se that as the AAD Module Else Insall the AzureAD Module&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; ($AADModPrev) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            $AADMod = Get-Module -Name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureADPreview&amp;#34;&lt;/span&gt; -ListAvailable
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Write-Host -ForegroundColor Yello &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureAD Preview is not installed...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Write-Host -ForegroundColor Cyan &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Attempting to Install the AzureAD Powershell module...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -ErrorAction Stop | Out-Null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Install-Module AzureAD -Force -ErrorAction Stop
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Write-Host -ForegroundColor Red &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Failed to install the AzureAD PowerShell Module &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;`n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; &lt;/span&gt;$($Error[0])&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Host -ForegroundColor Green &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AzureAD Powershell Module Found&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $AADMod = ($AADMod | Select-Object -Unique | Sort-Object)[-1]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ADAL = Join-Path $AADMod.ModuleBase &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft.IdentityModel.Clients.ActiveDirectory.dll&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ADALForms = Join-Path $AADMod.ModuleBase &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[System.Reflection.Assembly]&lt;/span&gt;::LoadFrom($ADAL) | Out-Null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[System.Reflection.Assembly]&lt;/span&gt;::LoadFrom($ADALForms) | Out-Null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $UserInfo = Connect-AzureAD
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Microsoft Intune PowerShell Enterprise Application ID &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $MIPEAClientID = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;d1ddf0e4-d672-4dae-b554-9d5bdfd93547&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# The redirectURI&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $RedirectURI = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;urn:ietf:wg:oauth:2.0:oob&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#The Authority to connect with (YOur Tenant)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Write-Host -Foregroundcolor Cyan &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Connected to Tenant: &lt;/span&gt;$($UserInfo.TenantID)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $Auth = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://login.microsoftonline.com/&lt;/span&gt;$($UserInfo.TenantID)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $AuthContext = New-Object &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext&amp;#34;&lt;/span&gt; -ArgumentList $Auth
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# https://msdn.microsoft.com/en-us/library/azure/microsoft.identitymodel.clients.activedirectory.promptbehavior.aspx&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# Change the prompt behaviour to force credentials each time: Auto, Always, Never, RefreshSession&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $platformParameters = New-Object &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters&amp;#34;&lt;/span&gt; -ArgumentList &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Auto&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $userId = New-Object &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft.IdentityModel.Clients.ActiveDirectory.UserIdentifier&amp;#34;&lt;/span&gt; -ArgumentList ($UserInfo.Account, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;OptionalDisplayableId&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $authResult = $AuthContext.AcquireTokenAsync((&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://&amp;#34;&lt;/span&gt; + $MSGraphHost),$MIPEAClientID,$RedirectURI,$platformParameters,$userId).Result
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# If the accesstoken is valid then create the authentication header&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;($authResult.AccessToken){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;# Creating header for Authorization token&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            $AADAccessToken = $authResult.AccessToken
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; $AADAccessToken
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Write-Host -ForegroundColor Red &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Authorization Access Token is null, please re-run authentication...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Host -ForegroundColor Red $_.Exception.Message
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Host -ForegroundColor Red $_.Exception.ItemName
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Web page used to help with getting the access token &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#https://morgantechspace.com/2019/08/get-graph-api-access-token-using-client-id-and-client-secret.html &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (($ClientID) &lt;span style=&#34;color:#f92672&#34;&gt;-and&lt;/span&gt; ($ClientSecret) &lt;span style=&#34;color:#f92672&#34;&gt;-and&lt;/span&gt; ($TenantId) ) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#Create the body of the Authentication of the request for the OAuth Token&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $Body = @{client_id=$ClientID;client_secret=$ClientSecret;grant_type=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;client_credentials&amp;#34;&lt;/span&gt;;scope=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://$MSGraphHost/.default&amp;#34;&lt;/span&gt;;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#Get the OAuth Token &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $OAuthReq = Invoke-RestMethod -Method Post -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://login.microsoftonline.com/$TenantId/oauth2/v2.0/token&amp;#34;&lt;/span&gt; -Body $Body
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#Set your access token as a variable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $global:AccessToken = $OAuthReq.access_token
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $global:AccessToken = Connect-AzAD_Token
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; (!($Import)) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $FormattedOutputFolder = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$OutputFolder\&lt;/span&gt;$(Get-Date -Format yyyyMMdd_HH-mm-ss)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; (!(Test-Path $FormattedOutputFolder)){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            mkdir $FormattedOutputFolder -ErrorAction Stop | Out-Null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Write-Host -ForegroundColor Red &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Failed to create $FormattedOutputFolder&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            $Error[0]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Invoke-RestMethod -Method GET -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://$MSGraphHost/$MsGraphVersion/deviceAppManagement/managedAppPolicies&amp;#34;&lt;/span&gt; -Headers @{Authorization = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bearer $AccessToken&amp;#34;&lt;/span&gt;} | Select-Object -ExpandProperty &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Value&amp;#34;&lt;/span&gt; | %{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $_ | ConvertTo-Json | Out-File &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$FormattedOutputFolder\&lt;/span&gt;$($_.displayname)&lt;span style=&#34;color:#e6db74&#34;&gt;.json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;span style=&#34;color:#66d9ef&#34;&gt;elseif&lt;/span&gt; ($Import) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt;($ImportJSON) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $JSON = Get-Content $ImportJSON | ConvertFrom-Json | Select-Object -Property * -ExcludeProperty Version,LastModifiedTime,CreatedDateTime,id | ConvertTo-Json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Invoke-RestMethod -Method POST -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://$MSGraphHost/$MsGraphVersion/deviceAppManagement/managedAppPolicies&amp;#34;&lt;/span&gt; -Headers @{Authorization = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bearer $AccessToken&amp;#34;&lt;/span&gt;} -Body $JSON -ContentType &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;application/json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Write-Host -ForegroundColor RED &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;You must specify an a JSON file using the -ImportJSON parameter&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;the-pre-reqs&#34;&gt;The Pre-Reqs&lt;/h2&gt;
+&lt;h3 id=&#34;azure-ad-app-registration&#34;&gt;Azure AD App Registration&lt;/h3&gt;
+&lt;p&gt;To make the script work without user interaction from an automation engine you will need an &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app&#34;&gt;Azure App Registration&lt;/a&gt; with the following permissions for the Microsoft Graph API;&lt;/p&gt;
+&lt;h4 id=&#34;backing-up-app-protection-policies-only&#34;&gt;Backing Up App Protection Policies Only&lt;/h4&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;&lt;strong&gt;DeviceManagementApps.Read.All &lt;/strong&gt;(Application Permission)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;importing-app-protection-policies&#34;&gt;Importing &lt;strong&gt;App Protection Policies&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;&lt;strong&gt;DeviceManagementApps.ReadWrite.All&lt;/strong&gt; (Application Permission)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a href=&#34;https://docs.microsoft.com/en-us/graph/api/intune-mam-managedappprotection-list?view=graph-rest-beta&#34;&gt;GRAPH API DOCUMENTATION&lt;/a&gt;
+&lt;p&gt;If you are not executing the script directly, you will also need the Tenant ID and the account that the script will be running as will need permission to the Output folder for backups.&lt;/p&gt;
+&lt;p&gt;If your not sure how to create an Azure AD App Registration head over to one of my other posts by clicking &lt;a href=&#34;https://euc365.com/create_an_azure_app_registration&#34;&gt;HERE&lt;/a&gt;, Don&amp;rsquo;t forget to store your Client ID and Secret securely and also have it to hand for the rest of the post :D.&lt;/p&gt;
+&lt;h2 id=&#34;executing-the-script&#34;&gt;Executing the Script&lt;/h2&gt;
+&lt;h3 id=&#34;unattended-with-an-azure-ad-app-registration&#34;&gt;Unattended with an Azure AD App Registration&lt;/h3&gt;
+&lt;p&gt;You can run this script directly from a PowerShell console, using Task Scheduler or using a 3rd party automation product that supports Powershell.&lt;/p&gt;
+&lt;p&gt;The main thing we will go through here is just the parameters and then putting them all together from the command line, it&amp;rsquo;s really that simple.&lt;/p&gt;
+&lt;h4 id=&#34;for-backup-only&#34;&gt;For Backup Only&lt;/h4&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;Client ID: This is the Client ID for your Azure AD App&lt;/li&gt;
+ 	&lt;li&gt;ClientSecret: The Client Secret for the Azure AD App&lt;/li&gt;
+ 	&lt;li&gt;TenantID: Your Azure Tenant ID&lt;/li&gt;
+ 	&lt;li&gt;OutputFolder: Your desired Output folder&lt;/li&gt;
+&lt;/ul&gt;
+`./Backup_Import_AppProtectionPolicies.ps1 -ClientID &#34;&#34; -ClientSecret &#34;&#34; -TenantID &#34;&#34; -OutputFolder &#34;./YourServerBackups/AppProtectionPolicies&#34;`
+&lt;h4 id=&#34;for-importing-policies&#34;&gt;For Importing Policies&lt;/h4&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;Client ID: This is the Client ID for your Azure AD App&lt;/li&gt;
+ 	&lt;li&gt;ClientSecret: The Client Secret for the Azure AD App&lt;/li&gt;
+ 	&lt;li&gt;TenantID: Your Azure Tenant ID&lt;/li&gt;
+ 	&lt;li&gt;Import: This is a switch parameter which states if your intention is to import or not&lt;/li&gt;
+ 	&lt;li&gt;ImportJSON: the path to your JSON file.&lt;/li&gt;
+&lt;/ul&gt;
+You will finally end up with something like this;
+&lt;p&gt;&lt;code&gt;./Backup_Import_AppProtectionPolicies.ps1 -ClientID &amp;quot;&amp;quot; -ClientSecret &amp;quot;&amp;quot; -TenantID &amp;quot;&amp;quot; -Import -ImportJSON &amp;quot;./YourServerBackups/AppProtectionPolicies/ImportMe.JSON&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;direct-execution&#34;&gt;Direct Execution&lt;/h3&gt;
+&lt;p&gt;If you launch the script without the Client ID, Secret and Tenant ID you will be prompted with a Microsoft Logon Window similar to the below.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupappprotection/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
+
+
+
+&lt;p&gt;Once you login the script will continue to run and then output the configuration files in the same way it would using the App Registration. You will need an account with permissions to be able to read (for backups only) or Read and Write the &lt;strong&gt;App Protection Policies&lt;/strong&gt;. However the likelihood is that if you are looking at this guide you are probably an Intune Service Administrator or Global Administrator on your Tenant.&lt;/p&gt;
+&lt;p&gt;When you run it directly without any switches the script will prompt you to log in and it would only perform a backup of your profiles and output the configurations to the the folder you are executing it from.&lt;/p&gt;
+&lt;p&gt;If you add the &lt;strong&gt;-OutputFolder&lt;/strong&gt; parameter you can change the destination of the base output folder. However if you are wishing to use the script to Import policies you can add the &lt;strong&gt;-Import &lt;/strong&gt;and &lt;strong&gt;-ImportJSON &lt;/strong&gt;parameters, If you specify the &lt;strong&gt;-Import &lt;/strong&gt; parameter you must also specify the &lt;strong&gt;-ImportJSON &lt;/strong&gt;parameter with a path to the JSON file (e.g. C:/ImportMe.json) otherwise the script will display a message that you did not specify the &lt;strong&gt;-ImportJSON&lt;/strong&gt; Parameter.&lt;/p&gt;
+&lt;p&gt;You will notice that when you run the script, if the folder does not exist it will create it. It also put its into a dated folder in the &lt;strong&gt;yyyyMMdd_HH-mm-ss&lt;/strong&gt; format leaving you with something like &lt;strong&gt;20200901_16_05_36&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
+&lt;p&gt;This can also be useful if you are wanting to make a copy of your policies to assign to a test machine. All you will need to do is backup your current policies and amend the JSON file, If you find the &lt;strong&gt;displayName&lt;/strong&gt; field in the JSON file and amend it and save the file you will be able to re-import this the same settings. All you then need to do is assign it.&lt;/p&gt;
+&lt;p&gt;I have tested this myself at the time of writing the post but if you come across any information you think may be wrong then please leave a comment or e-mail me on &lt;a href=&#34;mailto:David@euc365.com&#34;&gt;&lt;a href=&#34;mailto:david@euc365.com&#34;&gt;david@euc365.com&lt;/a&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I hope this is useful for your needs.&lt;/p&gt;
+</description>
     </item>
     
   </channel>

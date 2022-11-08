@@ -13,7 +13,102 @@
       <pubDate>Sun, 17 Jul 2022 11:50:17 +0000</pubDate>
       
       <guid>https://euc365.com/post/use-bicep-to-compile-or-decompile-arm-templates/</guid>
-      <description>What is Bicep? Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources.</description>
+      <description>&lt;h2 id=&#34;what-is-bicep&#34;&gt;What is Bicep?&lt;/h2&gt;
+
+
+&lt;div class=&#34;quote&#34;&gt;
+  &lt;i class=&#34;ti-quote-left&#34;&gt;&lt;/i&gt;
+  &lt;div&gt;
+    &lt;p&gt;Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.&lt;/p&gt;
+    
+    &lt;span class=&#34;quote-by&#34;&gt; -Microsoft&lt;/span&gt;
+    
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;why-use-bicep-over-generic-arm-templates&#34;&gt;Why use Bicep over generic ARM Templates?&lt;/h3&gt;
+&lt;p&gt;Although generic JSON ARM Templates are still needed for Azure Resource Manager, using Bicep makes creating ARM templates more consumable by the masses as it uses very simple syntax compared to its big sister, see the example in the &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep#benefits-of-bicep&#34;&gt;&lt;strong&gt;Benefits of Bicep&lt;/strong&gt;&lt;/a&gt; section of the documentation for examples.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;getting-started-with-bicep&#34;&gt;Getting started with Bicep&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s assume that you already have an IaC (Infrastructure as Code) strategy, and you are already using ARM Templates for deployment. Sometimes it can be a struggle for other colleagues/teams to reverse engineer your complex templates. So you decide to take a look at Bicep to help make them more consumable to your colleagues and team members.&lt;/p&gt;
+&lt;p&gt;Well, Microsoft and the Bicep team could not have made this simpler to achieve!. Using the &lt;strong&gt;Bicep&lt;/strong&gt; command line tools, you can easily decompile (convert) your standard json template to Bicep&amp;hellip; and the best bit, your json template file (if used) still works seamlessly.&lt;/p&gt;
+&lt;h3 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h3&gt;
+
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;I will be be using a Windows Client and VSCode for this post, using a different setup, your experience may differ.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Please visit the &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install&#34;&gt;&lt;strong&gt;Install Bicep tools&lt;/strong&gt;&lt;/a&gt; page to install the Bicep tools.&lt;/p&gt;
+&lt;h3 id=&#34;decompile-an-arm-template&#34;&gt;Decompile an ARM Template&lt;/h3&gt;
+&lt;p&gt;This really couldn&amp;rsquo;t be any simpler, but just for the sake of completeness before you see the warning anyway, the decompilation of the templates is on a best efforts basis, if your template does not decompile then you can raise an issue on the link provided in your shell.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Open VSCode to the directory where your templates are stored&lt;/li&gt;
+&lt;li&gt;Type bicep decompile &lt;filename&gt;&lt;/li&gt;
+&lt;li&gt;Review the output of the file&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The output file will be located in the same directory as the original file, but with a bicep extension. You can specify the output directory (which will need to exist first) by using the &amp;ndash;outdir parameter, or you can specify the file name but using the &amp;ndash;outfile parameter.&lt;/p&gt;
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;You can not specify both &amp;ndash;outdir and &amp;ndash;outfile together.&lt;/p&gt;&lt;/div&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/bicep/decompile.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;hr&gt;
+&lt;h3 id=&#34;compile-and-arm-template-from-bicep&#34;&gt;Compile and ARM Template from Bicep&lt;/h3&gt;
+&lt;p&gt;Again, this is relatively straightforward. My biggest use case for this at the moment is when I want to publish a &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-azure-button&#34;&gt;&lt;strong&gt;Deploy to Azure Button&lt;/strong&gt;&lt;/a&gt; as this still requires a JSON template to be passed in.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Open VSCode to the directory where your templates are stored&lt;/li&gt;
+&lt;li&gt;Type bicep build &lt;filename&gt;&lt;/li&gt;
+&lt;li&gt;Review the output of the file&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The output file will be located in the same directory as the original file, but with a JSON extension. You can specify the output directory (which will need to exist first) by using the &amp;ndash;outdir parameter, or you can specify the file name but using the &amp;ndash;outfile parameter.&lt;/p&gt;
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;You can not specify both &amp;ndash;outdir and &amp;ndash;outfile together.&lt;/p&gt;&lt;/div&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/bicep/compile.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;hr&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I enjoyed learning about Bicep over the course of a weekend, and going forward it will be my chosen language to be building template files for Azure as its so much easier than ARM templates for others to read.&lt;/p&gt;
+&lt;p&gt;Why not start your journey using some of the resources below.&lt;/p&gt;
+&lt;p&gt;Watch out for more Bicep and ARM posts coming soon.&lt;/p&gt;
+&lt;h3 id=&#34;resources&#34;&gt;Resources&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.microsoft.com/EN-US/azure/azure-resource-manager/bicep/&#34;&gt;&lt;strong&gt;Bicep Documentation&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep&#34;&gt;&lt;strong&gt;Bicep Microsoft Learn Modules&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.microsoft.com/EN-US/azure/azure-resource-manager/bicep/add-template-to-azure-pipelines?tabs=CLI&#34;&gt;&lt;strong&gt;Bicep with Pipelines&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
   </channel>

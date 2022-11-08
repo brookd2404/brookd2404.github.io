@@ -13,7 +13,181 @@
       <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
       
       <guid>https://euc365.com/update-apple-scim-token/</guid>
-      <description>What is SCIM? Meaning: SCIM (System for Cross-domain Identity Management)</description>
+      <description>&lt;h2 id=&#34;what-is-scim&#34;&gt;What is SCIM?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Meaning:&lt;/strong&gt; SCIM (System for Cross-domain Identity Management)&lt;br&gt;
+&lt;br&gt;
+&lt;strong&gt;Purpose:&lt;/strong&gt; SCIM allows organisations to provision Managed Apple IDs immediately and to combine Apple School Manager or Apple Business Manager properties (such as SIS username and grade levels for Apple School Manager and roles) over account data imported from Azure AD. When an organisation imports users with SCIM, the account information is added as read-only in Apple School Manager and Apple Business Manager until they disconnect from SCIM, in which case the accounts become manual accounts and attributes in these accounts can then be edited. Changes made to accounts in Azure AD sync to Apple School Manager and Apple Business Manager accounts every 20 to 40 minutes.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Taken from &lt;a href=&#34;https://support.apple.com/en-gb/guide/deployment/depa85a35cf2/web&#34;&gt;Apple: Integrate Apple devices with Azure AD&lt;/a&gt;&lt;/em&gt;
+&lt;br&gt;
+SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 days prior to expiry.\&lt;/p&gt;
+&lt;h2 id=&#34;how-do-i-update-it&#34;&gt;How do I update it?&lt;/h2&gt;
+&lt;p&gt;The process is fairly simple, and requires no more than 5 minutes of your time to complete.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Head over to &lt;a href=&#34;https://business.apple.com&#34;&gt;Apple Business Manager&lt;/a&gt;/&lt;a href=&#34;https://school.apple.com&#34;&gt;Apple School Manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Sign in&lt;/li&gt;
+&lt;li&gt;Click the profile icon in the top right-hand corner, Click &lt;strong&gt;Preferences&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/launchpref_hucdd93b0f2b7def139acf5a1585498382_19992_534x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Launch Preferences&#34; height=&#34;225px&#34; width=&#34;500px&#34;&gt;
+
+
+
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Click &lt;strong&gt;Directory Sync&lt;/strong&gt;, then click &lt;strong&gt;Edit&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/editsync_hua4708496e6dd0362aea1a42e0549cbbe_49783_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;100%&#34; width=&#34;100%&#34;&gt;
+
+
+
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Click &lt;strong&gt;Generate Token&lt;/strong&gt;, this will display the following pop-up&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/tokenscreen_hue88b80ce8971ec084768576963e12dd4_43840_744x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Token Pop-up&#34; height=&#34;475px&#34; width=&#34;400px&#34;&gt;
+
+
+
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Copy&lt;/strong&gt;, the click &lt;strong&gt;Close&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Head over to &lt;a href=&#34;https://aad.portal.azure.com&#34;&gt;Azure Active Driectory&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Enterprise Applications&lt;/strong&gt; from the left-hand pane&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Locate the &lt;strong&gt;Apple Business Manager&lt;/strong&gt;/&lt;strong&gt;Apple School Manager&lt;/strong&gt; App, Open it by clicking on the name&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select &lt;strong&gt;Provisioning&lt;/strong&gt;, then click &lt;strong&gt;Edit provisioning&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/editprov_hu13798373de147c6e48c0bc8e68d77114_43470_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Provisioning&#34; height=&#34;325px&#34; width=&#34;800px&#34;&gt;
+
+
+
+&lt;ol start=&#34;11&#34;&gt;
+&lt;li&gt;Expand &lt;strong&gt;Admin Credentials&lt;/strong&gt;, paste your previously copied token into the token box, then click &lt;strong&gt;Test Connection&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/updateprov_huc07af3022dbc619d82f545ba8fc8a57f_29814_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Update Provisioning&#34; height=&#34;325px&#34; width=&#34;650px&#34;&gt;
+
+
+
+&lt;ol start=&#34;12&#34;&gt;
+&lt;li&gt;Ensure the connection was successful, then click &lt;strong&gt;Save&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/testresult_hu1d65da5bc27754a2671bdb52290bbdb6_16630_431x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Test Result&#34; height=&#34;125px&#34; width=&#34;350px&#34;&gt;
+
+
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;And that&amp;rsquo;s a wrap!!! It really is as simple as that. Once you have completed the update you should receive an e-mail with confirmation of the setup been complete.&lt;/p&gt;
+</description>
     </item>
     
   </channel>

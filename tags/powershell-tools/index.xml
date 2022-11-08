@@ -13,7 +13,71 @@
       <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://euc365.com/getdeviceinfo/</guid>
-      <description>SO&amp;hellip; I&amp;rsquo;ve been working tirelessly in trying to get an Autopilot Hybrid Deployment working along with my colleagues.</description>
+      <description>&lt;p&gt;SO&amp;hellip; I&amp;rsquo;ve been working tirelessly in trying to get an Autopilot Hybrid Deployment working along with my colleagues. As any Tech does I give everything my blood sweat and tears before logging a call with support (Sound silly as we could waste hours&amp;hellip; But where&amp;rsquo;s the fun in just logging a call), however on occasion you have to admit defeat and raise a service request.&lt;/p&gt;
+&lt;p&gt;When logging an SR (Service Request) its always best to provide as much information about the device you are using (the one that&amp;rsquo;s having the issues) so the Microsoft Engineer can do as much fault finding and troubleshooting that they can before they contact you.&lt;/p&gt;
+&lt;p&gt;When troubleshooting an Autopilot Deployment its useful to have the following information from a support engineer point of view but it is also helpful when speaking with Microsoft;&lt;/p&gt;
+&lt;ul&gt;
+ 	&lt;li&gt;Azure Device ID (GUID)&lt;/li&gt;
+ 	&lt;li&gt;Intune Device ID (GUID)&lt;/li&gt;
+ 	&lt;li&gt;Name (Not vital as it can be obtained from the above)&lt;/li&gt;
+ 	&lt;li&gt;IP Address&lt;/li&gt;
+ 	&lt;li&gt;Logon Server&lt;/li&gt;
+&lt;/ul&gt;
+Useful for Hybrid Deployments in an organisation with multiple Domain Controllers when using Azure AD Connect
+&lt;p&gt;Device Serial Number (Easiest way to find a device in the Windows Enrolment Devices Screen)&lt;/p&gt;
+&lt;p&gt;All of that information is not just something that you can go grab in one place off of the shelf. Going to obtain all of this information from various locations got very long in the tooth and became a bit of a drag. In true IT fashion I spent hours writing a PowerShell script which Displays as a Windows Form and gathers all of this information and copies it to your clipboard.&lt;/p&gt;
+&lt;p&gt;The form will look like the below when run, It will only display active networks and it can handle more than one network (this is dynamic) and the form will resize dynamically depending on content.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/getdeviceinfo/InfoPage_Blurred_hu7f8a9107ec1bf86b0d8c0dbc6b2a5827_215539_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Device form&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;br&gt;&lt;/p&gt;
+&lt;h6 id=&#34;this-will-also-copy-the-following-information-to-your-clipboard&#34;&gt;This will also copy the following information to your clipboard;&lt;/h6&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-plaintext&#34; data-lang=&#34;plaintext&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Computer Name: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Device Serial: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Device Manufacturer: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Device Model: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Logon Server: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Intune Device ID: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;AzureAD Device ID: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;IP Information: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Interface Name: WiFi
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Interface Description: Intel(R) Wi-Fi 6 AX201 160MHz
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Profile Name: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;IPv4 Address: 192.168.0.141
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;IPv6 Address: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Interface Name: Microsoft IP-HTTPS Platform Interface
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Interface Description: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Profile Name: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;IPv4 Address: 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;IPv6 Address: fd59:a9a9:6c55:1000:8c4a:531c:b003:cf56
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Information gathered 23/05/2020 22:08:30
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The form can be branded, and amended to your hearts content. I have uploaded it to GitHub in a Public Library if anyone wants to head over and download it or Fork it (Still not sure what that does, New to this GitHub stuff). I haven’t got around to putting any information on the GitHub Page yet but it you need any help drop me a message from the Contact page or on the GitHub page.&lt;/p&gt;
+</description>
     </item>
     
   </channel>

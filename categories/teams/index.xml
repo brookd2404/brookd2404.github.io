@@ -13,7 +13,274 @@
       <pubDate>Wed, 03 Aug 2022 19:31:42 +0000</pubDate>
       
       <guid>https://euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</guid>
-      <description>Why use an API to create a Teams Channel?</description>
+      <description>&lt;h2 id=&#34;why-use-an-api-to-create-a-teams-channel&#34;&gt;Why use an API to create a Teams Channel?&lt;/h2&gt;
+&lt;p&gt;Using API&amp;rsquo;s and Automation accounts help create a continuously repeatable process whilst minimising human error and providing a consistent experience. It has many purposes, should that be to provide a script to a managed client, create a team from a form submission, the list could go on, and If you&amp;rsquo;ve found this post by organic search, then it must be at least in some way what your are looking for.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;so-how-do-we-do-it&#34;&gt;So how do we do it?&lt;/h2&gt;
+
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;This guide will focus on using PowerShell to call the Graph API using the &lt;strong&gt;Microsoft.Graph&lt;/strong&gt; module. However, the key take away is that this can be achieve via alternative API calling methods.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;what-will-we-be-deploying&#34;&gt;What will we be deploying?&lt;/h3&gt;
+&lt;p&gt;We will look at deploying a Microsoft Team, with an additional channel, whist also removing Tabs from the channels and adding custom tabs for Web Links.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Microsoft.Graph&lt;/strong&gt; PowerShell Module&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Teams Administrator&lt;/strong&gt; (or equivalent/higher) privileges&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;building-up-the-channel-object&#34;&gt;Building up the channel Object&lt;/h3&gt;
+&lt;p&gt;Before we can &lt;strong&gt;POST&lt;/strong&gt; anything to the Graph API, we need to start by building up our Team and channels. In the drop down below, there is a sample of the &lt;code&gt;$params&lt;/code&gt; object which will later be used to create a Team. We will be referencing back to this throughout this section.&lt;/p&gt;
+
+
+&lt;div class=&#34;border border-default collapse-wrapper&#34;&gt;
+  &lt;a class=&#34;d-flex p-2 collapse-head&#34; data-toggle=&#34;collapse&#34; href=&#34;#team-object&#34; role=&#34;button&#34;&gt;
+    Team Object &lt;i class=&#34;fas fa-plus ml-auto&#34;&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  &lt;div class=&#34;collapse&#34; id=&#34;team-object&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$params = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Template@odata.bind&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/teamsTemplates(&amp;#39;standard&amp;#39;)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	Visibility = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Private&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	DisplayName = $TeamName
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	Description = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;This Teams Channel will be used for collaboration.&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	Channels = @(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		@{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			DisplayName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;General&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			IsFavoriteByDefault = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			Description = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;This channel will be used for communication purposes&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			Tabs = @(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;TeamsApp@odata.bind&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/v1.0/appCatalogs/teamsApps(&amp;#39;com.microsoft.teamspace.tab.web&amp;#39;)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					DisplayName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft Endpoint Manager&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					Configuration = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;						ContentUrl = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://endpoint.microsoft.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			DisplayName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Service Announcements&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			IsFavoriteByDefault = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			Description = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;This tab will be used for things like Third Party Patching and other Service Related Alerts&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	MemberSettings = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowCreateUpdateChannels = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowDeleteChannels = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowAddRemoveApps = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowCreateUpdateRemoveTabs = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowCreateUpdateRemoveConnectors = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	GuestSettings = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowCreateUpdateChannels = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowDeleteChannels = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	FunSettings = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowGiphy = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowStickersAndMemes = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowCustomMemes = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	MessagingSettings = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowUserEditMessages = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowUserDeleteMessages = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowOwnerDeleteMessages = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowTeamMentions = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowChannelMentions = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	DiscoverySettings = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		ShowInTeamsSearchAndSuggestions = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	InstalledApps = @(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		@{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;TeamsApp@odata.bind&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/v1.0/appCatalogs/teamsApps(&amp;#39;com.microsoft.teamspace.tab.web&amp;#39;)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		@{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;#The invoke webhook&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;TeamsApp@odata.bind&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/v1.0/appCatalogs/teamsApps(&amp;#39;203a1e2c-26cc-47ca-83ae-be98f960b6b2&amp;#39;)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;So lets look at some of the main properties;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&amp;ldquo;&lt;a href=&#34;mailto:Template@odata.bind&#34;&gt;Template@odata.bind&lt;/a&gt;&amp;rdquo;&lt;/strong&gt; - This is teams template you want to base your channel on. This can be a custom channel, or an in-built one.
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/microsoftteams/get-started-with-teams-templates-in-the-admin-console&#34;&gt;&lt;strong&gt;CLICK HERE: Other Inbuilt Template Types&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/MicrosoftTeams/create-a-team-template&#34;&gt;&lt;strong&gt;CLICK HERE: For information on custom templates&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Visibility&lt;/strong&gt; - You&amp;rsquo;re channel visibility, either public or private.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DisplayName&lt;/strong&gt; - The display name of the Team you want to create&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Description&lt;/strong&gt; - A brief description of the purpose of this team.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Channels&lt;/strong&gt; - The channels you want to create within the Team.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are other options within the object, which are comparable to their GUI counterparts, I have left them in the object to allow the ease of updating these values if you need to change them.&lt;/p&gt;
+&lt;h4 id=&#34;channels&#34;&gt;Channels&lt;/h4&gt;
+&lt;p&gt;Let us explore the channel array a bit further, this is where you create additional channels within the team. This is also the section you will add in any custom tabs you may want to add as demonstrated within the object.&lt;/p&gt;
+&lt;p&gt;Each channel will be an object within the channel array, and as before, there are some basic properties like &lt;strong&gt;DisplayName&lt;/strong&gt; and &lt;strong&gt;Description&lt;/strong&gt;, then you have the &lt;strong&gt;IsFavouriteByDefault&lt;/strong&gt; property, this is what controls if the channel is displayed or hidden upon creation based on a boolean input. Then you have Tabs, where you can add apps.&lt;/p&gt;
+&lt;p&gt;You can find the Apps available to add to this array by calling the &lt;a href=&#34;https://docs.microsoft.com/en-us/graph/api/appcatalogs-list-teamsapps?view=graph-rest-beta&amp;amp;tabs=http&#34;&gt;&lt;strong&gt;TeamsApp API&lt;/strong&gt;&lt;/a&gt;. An example query would be &lt;code&gt;GET  https://graph.microsoft.com/beta/appCatalogs/teamsApps?$expand=appDefinitions($select=id,displayName,allowedInstallationScopes)&lt;/code&gt;. Using this query you could find the app IDs.&lt;/p&gt;
+&lt;p&gt;My recommendation for this would be to export a template that already has the application within it and obtain the values you need to ensure you enrich the app properly with configurations, alternatively seek these configuration values from the app vendor.&lt;/p&gt;
+&lt;p&gt;All of the apps within thr array are defined as objects as with the channels. If we look at the below object as an , you can see the teams app is bound to a URL similar to the one above. Followed by a &lt;strong&gt;DisplayName&lt;/strong&gt; and the &lt;strong&gt;Configuration&lt;/strong&gt; for the App. In the below example I will be creating a Tab for the &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;&lt;strong&gt;Microsoft Endpoint Manager Console&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;TeamsApp@odata.bind&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/v1.0/appCatalogs/teamsApps(&amp;#39;com.microsoft.teamspace.tab.web&amp;#39;)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  DisplayName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft Endpoint Manager&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Configuration = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ContentUrl = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://endpoint.microsoft.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;If you prefer to use the direct api with a JSON object from Graph Explorer or PostMan you can use the following command to convert your object to JSON.&lt;br&gt;&lt;br&gt;&lt;code&gt;$params | ConvertTo-Json -Depth 5&lt;/code&gt;&lt;br&gt;&lt;br&gt;
+&lt;strong&gt;NOTE: MAKE SURE YOU FILL OUT YOUR VARIABLES WHERE THEY ARE CALLED WITHIN THE OBJECT&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;OK, so now we&amp;rsquo;ve explored the channels, lets explore how we &lt;strong&gt;POST&lt;/strong&gt; it to the Graph API with PowerShell.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;create-the-team-with-powershell&#34;&gt;Create the Team with PowerShell&lt;/h3&gt;
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;One thing I found when creating the Team via the Graph API, is that you will only receive a success status code when posting the object to the Graph. This is because the API is more like an orchestrator, which means we need to do some additional bits to track the creation. &lt;br&gt;&lt;br&gt;This is more of a requirement if you want to amend the team after creation, for things like removing the Wiki tab etc, which will all be described in the following sections.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;As mentioned in the &lt;a href=&#34;#pre-requisites&#34;&gt;Pre-requisites&lt;/a&gt;, we will need the &lt;strong&gt;Microsoft.Graph&lt;/strong&gt; PowerShell module, you can install this by running &lt;code&gt;Install-Module -Name Microsoft.Graph -AllowClobber&lt;/code&gt; in an elevated shell, or append with &lt;code&gt;-Scope CurrentUser&lt;/code&gt; from a non-elevated prompt.&lt;/p&gt;
+
+
+&lt;div class=&#34;border border-default collapse-wrapper&#34;&gt;
+  &lt;a class=&#34;d-flex p-2 collapse-head&#34; data-toggle=&#34;collapse&#34; href=&#34;#powershell-script-example&#34; role=&#34;button&#34;&gt;
+    PowerShell Script Example &lt;i class=&#34;fas fa-plus ml-auto&#34;&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  &lt;div class=&#34;collapse&#34; id=&#34;powershell-script-example&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[&lt;span style=&#34;color:#66d9ef&#34;&gt;CmdletBinding&lt;/span&gt;()]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;param&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;Parameter&lt;/span&gt;(DontShow = $true)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[Array]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ModuleNames = @(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft.Graph.Teams&amp;#34;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Teams Channel Name&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;Parameter&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;Mandatory&lt;/span&gt; = $true)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;[String]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $TeamName
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#TeamsAdmin and Groups admin Required&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FOREACH&lt;/span&gt; ($Module &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; $ModuleNames) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; (!(Get-Module -ListAvailable -Name $Module)) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Write-Output &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Attempting to install $Module Module for the Current Device&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Install-Module -Name $Module -Force -AllowClobber
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Write-Output &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Attempting to install $Module Module for the Current User&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Install-Module -Name $Module -Force -AllowClobber -Scope CurrentUser
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Import-Module $Module
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$params = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Template@odata.bind&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/teamsTemplates(&amp;#39;standard&amp;#39;)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	Visibility = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Private&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	DisplayName = $TeamName
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	Description = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;This Teams Channel will be used for collaboration.&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	Channels = @(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		@{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			DisplayName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;General&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			IsFavoriteByDefault = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			Description = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;This channel will be used for communication purposes&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			Tabs = @(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;TeamsApp@odata.bind&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/v1.0/appCatalogs/teamsApps(&amp;#39;com.microsoft.teamspace.tab.web&amp;#39;)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					DisplayName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft Endpoint Manager&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					Configuration = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;						ContentUrl = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://endpoint.microsoft.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			DisplayName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Service Announcements&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			IsFavoriteByDefault = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			Description = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;This tab will be used for things like Third Party Patching and other Service Related Alerts&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	MemberSettings = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowCreateUpdateChannels = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowDeleteChannels = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowAddRemoveApps = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowCreateUpdateRemoveTabs = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowCreateUpdateRemoveConnectors = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	GuestSettings = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowCreateUpdateChannels = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowDeleteChannels = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	FunSettings = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowGiphy = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowStickersAndMemes = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowCustomMemes = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	MessagingSettings = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowUserEditMessages = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowUserDeleteMessages = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowOwnerDeleteMessages = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowTeamMentions = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		AllowChannelMentions = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	DiscoverySettings = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		ShowInTeamsSearchAndSuggestions = $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	InstalledApps = @(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		@{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;TeamsApp@odata.bind&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/v1.0/appCatalogs/teamsApps(&amp;#39;com.microsoft.teamspace.tab.web&amp;#39;)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		@{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;#The invoke webhook&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;TeamsApp@odata.bind&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/v1.0/appCatalogs/teamsApps(&amp;#39;203a1e2c-26cc-47ca-83ae-be98f960b6b2&amp;#39;)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Connect-MgGraph
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$Team = Invoke-MgGraphRequest -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/teams&amp;#34;&lt;/span&gt; -Body $params -Method POST -OutputType HttpResponseMessage
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Wait while the team is created, this below link tracks the job. &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; ((Invoke-MGGraphRequest -URI &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta&lt;/span&gt;$($Team.Headers.Location.OriginalString)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;).status &lt;span style=&#34;color:#f92672&#34;&gt;-ne&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;succeeded&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Start-Sleep 60
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Awaiting the team creation to complete...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br&gt;In the above drop-down you will see an example script, which contains the same object we have been working on previously in this post, so if you have started making your own object, simply replace the object in the example script.&lt;/p&gt;
+&lt;p&gt;In this section we will focus on everything after the object and then how the script can be invoked from the command line using parameters.&lt;/p&gt;
+&lt;p&gt;The first thing that we need to do is authenticate to the &lt;strong&gt;Microsoft Graph&lt;/strong&gt;, we use the &lt;code&gt;Connect-MgGraph&lt;/code&gt; command for this when using direct execution, for automation scenarios, please review the &lt;a href=&#34;https://docs.microsoft.com/en-us/powershell/microsoftgraph/get-started?view=graph-powershell-beta&#34;&gt;Microsoft Documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Once we have authenticated, We use the &lt;code&gt;Invoke-MGGraphRequest&lt;/code&gt; to &lt;strong&gt;POST&lt;/strong&gt; the param object to the Graph API. In this example, we assign this call to the &lt;code&gt;$Team&lt;/code&gt; variable so we can then track the team creation.&lt;/p&gt;
+&lt;p&gt;After the initial &lt;strong&gt;POST&lt;/strong&gt; to the API, the example then use a while loop to track the creation of the team. As mentioned in the tip at the start of this section, the API call to create the team is more of an orchestration API which is the reason we need to go to the additional effort to track the progress of creation.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Wait while the team is created, this below link tracks the job. &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; ((Invoke-MGGraphRequest -URI &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta&lt;/span&gt;$($Team.Headers.Location.OriginalString)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;).status &lt;span style=&#34;color:#f92672&#34;&gt;-ne&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;succeeded&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Start-Sleep 60
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Awaiting the team creation to complete...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once the operation has succeeded, you can then layer on additional customisations, such as removing the Wiki tab as shown in the example below.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Get the Teams ID from the Output of the header&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$TeamID = (Select-String -Pattern &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\&amp;#39;([^\&amp;#39;]*)\&amp;#39;&amp;#34;&lt;/span&gt; -InputObject $Team.Content.Headers.ContentLocation.OriginalString).Matches.Groups[1].Value
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Get the Teams Channels for the new Team&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$TeamChannels = Get-MgTeamChannel -TeamId $TeamID
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#For Each of the Channels, remove the Wiki Tab and ensure they are all set to show by default&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ForEach&lt;/span&gt; ($Channel &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; $TeamChannels) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $wikiTab = (Get-MgTeamChannelTab -ChannelId $Channel.id -TeamId $TeamID | Where-Object {$_.DisplayName &lt;span style=&#34;color:#f92672&#34;&gt;-eq&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Wiki&amp;#34;&lt;/span&gt;}).id
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Remove-MGTeamChannelTab -TeamId $TeamID -ChannelID $Channel.id -TeamsTabId $wikiTab
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Update-MGTeamChannel -TeamId $TeamID -ChannelID $Channel.id -IsFavoriteByDefault 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;As mentioned at the start, automation is the key to consistency when performing repetitive tasks. Hopefully this post can aid with the understanding of how to achieve and automated approach to creating Teams and Channels within your organisation.&lt;/p&gt;
+&lt;h3 id=&#34;resources&#34;&gt;Resources&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/graph/api/resources/team?view=graph-rest-beta&#34;&gt;&lt;strong&gt;Teams Resource Beta Graph Reference&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/powershell/microsoftgraph/get-started?view=graph-powershell-beta&#34;&gt;&lt;strong&gt;Microsoft Graph PowerShell Module Documentation&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/microsoftteams/get-started-with-teams-templates-in-the-admin-console&#34;&gt;&lt;strong&gt;Inbuilt Template Types&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/MicrosoftTeams/create-a-team-template&#34;&gt;&lt;strong&gt;Custom Templates&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
   </channel>

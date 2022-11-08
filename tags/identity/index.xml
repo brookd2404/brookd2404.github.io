@@ -13,7 +13,104 @@
       <pubDate>Thu, 22 Sep 2022 12:25:57 +0000</pubDate>
       
       <guid>https://euc365.com/post/configure-service-password-reset-cloud-sync/</guid>
-      <description>Self-Service Password reset is just one of many features that reduce the pressure on support staff.</description>
+      <description>&lt;p&gt;Self-Service Password reset is just one of many features that reduce the pressure on support staff. Often users and admins get frustrated when it comes to resetting passwords, &amp;ldquo;Can you try Bf756dsgT!&amp;rdquo; &lt;strong&gt;Short Pause&amp;hellip;&lt;/strong&gt; &amp;ldquo;Is that &lt;strong&gt;F&lt;/strong&gt; for foxtrot or &lt;strong&gt;S&lt;/strong&gt; for sugar?&amp;rdquo;. Once you get past this stage, the user then has to type it again and then think of a new password, the whole process is just sub-optimal.&lt;/p&gt;
+&lt;p&gt;With today&amp;rsquo;s cloud infrastructure you can relieve both end users and also admins from this stress and also streamline the process with &lt;strong&gt;Self-Service Password Reset&lt;/strong&gt; or &lt;strong&gt;SSPR&lt;/strong&gt; for short. I am not going to tell you that this is a silver bullet with one shot clearing out all password reset calls, as it won&amp;rsquo;t. The key to the success of SSPR and the ROI is stakeholder buy-in and great communication.&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;I have seen SSPR used each time a user needs to update their password. This is due to focusing on a &lt;strong&gt;Passwordless&lt;/strong&gt; strategy, which provides a more secure method of authentication. &lt;br&gt;&lt;br&gt;
+If this is a goal for you, then this may be a piece in your puzzle!&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;For those of you awesome ladies and gentlemen that follow me on twitter, or have seen my recent VLOGs you may have seen that I blew my entire lab away and started a fresh, with the aim of blogging/vlogging/tweeting about elements of the rebuild along the way.&lt;/p&gt;
+&lt;p&gt;This time around, I chose to use Cloud Sync as my gateway to hybrid identities as it is lightweight, provides a more seamless High-Availability offering and fits perfectly for what I want to achieve, so this will be the area in which we focus on in this post for SSPR.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-Requisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Azure AD tenant with &lt;strong&gt;at least&lt;/strong&gt; an &lt;strong&gt;Azure AD Premium P1 or trial license enabled&lt;/strong&gt;. If needed, create one for free.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Global Administrator&lt;/strong&gt; Account&lt;/li&gt;
+&lt;li&gt;Azure AD Connect cloud sync version 1.1.972.0 or later&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;configuring-sspr&#34;&gt;Configuring SSPR&lt;/h2&gt;
+&lt;h3 id=&#34;enable-self-service-password-reset&#34;&gt;Enable Self-Service Password Reset&lt;/h3&gt;
+&lt;p&gt;This may seem an obvious step, but I have often seen it missed.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Head over to the &lt;a href=&#34;https://aad.portal.azure.com&#34;&gt;&lt;strong&gt;Azure Active Directory Portal&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Azure Active Directory&lt;/strong&gt; in the left-hand pane&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Password Reset&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;On the &lt;strong&gt;Properties&lt;/strong&gt; page you will see the below options, ensure you configure this to suit your organisational needs, for this Lab I will be setting it to &lt;strong&gt;All&lt;/strong&gt;. Once you have made your selection, click &lt;strong&gt;Save&lt;/strong&gt;.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/azure/enableSSPR_hu18bc56efd4c4301013d91ba3ca3bb5e5_42327_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSPR Slider&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;h3 id=&#34;configure-on-premise-integration&#34;&gt;Configure On-Premise Integration&lt;/h3&gt;
+&lt;p&gt;On the assumption that you are still on the &lt;strong&gt;Password Reset&lt;/strong&gt; blade from the above section.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Click on &lt;strong&gt;On-premises integration&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Enable password write back for synced users&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Write back password with Azure AD Connect Cloud Sync&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Save&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Personally, I would leave the &lt;strong&gt;Allow users to Unlock accounts without resetting their passwords&lt;/strong&gt; un-selected, but this would be a decision you can take away to discuss with peers and the organisation.&lt;/p&gt;
+&lt;h4 id=&#34;powershell&#34;&gt;PowerShell&lt;/h4&gt;
+&lt;p&gt;You can also use powershell to configure Password Writeback, however, when using PowerShell to complete this you will not see it visually in the Azure Portal (or at least your couldn&amp;rsquo;t at the time of publishing this article).&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Logon to the Server hosting the Agent&lt;/li&gt;
+&lt;li&gt;Launch an Administrative PowerShell Prompt&lt;/li&gt;
+&lt;li&gt;Run the following commands;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Import-Module &#39;C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll&#39;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Set-AADCloudSyncPasswordWritebackConfiguration -Enable $true -Credential $(Get-Credential)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Enter your &lt;strong&gt;Global Administrator&lt;/strong&gt; credentials&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/azure/ssprposh_hudb3fb2207206c95d294623bf34f7703a_30607_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSPR PowerShell Writeback&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;hr&gt;
+&lt;h2 id=&#34;using-sspr&#34;&gt;Using SSPR&lt;/h2&gt;
+&lt;p&gt;Using SSPR is super simple, all the user has to do it browse to &lt;a href=&#34;https://aka.ms/sspr&#34;&gt;&lt;strong&gt;https://aka.ms/sspr&lt;/strong&gt;&lt;/a&gt; and enter their username, complete the captcha and then follow the prompts to use one (or two) of their chosen security methods and then they can enter a new password.&lt;/p&gt;
+&lt;p&gt;The whole process takes about 1-2 minutes. This is often quicker than the wait in the queue for a support staff call.&lt;/p&gt;
+
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;If you notice that after completing the configuration that when attempting SSPR you receive error &lt;strong&gt;SSPR_010&lt;/strong&gt;, try turning SSPR off and on again (Yes!! Really!!).&lt;br&gt;&lt;br&gt;
+Thank you to &lt;a href=&#34;https://twitter.com/modaly_it&#34;&gt;&lt;strong&gt;Maurice Daly&lt;/strong&gt;&lt;/a&gt; for his input on this one!! I was searching for a mountain and missing a mole hill. &lt;a href=&#34;https://twitter.com/sandy_tsang&#34;&gt;&lt;strong&gt;Sandy Zeng&lt;/strong&gt;&lt;/a&gt; also has a similar issue with Azure AD Connect previously, Take a look at &lt;a href=&#34;https://msendpointmgr.com/2020/10/25/sunday-debug-password-reset-failed/&#34;&gt;&lt;strong&gt;Sunday debug: password reset failed&lt;/strong&gt;&lt;/a&gt; for the things Sandy tried and the process she went through.&lt;/p&gt;&lt;/div&gt;
+
+</description>
     </item>
     
     <item>
@@ -22,7 +119,15 @@
       <pubDate>Wed, 07 Sep 2022 15:35:50 +0000</pubDate>
       
       <guid>https://euc365.com/post/vlog-azuread-connect-cloud-sync/</guid>
-      <description>What is this video about? This video goes over the configuration of Azure AD Connect Cloud Sync, with some insight into what the differences are with its bigger brother AADC, the Pre-Reqs and some other insights.</description>
+      <description>&lt;h2 id=&#34;what-is-this-video-about&#34;&gt;What is this video about?&lt;/h2&gt;
+&lt;p&gt;This video goes over the configuration of Azure AD Connect Cloud Sync, with some insight into what the differences are with its bigger brother AADC, the Pre-Reqs and some other insights.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/VemV9aieb9U&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+</description>
     </item>
     
   </channel>

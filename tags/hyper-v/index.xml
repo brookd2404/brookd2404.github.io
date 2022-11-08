@@ -13,7 +13,18 @@
       <pubDate>Wed, 17 Aug 2022 13:25:30 +0000</pubDate>
       
       <guid>https://euc365.com/post/vlog-isolate-hyper-v-lab-environment/</guid>
-      <description>My first Vlog Post This video, is the first, of what I hope to be many Vlog&amp;rsquo;s.</description>
+      <description>&lt;h2 id=&#34;my-first-vlog-post&#34;&gt;My first Vlog Post&lt;/h2&gt;
+&lt;p&gt;This video, is the first, of what I hope to be many Vlog&amp;rsquo;s. I recently destroyed my old Lab set up, and I thought I would Vlog the steps I take to re-create it along with some useful information along the way when I start connecting my Lab up with Azure and Intune.&lt;/p&gt;
+&lt;hr&gt; 
+&lt;h2 id=&#34;what-is-this-video-about&#34;&gt;What is this video about?&lt;/h2&gt;
+&lt;p&gt;This video explains how I isolate my &amp;lsquo;Lab&amp;rsquo; network from my external network to avoid and DHCP and/or DNS crossover, providing a contained environment behind a single NAT address using Windows Server Routing and Remote Access.&lt;/p&gt;
+&lt;p&gt;Please provide any feedback, good, bad or indifferent to help me improve my delivery and bring you content that is meaningful.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/30X0oOwCruE&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+</description>
     </item>
     
   </channel>

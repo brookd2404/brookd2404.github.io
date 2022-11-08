@@ -13,7 +13,437 @@
       <pubDate>Tue, 30 Jun 2020 18:35:00 +0000</pubDate>
       
       <guid>https://euc365.com/breaking-custom-oma-uri-csp-policies/</guid>
-      <description>What is an OMA-URI Policy? Meaning: Open Mobile Alliance Uniform Resource Identifier Traditionally when you implement a new piece of software which contains Group Policy Objects (GPO&amp;rsquo;s) to customise the feature of the application you would import the .</description>
+      <description>&lt;h2 id=&#34;what-is-an-oma-uri-policy&#34;&gt;What is an OMA-URI Policy?&lt;/h2&gt;
+&lt;h4 id=&#34;meaning-open-mobile-alliance-uniform-resource-identifier&#34;&gt;Meaning: Open Mobile Alliance Uniform Resource Identifier&lt;/h4&gt;
+&lt;p&gt;Traditionally when you implement a new piece of software which contains Group Policy Objects (GPO&amp;rsquo;s) to customise the feature of the application you would import the .adml and .admx files into the PolicyDefinitions folder located within SysVol (SYSVOL) for the domain or into the local PolicyDefinitions (C:\WindowsPolicyDefinitions) folder.&lt;/p&gt;
+&lt;p&gt;If like me you are wanting to move most if not all of your policies to Intune for better MDM (Mobile Device Management) then you can run into a rather complex scenario where you need to ingest the .admx file and then work out how to configure your policies correctly. Now the first time I looked at this I thought &amp;lsquo;Oh man this looks tricky, its a job for later on&amp;rsquo;. However after putting it off for so long I finally dived into it and it turns out it isn&amp;rsquo;t as complicated as it looks.&lt;/p&gt;
+&lt;p&gt;The link to the Microsoft Guide can be found &lt;a href=&#34;https://docs.microsoft.com/en-us/windows/client-management/mdm/win32-and-centennial-app-policy-configuration&#34;&gt;HERE!!&lt;/a&gt;, Feel free to head over and check it out. Hopefully this post/guide can help you out when it comes to creating your own.&lt;/p&gt;
+&lt;h2 id=&#34;importing-your-admx-file&#34;&gt;Importing your ADMX file&lt;/h2&gt;
+&lt;p&gt;For this example we will be using Google Chrome&amp;rsquo;s GPO&amp;rsquo;s, Not because they are simple because each policy has its own complexities but because it will be a common policy people will look to migrate to Intune. The ADMX files can be found on the &lt;a href=&#34;https://chromeenterprise.google/browser/download/&#34;&gt;Chrome for Enterprise Download Page&lt;/a&gt;, you can obtain the gpo files only be finding the Manage Chrome Browser section.&lt;/p&gt;
+&lt;p&gt;Once downloaded extract the .zip file and find the &lt;strong&gt;Chrome.admx&lt;/strong&gt; (Normally located within WindowsADMX), Open this in a text editor (Notepad will do fine). Now we will switch over to Intune, From the Endpoint Manager Admin Center Homepage select &lt;strong&gt;Devices &amp;gt; Configuration Profiles&lt;/strong&gt; from the navigation bar. Click &lt;strong&gt;Create profile.&lt;/strong&gt;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Dev_ConfigProfiles-1_hub4c1dfb37001814860e4d54f32983feb_70857_495x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Profile&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;Click &lt;strong&gt;Create Profile&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select the following and click &lt;strong&gt;Create&lt;/strong&gt;;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/profileselection_Custom_hu3a861b27495a45dcd027da4c8c3fe959_8956_579x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;60%&#34; width=&#34;60%&#34;&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;Enter the name for your profile (i.e Windows - Google Chrome Policy) and any other information you wish to add, click &lt;strong&gt;Next&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Now here is the fun part, Click &lt;strong&gt;Add&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Add_Custom_hu20dddc9b2feb72a03cde2c793a07b7a4_18488_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;90%&#34; width=&#34;90%&#34;&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;Enter a Name (Use something Descriptive) and Enter a description&lt;/li&gt;
+&lt;li&gt;The OMA-URI Field Should be something like the below
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;./Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/{AppName}/Policy/{ADMXFileName}&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Data Type: &lt;strong&gt;String&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Value: Paste the contents of the chrome.admx file&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/chromeadmx_hu086cffa5b21ffbc253f5dbda429b76b0_25205_580x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;402&#34; width=&#34;580&#34;&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;Click &lt;strong&gt;Add&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Now Proceed to deploy the policy (I would recommend doing this to a test group first)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The above path determines what the OMA-URI is for future policies, for example if you enter &lt;code&gt;./Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/Chrome/Policy/ChromeAdmx&lt;/code&gt; as the OMA-URI for the device import the policies within the ADMX will then be formatted like &lt;code&gt;Chrome~Policy~googlechrome~Startup&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The full path for the OMA-URI for the Homepage Setting would be &lt;code&gt;./{AppName}/Vendor/MSFT/Policy/Config/Chrome~Policy~googlechrome~Startup/HomepageLocation&lt;/code&gt;. The format of the URI is is &lt;code&gt;{AppName}~{SettingType}~{CategoryandSubCategory}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Now the category path may not just be a root category for example the startup settings will look like this &lt;code&gt;Chrome~Policy~googlechrome~Startup&lt;/code&gt; to break it down&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AppName: &lt;strong&gt;Chrome&lt;/strong&gt; (Set in the ADMX File Ingest)&lt;/li&gt;
+&lt;li&gt;SettingType: &lt;strong&gt;Policy&lt;/strong&gt; (Set in the ADMX File Ingest)&lt;/li&gt;
+&lt;li&gt;CategoryAndSubCategory:
+&lt;ul&gt;
+&lt;li&gt;Category: &lt;strong&gt;googlechrome&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Sub Category: &lt;strong&gt;Startup&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now this may seem complicated at first glance, however do keep reading and I will explain how to obtain the paths and settings.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;finding-and-creating-policies&#34;&gt;Finding and Creating Policies&lt;/h2&gt;
+&lt;p&gt;Before we get started, if you haven&amp;rsquo;t already re-open the properties of the policy you created previously. You will also need to open the .admx files in your favourite text editor. Personally I use VSCode as it has syntax highlighting for XML files and many other useful features.&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;This section requires this to be published to a device.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;To get started Open the &lt;strong&gt;Chrome.admx&lt;/strong&gt; and &lt;strong&gt;Chrome.adml&lt;/strong&gt; (This will be in the language folder i.e. en-US within the .zip file) and launch &lt;strong&gt;REGEDIT (Registry Editor)&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s get started, within &lt;strong&gt;REGEDIT&lt;/strong&gt; browse to &lt;code&gt;HKEY_LOCAL_MACHINE/SOFTWARE/Microsoft/PolicyManager/AdmxDefault&lt;/code&gt; (There is always a random GUID per device, however this doesn&amp;rsquo;t make a difference to the policy so don&amp;rsquo;t worry), from here if you deployed the Chrome Policy as per the above steps you will see something like the below. (Note: this is showing Google Updates, but we will&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/RegSnap_PolicyADMX-1_hu3417758c36cd16322956ffede1fcbad1_49454_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;p&gt;As mentioned above they are broken down like below, we will be sticking with the Homepage setting which is within the startup category.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AppName: &lt;strong&gt;Chrome&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;SettingType: &lt;strong&gt;Policy&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Categories:
+&lt;ul&gt;
+&lt;li&gt;Root Category: &lt;strong&gt;googlechrome&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Sub Category: &lt;strong&gt;startup&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now if you look at the .admx file, you will see the following under the categories section&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Cat_SUbCat_GC-1_hub42571b1e7175f5ba0c0e1438475c4aa_7404_642x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;117&#34; width=&#34;642&#34;&gt;
+
+
+
+&lt;p&gt;As you can see that this correlates with with policy in the registry, now if you expand the policy within the registry you can see that the HomePage Location settings is created from within there&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Startup_Shot_hu9f38fa4a4a71e72eb893fd1012ed0316_11776_415x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;187&#34; width=&#34;415&#34;&gt;
+
+
+
+&lt;p&gt;This is the part where you actually need the .admx file. Lets start by explaining why you need to use .admx file. For this example you are not only enabling or disabling a policy but you will be actually specifying a value. When you go to specify this value in Intune you will need to use the &lt;code&gt;ValueName&lt;/code&gt; from within the ADMX File. See the below example;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/HomepageSetting_hue9c27d273b99d181e2a4d31e1ca3ec72_19374_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
+
+
+
+&lt;p&gt;Lets break the policy setting down first, As always I would recommend naming the setting descriptively and also adding a description if you want more information about it. The OMA-URI would then be &lt;code&gt;./Device/Vendor/MSFT/Policy/Config/Chrome~Policy~googlechrome~Startup/HomepageLocation.&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;class-device-or-user&#34;&gt;Class (Device or User)&lt;/h4&gt;
+&lt;p&gt;One things to note here is the first section of the OMA-URI, It seems simple but you will need to specify if you want to apply this to a &lt;strong&gt;Device&lt;/strong&gt; or &lt;strong&gt;User&lt;/strong&gt;. Some policies are only available for &lt;strong&gt;Devices&lt;/strong&gt; and likewise for &lt;strong&gt;Users&lt;/strong&gt;. You can see this in the ADMX File by looking at the policy like below&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/PolicyClass_hu0a32aa200859219a652c97f51ac08d29_7084_477x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;157&#34; width=&#34;477&#34;&gt;
+
+
+
+&lt;p&gt;Now the HomePageLocation setting can be User or Device based so the class shows as Both. If this was a device only policy &lt;strong&gt;class=&amp;ldquo;Machine&amp;rdquo;&lt;/strong&gt; and for a user only policy it would show as &lt;strong&gt;class=&amp;ldquo;User&amp;rdquo;.&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;appname&#34;&gt;AppName&lt;/h4&gt;
+&lt;p&gt;As mentioned above the AppName is can be totally customisable however I wouldn&amp;rsquo;t advise that and I would keep it as simple and descriptive as possible.&lt;/p&gt;
+&lt;p&gt;For example, For this post I used &lt;strong&gt;Chrome&lt;/strong&gt; as the AppName so the Policies show as &lt;code&gt;Chrome~{SettingType}~{Root Category}~{Sub** **Category}&lt;/code&gt;. If i was to do another policy for Lenovo Vantage for example and set the AppName to &lt;strong&gt;LenovoVantage&lt;/strong&gt; the polcies would show &lt;code&gt;LenovoVantage~{SettingType}~{Root Category}~{Sub Category}&lt;/code&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;settingtype&#34;&gt;SettingType&lt;/h4&gt;
+&lt;p&gt;As we imported the ADMX into the Policy section (&lt;code&gt;./Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/{AppName}/Policy/{ADMXFileName}&lt;/code&gt;) of the ADMXInstall OMA-URI this part of the OMA-URI would always be policy.&lt;/p&gt;
+&lt;h4 id=&#34;categories-and-sub-categories&#34;&gt;Categories and Sub-Categories&lt;/h4&gt;
+&lt;p&gt;This is detailed above but I will elaborate a little bit more here.&lt;/p&gt;
+&lt;p&gt;If you look at the .admx file, and browse to the categories section you will see lots of categories set with a parent category within there.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Cat_SUbCat_GC-1_hub42571b1e7175f5ba0c0e1438475c4aa_7404_642x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;p&gt;If you work backwards you can see how this all comes together,&lt;/p&gt;
+&lt;p&gt;The OMA-URI is &lt;code&gt;Chrome~Policy~{Root Category}~{Sub Category}&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Sub Category:&lt;/strong&gt; Startup&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Root Category:&lt;/strong&gt; googlechrome&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Something to not here is that it is possible for a parent category to have another parent category to make matters more confusing. You could end up having a policy like &lt;code&gt;{AppName}~Policy~{Parent Category 1}~{Parent Category 2}~{Sub Category}&lt;/code&gt; and so on&amp;hellip; Just something to always check.&lt;/p&gt;
+&lt;p&gt;This is partly the reason to always check the registry when creating polices.&lt;/p&gt;
+&lt;h4 id=&#34;the-policy-itself&#34;&gt;The Policy Itself&lt;/h4&gt;
+&lt;p&gt;So finally we come to the policy itself, at the end all the OMA-URI string comes the setting, in this case &lt;strong&gt;HomePageLocation&lt;/strong&gt;.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/HomepageKey-1024x120_hu34eee4ff45c257f80c9ec29ab62b54dc_40615_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;p&gt;This is derived again from the .admx file, if you search for the policy you will come across something like the above screenshot. You will notice that the policy is based on the &lt;strong&gt;DisplayName&lt;/strong&gt; property. We won&amp;rsquo;t cover setting the value in this section as I feel it deserves its own.&lt;/p&gt;
+&lt;h4 id=&#34;the-policy-valuesetting&#34;&gt;The Policy Value/Setting&lt;/h4&gt;
+&lt;p&gt;Some setting are really simple to configure, for example if you want to disable something like &lt;code&gt;MetricsReportingEnabled&lt;/code&gt; you can simply just add like below&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/simpledisable_hua57b6aeb75d1078af8ae4b713891b1e7_18118_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
+
+
+
+&lt;p&gt;Others like the &lt;code&gt;HomePageLocation&lt;/code&gt; are not complicated but require a little bit more than just a simple disable or enable switch as you need to specify a value for the property.&lt;/p&gt;
+&lt;p&gt;Again jumping back into the .admx file, if you look at the last highlighted section of the below screenshot you can see that there is a &lt;code&gt;ValueName&lt;/code&gt;, now this is the value we need want to change.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/HomepageKey-1024x120_hu34eee4ff45c257f80c9ec29ab62b54dc_40615_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;p&gt;to do this you would need to write the policy string like the below screenshot&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/HomepageSetting_hue9c27d273b99d181e2a4d31e1ca3ec72_19374_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
+
+
+
+&lt;p&gt;If you look at the &lt;code&gt;data id&lt;/code&gt; section, this is where you would put the value name in out of the .admx file, from there you would then set the value of that property for example &lt;a href=&#34;https://euc365.com&#34;&gt;https://euc365.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you apply this policy and sync it to your device you will notice that it will change the Homepage upon start up.&lt;/p&gt;
+&lt;p&gt;Now&amp;hellip; Here is another example of adding a string to a policy which requires multiple values. This once is not so much tricky but its messy.&lt;/p&gt;
+&lt;p&gt;For this example we will use the Allow Pop ups for certain sites, I will start off by showing you the screenshot of the policy itself&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Annotation-2020-07-02-123120_hu7cc69084f089061c99f2d44353ac98a4_23518_586x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;408&#34; width=&#34;586&#34;&gt;
+
+
+
+&lt;p&gt;You will notice that at the start and end of each URL there is a rather ugly looking set of characters, now this is where is can get messy. The pre-URL string is the only one that needs to be changed per entry. If you think of this like a list, &lt;strong&gt;option 1&lt;/strong&gt; in the list is &lt;a href=&#34;http://euc365.com&#34;&gt;http://euc365.com&lt;/a&gt; and &lt;strong&gt;option 2&lt;/strong&gt; is &lt;a href=&#34;http://bbc.co.uk&#34;&gt;http://bbc.co.uk&lt;/a&gt;, As you can see in the screenshot the pre-URL has a number which needs to be incremented each time you add another URL.&lt;/p&gt;
+&lt;p&gt;If you are just having one URL you don’t need to add the final &lt;code&gt;&amp;amp;#xF000;&lt;/code&gt;, However if you are using multiple values you will need to add that to the end of the URL and then follow it up with you next URL.&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;The last URL in the sequence should not be followed by &lt;code&gt;&amp;amp;#xF000;&lt;/code&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Looking at putting the URL together you will end up with something like &lt;code&gt;1&amp;amp;#xF000; + https://euc365.com + &amp;amp;#xF000; + Following URLs&lt;/code&gt;, For a single url it would be &lt;code&gt;1&amp;amp;#xF000; + https://euc365.com&lt;/code&gt;&lt;/p&gt;
+</description>
     </item>
     
   </channel>
