@@ -46,7 +46,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 &lt;br&gt;
 &lt;h3 id=&#34;import-the-samsung-knox-service-plugin-app&#34;&gt;Import the Samsung Knox Service Plugin App&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;Browse to &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;&lt;strong&gt;Microsoft Endpoint Manager&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Browse to &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;&lt;strong&gt;Microsoft Intune&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Select &lt;strong&gt;Apps&lt;/strong&gt; from the left-hand pane, then select &lt;strong&gt;Android&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Select &lt;strong&gt;Managed Google Play app&lt;/strong&gt; from the &lt;strong&gt;App type&lt;/strong&gt; list, then press &lt;strong&gt;Select&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Search &lt;strong&gt;Knox Service Plugin&lt;/strong&gt;, select the app shown below&lt;/li&gt;
@@ -90,7 +90,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 &lt;/ol&gt;
 &lt;h3 id=&#34;creating-the-oem-config-profile&#34;&gt;Creating the OEM Config Profile&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;Browse to &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;&lt;strong&gt;Microsoft Endpoint Manager&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Browse to &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;&lt;strong&gt;Microsoft Intune&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Select &lt;strong&gt;Devices&lt;/strong&gt; from the left-hand pane, then select &lt;strong&gt;Android&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Select &lt;strong&gt;Configuration Profiles&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Click &lt;strong&gt;Create Profile&lt;/strong&gt;
@@ -518,7 +518,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 
 &lt;h4 id=&#34;obtaining-your-enrollment-token-from-intune&#34;&gt;Obtaining your enrollment token from Intune&lt;/h4&gt;
 &lt;ol&gt;
-&lt;li&gt;Login to &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;Microsoft Endpoint Manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Login to &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;Microsoft Intune&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Select &lt;strong&gt;Devices&lt;/strong&gt; in the left-hand pane, then select &lt;strong&gt;Android&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Select &lt;strong&gt;Android Enrollment&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Corporate-owned, fully managed user devices&lt;/strong&gt;

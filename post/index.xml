@@ -8,6 +8,96 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 10 Jun 2022 09:08:42 +0000</lastBuildDate><atom:link href="https://euc365.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Bulk Remove Autopilot DisplayName Property</title>
+      <link>https://euc365.com/post/remove-autopilot-displayname/</link>
+      <pubDate>Thu, 10 Nov 2022 12:39:33 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/remove-autopilot-displayname/</guid>
+      <description>&lt;p&gt;Often, during the initial adoption of Microsoft Intune you will see organisations and admins try and maintain some of their technical debt of old. One of those areas is often the device naming conventions. In the modern management world, tracking assets via this method is long out dated, and if you are using Hybrid Azure AD Joined Devices you end up with an entirely new challenge on your hands anyway.&lt;/p&gt;
+&lt;p&gt;This post is aimed at organisations and admins who have decided to remove some of this technical debt and move towards using the options available within the &lt;a href=&#34;https://learn.microsoft.com/en-us/mem/autopilot/profiles&#34;&gt;&lt;strong&gt;Deployment Profiles&lt;/strong&gt;&lt;/a&gt; for Autopilot.&lt;/p&gt;
+&lt;p&gt;In this post we will be using a PowerShell Script with the &lt;a href=&#34;https://www.powershellgallery.com/packages/Microsoft.Graph&#34;&gt;&lt;strong&gt;Microsoft.Graph&lt;/strong&gt;&lt;/a&gt; module to achieve our goal and also take a back of devices previously specified DisplayNames.&lt;/p&gt;
+&lt;p&gt;You can obtain the script we will use from my Git Repo by using the link below.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/Powershell_Scripts/blob/master/MS-Graph/Autopilot/Remove-AutopilotDisplayNameProperty.ps1&#34;&gt;&lt;img src=&#34;http://eyc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt; 
+&lt;h2 id=&#34;assumptions-and-getting-started&#34;&gt;Assumptions and Getting Started&lt;/h2&gt;
+&lt;p&gt;The current script will remove &lt;strong&gt;ALL&lt;/strong&gt; Display Names from devices within your tenant, by all means customise the logic to ensure this only handles devices in an array etc, but my need was to remove this from the entire fleet of devices on a tenant.&lt;/p&gt;
+&lt;p&gt;An assumption is made that you have devices that devices have the following value set on their Autopilot entity.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/assumption_gs_hu5df4ecf98f56a3c1772c2b2ea9131e86_26473_484x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Display Name Value Magnified&#34; height=&#34;50%&#34; width=&#34;50%&#34;&gt;
+
+
+
+&lt;p&gt;There is also an Assumption that you have the relevant rights to perform this action and also grant application consent to run the PowerShell script.&lt;/p&gt;
+&lt;hr&gt; 
+&lt;h2 id=&#34;running-the-script&#34;&gt;Running the Script&lt;/h2&gt;
+&lt;p&gt;This part is fairly simple, however you will need to run this under a PowerShell session that is at least in bypass mode. My recommendation instead of changing the execution policy for PowerShell in its entirety is to run it with the following command in an elevated PowerShell prompt.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;powershell.exe -exectutionpolicy Bypass -File &amp;quot;&amp;lt;Path&amp;gt;\Remove-AutopilotDisplayNameProperty.ps1&amp;quot; -LogOutputLocation &amp;quot;$env:ProgramData\Logs&amp;quot;&lt;/code&gt;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/removeidentities.gif&#34; alt=&#34;Remove Identities Overview&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;p&gt;&lt;br&gt;Once the script has complete you will have a log created in your specified location which will look something like this.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/rmidenlogoutput_hueeca295891e6afe644887b6489d5762b_16366_643x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Remove Identities Log&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;hr&gt; 
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I hope this script can prove useful to you, your peers and also your organisation. Please don&amp;rsquo;t forget to comment and or provide feedback below.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>VLOG - Getting Started with Windows 365 Enterprise</title>
       <link>https://euc365.com/post/vlog-gs-windows365/</link>
       <pubDate>Thu, 03 Nov 2022 11:38:42 +0000</pubDate>
@@ -238,7 +328,7 @@ Thank you to &lt;a href=&#34;https://twitter.com/modaly_it&#34;&gt;&lt;strong&gt
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			Tabs = @(
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                @{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;TeamsApp@odata.bind&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/v1.0/appCatalogs/teamsApps(&amp;#39;com.microsoft.teamspace.tab.web&amp;#39;)&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					DisplayName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft Endpoint Manager&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					DisplayName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft Intune&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					Configuration = @{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;						ContentUrl = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://endpoint.microsoft.com&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					}
@@ -308,10 +398,10 @@ Thank you to &lt;a href=&#34;https://twitter.com/modaly_it&#34;&gt;&lt;strong&gt
 &lt;p&gt;Each channel will be an object within the channel array, and as before, there are some basic properties like &lt;strong&gt;DisplayName&lt;/strong&gt; and &lt;strong&gt;Description&lt;/strong&gt;, then you have the &lt;strong&gt;IsFavouriteByDefault&lt;/strong&gt; property, this is what controls if the channel is displayed or hidden upon creation based on a boolean input. Then you have Tabs, where you can add apps.&lt;/p&gt;
 &lt;p&gt;You can find the Apps available to add to this array by calling the &lt;a href=&#34;https://docs.microsoft.com/en-us/graph/api/appcatalogs-list-teamsapps?view=graph-rest-beta&amp;amp;tabs=http&#34;&gt;&lt;strong&gt;TeamsApp API&lt;/strong&gt;&lt;/a&gt;. An example query would be &lt;code&gt;GET  https://graph.microsoft.com/beta/appCatalogs/teamsApps?$expand=appDefinitions($select=id,displayName,allowedInstallationScopes)&lt;/code&gt;. Using this query you could find the app IDs.&lt;/p&gt;
 &lt;p&gt;My recommendation for this would be to export a template that already has the application within it and obtain the values you need to ensure you enrich the app properly with configurations, alternatively seek these configuration values from the app vendor.&lt;/p&gt;
-&lt;p&gt;All of the apps within thr array are defined as objects as with the channels. If we look at the below object as an , you can see the teams app is bound to a URL similar to the one above. Followed by a &lt;strong&gt;DisplayName&lt;/strong&gt; and the &lt;strong&gt;Configuration&lt;/strong&gt; for the App. In the below example I will be creating a Tab for the &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;&lt;strong&gt;Microsoft Endpoint Manager Console&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;All of the apps within thr array are defined as objects as with the channels. If we look at the below object as an , you can see the teams app is bound to a URL similar to the one above. Followed by a &lt;strong&gt;DisplayName&lt;/strong&gt; and the &lt;strong&gt;Configuration&lt;/strong&gt; for the App. In the below example I will be creating a Tab for the &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;&lt;strong&gt;Microsoft Intune Console&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;TeamsApp@odata.bind&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/v1.0/appCatalogs/teamsApps(&amp;#39;com.microsoft.teamspace.tab.web&amp;#39;)&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  DisplayName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft Endpoint Manager&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  DisplayName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft Intune&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Configuration = @{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ContentUrl = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://endpoint.microsoft.com&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
@@ -373,7 +463,7 @@ Thank you to &lt;a href=&#34;https://twitter.com/modaly_it&#34;&gt;&lt;strong&gt
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			Tabs = @(
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                @{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;TeamsApp@odata.bind&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/v1.0/appCatalogs/teamsApps(&amp;#39;com.microsoft.teamspace.tab.web&amp;#39;)&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					DisplayName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft Endpoint Manager&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					DisplayName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Microsoft Intune&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					Configuration = @{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;						ContentUrl = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://endpoint.microsoft.com&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;					}
@@ -780,7 +870,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 &lt;br&gt;
 &lt;h3 id=&#34;import-the-samsung-knox-service-plugin-app&#34;&gt;Import the Samsung Knox Service Plugin App&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;Browse to &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;&lt;strong&gt;Microsoft Endpoint Manager&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Browse to &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;&lt;strong&gt;Microsoft Intune&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Select &lt;strong&gt;Apps&lt;/strong&gt; from the left-hand pane, then select &lt;strong&gt;Android&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Select &lt;strong&gt;Managed Google Play app&lt;/strong&gt; from the &lt;strong&gt;App type&lt;/strong&gt; list, then press &lt;strong&gt;Select&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Search &lt;strong&gt;Knox Service Plugin&lt;/strong&gt;, select the app shown below&lt;/li&gt;
@@ -824,7 +914,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 &lt;/ol&gt;
 &lt;h3 id=&#34;creating-the-oem-config-profile&#34;&gt;Creating the OEM Config Profile&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;Browse to &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;&lt;strong&gt;Microsoft Endpoint Manager&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Browse to &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;&lt;strong&gt;Microsoft Intune&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Select &lt;strong&gt;Devices&lt;/strong&gt; from the left-hand pane, then select &lt;strong&gt;Android&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Select &lt;strong&gt;Configuration Profiles&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Click &lt;strong&gt;Create Profile&lt;/strong&gt;
@@ -1252,7 +1342,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 
 &lt;h4 id=&#34;obtaining-your-enrollment-token-from-intune&#34;&gt;Obtaining your enrollment token from Intune&lt;/h4&gt;
 &lt;ol&gt;
-&lt;li&gt;Login to &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;Microsoft Endpoint Manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Login to &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;Microsoft Intune&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Select &lt;strong&gt;Devices&lt;/strong&gt; in the left-hand pane, then select &lt;strong&gt;Android&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Select &lt;strong&gt;Android Enrollment&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Corporate-owned, fully managed user devices&lt;/strong&gt;
@@ -3439,7 +3529,7 @@ You will need to take this into account if you plan to package multiple applicat
   &lt;a class=&#34;d-flex p-2 collapse-head&#34; data-toggle=&#34;collapse&#34; href=&#34;#intune&#34; role=&#34;button&#34;&gt;
     Intune &lt;i class=&#34;fas fa-plus ml-auto&#34;&gt;&lt;/i&gt;
   &lt;/a&gt;
-  &lt;div class=&#34;collapse&#34; id=&#34;intune&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;p&gt;Load up &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;Microsoft Endpoint Manager&lt;/a&gt;&lt;/p&gt;
+  &lt;div class=&#34;collapse&#34; id=&#34;intune&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;p&gt;Load up &lt;a href=&#34;https://endpoint.microsoft.com&#34;&gt;Microsoft Intune&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Select &lt;strong&gt;Apps&lt;/strong&gt; from the navigation pane&lt;/li&gt;
 &lt;li&gt;Select &lt;strong&gt;All Apps&lt;/strong&gt;, Click &lt;strong&gt;Add&lt;/strong&gt;&lt;/li&gt;
@@ -3841,7 +3931,7 @@ The window will automatically close when your .intunewin file is finished if you
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;New-IntuneWin32AppPackage -SourceFolder &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C:\Win32 Apps\7-Zip&amp;#34;&lt;/span&gt; -OutputFolder &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C:\Win32 Apps\Outputs&amp;#34;&lt;/span&gt; -SetupFile 7z2002-x64.exe
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This command will create a .intunewin file in the output location named 7z2002-x64.intunewin, this is because it takes the installers name for the output. Unfortunately at the time of writing this, you can&amp;rsquo;t do it natively with this module. However, you can add a Rename-Item into your script to change it.&lt;/p&gt;
 &lt;h2 id=&#34;using-the-packages-with-intune&#34;&gt;Using the packages with Intune&lt;/h2&gt;
-&lt;p&gt;Head over to &lt;a href=&#34;https://endpoint.microsoft.com/#home&#34; target=&#34;_blank&#34;&gt;Microsoft Endpoint Manager admin center&lt;/a&gt; (Intune) to to get started&lt;/p&gt;
+&lt;p&gt;Head over to &lt;a href=&#34;https://endpoint.microsoft.com/#home&#34; target=&#34;_blank&#34;&gt;Microsoft Intune admin center&lt;/a&gt; (Intune) to to get started&lt;/p&gt;
 &lt;ol&gt;
  	&lt;li&gt;Select &lt;strong&gt;Apps &lt;/strong&gt;from the navigation pane&lt;/li&gt;
  	&lt;li&gt;Select &lt;strong&gt;All Apps&lt;/strong&gt;, Click &lt;strong&gt;Add&lt;/strong&gt;&lt;/li&gt;
@@ -5357,9 +5447,9 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;#
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.SYNOPSIS&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;This script will import devices to Microsoft Endpoint Manager Autopilot using the device&amp;#39;s hardware hash.  
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;This script will import devices to Microsoft Intune Autopilot using the device&amp;#39;s hardware hash.  
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;This script will import devices to Microsoft Endpoint Manager Autopilot using the device&amp;#39;s hardware hash with the added capability of been able to add a Group Tag.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;This script will import devices to Microsoft Intune Autopilot using the device&amp;#39;s hardware hash with the added capability of been able to add a Group Tag.
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.PARAMETER&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; MSGraphVersion
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;The Version of the MS Graph API to use
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;Default: Beta

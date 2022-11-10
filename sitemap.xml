@@ -2,14 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://euc365.com/tags/autopilot/</loc>
+    <lastmod>2022-07-05T14:37:16+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/post/remove-autopilot-displayname/</loc>
+    <lastmod>2022-07-05T14:37:16+00:00</lastmod>
+  </url><url>
     <loc>https://euc365.com/categories/</loc>
     <lastmod>2022-11-03T11:43:59+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/</loc>
     <lastmod>2022-11-03T11:43:59+00:00</lastmod>
   </url><url>
+    <loc>https://euc365.com/tags/graph-api/</loc>
+    <lastmod>2022-08-03T19:30:15+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/graph-api/</loc>
+    <lastmod>2022-08-03T19:30:15+00:00</lastmod>
+  </url><url>
     <loc>https://euc365.com/tags/intune/</loc>
     <lastmod>2022-11-03T11:43:59+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/microsoft-intune/</loc>
+    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/powershell/</loc>
+    <lastmod>2022-08-03T19:30:15+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/powershell/</loc>
+    <lastmod>2022-09-22T09:15:52+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/</loc>
     <lastmod>2022-11-03T11:43:59+00:00</lastmod>
@@ -50,9 +71,6 @@
     <loc>https://euc365.com/tags/identity/</loc>
     <lastmod>2022-09-22T09:15:52+00:00</lastmod>
   </url><url>
-    <loc>https://euc365.com/categories/powershell/</loc>
-    <lastmod>2022-09-22T09:15:52+00:00</lastmod>
-  </url><url>
     <loc>https://euc365.com/post/vlog-azuread-connect-cloud-sync/</loc>
     <lastmod>2022-09-07T15:36:45+00:00</lastmod>
   </url><url>
@@ -74,16 +92,7 @@
     <loc>https://euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</loc>
     <lastmod>2022-08-03T19:30:15+00:00</lastmod>
   </url><url>
-    <loc>https://euc365.com/tags/graph-api/</loc>
-    <lastmod>2022-08-03T19:30:15+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/categories/graph-api/</loc>
-    <lastmod>2022-08-03T19:30:15+00:00</lastmod>
-  </url><url>
     <loc>https://euc365.com/tags/microsoft-graph-module/</loc>
-    <lastmod>2022-08-03T19:30:15+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/powershell/</loc>
     <lastmod>2022-08-03T19:30:15+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/teams/</loc>
@@ -127,9 +136,6 @@
   </url><url>
     <loc>https://euc365.com/tags/knox/</loc>
     <lastmod>2022-06-17T14:19:58+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/categories/microsoft-endpoint-manager/</loc>
-    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/mobile-device-management/</loc>
     <lastmod>2022-06-17T14:19:58+00:00</lastmod>
@@ -184,9 +190,6 @@
   </url><url>
     <loc>https://euc365.com/update-apple-scim-token/</loc>
     <lastmod>2022-06-09T15:27:24+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/autopilot/</loc>
-    <lastmod>2022-06-09T15:17:43+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/autopilot-enrolment-terms-of-use/</loc>
     <lastmod>2022-06-09T15:17:43+00:00</lastmod>

@@ -6,7 +6,97 @@
     <description>Recent content in Autopilot on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 May 2021 08:06:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/autopilot/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Nov 2022 12:39:33 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/autopilot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bulk Remove Autopilot DisplayName Property</title>
+      <link>https://euc365.com/post/remove-autopilot-displayname/</link>
+      <pubDate>Thu, 10 Nov 2022 12:39:33 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/remove-autopilot-displayname/</guid>
+      <description>&lt;p&gt;Often, during the initial adoption of Microsoft Intune you will see organisations and admins try and maintain some of their technical debt of old. One of those areas is often the device naming conventions. In the modern management world, tracking assets via this method is long out dated, and if you are using Hybrid Azure AD Joined Devices you end up with an entirely new challenge on your hands anyway.&lt;/p&gt;
+&lt;p&gt;This post is aimed at organisations and admins who have decided to remove some of this technical debt and move towards using the options available within the &lt;a href=&#34;https://learn.microsoft.com/en-us/mem/autopilot/profiles&#34;&gt;&lt;strong&gt;Deployment Profiles&lt;/strong&gt;&lt;/a&gt; for Autopilot.&lt;/p&gt;
+&lt;p&gt;In this post we will be using a PowerShell Script with the &lt;a href=&#34;https://www.powershellgallery.com/packages/Microsoft.Graph&#34;&gt;&lt;strong&gt;Microsoft.Graph&lt;/strong&gt;&lt;/a&gt; module to achieve our goal and also take a back of devices previously specified DisplayNames.&lt;/p&gt;
+&lt;p&gt;You can obtain the script we will use from my Git Repo by using the link below.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/Powershell_Scripts/blob/master/MS-Graph/Autopilot/Remove-AutopilotDisplayNameProperty.ps1&#34;&gt;&lt;img src=&#34;http://eyc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt; 
+&lt;h2 id=&#34;assumptions-and-getting-started&#34;&gt;Assumptions and Getting Started&lt;/h2&gt;
+&lt;p&gt;The current script will remove &lt;strong&gt;ALL&lt;/strong&gt; Display Names from devices within your tenant, by all means customise the logic to ensure this only handles devices in an array etc, but my need was to remove this from the entire fleet of devices on a tenant.&lt;/p&gt;
+&lt;p&gt;An assumption is made that you have devices that devices have the following value set on their Autopilot entity.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/assumption_gs_hu5df4ecf98f56a3c1772c2b2ea9131e86_26473_484x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Display Name Value Magnified&#34; height=&#34;50%&#34; width=&#34;50%&#34;&gt;
+
+
+
+&lt;p&gt;There is also an Assumption that you have the relevant rights to perform this action and also grant application consent to run the PowerShell script.&lt;/p&gt;
+&lt;hr&gt; 
+&lt;h2 id=&#34;running-the-script&#34;&gt;Running the Script&lt;/h2&gt;
+&lt;p&gt;This part is fairly simple, however you will need to run this under a PowerShell session that is at least in bypass mode. My recommendation instead of changing the execution policy for PowerShell in its entirety is to run it with the following command in an elevated PowerShell prompt.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;powershell.exe -exectutionpolicy Bypass -File &amp;quot;&amp;lt;Path&amp;gt;\Remove-AutopilotDisplayNameProperty.ps1&amp;quot; -LogOutputLocation &amp;quot;$env:ProgramData\Logs&amp;quot;&lt;/code&gt;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/removeidentities.gif&#34; alt=&#34;Remove Identities Overview&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;p&gt;&lt;br&gt;Once the script has complete you will have a log created in your specified location which will look something like this.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/rmidenlogoutput_hueeca295891e6afe644887b6489d5762b_16366_643x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Remove Identities Log&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;hr&gt; 
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I hope this script can prove useful to you, your peers and also your organisation. Please don&amp;rsquo;t forget to comment and or provide feedback below.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>Autopilot Enrolment Terms of Use</title>
       <link>https://euc365.com/autopilot-enrolment-terms-of-use/</link>
@@ -257,9 +347,9 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;#
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.SYNOPSIS&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;This script will import devices to Microsoft Endpoint Manager Autopilot using the device&amp;#39;s hardware hash.  
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;This script will import devices to Microsoft Intune Autopilot using the device&amp;#39;s hardware hash.  
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;This script will import devices to Microsoft Endpoint Manager Autopilot using the device&amp;#39;s hardware hash with the added capability of been able to add a Group Tag.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;This script will import devices to Microsoft Intune Autopilot using the device&amp;#39;s hardware hash with the added capability of been able to add a Group Tag.
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.PARAMETER&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; MSGraphVersion
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;The Version of the MS Graph API to use
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;Default: Beta

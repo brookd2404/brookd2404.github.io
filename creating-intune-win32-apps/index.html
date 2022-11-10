@@ -231,7 +231,7 @@ if (!doNotTrack) {
               href="/categories/azure/">Azure</a>
               
               <a class="dropdown-item " 
-              href="/categories/microsoft-endpoint-manager/">Microsoft Endpoint Manager</a>
+              href="/categories/microsoft-endpoint-manager/">Microsoft Intune</a>
               
               <a class="dropdown-item " 
               href="/categories/graph-api/">Microsoft Graph API</a>
@@ -362,7 +362,7 @@ if (!doNotTrack) {
                 <li class="list-inline-item"><a
                     href="/categories/powershell">Power shell</a></li> 
                 <li class="list-inline-item"><a
-                    href="/categories/microsoft-endpoint-manager">Microsoft endpoint manager</a></li> 
+                    href="/categories/microsoft-intune">Microsoft intune</a></li> 
               </ul>
             </li>
           </ul>
@@ -406,7 +406,7 @@ The window will automatically close when your .intunewin file is finished if you
 </span></span><span style="display:flex;"><span>New-IntuneWin32AppPackage -SourceFolder <span style="color:#e6db74">&#34;C:\Win32 Apps\7-Zip&#34;</span> -OutputFolder <span style="color:#e6db74">&#34;C:\Win32 Apps\Outputs&#34;</span> -SetupFile 7z2002-x64.exe
 </span></span></code></pre></div><p>This command will create a .intunewin file in the output location named 7z2002-x64.intunewin, this is because it takes the installers name for the output. Unfortunately at the time of writing this, you can&rsquo;t do it natively with this module. However, you can add a Rename-Item into your script to change it.</p>
 <h2 id="using-the-packages-with-intune">Using the packages with Intune</h2>
-<p>Head over to <a href="https://endpoint.microsoft.com/#home" target="_blank">Microsoft Endpoint Manager admin center</a> (Intune) to to get started</p>
+<p>Head over to <a href="https://endpoint.microsoft.com/#home" target="_blank">Microsoft Intune admin center</a> (Intune) to to get started</p>
 <ol>
  	<li>Select <strong>Apps </strong>from the navigation pane</li>
  	<li>Select <strong>All Apps</strong>, Click <strong>Add</strong></li>
@@ -627,13 +627,13 @@ That covers the basics all of the detection methods, if you have any further que
     <li><a href="/categories/bicep" class="d-flex">Bicep <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/community-tools" class="d-flex">Community tools <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/governance" class="d-flex">Governance <small class="ml-auto">(1)</small></a></li>
-    <li><a href="/categories/graph-api" class="d-flex">Graph API <small class="ml-auto">(7)</small></a></li>
+    <li><a href="/categories/graph-api" class="d-flex">Graph API <small class="ml-auto">(8)</small></a></li>
     <li><a href="/categories/group-policy" class="d-flex">Group policy <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/memcm" class="d-flex">Memcm <small class="ml-auto">(3)</small></a></li>
-    <li><a href="/categories/microsoft-endpoint-manager" class="d-flex">Microsoft endpoint manager <small class="ml-auto">(16)</small></a></li>
+    <li><a href="/categories/microsoft-intune" class="d-flex">Microsoft intune <small class="ml-auto">(17)</small></a></li>
     <li><a href="/categories/mobile-device-management" class="d-flex">Mobile device management <small class="ml-auto">(3)</small></a></li>
     <li><a href="/categories/powerbi" class="d-flex">Powerbi <small class="ml-auto">(1)</small></a></li>
-    <li><a href="/categories/powershell" class="d-flex">Powershell <small class="ml-auto">(12)</small></a></li>
+    <li><a href="/categories/powershell" class="d-flex">Powershell <small class="ml-auto">(13)</small></a></li>
     <li><a href="/categories/samsung-knox" class="d-flex">Samsung knox <small class="ml-auto">(3)</small></a></li>
     <li><a href="/categories/teams" class="d-flex">Teams <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/vlog" class="d-flex">Vlog <small class="ml-auto">(4)</small></a></li>
@@ -873,6 +873,8 @@ function OptanonWrapper() { }
     <div class="row align-items-center">
       <div class="col-md-5 text-center text-md-left mb-4">
         <ul class="list-inline footer-list mb-0">
+          
+          <li class="list-inline-item"><a href="https://euc365.com/post/index.xml">Post RSS Feed</a></li>
           
           <li class="list-inline-item"><a href="https://euc365.com/privacy-policy/">Privacy Policy</a></li>
           
