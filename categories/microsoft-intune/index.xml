@@ -17,7 +17,7 @@
 &lt;p&gt;This post is aimed at organisations and admins who have decided to remove some of this technical debt and move towards using the options available within the &lt;a href=&#34;https://learn.microsoft.com/en-us/mem/autopilot/profiles&#34;&gt;&lt;strong&gt;Deployment Profiles&lt;/strong&gt;&lt;/a&gt; for Autopilot.&lt;/p&gt;
 &lt;p&gt;In this post we will be using a PowerShell Script with the &lt;a href=&#34;https://www.powershellgallery.com/packages/Microsoft.Graph&#34;&gt;&lt;strong&gt;Microsoft.Graph&lt;/strong&gt;&lt;/a&gt; module to achieve our goal and also take a back of devices previously specified DisplayNames.&lt;/p&gt;
 &lt;p&gt;You can obtain the script we will use from my Git Repo by using the link below.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/Powershell_Scripts/blob/master/MS-Graph/Autopilot/Remove-AutopilotDisplayNameProperty.ps1&#34;&gt;&lt;img src=&#34;http://eyc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/Powershell_Scripts/blob/master/MS-Graph/Autopilot/Remove-AutopilotDisplayNameProperty.ps1&#34;&gt;&lt;img src=&#34;http://euc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt; 
 &lt;h2 id=&#34;assumptions-and-getting-started&#34;&gt;Assumptions and Getting Started&lt;/h2&gt;
 &lt;p&gt;The current script will remove &lt;strong&gt;ALL&lt;/strong&gt; Display Names from devices within your tenant, by all means customise the logic to ensure this only handles devices in an array etc, but my need was to remove this from the entire fleet of devices on a tenant.&lt;/p&gt;
