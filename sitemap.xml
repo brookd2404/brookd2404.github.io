@@ -2,12 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://euc365.com/tags/autopilot/</loc>
-    <lastmod>2022-07-05T14:37:16+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/post/remove-autopilot-displayname/</loc>
-    <lastmod>2022-07-05T14:37:16+00:00</lastmod>
-  </url><url>
     <loc>https://euc365.com/categories/</loc>
     <lastmod>2022-11-03T11:43:59+00:00</lastmod>
   </url><url>
@@ -19,6 +13,12 @@
   </url><url>
     <loc>https://euc365.com/categories/graph-api/</loc>
     <lastmod>2022-08-03T19:30:15+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/group-policy/</loc>
+    <lastmod>2022-07-05T14:37:16+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/post/import-gpos-group-policy-analytics-graph-api/</loc>
+    <lastmod>2022-07-05T14:37:16+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/intune/</loc>
     <lastmod>2022-11-03T11:43:59+00:00</lastmod>
@@ -34,6 +34,12 @@
   </url><url>
     <loc>https://euc365.com/tags/</loc>
     <lastmod>2022-11-03T11:43:59+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/autopilot/</loc>
+    <lastmod>2022-07-05T14:37:16+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/post/remove-autopilot-displayname/</loc>
+    <lastmod>2022-07-05T14:37:16+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/vlog/</loc>
     <lastmod>2022-11-03T11:43:59+00:00</lastmod>
@@ -258,9 +264,6 @@
     <lastmod>2020-07-08T10:00:00+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/breaking-custom-oma-uri-csp-policies/</loc>
-    <lastmod>2022-06-09T07:41:05+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/group-policy/</loc>
     <lastmod>2022-06-09T07:41:05+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/group-policy/</loc>

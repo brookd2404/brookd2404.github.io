@@ -6,7 +6,131 @@
     <description>Recent content in Microsoft Intune on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Nov 2022 12:39:33 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/microsoft-intune/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Nov 2022 22:00:01 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/microsoft-intune/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Import GPOs to Group Policy Analytics using Graph API</title>
+      <link>https://euc365.com/post/import-gpos-group-policy-analytics-graph-api/</link>
+      <pubDate>Fri, 18 Nov 2022 22:00:01 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/import-gpos-group-policy-analytics-graph-api/</guid>
+      <description>&lt;p&gt;Many organisations are starting to adopt cloud technologies, some of which decide to start again with a clean slate and add in policies where necessary. However, some organisations still look to take migrate their complex Group Policies.&lt;/p&gt;
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;I would recommend taking the approach of clean slate, aligned to relevant framework(s) such as NCSC, NIST or CIS and applying only relevant policies there after. &lt;/br&gt;&lt;/br&gt;
+&lt;strong&gt;CIS&lt;/strong&gt;: &lt;a href=&#34;https://www.cisecurity.org/insights/white-papers/cis-controls-cloud-companion-guide&#34;&gt;CIS Critical Security Controls Cloud Companion Guide (cisecurity.org)&lt;/a&gt;&lt;/br&gt;
+&lt;strong&gt;NSCS&lt;/strong&gt;: &lt;a href=&#34;https://www.ncsc.gov.uk/collection/device-security-guidance/platform-guides/windows&#34;&gt;Windows - NCSC.GOV.UK&lt;/a&gt;&lt;/br&gt;
+&lt;strong&gt;NIST&lt;/strong&gt;: &lt;a href=&#34;https://ncp.nist.gov/repository&#34;&gt;NATIONAL CHECKLIST PROGRAM&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;This post is to aid any IT Administrator in achieving goals, weather that be to analyse your current policies or only a selection of polices. There will be a script to export the Group Policies from a specific OU, and a script to recursively import the XML files to Intune utilising the Graph API.&lt;/p&gt;
+&lt;p&gt;The scripts detailed in this post are available on &lt;strong&gt;GitHub&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/Powershell_Scripts/tree/master/MS-Graph/GroupPolicyAnalytics&#34;&gt;&lt;img src=&#34;http://euc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt; 
+&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
+&lt;h3 id=&#34;permissions&#34;&gt;Permissions&lt;/h3&gt;
+&lt;h4 id=&#34;intune&#34;&gt;Intune&lt;/h4&gt;
+&lt;p&gt;One of the following permissions is required to use Group Policy Analytics.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Intune Administrator&lt;/li&gt;
+&lt;li&gt;Any role that includes the &lt;strong&gt;Security Baseline&lt;/strong&gt; permission&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;group-policy&#34;&gt;Group Policy&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;This article assumes the Administrator has access to read and export the GPOs within the targeted scope.&lt;/li&gt;
+&lt;li&gt;The export script will need to be run on an endpoint with Group Policy Management Tools Installed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt; 
+&lt;h2 id=&#34;running-the-scripts&#34;&gt;Running the Script(s)&lt;/h2&gt;
+&lt;p&gt;All scripts will need to be run with the &lt;strong&gt;Execution Policy&lt;/strong&gt; of the PowerShell terminal set to bypass. If preferred, scripts can be launched prefixed with the below;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;powershell.exe -exectutionpolicy Bypass -File&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;export-group-policies&#34;&gt;Export Group Policies&lt;/h3&gt;
+&lt;p&gt;This script is used to export Group Policy Objects using PowerShell. When executing the script you will need to specify which OU ( &lt;code&gt;-OU &lt;/code&gt; ) you want to export the policies from and also the folder ( &lt;code&gt;-GPOFolder&lt;/code&gt; ) where you want the exports to be stored.&lt;/p&gt;
+&lt;p&gt;The script is extensible, so if you want to widen the scope or make amendments, make it work for you.&lt;/p&gt;
+&lt;p&gt;If you execute the script with a command like below, you will see the policy GUIDs that are exported as displayed in the clip.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;quot;&amp;lt;Path&amp;gt;\Get-LinkedGPOs.ps1&amp;quot; -OU &amp;quot;OU=Managed_Devices,DC=Domain,DC=LAB&amp;quot; -GPOFolder &amp;quot;$env:SystemDrive\Temp\GPOs&amp;quot;&lt;/code&gt;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/grouppolicy/exportGPOs.gif&#34; alt=&#34;Export GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;hr&gt;
+&lt;h3 id=&#34;importing-group-policies-to-group-policy-analytics&#34;&gt;Importing Group Policies to Group Policy Analytics&lt;/h3&gt;
+&lt;p&gt;Importing the policy exports to Group Policy Analytics is just as simple as exporting them with the use of the &lt;code&gt;Import-GroupPolicyAnalyticsPolicy.ps1&lt;/code&gt; script. This script was designed for a specific purpose, to save time and clicks!.&lt;/p&gt;
+&lt;p&gt;For this example, we will start by taking a look at some of the parameters that are used upon launch.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GPOFolder&lt;/strong&gt; (Mandatory): This parameter is to be used to point the script to your .XML files.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Recurse&lt;/strong&gt;: If you have group policies nested inside other folders, this parameter is advised to recursively import them.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LogOutputLocation&lt;/strong&gt;: A location for the created logfile output, default is C:\Temp.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TenantID&lt;/strong&gt;: If you are calling this script for any other tenant, other than the one you have previously logged into, you will need to specify the TenantID.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UseDeviceAuthentication&lt;/strong&gt;: Offers the ability to use Device Authentication.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;This script will only import Group Policies with Unique names, it does a check on the names prior to import.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Once you are ready, you can execute the script with the relevant parameters, for example you can run the following command to import the policies.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;quot;&amp;lt;Path&amp;gt;\Import-GroupPolicyAnalyticsPolicy.ps1.ps1&amp;quot; -GPOFolder &amp;quot;$env:SystemDrive\Temp\GPOs&amp;quot; -UseDeviceAuthentication&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/grouppolicy/importGPOs.gif&#34; alt=&#34;Import GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;/br&gt;&lt;/p&gt;
+&lt;h4 id=&#34;results&#34;&gt;Results&lt;/h4&gt;
+&lt;p&gt;This results in the Group Policy being available within Intune, as below;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/grouppolicy/importResult.gif&#34; alt=&#34;Import GPOs Result&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;hr&gt; 
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;This was a quite good to pull together, I hope you can put it to good use and make your life a lot easier and less pain staking.&lt;/p&gt;
+&lt;p&gt;Please leave feedback and comments below if you would like to see more things like this.&lt;/p&gt;
+&lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
+&lt;p&gt;For further reading on Group Policy Analytics, please review the &lt;a href=&#34;https://learn.microsoft.com/en-us/mem/intune/configuration/group-policy-analytics&#34;&gt;&lt;strong&gt;Microsoft Documentation&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>Bulk Remove Autopilot DisplayName Property</title>
       <link>https://euc365.com/post/remove-autopilot-displayname/</link>
@@ -48,7 +172,7 @@
 &lt;hr&gt; 
 &lt;h2 id=&#34;running-the-script&#34;&gt;Running the Script&lt;/h2&gt;
 &lt;p&gt;This part is fairly simple, however you will need to run this under a PowerShell session that is at least in bypass mode. My recommendation instead of changing the execution policy for PowerShell in its entirety is to run it with the following command in an elevated PowerShell prompt.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;powershell.exe -exectutionpolicy Bypass -File &amp;quot;&amp;lt;Path&amp;gt;\Remove-AutopilotDisplayNameProperty.ps1&amp;quot; -LogOutputLocation &amp;quot;$env:ProgramData\Logs&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;powershell.exe -executionpolicy Bypass -File &amp;quot;&amp;lt;Path&amp;gt;\Remove-AutopilotDisplayNameProperty.ps1&amp;quot; -LogOutputLocation &amp;quot;$env:ProgramData\Logs&amp;quot;&lt;/code&gt;&lt;/p&gt;
 
 
 

@@ -48,7 +48,7 @@
 &lt;hr&gt; 
 &lt;h2 id=&#34;running-the-script&#34;&gt;Running the Script&lt;/h2&gt;
 &lt;p&gt;This part is fairly simple, however you will need to run this under a PowerShell session that is at least in bypass mode. My recommendation instead of changing the execution policy for PowerShell in its entirety is to run it with the following command in an elevated PowerShell prompt.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;powershell.exe -exectutionpolicy Bypass -File &amp;quot;&amp;lt;Path&amp;gt;\Remove-AutopilotDisplayNameProperty.ps1&amp;quot; -LogOutputLocation &amp;quot;$env:ProgramData\Logs&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;powershell.exe -executionpolicy Bypass -File &amp;quot;&amp;lt;Path&amp;gt;\Remove-AutopilotDisplayNameProperty.ps1&amp;quot; -LogOutputLocation &amp;quot;$env:ProgramData\Logs&amp;quot;&lt;/code&gt;&lt;/p&gt;
 
 
 

@@ -6,29 +6,29 @@
     <description>Recent content in Tags on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Nov 2022 12:39:33 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Autopilot</title>
-      <link>https://euc365.com/tags/autopilot/</link>
-      <pubDate>Thu, 10 Nov 2022 12:39:33 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/autopilot/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Fri, 18 Nov 2022 22:00:01 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Graph API</title>
       <link>https://euc365.com/tags/graph-api/</link>
-      <pubDate>Thu, 10 Nov 2022 12:39:33 +0000</pubDate>
+      <pubDate>Fri, 18 Nov 2022 22:00:01 +0000</pubDate>
       
       <guid>https://euc365.com/tags/graph-api/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Group Policy</title>
+      <link>https://euc365.com/tags/group-policy/</link>
+      <pubDate>Fri, 18 Nov 2022 22:00:01 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/group-policy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Intune</title>
       <link>https://euc365.com/tags/intune/</link>
-      <pubDate>Thu, 10 Nov 2022 12:39:33 +0000</pubDate>
+      <pubDate>Fri, 18 Nov 2022 22:00:01 +0000</pubDate>
       
       <guid>https://euc365.com/tags/intune/</guid>
       <description></description>
@@ -37,9 +37,18 @@
     <item>
       <title>Powershell</title>
       <link>https://euc365.com/tags/powershell/</link>
-      <pubDate>Thu, 10 Nov 2022 12:39:33 +0000</pubDate>
+      <pubDate>Fri, 18 Nov 2022 22:00:01 +0000</pubDate>
       
       <guid>https://euc365.com/tags/powershell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Autopilot</title>
+      <link>https://euc365.com/tags/autopilot/</link>
+      <pubDate>Thu, 10 Nov 2022 12:39:33 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/autopilot/</guid>
       <description></description>
     </item>
     
@@ -346,15 +355,6 @@
       <pubDate>Wed, 02 Sep 2020 11:02:00 +0000</pubDate>
       
       <guid>https://euc365.com/tags/configuration-profiles/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Group Policy</title>
-      <link>https://euc365.com/tags/group-policy/</link>
-      <pubDate>Tue, 30 Jun 2020 18:35:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/group-policy/</guid>
       <description></description>
     </item>
     
