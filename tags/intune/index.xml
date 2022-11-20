@@ -17,7 +17,7 @@
 
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;I would recommend taking the approach of clean slate, aligned to relevant framework(s) such as NCSC, NIST or CIS and applying only relevant policies there after. &lt;/br&gt;&lt;/br&gt;
 &lt;strong&gt;CIS&lt;/strong&gt;: &lt;a href=&#34;https://www.cisecurity.org/insights/white-papers/cis-controls-cloud-companion-guide&#34;&gt;CIS Critical Security Controls Cloud Companion Guide (cisecurity.org)&lt;/a&gt;&lt;/br&gt;
-&lt;strong&gt;NSCS&lt;/strong&gt;: &lt;a href=&#34;https://www.ncsc.gov.uk/collection/device-security-guidance/platform-guides/windows&#34;&gt;Windows - NCSC.GOV.UK&lt;/a&gt;&lt;/br&gt;
+&lt;strong&gt;NCSC&lt;/strong&gt;: &lt;a href=&#34;https://www.ncsc.gov.uk/collection/device-security-guidance/platform-guides/windows&#34;&gt;Windows - NCSC.GOV.UK&lt;/a&gt;&lt;/br&gt;
 &lt;strong&gt;NIST&lt;/strong&gt;: &lt;a href=&#34;https://ncp.nist.gov/repository&#34;&gt;NATIONAL CHECKLIST PROGRAM&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
 
 &lt;p&gt;This post is to aid any IT Administrator in achieving goals, weather that be to analyse your current policies or only a selection of polices. There will be a script to export the Group Policies from a specific OU, and a script to recursively import the XML files to Intune utilising the Graph API.&lt;/p&gt;
