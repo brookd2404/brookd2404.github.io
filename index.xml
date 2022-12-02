@@ -6,7 +6,34 @@
     <description>Recent content on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Nov 2022 22:00:01 +0000</lastBuildDate><atom:link href="https://euc365.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Dec 2022 13:48:29 +0000</lastBuildDate><atom:link href="https://euc365.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VLOG - Windows Update for Business Reports</title>
+      <link>https://euc365.com/post/vlog-wufb-reports/</link>
+      <pubDate>Fri, 02 Dec 2022 13:48:29 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/vlog-wufb-reports/</guid>
+      <description>
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/W30BT2Pk4kU&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;p&gt;In this video, we’ll walk you through Configuring Windows Update for Business Reports, Creating a Device Configuration Profile for Windows Devices, Ways to Access the Reports and a brief look at using the Logs and Kusto Queries (KQL).&lt;/p&gt;
+&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/windows/deployment/update/wufb-reports-prerequisites&#34;&gt;WUfB Reports Prerequisites&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/windows/deployment/update/wufb-reports-configuration-intune&#34;&gt;Configuring Clients with Microsoft Intune&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/windows/deployment/update/wufb-reports-workbook&#34;&gt;Using WUfB Reports&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/windows/deployment/update/wufb-reports-schema&#34;&gt;WUfB Reports Schema&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check out our YouTube channel here:
+&lt;a href=&#34;https://www.youtube.com/@euc365&#34;&gt;https://www.youtube.com/@euc365&lt;/a&gt;
+Don’t forget to subscribe!&lt;/p&gt;
+&lt;hr&gt;
+</description>
+    </item>
+    
     <item>
       <title>Import GPOs to Group Policy Analytics using Graph API</title>
       <link>https://euc365.com/post/import-gpos-group-policy-analytics-graph-api/</link>
@@ -227,7 +254,7 @@
       <pubDate>Thu, 03 Nov 2022 11:38:42 +0000</pubDate>
       
       <guid>https://euc365.com/post/vlog-gs-windows365/</guid>
-      <description>&lt;p&gt;A look into a &amp;lsquo;From th Group Up&amp;rsquo; approach to Windows 365, including Licensing, differences in Product SKUs, configuration and also three ways to access Windows 365.&lt;/p&gt;
+      <description>&lt;p&gt;A look into a &amp;lsquo;From the Ground Up&amp;rsquo; approach to Windows 365, including Licensing, differences in Product SKUs, configuration and also three ways to access Windows 365.&lt;/p&gt;
 &lt;h2 id=&#34;useful-links&#34;&gt;Useful Links&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/windows-365/business-enterprise-comparison&#34;&gt;Business vs Enterprise Comparison&lt;/a&gt;&lt;/li&gt;
