@@ -6,7 +6,411 @@
     <description>Recent content on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Dec 2022 13:48:29 +0000</lastBuildDate><atom:link href="https://euc365.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Dec 2022 20:00:30 +0000</lastBuildDate><atom:link href="https://euc365.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows 365 - Graph API and PowerShell Basics</title>
+      <link>https://euc365.com/post/windows-365-graph-api-powershell-basics/</link>
+      <pubDate>Mon, 05 Dec 2022 20:00:30 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/windows-365-graph-api-powershell-basics/</guid>
+      <description>
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;This article was composed using Windows 365 Enterprise licences, the experience may differ if using Windows 365 Business.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Windows 365 is still a relatively &amp;lsquo;New Kid&amp;rsquo; on the block, however it is developing at a rapid pace, with the technology now been used behind the scenes of DevBox. Windows 365 offers the ability to deploy machines at scale for the workforce without having to worry about the underlying maintenance within data centres etc.&lt;/p&gt;
+&lt;p&gt;In this post we will look at some of the basics using the Graph API natively, and also the Microsoft Graph PowerShell Module. We will look at SKUs and Provisioning Policies, and by the end of this article you should be able to deploy your Windows 365 profiles with ease.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;To get started you will need the following;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Visual Studio Code (or another IDE)&lt;/li&gt;
+&lt;li&gt;The following PowerShell Modules
+&lt;ul&gt;
+&lt;li&gt;Microsoft.Graph&lt;/li&gt;
+&lt;li&gt;MSAL.PS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;assumptions&#34;&gt;Assumptions&lt;/h3&gt;
+&lt;p&gt;There is an assumption made that you as the system administrator have the necessary permissions to perform the actions mentioned.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;connecting-to-the-graph-api&#34;&gt;Connecting to the Graph API&lt;/h2&gt;
+&lt;p&gt;As we will be covering two different way of interacting with the service, we will look at two types of authentication. First up, we will look at how to obtain a bearer token (Access Token) for use with direct endpoint invocation (using PostMan or Invoke-RestMethod), followed by the simplicity of connecting to the Microsoft Graph Module.&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;If your organisation restricts creating applications from Azure, you may need to take additional measures to be able to authenticate.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;bearer-token-access&#34;&gt;Bearer Token (Access)&lt;/h3&gt;
+&lt;p&gt;This is where the MSAL.PS module is required, you can create your own Azure AD App Registration for this, however for this guide I will utilise the Microsoft PowerShell App Registration with defined scoped.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Launch a PowerShell Prompt&lt;/li&gt;
+&lt;li&gt;Enter &lt;code&gt;$Token = Get-MsalToken -ClientId d1ddf0e4-d672-4dae-b554-9d5bdfd93547 -Scopes CloudPC.ReadWrite.All -RedirectUri &amp;quot;urn:ietf:wg:oauth:2.0:oob&amp;quot;&lt;/code&gt;, hit Enter&lt;/li&gt;
+&lt;li&gt;Sign In, If not already consented, you will be prompted with an image as below. You can choose to grant for yourself or your organisation if you have the permissions.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/msalAuthPrompt_hu35aaa84b100d30774695ebd34191cdad_36238_568x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MSAL Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+
+
+
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;If you now call &lt;code&gt;$Token.AccessToken&lt;/code&gt;, this will be the bearer token we will use.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;If you call &lt;code&gt;$Token.ExpiresOn&lt;/code&gt; you will be able to see the lifespan of the token, this is usually 1 hour.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;We will come back to using this further down the article, as at the moment we just need to get connected.&lt;/p&gt;
+&lt;h3 id=&#34;microsoftgraph-powershell-module&#34;&gt;Microsoft.Graph PowerShell Module&lt;/h3&gt;
+&lt;p&gt;Connecting via this module could not be easier, follow the below steps after ensuring the Microsoft.Graph module is installed.;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Launch a PowerShell prompt&lt;/li&gt;
+&lt;li&gt;Enter &lt;code&gt;Connect-MgGraph -Scopes CloudPC.ReadWrite.All&lt;/code&gt;, hit Enter&lt;/li&gt;
+&lt;li&gt;Sign in, If not already consented, you will be prompted with an image as below. You can choose to grant for yourself or your organisation if you have the permissions.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+
+
+
+&lt;p&gt;That&amp;rsquo;s it, no Redirect URI&amp;rsquo;s or Client App ID&amp;rsquo;s to remember, just clean authentication.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;making-your-first-call&#34;&gt;Making your first call&lt;/h2&gt;
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;These methodologies can be used across the Graph API, by amending the scopes, URIs (for Access Tokens) and using alternate Microsoft.Graph Module commands.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;This section will cover how to make your first Graph API Call, in this instance we will be listing all of the Windows 365 (Cloud PCs).&lt;/p&gt;
+&lt;h3 id=&#34;bearer-token-access-method&#34;&gt;Bearer Token (Access) Method&lt;/h3&gt;
+&lt;p&gt;Using this method is great for more advanced users, but it have its pitfalls none-the-less, for example, the Graph API does have a limit on the amount of resources it returns before adding in a @odata.NextLink to the return. So to cover this scenario, I will talk about two ways to make this call, that way you have all of tools you need.&lt;/p&gt;
+&lt;h4 id=&#34;basic-call&#34;&gt;Basic Call&lt;/h4&gt;
+&lt;p&gt;If you look at the code snippet in the &lt;strong&gt;Basic Call&lt;/strong&gt; collapse below, you will see its already commented for ease. The basic premise of this is to build up the call using an object so you do not have a long winded command to run.&lt;/p&gt;
+&lt;p&gt;So lets look at the &lt;code&gt;$GraphParams&lt;/code&gt; object, firstly, as you can see we are making a &lt;code&gt;GET&lt;/code&gt; request, to the &lt;code&gt;URI&lt;/code&gt; with a set of specified &lt;code&gt;Headers&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You will see within the &lt;code&gt;Header&lt;/code&gt; object, that we are calling &lt;code&gt;$Token.AccessToken&lt;/code&gt; to place the Bearer token in the authorization header.&lt;/p&gt;
+
+
+&lt;div class=&#34;border border-default collapse-wrapper&#34;&gt;
+  &lt;a class=&#34;d-flex p-2 collapse-head&#34; data-toggle=&#34;collapse&#34; href=&#34;#basic-call&#34; role=&#34;button&#34;&gt;
+    Basic Call &lt;i class=&#34;fas fa-plus ml-auto&#34;&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  &lt;div class=&#34;collapse&#34; id=&#34;basic-call&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Build up the Restmethod Parameters&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$GraphParams = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Method  = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;GET&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#Perform a GET Action&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    URI     = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/deviceManagement/virtualEndpoint/cloudPCs&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#Against this Endpoint&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Headers = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Authorization = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bearer &lt;/span&gt;$($Token.AccessToken)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Accept = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;application/json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } &lt;span style=&#34;color:#75715e&#34;&gt;#Using the Token as the Authorisation header, and accept only a JSON object in return&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Invoke the request&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$GraphRequest = Invoke-RestMethod @GraphParams -ErrorAction Stop
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#View Values&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$GraphRequest.value
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/br&gt;
+&lt;p&gt;If you take a look at the demonstration below, you will see that this returns the devices that you have within your environment.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/basicGraphMSAL.gif&#34; alt=&#34;MSAL Basic Call Demo&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;h4 id=&#34;handling-next-links&#34;&gt;Handling Next Links&lt;/h4&gt;
+&lt;p&gt;I won&amp;rsquo;t dig into this too much as its a nice bonus, the premise is the same, however with the addition of an array and a while loop this code snippet will recursively gather your data.&lt;/p&gt;
+
+
+&lt;div class=&#34;border border-default collapse-wrapper&#34;&gt;
+  &lt;a class=&#34;d-flex p-2 collapse-head&#34; data-toggle=&#34;collapse&#34; href=&#34;#handling-nextlinks&#34; role=&#34;button&#34;&gt;
+    Handling NextLinks &lt;i class=&#34;fas fa-plus ml-auto&#34;&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  &lt;div class=&#34;collapse&#34; id=&#34;handling-nextlinks&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Build up the Restmethod Parameters&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$GraphParams = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Method  = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;GET&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#Perform a GET Action&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    URI     = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/deviceManagement/virtualEndpoint/cloudPCs&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#Against this Endpoint&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Headers = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Authorization = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bearer &lt;/span&gt;$($Token.AccessToken)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Accept = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;application/json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } &lt;span style=&#34;color:#75715e&#34;&gt;#Using the Token as the Authorisation header, and accept only a JSON object in return&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Invoke the request&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$GraphRequest = Invoke-RestMethod @GraphParams -ErrorAction Stop
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$All_GraphRequests = @() &lt;span style=&#34;color:#75715e&#34;&gt;#Create a blank array&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$All_GraphRequests += $GraphRequest &lt;span style=&#34;color:#75715e&#34;&gt;#Add the original request results&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#While there is a NextLink Available, loop though and append the array.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; ($GraphRequest.&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;@odata.nextLink&amp;#39;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $GraphRequest_NextLink = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Method      = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;GET&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        URI         = $GraphRequest.&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;@odata.nextLink&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Headers = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Authorization = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bearer &lt;/span&gt;$($Token.AccessToken)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Accept = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;application/json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        } 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $GraphRequest = Invoke-RestMethod @GraphRequest_NextLink -ErrorAction Stop
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $All_GraphRequests += $GraphRequest
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$All_GraphRequests.Value &lt;span style=&#34;color:#75715e&#34;&gt;#View Results&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/br&gt;
+&lt;h3 id=&#34;microsoftgraph-call&#34;&gt;Microsoft.Graph Call&lt;/h3&gt;
+&lt;p&gt;The first thing we need to do before running any commands is call &lt;code&gt;Select-MgProfile -Name beta&lt;/code&gt; to ensure we do not run into any issues.&lt;/p&gt;
+&lt;p&gt;To achieve the same as above with the &lt;strong&gt;Microsoft.Graph&lt;/strong&gt; module is run &lt;code&gt;Get-MgDeviceManagementVirtualEndpointCloudPC&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Let take a look at how this looks shall we?&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/basicGraphMGPS.gif&#34; alt=&#34;MGPS Basic Call Demo&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;h4 id=&#34;handling-next-links-1&#34;&gt;Handling Next Links&lt;/h4&gt;
+&lt;p&gt;You will be flabergasted how complex this is&amp;hellip; Honestly. All you need to do is add the &lt;code&gt;-All&lt;/code&gt; parameter.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;building-the-basics&#34;&gt;Building the basics&lt;/h2&gt;
+&lt;p&gt;Now we can authenticate and have run our first call, lets put some of those skills into practice and create a provisioning policy.&lt;/p&gt;
+&lt;h3 id=&#34;microsoftgraph-module&#34;&gt;Microsoft.Graph Module&lt;/h3&gt;
+&lt;p&gt;For this basics blog, I am only going to focus on using the Microsoft Hosted Network and AzureAD Joined devices.&lt;/p&gt;
+&lt;p&gt;Let get going shall we, one of the first things we need to do is select what gallery image we want. There are two types of images, &lt;strong&gt;OS Optimized&lt;/strong&gt; (&lt;code&gt;light&lt;/code&gt;) in terms of the Graph API and &lt;strong&gt;Microsoft 365 Apps&lt;/strong&gt; (&lt;code&gt;heavy&lt;/code&gt;). For this example we will be using the &lt;code&gt;heavy&lt;/code&gt; type.&lt;/p&gt;
+&lt;p&gt;If we first run &lt;code&gt;Get-MgDeviceManagementVirtualEndpointGalleryImage&lt;/code&gt; it will list the available image on the gallery, but there can only be one for the import. So lets filter to a specific image using &lt;code&gt;Where-Object {($_.RecommendedSku -EQ &amp;quot;heavy&amp;quot;) -and ($_.DisplayName -match &amp;quot;11&amp;quot;) -and ($_.SkuDisplayName -eq &amp;quot;22H2&amp;quot;)}&lt;/code&gt;. This will return the Windows 11, 22H2 Microsoft 365 image as shown in the preview below. So lets assign the whole command to an &lt;code&gt;$galleryImage&lt;/code&gt; variable.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$galleryImage = Get-MgDeviceManagementVirtualEndpointGalleryImage | Where-Object {($_.RecommendedSku -EQ &amp;quot;heavy&amp;quot;) -and ($_.DisplayName -match &amp;quot;11&amp;quot;) -and ($_.SkuDisplayName -eq &amp;quot;22H2&amp;quot;)}&lt;/code&gt;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/mgpsGalImage.gif&#34; alt=&#34;MGPS Gallery Image&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;p&gt;Now we have our selected image, we can create a very basic provisioning policy. If you look inside the &lt;strong&gt;Create Provisioning Policy&lt;/strong&gt; below you will see the code snippet which will create you provisioning policy.&lt;/p&gt;
+&lt;p&gt;As mentioned, we will only be focusing on AzureAD Joined machines, as you can see below when you specify you want it AAD only, you will need to specify a region.&lt;/p&gt;
+
+
+&lt;div class=&#34;border border-default collapse-wrapper&#34;&gt;
+  &lt;a class=&#34;d-flex p-2 collapse-head&#34; data-toggle=&#34;collapse&#34; href=&#34;#create-provisioning-policy&#34; role=&#34;button&#34;&gt;
+    Create Provisioning Policy &lt;i class=&#34;fas fa-plus ml-auto&#34;&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  &lt;div class=&#34;collapse&#34; id=&#34;create-provisioning-policy&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$params = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	DisplayName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;PowerShell Demo5&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	Description = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	ImageId = $galleryImage.id
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	ImageType = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;gallery&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	MicrosoftManagedDesktop = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		Type = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;notManaged&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	DomainJoinConfiguration = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		Type = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;azureADJoin&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		RegionName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;automatic&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		RegionGroup = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;usWest&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$provisioningPolicy = New-MgDeviceManagementVirtualEndpointProvisioningPolicy -BodyParameter $params
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/br&gt;
+&lt;p&gt;After creating our provisioning policy, we will want to assign this to an Azure AD Group, for this you will need the &lt;code&gt;ObjectID&lt;/code&gt; of the group. Once you have the ID, you can amend the code snippet below to add the assignment.&lt;/p&gt;
+
+
+&lt;div class=&#34;border border-default collapse-wrapper&#34;&gt;
+  &lt;a class=&#34;d-flex p-2 collapse-head&#34; data-toggle=&#34;collapse&#34; href=&#34;#provisioning-policy-assignment&#34; role=&#34;button&#34;&gt;
+    Provisioning Policy Assignment &lt;i class=&#34;fas fa-plus ml-auto&#34;&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  &lt;div class=&#34;collapse&#34; id=&#34;provisioning-policy-assignment&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$assignmentParams = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	Assignments = @(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		@{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			Target = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				GroupId = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;GROUPID&amp;gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Set-MgDeviceManagementVirtualEndpointProvisioningPolicy -CloudPcProvisioningPolicyId $provisioningPolicy.id -BodyParameter $assignmentParams
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;I would advise using group based licensing and using that group to assign the provisioning profile to, as that way the machine will provision when a user is dropped into that group.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h4 id=&#34;native-endpoints&#34;&gt;Native Endpoints&lt;/h4&gt;
+&lt;p&gt;So now we have fleshed this out with the PowerShell module, lets take a look at doing this with using your access token and the native endpoints.&lt;/p&gt;
+&lt;p&gt;I will break this down in the collapse sections below, One of the things that you will notice is that on the creation of the provisioning policy and the assignment snippets, we switch from a &lt;code&gt;GET&lt;/code&gt; to a &lt;code&gt;POST&lt;/code&gt; method and we also add in the &lt;code&gt;ContentType = &amp;quot;application/json&amp;quot;&lt;/code&gt; property to ensure the policy gets created without any errors.&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;border border-default collapse-wrapper&#34;&gt;
+  &lt;a class=&#34;d-flex p-2 collapse-head&#34; data-toggle=&#34;collapse&#34; href=&#34;#get-gallery-image&#34; role=&#34;button&#34;&gt;
+    Get Gallery Image &lt;i class=&#34;fas fa-plus ml-auto&#34;&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  &lt;div class=&#34;collapse&#34; id=&#34;get-gallery-image&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$GraphParams = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Method  = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;GET&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    URI     = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$graphEndpoint/deviceManagement/virtualEndpoint/galleryImages&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Headers = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Authorization = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bearer &lt;/span&gt;$($Token.AccessToken)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Accept = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;application/json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Invoke the request&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$GraphRequest = Invoke-RestMethod @GraphParams -ErrorAction Stop
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#View Values&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$galleryImage = $GraphRequest.value | Where-Object {($_.RecommendedSku &lt;span style=&#34;color:#f92672&#34;&gt;-EQ&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;heavy&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;-and&lt;/span&gt; ($_.DisplayName &lt;span style=&#34;color:#f92672&#34;&gt;-match&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;11&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;-and&lt;/span&gt; ($_.SkuDisplayName &lt;span style=&#34;color:#f92672&#34;&gt;-eq&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;22H2&amp;#34;&lt;/span&gt;)}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&#34;border border-default collapse-wrapper&#34;&gt;
+  &lt;a class=&#34;d-flex p-2 collapse-head&#34; data-toggle=&#34;collapse&#34; href=&#34;#create-provisioning-policy&#34; role=&#34;button&#34;&gt;
+    Create Provisioning Policy &lt;i class=&#34;fas fa-plus ml-auto&#34;&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  &lt;div class=&#34;collapse&#34; id=&#34;create-provisioning-policy&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$params = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	DisplayName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;PowerShell Demo&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	Description = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	ImageId = $galleryImage.id
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	ImageType = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;gallery&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	MicrosoftManagedDesktop = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		Type = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;notManaged&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	DomainJoinConfiguration = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		Type = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;azureADJoin&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		RegionName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;automatic&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		RegionGroup = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;usWest&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$GraphParams = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Method  = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;POST&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    URI     = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$graphEndpoint/deviceManagement/virtualEndpoint/provisioningPolicies&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Headers = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Authorization = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bearer &lt;/span&gt;$($Token.AccessToken)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Accept = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;application/json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ContentType = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;application/json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Body = ($params | ConvertTo-Json -Depth 5)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Invoke the request&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$GraphRequest = Invoke-RestMethod @GraphParams -ErrorAction Stop
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#View Values&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$provisioningPolicyID = $GraphRequest.id
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&#34;border border-default collapse-wrapper&#34;&gt;
+  &lt;a class=&#34;d-flex p-2 collapse-head&#34; data-toggle=&#34;collapse&#34; href=&#34;#add-assignment&#34; role=&#34;button&#34;&gt;
+    Add Assignment &lt;i class=&#34;fas fa-plus ml-auto&#34;&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  &lt;div class=&#34;collapse&#34; id=&#34;add-assignment&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$assignmentParams = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	Assignments = @(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		@{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			Target = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                GroupId = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;GROUPID&amp;gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$GraphParams = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Method  = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;POST&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    URI     = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$graphEndpoint/deviceManagement/virtualEndpoint/provisioningPolicies/&lt;/span&gt;$($provisioningPolicyID)&lt;span style=&#34;color:#e6db74&#34;&gt;/assign&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Headers = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Authorization = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bearer &lt;/span&gt;$($Token.AccessToken)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Accept = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;application/json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ContentType = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;application/json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Body = ($assignmentParams | ConvertTo-Json -Depth 5)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Invoke the request&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$GraphRequest = Invoke-RestMethod @GraphParams -ErrorAction Stop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h2&gt;
+&lt;p&gt;Now you have the provisioning policy effectively &amp;lsquo;as code&amp;rsquo;, you can put this together in a PowerShell Script and create consistent deployments.&lt;/p&gt;
+&lt;p&gt;If you want to provision a machine, ensure the user has a license assigned (Direct or Group Based) and is within Scope of the provisioning policy.&lt;/p&gt;
+
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;At the time of writing this article, a user can only provision devices using a one provisioning policy. For example, if you have a CloudPC provisioned with &lt;code&gt;Demo1Policy&lt;/code&gt; but you then assign &lt;code&gt;Demo2Policy&lt;/code&gt; and another Licence SKU, the new SKU will provision with &lt;code&gt;Demo1Policy&lt;/code&gt;.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I hope this article has been useful for you, there is also a link below to a script that contains the snippets used in this article.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/Powershell_Scripts/blob/master/MS-Graph/CloudPC/CloudPC-Basics.ps1&#34;&gt;&lt;img src=&#34;http://euc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/graph/api/resources/cloudpc-api-overview?view=graph-rest-beta&#34;&gt;&lt;strong&gt;CloudPC Graph API Beta Reference&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/windows-365/enterprise/overview&#34;&gt;&lt;strong&gt;Windows 365 Enterprise Documentation&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/windows-365/enterprise/requirements?tabs=enterprise%2Cent&#34;&gt;&lt;strong&gt;Windows 365 Supported Regions&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
     <item>
       <title>VLOG - Windows Update for Business Reports</title>
       <link>https://euc365.com/post/vlog-wufb-reports/</link>
