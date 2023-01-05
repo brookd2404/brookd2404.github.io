@@ -3,10 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://euc365.com/categories/</loc>
-    <lastmod>2022-12-05T20:00:30+00:00</lastmod>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/cloud-pc/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/</loc>
-    <lastmod>2022-12-05T20:00:30+00:00</lastmod>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/intune/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/post/why-windows-365/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/windows-365/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/windows-365/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/graph-api/</loc>
     <lastmod>2022-12-05T20:00:30+00:00</lastmod>
@@ -18,15 +36,6 @@
     <lastmod>2022-12-05T20:00:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/powershell/</loc>
-    <lastmod>2022-12-05T20:00:30+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/</loc>
-    <lastmod>2022-12-05T20:00:30+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/windows-365/</loc>
-    <lastmod>2022-12-05T20:00:30+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/categories/windows-365/</loc>
     <lastmod>2022-12-05T20:00:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/post/windows-365-graph-api-powershell-basics/</loc>
@@ -49,9 +58,6 @@
   </url><url>
     <loc>https://euc365.com/post/import-gpos-group-policy-analytics-graph-api/</loc>
     <lastmod>2022-07-05T14:37:16+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/intune/</loc>
-    <lastmod>2022-11-03T11:43:59+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/microsoft-intune/</loc>
     <lastmod>2022-07-17T10:54:30+00:00</lastmod>

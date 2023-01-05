@@ -6,7 +6,16 @@
     <description>Recent content in Categories on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Dec 2022 20:00:30 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Jan 2023 11:01:33 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows 365</title>
+      <link>https://euc365.com/categories/windows-365/</link>
+      <pubDate>Thu, 05 Jan 2023 11:01:33 +0000</pubDate>
+      
+      <guid>https://euc365.com/categories/windows-365/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Graph API</title>
       <link>https://euc365.com/categories/graph-api/</link>
@@ -22,15 +31,6 @@
       <pubDate>Mon, 05 Dec 2022 20:00:30 +0000</pubDate>
       
       <guid>https://euc365.com/categories/powershell/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Windows 365</title>
-      <link>https://euc365.com/categories/windows-365/</link>
-      <pubDate>Mon, 05 Dec 2022 20:00:30 +0000</pubDate>
-      
-      <guid>https://euc365.com/categories/windows-365/</guid>
       <description></description>
     </item>
     

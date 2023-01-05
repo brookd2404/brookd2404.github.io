@@ -6,7 +6,69 @@
     <description>Recent content in Intune on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Nov 2022 22:00:01 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/intune/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Jan 2023 11:01:33 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/intune/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why Windows 365?</title>
+      <link>https://euc365.com/post/why-windows-365/</link>
+      <pubDate>Thu, 05 Jan 2023 11:01:33 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/why-windows-365/</guid>
+      <description>&lt;p&gt;Windows 365 (Cloud PC) is the hot topic of the moment, and why wouldn&amp;rsquo;t it be? For many years, before most can remember, it has been the norm for IT Departments to Image, configure and deploy Laptops and Workstations for end-users.&lt;/p&gt;
+&lt;p&gt;However, over the past couple of years, with COVID and other factors, the world has moved to a more distributed workforce, where country boundaries are no longer the border of employment. Companies invested in further development on  their virtualisation offerings, such as Azure Virtual Desktop, VMWare Horizon, Citrix etc., however, all of these solutions require specialised skill sets and are very complex and often high maintenance.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Microsoft&lt;/strong&gt; has taken this one step further and created a PaaS (Platform as a Service) solution that integrates and is managed via Microsoft Intune, delivering the &lt;strong&gt;&amp;lsquo;Single Pane of Glass&amp;rsquo;&lt;/strong&gt; management that many businesses seek. The beauty of this is that you do not need to maintain complex infrastructure and configuration sets or perform platform upgrades (including hardware replacements).&lt;/p&gt;
+&lt;p&gt;As demonstrated in my VLOG post &lt;a href=&#34;https://www.youtube.com/watch?v=7maeZJaturI&amp;amp;t=179s&#34;&gt;Getting Started with Windows 365 Enterprise&lt;/a&gt;, the deployment of a Windows 365 Machine is Quick, Simple and Easy. There are additional components that Windows 365 is capable of using, such as Customer Managed Networks and Custom Images, which add other complexities, but these are optional.&lt;/p&gt;
+&lt;hr&gt; 
+&lt;h2 id=&#34;organisational-advantages-and-use-cases&#34;&gt;Organisational Advantages and Use Cases&lt;/h2&gt;
+&lt;p&gt;Windows 365 and Cloud PCs can benefit organisations in many ways, from onboarding users in remote locations to exploring an Azure AD Join strategy without requiring complex setups of multiple physical machines, VMs etc.&lt;/p&gt;
+&lt;p&gt;As Cloud PCs are subscription-based, it is simple to cancel the subscription, and all the costs for that license will no longer be billed. The user can use the Cloud PC until the end of the license term, and then the platform destroys the machine after a brief grace period.&lt;/p&gt;
+&lt;p&gt;One of the most significant use cases for the platform, is for Temporary Staff (Contractors, Consultancies, short-term employees etc.), as the cost of purchasing additional hardware. If the end-user is in a remote location, it saves on shipping costs and the risk of damage or total loss of the device.&lt;/p&gt;
+&lt;p&gt;Lets look at this scenario. Think of an end-user having an issue with a device whereby the device requires re-provisioning. While this is still a simple task on a well-constructed Modern Implementation of Device Management, an endpoint could be out of action for two or more hours. This also assumes the user does not request additional support. Well, with Cloud PCs, the IT Administrator can re-provision the machine within the Intune UI, and within an hour, the endpoint will be back up and running, ready for the user to be productive once again.&lt;/p&gt;
+&lt;p&gt;Maybe re-provisioning isn&amp;rsquo;t the desired approach to every scenario, so Windows 365 also offers device restore points, which are configurable by administrators, and users can even restore the devices themselves using the WebUI or the Windows 365 Application.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/CloudPCOptions_hu243cd0fd70bec37d3c1a42130b6b2108_81239_460x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Cloud PC Options&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+
+
+
+&lt;p&gt;If you are using Intune and Autopilot to manage devices, you can also use the same configuration policies (minus BitLocker) to manage these devices, Windows 365 Machines also support the use of ESP Policies, so they can be managed the same way as standard physical endpoints, you can read more on this in the &lt;a href=&#34;https://learn.microsoft.com/en-us/windows-365/enterprise/enrollment-status-page&#34;&gt;&lt;strong&gt;Microsoft Documentation&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Depending on the implementation strategy, it can be integrated into your current SLAM (Starters, Leaver and Movers) process with ease. For example, if you have a Microsoft Form that triggers a Flow, you could add a step to add the new account to the Windows 365 Licensed Group that is in the scope of a provisioning policy and the machine creation will trigger and be available in a short space of time.&lt;/p&gt;
+&lt;p&gt;There are so many other use cases and benefits to using Windows 365, and this post is to get you started on your journey and get people thinking about &lt;strong&gt;Why Windows 365&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;I use a Cloud PC to perform all of my developmental activities, this allows me to install all of the software I use without ever worrying about it been on my physical device, that as we all know, can have unexpected issues and sometimes require a reset. It also allows me to separate my workloads and have a more Powerful Cloud PC and a less powerful device if needed.&lt;/p&gt;
+&lt;h3 id=&#34;accessibility&#34;&gt;Accessibility&lt;/h3&gt;
+&lt;p&gt;Users can access Windows 365 from any device, Windows, Mac, iOS/iPadOS, Android and Linux. For example, using the &lt;a href=&#34;https://windows365.microsoft.com&#34;&gt;&lt;strong&gt;Web UI&lt;/strong&gt;&lt;/a&gt; or OS-specific applications, making the platform readily available to users, no matter where they are or what device they are using.&lt;/p&gt;
+&lt;h3 id=&#34;hybrid-join&#34;&gt;Hybrid Join&lt;/h3&gt;
+&lt;p&gt;Although I would recommend that this is avoided, there are still use cases where this may be a necessary evil. Windows 365 does support Hybrid Joining clients to the Windows Domain, and all of the information can be found in the &lt;a href=&#34;https://learn.microsoft.com/en-us/windows-365/enterprise/deployment-options#hybrid-azure-ad-join&#34;&gt;&lt;strong&gt;Microsoft Docuemtnation&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;HR&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I cannot rave about Cloud PC and Windows 365 enough, it has really changed how I work. I hope this post has been useful and highlights the reasons to implement and invest in Windows 365 for your organisations.&lt;/p&gt;
+&lt;h3 id=&#34;summery-of-benefits&#34;&gt;Summery of Benefits&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Cost Saving&lt;/li&gt;
+&lt;li&gt;Scalability&lt;/li&gt;
+&lt;li&gt;Ease of Management&lt;/li&gt;
+&lt;li&gt;No need to carry around multiple devices&lt;/li&gt;
+&lt;li&gt;Easy to integrate with current proccess&lt;/li&gt;
+&lt;li&gt;No need for an additional policy set&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
     <item>
       <title>Import GPOs to Group Policy Analytics using Graph API</title>
       <link>https://euc365.com/post/import-gpos-group-policy-analytics-graph-api/</link>
