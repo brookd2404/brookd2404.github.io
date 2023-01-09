@@ -6,31 +6,49 @@
     <description>Recent content in Tags on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Jan 2023 11:01:33 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Jan 2023 09:38:04 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Cloud PC</title>
-      <link>https://euc365.com/tags/cloud-pc/</link>
-      <pubDate>Thu, 05 Jan 2023 11:01:33 +0000</pubDate>
+      <title>Entitlement Management</title>
+      <link>https://euc365.com/tags/entitlement-management/</link>
+      <pubDate>Mon, 09 Jan 2023 09:38:04 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/cloud-pc/</guid>
+      <guid>https://euc365.com/tags/entitlement-management/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Intune</title>
       <link>https://euc365.com/tags/intune/</link>
-      <pubDate>Thu, 05 Jan 2023 11:01:33 +0000</pubDate>
+      <pubDate>Mon, 09 Jan 2023 09:38:04 +0000</pubDate>
       
       <guid>https://euc365.com/tags/intune/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Windows</title>
+      <link>https://euc365.com/tags/windows/</link>
+      <pubDate>Mon, 09 Jan 2023 09:38:04 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Windows 365</title>
       <link>https://euc365.com/tags/windows-365/</link>
-      <pubDate>Thu, 05 Jan 2023 11:01:33 +0000</pubDate>
+      <pubDate>Mon, 09 Jan 2023 09:38:04 +0000</pubDate>
       
       <guid>https://euc365.com/tags/windows-365/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloud PC</title>
+      <link>https://euc365.com/tags/cloud-pc/</link>
+      <pubDate>Thu, 05 Jan 2023 11:01:33 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/cloud-pc/</guid>
       <description></description>
     </item>
     
@@ -58,15 +76,6 @@
       <pubDate>Fri, 02 Dec 2022 13:48:29 +0000</pubDate>
       
       <guid>https://euc365.com/tags/updates/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Windows</title>
-      <link>https://euc365.com/tags/windows/</link>
-      <pubDate>Fri, 02 Dec 2022 13:48:29 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/windows/</guid>
       <description></description>
     </item>
     
