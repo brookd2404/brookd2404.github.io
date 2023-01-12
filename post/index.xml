@@ -8,6 +8,187 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 10 Jun 2022 09:08:42 +0000</lastBuildDate><atom:link href="https://euc365.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Troubleshooting New MS Store App Install Error 0x00000000</title>
+      <link>https://euc365.com/post/troubleshooting-ms-store-app-install-error-0x00000000/</link>
+      <pubDate>Thu, 12 Jan 2023 19:12:28 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/troubleshooting-ms-store-app-install-error-0x00000000/</guid>
+      <description>&lt;p&gt;While performing some work out in the wild, it was noted that one of the Microsoft Store Apps (New) would not install unless excluded from all policies. The app in this case was the Company Portal app which is pretty vital for self-service application delivery. The error displayed was
+0x00000000 in the Intune console as below.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/intuneStates_hu16abd48ce42cb8ca8d955ab3683b50dd_60495_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Status Code&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;br/&gt;
+&lt;p&gt;So I put down my configuration hat and brushed off the dust on the troubleshooting hat and got it nicely placed on my noggin and got stuck in.&lt;/p&gt;
+&lt;hr&gt; 
+&lt;h2 id=&#34;finding-the-problem&#34;&gt;Finding the Problem&lt;/h2&gt;
+&lt;p&gt;As with all troubleshooting the first step is Logs, so lets open up &lt;a href=&#34;file:///C://ProgramData//Microsoft//IntuneManagementExtension//Logs//IntuneManagementExtension.log&#34;&gt;&lt;strong&gt;C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\IntuneManagementExtension.log&lt;/strong&gt;&lt;/a&gt;. I did troubleshooting using Notepad&amp;hellip; if your going to troubleshoot, you need to do it hardcore right? But you can open it in any editor or CMTrace etc.&lt;/p&gt;
+&lt;p&gt;Once launched, if you search for &lt;strong&gt;WinGet&lt;/strong&gt; and you will be able to locate the events that relate to the &lt;strong&gt;&amp;lsquo;New&amp;rsquo;&lt;/strong&gt; Store App deployments via Intune.&lt;/p&gt;
+&lt;p&gt;Looking through the logs I came across the lovely gem below;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/blockedByPolicy_hu36d5245d5cc098b17883ced742b899e0_48434_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Blocked by Policy&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;br/&gt;
+&lt;p&gt;This was somewhat of a relief to see, as it had actual error information, rather than just the 0x00000000 error code.&lt;/p&gt;
+&lt;p&gt;Following on from finding this, I opened up PowerShell as the user and tried to install the app manually for additional validation and I got the below;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/wingetFailed_hud80ecbb129c7232a3b357758e1d8db5c_173094_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;WinGet Failed&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;br/&gt;
+&lt;p&gt;Taking a quick look at the configuration applied to the machine, I noted that there was an ADMX backed policy that Turned Off the Microsoft Store.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/turnOffStore_hu747332f4cc2d491d128d773f1d8b725f_72129_695x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Turn off MS Store&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+
+
+
+&lt;br/&gt;
+&lt;p&gt;I didn&amp;rsquo;t want to go through the hassle of changing the policy off the bat, I wanted to validate my thinking. I located the policy it controls in the registry under the &lt;strong&gt;HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore&lt;/strong&gt; Key. Thd value I was looking for was &lt;strong&gt;RemoveWindowsStore&lt;/strong&gt;. When located as shown below the value was set to 1.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/regeditPolicyKey_huc49e4df386f53c2fff4760bc77b7e337_55622_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Reg Key&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+
+
+
+&lt;br/&gt;
+&lt;p&gt;A quick change to set it to &lt;strong&gt;0&lt;/strong&gt;, and then back over to PowerShell to try it out again. An low and behold, it works first time.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/wingetSuccess_hub2c1ae989c73ab9e916ee8602b3da013_436836_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;WinGet Success&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;br/&gt;
+&lt;p&gt;This is then identified by Intune as installed, even after reverting the registry key back to 1.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/intuneStates_PostFix_hueb617e0658ad93015083a423ed73bce3_63735_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Status Code PostFix&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;hr&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I am by no means suggesting this is the only thing that causes the 0x00000000 error code, It has also been noted that it can be caused by Insufficient Connectivity to the store, which in the case I&amp;rsquo;ve seen it looks to be caused by proxy/network configuration. I am  sure this will not be the last of the phantom errors either, so please comment below if you come across this in any other scenario to help keep this post updated.&lt;/p&gt;
+&lt;p&gt;I hope you find this useful and it solves your problem.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>VLOG - Windows 365 Access Solutions</title>
       <link>https://euc365.com/post/vlog-windows-365-access-solutions/</link>
       <pubDate>Mon, 09 Jan 2023 09:38:04 +0000</pubDate>

@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://euc365.com/categories/</loc>
+    <loc>https://euc365.com/tags/application-deployment/</loc>
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
   </url><url>
-    <loc>https://euc365.com/tags/entitlement-management/</loc>
-    <lastmod>2022-11-03T11:43:59+00:00</lastmod>
+    <loc>https://euc365.com/categories/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/</loc>
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
@@ -14,8 +14,23 @@
     <loc>https://euc365.com/tags/intune/</loc>
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
   </url><url>
+    <loc>https://euc365.com/categories/microsoft-intune/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/microsoft-store-apps/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
     <loc>https://euc365.com/tags/</loc>
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/post/troubleshooting-ms-store-app-install-error-0x00000000/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/winget/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/entitlement-management/</loc>
+    <lastmod>2022-11-03T11:43:59+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/vlog/</loc>
     <lastmod>2022-12-02T13:48:29+00:00</lastmod>
@@ -64,9 +79,6 @@
   </url><url>
     <loc>https://euc365.com/post/import-gpos-group-policy-analytics-graph-api/</loc>
     <lastmod>2022-07-05T14:37:16+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/categories/microsoft-intune/</loc>
-    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/autopilot/</loc>
     <lastmod>2022-07-05T14:37:16+00:00</lastmod>
@@ -226,9 +238,6 @@
   </url><url>
     <loc>https://euc365.com/tags/terms-of-use/</loc>
     <lastmod>2022-06-09T15:17:43+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/application-deployment/</loc>
-    <lastmod>2022-06-09T15:25:03+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/create-dynamic-application-packages-with-powershell/</loc>
     <lastmod>2022-06-09T15:24:28+00:00</lastmod>

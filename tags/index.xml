@@ -6,22 +6,40 @@
     <description>Recent content in Tags on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Jan 2023 09:38:04 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Jan 2023 19:12:28 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Entitlement Management</title>
-      <link>https://euc365.com/tags/entitlement-management/</link>
-      <pubDate>Mon, 09 Jan 2023 09:38:04 +0000</pubDate>
+      <title>Application Deployment</title>
+      <link>https://euc365.com/tags/application-deployment/</link>
+      <pubDate>Thu, 12 Jan 2023 19:12:28 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/entitlement-management/</guid>
+      <guid>https://euc365.com/tags/application-deployment/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Intune</title>
       <link>https://euc365.com/tags/intune/</link>
-      <pubDate>Mon, 09 Jan 2023 09:38:04 +0000</pubDate>
+      <pubDate>Thu, 12 Jan 2023 19:12:28 +0000</pubDate>
       
       <guid>https://euc365.com/tags/intune/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WinGet</title>
+      <link>https://euc365.com/tags/winget/</link>
+      <pubDate>Thu, 12 Jan 2023 19:12:28 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/winget/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Entitlement Management</title>
+      <link>https://euc365.com/tags/entitlement-management/</link>
+      <pubDate>Mon, 09 Jan 2023 09:38:04 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/entitlement-management/</guid>
       <description></description>
     </item>
     
@@ -319,15 +337,6 @@
       <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
       
       <guid>https://euc365.com/tags/terms-of-use/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Application Deployment</title>
-      <link>https://euc365.com/tags/application-deployment/</link>
-      <pubDate>Wed, 31 Mar 2021 03:08:00 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/application-deployment/</guid>
       <description></description>
     </item>
     
