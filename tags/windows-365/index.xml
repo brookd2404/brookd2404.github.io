@@ -6,7 +6,117 @@
     <description>Recent content in Windows 365 on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Jan 2023 09:38:04 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/windows-365/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Jan 2023 09:16:47 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/windows-365/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create Windows 365 Azure Network Connections with PowerShell</title>
+      <link>https://euc365.com/post/create-windows-365-azure-network-connections-powershell/</link>
+      <pubDate>Mon, 23 Jan 2023 09:16:47 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/create-windows-365-azure-network-connections-powershell/</guid>
+      <description>&lt;p&gt;Windows 365 and Azure Network connections offers additional control over routing, IP Addresses, Subnets, Peerings and so on. It can also be incredibly useful to help with testing moving to Azure AD Only (Can you tell, I&amp;rsquo;m already not a fan of HAADJ), as with the right configuration on your Azure vNet you can connect back to your internal network and get straight to testing.&lt;/p&gt;
+&lt;p&gt;Using an ANC with Windows 365 and Cloud PCs does bring an additional cost, not to the license or compute though, just the network usage cost. Microsoft do recommend using their Hosted Network, but they are not fools, they have built a system for enterprise and allowing the capability of Bring-Your-Own-Network (BYON) is a clear no brainer for organisations with existing on-premise infrastructure.&lt;/p&gt;
+&lt;p&gt;BYON doesn&amp;rsquo;t just have to be used for a gateway connection back to on-premise though, it can be used to just add more control over the network traffic on these endpoint with firewalls etc. There is some further documentation on Azure Network Connections over on the &lt;a href=&#34;https://learn.microsoft.com/en-us/windows-365/enterprise/azure-network-connections&#34;&gt;&lt;strong&gt;Microsoft Learn Page&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For this post, I wanted to explore creating these connections with PowerShell and the Graph API. We will explore both Azure AD Only and Hybrid Joined ANCs and the differences in the policy creation.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions&#34;&gt;&lt;strong&gt;Azure Subscription&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/azure/virtual-network/&#34;&gt;&lt;strong&gt;Azure Virtual Network (vNet)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Owner Permissions on the Subscription where the Network Resides&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Be an Intune Administrator&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;hybrid-azure-ad-join&#34;&gt;Hybrid Azure AD Join&lt;/h3&gt;
+&lt;p&gt;If the chosen deployment option is HAADJ, you will need to ensure the network has line of sight to your domain controllers and that DNS can be resolved.&lt;/p&gt;
+&lt;p&gt;In addition to the above, you will require a domain &lt;strong&gt;Service Account&lt;/strong&gt; which can join devices to the domain.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;creating-the-policies&#34;&gt;Creating the Policies&lt;/h2&gt;
+
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;You may need to grant permissions to the PowerShell module within your Tenant. If this is the case and you do not have access to grant the relevant permissions, please reach out to an administrator who can grant these rights.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;In both instances, there are details we require for the creation of the connection so lets grab them first.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SubscriptionID&lt;/strong&gt; - The Subscription ID in which the Virtual Network Resides&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Resource Group Name&lt;/strong&gt; - The name of the resource group where the Virtual Network resides&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Virtual Network Name&lt;/strong&gt; - The name of the Virtual Network&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;vNet Subnet Name&lt;/strong&gt; - The name of the Subnet which resides within the vNet&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In addition to the above, for Hybrid machines you will also require the following;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Domain Join Service Account&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OU Path&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Domain DNS Suffix&lt;/strong&gt; (e.g euc365.lab)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;As noted in the prerequisites, ensure you have Owner rights at the time of creation on the Subscription.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;The scripts quoted in this article, are available on GitHub, please use the link below.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/windows365/tree/main/Azure%20Network%20Connections/Creation&#34;&gt;&lt;img src=&#34;http://euc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;First of all, lets look at creating a &lt;strong&gt;NON&lt;/strong&gt; Hybrid connection. If you download the files from the GitHub Repo, this will be the &lt;strong&gt;create-w365-ANC-aad.ps1&lt;/strong&gt; script.&lt;/p&gt;
+&lt;p&gt;If you open it up and take a look inside, you can see, there is no major magic that is happening inside, it is just taking out passed in variables and building up the &lt;code&gt;$params&lt;/code&gt; variable, which will be used as the body of our Graph Call.&lt;/p&gt;
+&lt;p&gt;Once the call is made, Windows 365 then runs checks on the Network connection to make sure everything is good to run machines from, for that reason you can not know for sure if it will work straight away, which is why at the end their is a &lt;strong&gt;DO, WHILE loop&lt;/strong&gt; to ensure we know the final outcome.&lt;/p&gt;
+&lt;p&gt;These tests can vary in the amount of time taken to complete, but I haven&amp;rsquo;t seen one take more than 10 Minutes.&lt;/p&gt;
+&lt;p&gt;If we look at how we can then execute this script using the command line, we would use the following command with the placeholders replaced with their representational values.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;create-w365-ANC-aad.ps1 -subscription &amp;lt;SubscriptionID&amp;gt; -resourceGroupName &amp;lt;RGName&amp;gt; -vNetName &amp;lt;vNetName&amp;gt; -subnetName &amp;lt;subnetName&amp;gt; -ancName &amp;lt;ancName&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Once executed, you will see the following in the shell window.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/ancCreatinonPSaad_hufbb491b713e446a3d71236753c81606d_24617_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;AAD Creation&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;p&gt;The Network connection will also be available in the Windows 365 blade within Intune.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/ancFeature_hu9332d07731226b04fa6e5eb784787c2b_18764_509x0_resize_q100_h2_box_3.webp&#34; alt=&#34;ANC Created&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;p&gt;Now if we take a look at the HAADJ Scenario, there are a few more variables required which are, &lt;code&gt;$domainOU&lt;/code&gt;, &lt;code&gt;$domainDNSSuffix&lt;/code&gt;, &lt;code&gt;$domainJoinUser&lt;/code&gt; and &lt;code&gt;$domainJoinUserPWD&lt;/code&gt;. The  &lt;code&gt;$domainOU&lt;/code&gt; variable must be populated with the distinguished name of the OU, for example OU=Devices,DC=EUC365,DC=LAB and the &lt;code&gt;$domainJoinUser&lt;/code&gt; must be the user principal name, for example **&lt;a href=&#34;mailto:joiner@euc365.lab&#34;&gt;joiner@euc365.lab&lt;/a&gt;&amp;quot;.&lt;/p&gt;
+
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;The password will be plain text.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;We execute this script in the same way as the above with the additional cmdlets as shown below with the additional placeholders.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;create-w365-ANC-haadk.ps1 -subscription &amp;lt;SubscriptionID&amp;gt; -resourceGroupName &amp;lt;RGName&amp;gt; -vNetName &amp;lt;vNetName&amp;gt; -subnetName &amp;lt;subnetName&amp;gt; -ancName &amp;lt;ancName&amp;gt; -domainOU &amp;lt;e.g OU=Devices,DC=EUC365,DC=LAB&amp;gt; -domainDNSSuffix &amp;lt;e.g euc365.lab&amp;gt; -domainJoinUser &amp;lt;e.g Joiner@euc365.lab&amp;gt; -domainJoinUserPWD &amp;quot;iamplaintext&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The platform will then again perform the relevant checks to ensure it can connect to the domain, look up DNS etc, so please ensure your vNet and subnet are configured accordingly for this test to pass.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;This is only one piece of the puzzle, but what I would say, is if you do not need one for a certain purpose (i.e routing back to on-premise) do not create one. It adds another level of management and complexity where it is not required, and if you use the moto of less is more, then you can save the management in the long run.&lt;/p&gt;
+&lt;p&gt;Please leave comments and reactions below, and let me know your experiences.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>VLOG - Windows 365 Access Solutions</title>
       <link>https://euc365.com/post/vlog-windows-365-access-solutions/</link>

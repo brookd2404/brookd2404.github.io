@@ -2,25 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://euc365.com/tags/application-deployment/</loc>
+    <loc>https://euc365.com/categories/</loc>
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
   </url><url>
-    <loc>https://euc365.com/categories/</loc>
+    <loc>https://euc365.com/tags/cloud-pc/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/post/create-windows-365-azure-network-connections-powershell/</loc>
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/</loc>
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
   </url><url>
+    <loc>https://euc365.com/tags/graph-api/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
     <loc>https://euc365.com/tags/intune/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/powershell/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/windows-365/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/windows-365/</loc>
+    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/application-deployment/</loc>
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/microsoft-intune/</loc>
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/microsoft-store-apps/</loc>
-    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/</loc>
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/post/troubleshooting-ms-store-app-install-error-0x00000000/</loc>
@@ -41,25 +59,10 @@
     <loc>https://euc365.com/tags/windows/</loc>
     <lastmod>2022-12-02T13:48:29+00:00</lastmod>
   </url><url>
-    <loc>https://euc365.com/tags/windows-365/</loc>
-    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/cloud-pc/</loc>
-    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
-  </url><url>
     <loc>https://euc365.com/post/why-windows-365/</loc>
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
   </url><url>
-    <loc>https://euc365.com/categories/windows-365/</loc>
-    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/graph-api/</loc>
-    <lastmod>2022-12-05T20:00:30+00:00</lastmod>
-  </url><url>
     <loc>https://euc365.com/categories/graph-api/</loc>
-    <lastmod>2022-12-05T20:00:30+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/powershell/</loc>
     <lastmod>2022-12-05T20:00:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/powershell/</loc>
