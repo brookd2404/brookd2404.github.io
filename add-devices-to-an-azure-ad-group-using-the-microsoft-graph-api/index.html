@@ -17,7 +17,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 <meta name="description" content="Add devices to an AAD Group using PowerShell and the Microsoft Graph API">
 <meta name="author" content="DBBROOK24">
-<meta name="generator" content="Hugo 0.106.0">
+<meta name="generator" content="Hugo 0.110.0">
 
 
 
@@ -55,7 +55,6 @@
 <meta property="og:url" content="https://euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/" /><meta property="og:image" content="https://euc365.com/images/post/addtoaadgroup/Featuredimage.png" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-08-11T11:54:00+00:00" />
 <meta property="article:modified_time" content="2022-06-09T13:33:28+00:00" />
-
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://euc365.com/images/post/addtoaadgroup/Featuredimage.png"/>
@@ -383,26 +382,26 @@ if (!doNotTrack) {
 <p>You will notice that most of this (the authentication part and most of the param block at least) are the same as my other script&hellip; But if its not broke why fix it? (Those famous last words!!!).</p>
 <p>As mentioned above you will notice that this uses the computer name to identify the device and then use the information from that device object to add it to the Azure AD Group. When the device is identified from the name it gets the device Azure ID and then proceeds to create the JSON body for the request and then submits this to the API.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span><span style="color:#66d9ef">param</span>(
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">Parameter</span>(DontShow = $true)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>
+</span></span><span style="display:flex;"><span>    [Parameter(<span style="color:#a6e22e">DontShow</span> = $true)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]
 </span></span><span style="display:flex;"><span>    $MsGraphVersion = <span style="color:#e6db74">&#34;beta&#34;</span>,
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">Parameter</span>(DontShow = $true)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>
+</span></span><span style="display:flex;"><span>    [Parameter(<span style="color:#a6e22e">DontShow</span> = $true)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]
 </span></span><span style="display:flex;"><span>    $MsGraphHost = <span style="color:#e6db74">&#34;graph.microsoft.com&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">#The AzureAD ClientID (Application ID) of your registered AzureAD App</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]
 </span></span><span style="display:flex;"><span>    $ClientID = <span style="color:#e6db74">&#34;&lt;YourClientID&gt;&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">#The Client Secret for your AzureAD App</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]
 </span></span><span style="display:flex;"><span>    $ClientSecret = <span style="color:#e6db74">&#34;&lt;YourClientSecret&gt;&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">#Your Azure Tenent ID</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]
 </span></span><span style="display:flex;"><span>    $TenantId = <span style="color:#e6db74">&#34;&lt;YourTenentID&gt;&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">#The Azure AD Group Object ID</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]
 </span></span><span style="display:flex;"><span>    $GroupID = <span style="color:#e6db74">&#34;&lt;YourGroupID&gt;&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">#The name of the device</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]
 </span></span><span style="display:flex;"><span>    $InputDevice
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
@@ -411,15 +410,15 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#Create the body of the Authentication of the request for the OAuth Token</span>
-</span></span><span style="display:flex;"><span>$Body = @{client_id=$ClientID;client_secret=$ClientSecret;grant_type=<span style="color:#e6db74">&#34;client_credentials&#34;</span>;scope=<span style="color:#e6db74">&#34;https://$MSGraphHost/.default&#34;</span>;}
+</span></span><span style="display:flex;"><span>$Body = @{client_id=$ClientID;client_secret=$ClientSecret;grant_type=<span style="color:#e6db74">&#34;client_credentials&#34;</span>;scope=<span style="color:#e6db74">&#34;https://</span>$MSGraphHost<span style="color:#e6db74">/.default&#34;</span>;}
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#Get the OAuth Token </span>
-</span></span><span style="display:flex;"><span>$OAuthReq = Invoke-RestMethod -Method Post -Uri <span style="color:#e6db74">&#34;https://login.microsoftonline.com/$TenantId/oauth2/v2.0/token&#34;</span> -Body $Body
+</span></span><span style="display:flex;"><span>$OAuthReq = Invoke-RestMethod -Method Post -Uri <span style="color:#e6db74">&#34;https://login.microsoftonline.com/</span>$TenantId<span style="color:#e6db74">/oauth2/v2.0/token&#34;</span> -Body $Body
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#Set your access token as a variable</span>
 </span></span><span style="display:flex;"><span>$global:AccessToken = $OAuthReq.access_token
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$GroupMembers = Invoke-RestMethod -Method Get -uri <span style="color:#e6db74">&#34;https://$MSGraphHost/$MsGraphVersion/groups/$GroupID/members&#34;</span> -Headers @{Authorization = <span style="color:#e6db74">&#34;Bearer $AccessToken&#34;</span>} | Select-Object -ExpandProperty Value
+</span></span><span style="display:flex;"><span>$GroupMembers = Invoke-RestMethod -Method Get -uri <span style="color:#e6db74">&#34;https://</span>$MSGraphHost<span style="color:#e6db74">/</span>$MsGraphVersion<span style="color:#e6db74">/groups/</span>$GroupID<span style="color:#e6db74">/members&#34;</span> -Headers @{Authorization = <span style="color:#e6db74">&#34;Bearer </span>$AccessToken<span style="color:#e6db74">&#34;</span>} | Select-Object -ExpandProperty Value
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$Devices = Invoke-RestMethod -Method Get -uri <span style="color:#e6db74">&#34;https://$MSGraphHost/$MSGraphVersion/devices?</span><span style="color:#ae81ff">`$</span><span style="color:#e6db74">filter=startswith(displayName,&#39;$InputDevice&#39;)&#34;</span> -Headers @{Authorization = <span style="color:#e6db74">&#34;Bearer $AccessToken&#34;</span>} | Select-Object -ExpandProperty Value | %{ 
+</span></span><span style="display:flex;"><span>$Devices = Invoke-RestMethod -Method Get -uri <span style="color:#e6db74">&#34;https://</span>$MSGraphHost<span style="color:#e6db74">/</span>$MSGraphVersion<span style="color:#e6db74">/devices?</span><span style="color:#ae81ff">`$</span><span style="color:#e6db74">filter=startswith(displayName,&#39;</span>$InputDevice<span style="color:#e6db74">&#39;)&#34;</span> -Headers @{Authorization = <span style="color:#e6db74">&#34;Bearer </span>$AccessToken<span style="color:#e6db74">&#34;</span>} | Select-Object -ExpandProperty Value | %{ 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ($GroupMembers.ID <span style="color:#f92672">-contains</span> $_.id) {
 </span></span><span style="display:flex;"><span>        Write-Host -ForegroundColor Yellow <span style="color:#e6db74">&#34;</span>$($_.DisplayName)<span style="color:#e6db74"> (</span>$($_.ID)<span style="color:#e6db74">) is in the Group&#34;</span>   
@@ -428,7 +427,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>        $BodyContent = @{
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;@odata.id&#34;</span>=<span style="color:#e6db74">&#34;https://graph.microsoft.com/v1.0/devices/</span>$($_.id)<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>        } | ConvertTo-Json
-</span></span><span style="display:flex;"><span>        Invoke-RestMethod -Method POST -uri <span style="color:#e6db74">&#34;https://$MSGraphHost/$MsGraphVersion/groups/$GroupID/members/</span><span style="color:#ae81ff">`$</span><span style="color:#e6db74">ref&#34;</span> -Headers @{Authorization = <span style="color:#e6db74">&#34;Bearer $AccessToken&#34;</span>; <span style="color:#e6db74">&#39;Content-Type&#39;</span> = <span style="color:#e6db74">&#39;application/json&#39;</span>} -Body $BodyContent
+</span></span><span style="display:flex;"><span>        Invoke-RestMethod -Method POST -uri <span style="color:#e6db74">&#34;https://</span>$MSGraphHost<span style="color:#e6db74">/</span>$MsGraphVersion<span style="color:#e6db74">/groups/</span>$GroupID<span style="color:#e6db74">/members/</span><span style="color:#ae81ff">`$</span><span style="color:#e6db74">ref&#34;</span> -Headers @{Authorization = <span style="color:#e6db74">&#34;Bearer </span>$AccessToken<span style="color:#e6db74">&#34;</span>; <span style="color:#e6db74">&#39;Content-Type&#39;</span> = <span style="color:#e6db74">&#39;application/json&#39;</span>} -Body $BodyContent
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="the-pre-reqs">The Pre-Reqs</h2>

@@ -17,7 +17,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 <meta name="description" content="Deploy the Windows Subsystem for Linux using Intune or ConfigMGR with walk through guides">
 <meta name="author" content="DBBROOK24">
-<meta name="generator" content="Hugo 0.106.0">
+<meta name="generator" content="Hugo 0.110.0">
 
 
 
@@ -55,7 +55,6 @@
 <meta property="og:url" content="https://euc365.com/deploy-windows-subsystem-for-linux/" /><meta property="og:image" content="https://euc365.com/images/post/deploywsl/FeaturedImage.png" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-02-15T22:29:00+00:00" />
 <meta property="article:modified_time" content="2022-06-09T15:25:03+00:00" />
-
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://euc365.com/images/post/deploywsl/FeaturedImage.png"/>
@@ -385,34 +384,34 @@ if (!doNotTrack) {
 <h3 id="uninstallation-script">(Un)Installation Script</h3>
 <p>The script below can be used to both Enable and Disable the Windows Subsystem for Linux depending on what command line switch you specify. As mentioned this is not a complex script and it is easily edited for other Windows Optional Features</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span><span style="color:#75715e">&lt;#
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.SYNOPSIS</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.</span><span style="color:#e6db74">SYNOPSIS</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  This script is used to Enable and Disable the Windows Subsystem for Linux Depending on the command line switch it is called with
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.DESCRIPTION</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.</span><span style="color:#e6db74">DESCRIPTION</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  This script is used to Enable and Disable the Windows Subsystem for Linux Depending on the command line switch it is called with
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.PARAMETER</span><span style="color:#75715e"> Enable
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.PARAMETER Enable
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Enables the Windows Subsystem for Linux
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.PARAMETER</span><span style="color:#75715e"> Disable
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.PARAMETER Disable
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Disables the Windows Subsystem for Linux
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.INPUTS</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.</span><span style="color:#e6db74">INPUTS</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  None
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.OUTPUTS</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.</span><span style="color:#e6db74">OUTPUTS</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  None
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.NOTES</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.</span><span style="color:#e6db74">NOTES</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  Version:        1.0
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  Author:         David Brook
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  Creation Date:  13/08/2020
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  Purpose/Change: Initial script creation
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.EXAMPLE</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.</span><span style="color:#e6db74">EXAMPLE</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  Windows_SubSystem_for_Linux.ps1 -Enable
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#&gt;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[switch]</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">switch</span>]
 </span></span><span style="display:flex;"><span>    $Enable,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[switch]</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">switch</span>]
 </span></span><span style="display:flex;"><span>    $Disable,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[switch]</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">switch</span>]
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span> ($Enable) {
@@ -424,7 +423,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="detection-script">Detection Script</h3>
 <p>The script below can be for detection of the Windows Subsystem for Linux. I did try to use the Get-WindowsOptionalFeature -Online however it seemed to never be detected.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span><span style="color:#66d9ef">IF</span> ( Get-WmiObject -Class Win32_OptionalFeature | Where-Object {($_.Name <span style="color:#f92672">-Match</span> <span style="color:#e6db74">&#34;Microsoft-Windows-Subsystem-Linux&#34;</span>) <span style="color:#f92672">-and</span> ($_.InstallState <span style="color:#f92672">-eq</span> 1)} ){
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span><span style="color:#66d9ef">IF</span> ( Get-WmiObject -Class Win32_OptionalFeature | Where-Object {($_.Name <span style="color:#f92672">-Match</span> <span style="color:#e6db74">&#34;Microsoft-Windows-Subsystem-Linux&#34;</span>) <span style="color:#f92672">-and</span> ($_.InstallState <span style="color:#f92672">-eq</span> <span style="color:#ae81ff">1</span>)} ){
 </span></span><span style="display:flex;"><span>  $True
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="memcm-application">MEMCM Application</h2>

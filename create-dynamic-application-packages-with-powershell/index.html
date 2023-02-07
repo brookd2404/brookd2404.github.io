@@ -17,7 +17,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 <meta name="description" content="Create Dynamic Application Installs with PowerShell, APIS and HTML Web Searching | EUC365">
 <meta name="author" content="DBBROOK24">
-<meta name="generator" content="Hugo 0.106.0">
+<meta name="generator" content="Hugo 0.110.0">
 
 
 
@@ -55,7 +55,6 @@
 <meta property="og:url" content="https://euc365.com/create-dynamic-application-packages-with-powershell/" /><meta property="og:image" content="https://euc365.com/images/post/dynamicappinstall/FeaturedImage.png" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-03-31T03:08:00+00:00" />
 <meta property="article:modified_time" content="2022-06-09T15:24:28+00:00" />
-
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://euc365.com/images/post/dynamicappinstall/FeaturedImage.png"/>
@@ -401,7 +400,7 @@ if (!doNotTrack) {
 <p>As you can see from the snippet below we have to use a <code>HTMLContent</code> <strong>COM</strong> object to parse the HTML data so we can interact with the tables.</p>
 <p>In it&rsquo;s simplest form we get the <strong>RawContent</strong> and then write it to the <strong>IHTMLDocument2</strong> object with the <strong>COM</strong> object, giving us the functionality  work with the tables.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> Get-LatestVersion {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[String]</span>$URL = <span style="color:#e6db74">&#34;https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew&#34;</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">String</span>]$URL = <span style="color:#e6db74">&#34;https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew&#34;</span>
 </span></span><span style="display:flex;"><span>    $WebResult = Invoke-WebRequest -Uri $URL -UseBasicParsing 
 </span></span><span style="display:flex;"><span>    $WebResultHTML = $WebResult.RawContent
 </span></span><span style="display:flex;"><span>
@@ -410,9 +409,9 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    $Tables = @($html.all.tags(<span style="color:#e6db74">&#39;table&#39;</span>))
 </span></span><span style="display:flex;"><span>    $LatestVer = $null
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[System.Collections.ArrayList]</span>$LatestVer = New-Object -TypeName psobject
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> ($i = 0; $i <span style="color:#f92672">-le</span> $tables.count; $i++) {
-</span></span><span style="display:flex;"><span>        $table = $tables[0] 
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">System.Collections.ArrayList</span>]$LatestVer = New-Object -TypeName psobject
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> ($i = <span style="color:#ae81ff">0</span>; $i <span style="color:#f92672">-le</span> $tables.count; $i++) {
+</span></span><span style="display:flex;"><span>        $table = $tables[<span style="color:#ae81ff">0</span>] 
 </span></span><span style="display:flex;"><span>        $titles = @()
 </span></span><span style="display:flex;"><span>        $rows = @($table.Rows)
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">## Go through all of the rows in the table</span>
@@ -420,14 +419,14 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>            $cells = @($row.Cells)
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e">## If we&#39;ve found a table header, remember its titles</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> ($cells[0].tagName <span style="color:#f92672">-eq</span> <span style="color:#e6db74">&#34;TH&#34;</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> ($cells[<span style="color:#ae81ff">0</span>].tagName <span style="color:#f92672">-eq</span> <span style="color:#e6db74">&#34;TH&#34;</span>) {
 </span></span><span style="display:flex;"><span>                $titles = @($cells | ForEach-Object {
 </span></span><span style="display:flex;"><span>                        (<span style="color:#e6db74">&#34;&#34;</span> + $_.InnerText).Trim()
 </span></span><span style="display:flex;"><span>                    })
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">continue</span>
 </span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>            $resultObject = <span style="color:#66d9ef">[Ordered]</span> @{}
-</span></span><span style="display:flex;"><span>            $counter = 0
+</span></span><span style="display:flex;"><span>            $resultObject = [<span style="color:#66d9ef">Ordered</span>] @{}
+</span></span><span style="display:flex;"><span>            $counter = <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">foreach</span> ($cell <span style="color:#66d9ef">in</span> $cells) {
 </span></span><span style="display:flex;"><span>                $title = $titles[$counter]
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (<span style="color:#f92672">-not</span> $title) { <span style="color:#66d9ef">continue</span> }
@@ -435,7 +434,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>                $Counter++
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e">#$Version_Data = @()</span>
-</span></span><span style="display:flex;"><span>            $Version_Data = <span style="color:#66d9ef">[PSCustomObject]</span>@{
+</span></span><span style="display:flex;"><span>            $Version_Data = [<span style="color:#66d9ef">PSCustomObject</span>]@{
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;LatestVersion&#39;</span>          = $resultObject.<span style="color:#e6db74">&#39;Latest version&#39;</span>
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>            $LatestVer.Add($Version_Data) | Out-null 
@@ -450,11 +449,11 @@ if (!doNotTrack) {
 <p>All of this is wrapped inside a function (<code>Get-LatestVersion</code>) as I plan on using the same script for the detection method as for the install, but I also like to re-check in my install script that the application definitely is not installed before the install action executes. If you look at the <code>Detect-Application</code> function you can see that I check both the 64-bit and 32-bit registry locations with an <strong>IF</strong> statement based on the variables below;</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span>$UninstallKey = <span style="color:#e6db74">&#34;HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\&#34;</span>
 </span></span><span style="display:flex;"><span>$UninstallKeyWow6432Node = <span style="color:#e6db74">&#34;HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\&#34;</span>
-</span></span><span style="display:flex;"><span>$LatestVersion = ((Get-LatestVersion | Get-Unique | Sort-Object $_.LatestVersion)[0]).LatestVersion
+</span></span><span style="display:flex;"><span>$LatestVersion = ((Get-LatestVersion | Get-Unique | Sort-Object $_.LatestVersion)[<span style="color:#ae81ff">0</span>]).LatestVersion
 </span></span><span style="display:flex;"><span>$AppName = <span style="color:#e6db74">&#34;Remote Desktop&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> Detect-Application {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">IF</span> (((Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$AppName*&#34;</span>}).DisplayVersion <span style="color:#f92672">-Match</span> $LatestVersion) <span style="color:#f92672">-or</span> ((Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$AppName*&#34;</span>}).DisplayVersion <span style="color:#f92672">-Match</span> $LatestVersion))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">IF</span> (((Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$AppName<span style="color:#e6db74">*&#34;</span>}).DisplayVersion <span style="color:#f92672">-Match</span> $LatestVersion) <span style="color:#f92672">-or</span> ((Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$AppName<span style="color:#e6db74">*&#34;</span>}).DisplayVersion <span style="color:#f92672">-Match</span> $LatestVersion))
 </span></span><span style="display:flex;"><span>    {
 </span></span><span style="display:flex;"><span>        $True
 </span></span><span style="display:flex;"><span>    }
@@ -472,11 +471,11 @@ if (!doNotTrack) {
   <div class="collapse" id="download-link"><div class="p-2"><p>Now we know that we can <strong>Detect</strong> the application, lets look at obtaining the download link.</p>
 <p>If you look at the below snippet, you can see we use a variable which calls a function to get the download link (<code>$DownloadLink = Get-DownloadLink</code>). For this to work there is a reliance on the the Variable <code>$Arch</code> been set, by default this is set to <strong>64-bit</strong>. However, this is available as a command line parameter.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span><span style="color:#66d9ef">param</span> (
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">ValidateSet</span>(<span style="color:#e6db74">&#39;64-bit&#39;</span>,<span style="color:#e6db74">&#39;32-bit&#39;</span>,<span style="color:#e6db74">&#39;ARM64&#39;</span>)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[String]</span>$Arch = <span style="color:#e6db74">&#39;64-bit&#39;</span>,
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">ValidateSet</span>(<span style="color:#e6db74">&#39;Install&#39;</span>,<span style="color:#e6db74">&#39;Uninstall&#39;</span>,<span style="color:#e6db74">&#34;Detect&#34;</span>)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$ExecutionType,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$DownloadPath = <span style="color:#e6db74">&#34;$env:Temp\RDInstaller\&#34;</span>
+</span></span><span style="display:flex;"><span>    [ValidateSet(<span style="color:#e6db74">&#39;64-bit&#39;</span>,<span style="color:#e6db74">&#39;32-bit&#39;</span>,<span style="color:#e6db74">&#39;ARM64&#39;</span>)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">String</span>]$Arch = <span style="color:#e6db74">&#39;64-bit&#39;</span>,
+</span></span><span style="display:flex;"><span>    [ValidateSet(<span style="color:#e6db74">&#39;Install&#39;</span>,<span style="color:#e6db74">&#39;Uninstall&#39;</span>,<span style="color:#e6db74">&#34;Detect&#34;</span>)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$ExecutionType,
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$DownloadPath = <span style="color:#e6db74">&#34;</span>$env:Temp<span style="color:#e6db74">\RDInstaller\&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$DownloadLink = Get-DownloadLink
@@ -489,7 +488,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>    $HTML = New-Object -Com <span style="color:#e6db74">&#34;HTMLFile&#34;</span>
 </span></span><span style="display:flex;"><span>    $HTML.IHTMLDocument2_write($WebResultHTML)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    ($HTML.links | Where-Object {$_.InnerHTMl <span style="color:#f92672">-Like</span> <span style="color:#e6db74">&#34;*$Arch*&#34;</span>}).href        
+</span></span><span style="display:flex;"><span>    ($HTML.links | Where-Object {$_.InnerHTMl <span style="color:#f92672">-Like</span> <span style="color:#e6db74">&#34;*</span>$Arch<span style="color:#e6db74">*&#34;</span>}).href        
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>If you look at the <a href="https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop">web page</a> for the downloads you will see that the links are in an unordered list;</p>
 <img loading="lazy" decoding="async" class="mx-auto d-block" src="/images/post/dynamicappinstall/install_links_hu175eaed89cb75656c50c7774eeb1eccf_51511_750x0_resize_q100_h2_box_3.webp" alt="" height="250px" width="">
@@ -518,7 +517,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Uninstallation Complete&#34;</span>
 </span></span><span style="display:flex;"><span>        } 
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>            Write-Error <span style="color:#e6db74">&#34;Failed to Install $AppName&#34;</span>
+</span></span><span style="display:flex;"><span>            Write-Error <span style="color:#e6db74">&#34;Failed to Install </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Default</span> {
@@ -528,10 +527,10 @@ if (!doNotTrack) {
 </span></span><span style="display:flex; background-color:#3c3d38"><span>                Install-Application -ErrorAction Stop
 </span></span><span style="display:flex; background-color:#3c3d38"><span>                <span style="color:#e6db74">&#34;Installation Complete&#34;</span>
 </span></span><span style="display:flex; background-color:#3c3d38"><span>            } <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex; background-color:#3c3d38"><span>                Write-Error <span style="color:#e6db74">&#34;Failed to Install $AppName&#34;</span>
+</span></span><span style="display:flex; background-color:#3c3d38"><span>                Write-Error <span style="color:#e6db74">&#34;Failed to Install </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex; background-color:#3c3d38"><span>            }
 </span></span><span style="display:flex; background-color:#3c3d38"><span>        } <span style="color:#66d9ef">ELSE</span> {
-</span></span><span style="display:flex; background-color:#3c3d38"><span>            <span style="color:#e6db74">&#34;The Latest Version ($LatestVersion) of $AppName is already installed&#34;</span>
+</span></span><span style="display:flex; background-color:#3c3d38"><span>            <span style="color:#e6db74">&#34;The Latest Version (</span>$LatestVersion<span style="color:#e6db74">) of </span>$AppName<span style="color:#e6db74"> is already installed&#34;</span>
 </span></span><span style="display:flex; background-color:#3c3d38"><span>        }
 </span></span><span style="display:flex; background-color:#3c3d38"><span>    }
 </span></span><span style="display:flex; background-color:#3c3d38"><span>}</span></span></code></pre></div>
@@ -544,33 +543,33 @@ if (!doNotTrack) {
 </ol>
 <div class="notices tip" ><p>When using double quotes (&quot;) inside double quotes you must double them up. <br>
 For Example &quot;The file is located: &quot;&quot;$Variable\Path.txt&quot;&quot;&quot;</p></div>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span>$LatestVersion = ((Get-LatestVersion | Get-Unique | Sort-Object $_.LatestVersion)[0]).LatestVersion
-</span></span><span style="display:flex;"><span>$InstallerName = <span style="color:#e6db74">&#34;RemoteDesktop-$LatestVersion-$Arch.msi&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span>$LatestVersion = ((Get-LatestVersion | Get-Unique | Sort-Object $_.LatestVersion)[<span style="color:#ae81ff">0</span>]).LatestVersion
+</span></span><span style="display:flex;"><span>$InstallerName = <span style="color:#e6db74">&#34;RemoteDesktop-</span>$LatestVersion<span style="color:#e6db74">-</span>$Arch<span style="color:#e6db74">.msi&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> Install-Application {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">IF</span> (!(Test-Path $DownloadPath)) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>            Write-Verbose <span style="color:#e6db74">&#34;$DownloadPath Does not exist, Creating the folder&#34;</span>
+</span></span><span style="display:flex;"><span>            Write-Verbose <span style="color:#e6db74">&#34;</span>$DownloadPath<span style="color:#e6db74"> Does not exist, Creating the folder&#34;</span>
 </span></span><span style="display:flex;"><span>            MKDIR $DownloadPath -ErrorAction Stop | Out-Null
 </span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>            Write-Verbose <span style="color:#e6db74">&#34;Failed to create folder $DownloadPath&#34;</span>
+</span></span><span style="display:flex;"><span>            Write-Verbose <span style="color:#e6db74">&#34;Failed to create folder </span>$DownloadPath<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
 </span></span><span style="display:flex;"><span>        Write-Verbose <span style="color:#e6db74">&#34;Attempting client download&#34;</span>
-</span></span><span style="display:flex;"><span>        Invoke-WebRequest -Usebasicparsing -URI $DownloadLink -Outfile <span style="color:#e6db74">&#34;$DownloadPath\$InstallerName&#34;</span> -ErrorAction Stop
+</span></span><span style="display:flex;"><span>        Invoke-WebRequest -Usebasicparsing -URI $DownloadLink -Outfile <span style="color:#e6db74">&#34;</span>$DownloadPath<span style="color:#e6db74">\</span>$InstallerName<span style="color:#e6db74">&#34;</span> -ErrorAction Stop
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;Failed to download $AppName&#34;</span>
+</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;Failed to download </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Installing $AppName v</span>$($LatestVersion)<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>        Start-Process <span style="color:#e6db74">&#34;MSIEXEC.exe&#34;</span> -ArgumentList <span style="color:#e6db74">&#34;/I &#34;&#34;$DownloadPath\$InstallerName&#34;&#34; /qn /norestart /l* &#34;&#34;$DownloadPath\RDINSTALL</span>$(get-Date -format yyyy-MM-dd)<span style="color:#e6db74">.log&#34;&#34;&#34;</span> -Wait
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Installing </span>$AppName<span style="color:#e6db74"> v</span>$($LatestVersion)<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        Start-Process <span style="color:#e6db74">&#34;MSIEXEC.exe&#34;</span> -ArgumentList <span style="color:#e6db74">&#34;/I &#34;&#34;</span>$DownloadPath<span style="color:#e6db74">\</span>$InstallerName<span style="color:#e6db74">&#34;&#34; /qn /norestart /l* &#34;&#34;</span>$DownloadPath<span style="color:#e6db74">\RDINSTALL</span>$(get-Date -format yyyy-MM-dd)<span style="color:#e6db74">.log&#34;&#34;&#34;</span> -Wait
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;failed to Install $AppName&#34;</span>
+</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;failed to Install </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div></div></div>
@@ -589,24 +588,24 @@ For Example &quot;The file is located: &quot;&quot;$Variable\Path.txt&quot;&quot
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> Uninstall-Application {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Uninstalling $AppName&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Uninstalling </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">IF</span> (Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$AppName*&#34;</span>} -ErrorAction SilentlyContinue) {
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Uninstalling $AppName&#34;</span>
-</span></span><span style="display:flex;"><span>            $UninstallGUID = (Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$AppName*&#34;</span>}).PSChildName
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">IF</span> (Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$AppName<span style="color:#e6db74">*&#34;</span>} -ErrorAction SilentlyContinue) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Uninstalling </span>$AppName<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>            $UninstallGUID = (Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$AppName<span style="color:#e6db74">*&#34;</span>}).PSChildName
 </span></span><span style="display:flex;"><span>            $UninstallArgs = <span style="color:#e6db74">&#34;/X &#34;</span> + $UninstallGUID + <span style="color:#e6db74">&#34; /qn&#34;</span>
 </span></span><span style="display:flex;"><span>            Start-Process <span style="color:#e6db74">&#34;MSIEXEC.EXE&#34;</span> -ArgumentList $UninstallArgs -Wait
 </span></span><span style="display:flex;"><span>        }      
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">IF</span> (Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$AppName*&#34;</span>} -ErrorAction SilentlyContinue) {
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Uninstalling $AppName&#34;</span> 
-</span></span><span style="display:flex;"><span>            $UninstallGUID = (Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$AppName*&#34;</span>}).UninstallString
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">IF</span> (Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$AppName<span style="color:#e6db74">*&#34;</span>} -ErrorAction SilentlyContinue) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Uninstalling </span>$AppName<span style="color:#e6db74">&#34;</span> 
+</span></span><span style="display:flex;"><span>            $UninstallGUID = (Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$AppName<span style="color:#e6db74">*&#34;</span>}).UninstallString
 </span></span><span style="display:flex;"><span>            $UninstallArgs = <span style="color:#e6db74">&#34;/X &#34;</span> + $UninstallGUID + <span style="color:#e6db74">&#34; /qn&#34;</span>
 </span></span><span style="display:flex;"><span>            Start-Process <span style="color:#e6db74">&#34;MSIEXEC.EXE&#34;</span> -ArgumentList $UninstallArgs -Wait
 </span></span><span style="display:flex;"><span>        } 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;failed to Uninstall $AppName&#34;</span>
+</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;failed to Uninstall </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>This is using some of the same logic as the <strong>Detection</strong> method, It checks both the 64-bit and the 32-bit registry keys to see if an application that is like the display name of our application.</p>
@@ -631,21 +630,21 @@ For Example &quot;The file is located: &quot;&quot;$Variable\Path.txt&quot;&quot
 <code>.\Dynamic-RemoteDesktopClient.ps1 -ExecutionType Uninstall</code></p>
 <div class="notices note" ><p>You will need to change the param block variable for <code>$ExecutionType</code> to <code>$ExecutionType = Detect</code> when using this as a detection method within Intune or ConfigMGR.</p></div>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span><span style="color:#75715e">&lt;#
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.SYNOPSIS</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.</span><span style="color:#e6db74">SYNOPSIS</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  This is a script to Dynamically Detect, Install and Uninstall the Microsoft Remote Desktop Client for Windows.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.DESCRIPTION</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.</span><span style="color:#e6db74">DESCRIPTION</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  Use this script to detect, install or uninstall the Microsoft Remote Desktop client for Windows
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.PARAMETER</span><span style="color:#75715e"> Arch
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.PARAMETER Arch
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Select the architecture you would like to install, select from the following
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    - 64-bit (Default)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    - 32-bit
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    - ARM64
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.PARAMETER</span><span style="color:#75715e"> ExecutionType
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.PARAMETER ExecutionType
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Select the Execution type, this determines if you will be detecting, installing uninstalling the application.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    The options are as follows;
@@ -653,12 +652,12 @@ For Example &quot;The file is located: &quot;&quot;$Variable\Path.txt&quot;&quot
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    - Detect
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    - Uninstall
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.Parameter</span><span style="color:#75715e"> DownloadPath
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.Parameter DownloadPath
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    The location you would like the downloaded installer to go. 
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Default: $env:TEMP\RDInstaller
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.NOTES</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.</span><span style="color:#e6db74">NOTES</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  Version:        1.2
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  Author:         David Brook
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  Creation Date:  21/02/2021
@@ -667,15 +666,15 @@ For Example &quot;The file is located: &quot;&quot;$Variable\Path.txt&quot;&quot
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#&gt;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> (
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">ValidateSet</span>(<span style="color:#e6db74">&#39;64-bit&#39;</span>,<span style="color:#e6db74">&#39;32-bit&#39;</span>,<span style="color:#e6db74">&#39;ARM64&#39;</span>)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[String]</span>$Arch = <span style="color:#e6db74">&#39;64-bit&#39;</span>,
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">ValidateSet</span>(<span style="color:#e6db74">&#39;Install&#39;</span>,<span style="color:#e6db74">&#39;Uninstall&#39;</span>,<span style="color:#e6db74">&#34;Detect&#34;</span>)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$ExecutionType,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$DownloadPath = <span style="color:#e6db74">&#34;$env:Temp\RDInstaller\&#34;</span>
+</span></span><span style="display:flex;"><span>    [ValidateSet(<span style="color:#e6db74">&#39;64-bit&#39;</span>,<span style="color:#e6db74">&#39;32-bit&#39;</span>,<span style="color:#e6db74">&#39;ARM64&#39;</span>)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">String</span>]$Arch = <span style="color:#e6db74">&#39;64-bit&#39;</span>,
+</span></span><span style="display:flex;"><span>    [ValidateSet(<span style="color:#e6db74">&#39;Install&#39;</span>,<span style="color:#e6db74">&#39;Uninstall&#39;</span>,<span style="color:#e6db74">&#34;Detect&#34;</span>)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$ExecutionType,
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$DownloadPath = <span style="color:#e6db74">&#34;</span>$env:Temp<span style="color:#e6db74">\RDInstaller\&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> Get-LatestVersion {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[String]</span>$URL = <span style="color:#e6db74">&#34;https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew&#34;</span>
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">String</span>]$URL = <span style="color:#e6db74">&#34;https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew&#34;</span>
 </span></span><span style="display:flex;"><span>    $WebResult = Invoke-WebRequest -Uri $URL -UseBasicParsing 
 </span></span><span style="display:flex;"><span>    $WebResultHTML = $WebResult.RawContent
 </span></span><span style="display:flex;"><span>
@@ -684,9 +683,9 @@ For Example &quot;The file is located: &quot;&quot;$Variable\Path.txt&quot;&quot
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    $Tables = @($html.all.tags(<span style="color:#e6db74">&#39;table&#39;</span>))
 </span></span><span style="display:flex;"><span>    $LatestVer = $null
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[System.Collections.ArrayList]</span>$LatestVer = New-Object -TypeName psobject
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> ($i = 0; $i <span style="color:#f92672">-le</span> $tables.count; $i++) {
-</span></span><span style="display:flex;"><span>        $table = $tables[0] 
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">System.Collections.ArrayList</span>]$LatestVer = New-Object -TypeName psobject
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> ($i = <span style="color:#ae81ff">0</span>; $i <span style="color:#f92672">-le</span> $tables.count; $i++) {
+</span></span><span style="display:flex;"><span>        $table = $tables[<span style="color:#ae81ff">0</span>] 
 </span></span><span style="display:flex;"><span>        $titles = @()
 </span></span><span style="display:flex;"><span>        $rows = @($table.Rows)
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">## Go through all of the rows in the table</span>
@@ -694,14 +693,14 @@ For Example &quot;The file is located: &quot;&quot;$Variable\Path.txt&quot;&quot
 </span></span><span style="display:flex;"><span>            $cells = @($row.Cells)
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e">## If we&#39;ve found a table header, remember its titles</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> ($cells[0].tagName <span style="color:#f92672">-eq</span> <span style="color:#e6db74">&#34;TH&#34;</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> ($cells[<span style="color:#ae81ff">0</span>].tagName <span style="color:#f92672">-eq</span> <span style="color:#e6db74">&#34;TH&#34;</span>) {
 </span></span><span style="display:flex;"><span>                $titles = @($cells | ForEach-Object {
 </span></span><span style="display:flex;"><span>                        (<span style="color:#e6db74">&#34;&#34;</span> + $_.InnerText).Trim()
 </span></span><span style="display:flex;"><span>                    })
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">continue</span>
 </span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>            $resultObject = <span style="color:#66d9ef">[Ordered]</span> @{}
-</span></span><span style="display:flex;"><span>            $counter = 0
+</span></span><span style="display:flex;"><span>            $resultObject = [<span style="color:#66d9ef">Ordered</span>] @{}
+</span></span><span style="display:flex;"><span>            $counter = <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">foreach</span> ($cell <span style="color:#66d9ef">in</span> $cells) {
 </span></span><span style="display:flex;"><span>                $title = $titles[$counter]
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (<span style="color:#f92672">-not</span> $title) { <span style="color:#66d9ef">continue</span> }
@@ -709,7 +708,7 @@ For Example &quot;The file is located: &quot;&quot;$Variable\Path.txt&quot;&quot
 </span></span><span style="display:flex;"><span>                $Counter++
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e">#$Version_Data = @()</span>
-</span></span><span style="display:flex;"><span>            $Version_Data = <span style="color:#66d9ef">[PSCustomObject]</span>@{
+</span></span><span style="display:flex;"><span>            $Version_Data = [<span style="color:#66d9ef">PSCustomObject</span>]@{
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;LatestVersion&#39;</span>          = $resultObject.<span style="color:#e6db74">&#39;Latest version&#39;</span>
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>            $LatestVer.Add($Version_Data) | Out-null 
@@ -725,10 +724,10 @@ For Example &quot;The file is located: &quot;&quot;$Variable\Path.txt&quot;&quot
 </span></span><span style="display:flex;"><span>    $HTML = New-Object -Com <span style="color:#e6db74">&#34;HTMLFile&#34;</span>
 </span></span><span style="display:flex;"><span>    $HTML.IHTMLDocument2_write($WebResultHTML)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    ($HTML.links | Where-Object {$_.InnerHTMl <span style="color:#f92672">-Like</span> <span style="color:#e6db74">&#34;*$Arch*&#34;</span>}).href        
+</span></span><span style="display:flex;"><span>    ($HTML.links | Where-Object {$_.InnerHTMl <span style="color:#f92672">-Like</span> <span style="color:#e6db74">&#34;*</span>$Arch<span style="color:#e6db74">*&#34;</span>}).href        
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> Detect-Application {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">IF</span> (((Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$AppName*&#34;</span>}).DisplayVersion <span style="color:#f92672">-Match</span> $LatestVersion) <span style="color:#f92672">-or</span> ((Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$AppName*&#34;</span>}).DisplayVersion <span style="color:#f92672">-Match</span> $LatestVersion))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">IF</span> (((Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$AppName<span style="color:#e6db74">*&#34;</span>}).DisplayVersion <span style="color:#f92672">-Match</span> $LatestVersion) <span style="color:#f92672">-or</span> ((Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$AppName<span style="color:#e6db74">*&#34;</span>}).DisplayVersion <span style="color:#f92672">-Match</span> $LatestVersion))
 </span></span><span style="display:flex;"><span>    {
 </span></span><span style="display:flex;"><span>        $True
 </span></span><span style="display:flex;"><span>    }
@@ -736,57 +735,57 @@ For Example &quot;The file is located: &quot;&quot;$Variable\Path.txt&quot;&quot
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> Install-Application {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">IF</span> (!(Test-Path $DownloadPath)) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>            Write-Verbose <span style="color:#e6db74">&#34;$DownloadPath Does not exist, Creating the folder&#34;</span>
+</span></span><span style="display:flex;"><span>            Write-Verbose <span style="color:#e6db74">&#34;</span>$DownloadPath<span style="color:#e6db74"> Does not exist, Creating the folder&#34;</span>
 </span></span><span style="display:flex;"><span>            MKDIR $DownloadPath -ErrorAction Stop | Out-Null
 </span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>            Write-Verbose <span style="color:#e6db74">&#34;Failed to create folder $DownloadPath&#34;</span>
+</span></span><span style="display:flex;"><span>            Write-Verbose <span style="color:#e6db74">&#34;Failed to create folder </span>$DownloadPath<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
 </span></span><span style="display:flex;"><span>        Write-Verbose <span style="color:#e6db74">&#34;Attempting client download&#34;</span>
-</span></span><span style="display:flex;"><span>        Invoke-WebRequest -Usebasicparsing -URI $DownloadLink -Outfile <span style="color:#e6db74">&#34;$DownloadPath\$InstallerName&#34;</span> -ErrorAction Stop
+</span></span><span style="display:flex;"><span>        Invoke-WebRequest -Usebasicparsing -URI $DownloadLink -Outfile <span style="color:#e6db74">&#34;</span>$DownloadPath<span style="color:#e6db74">\</span>$InstallerName<span style="color:#e6db74">&#34;</span> -ErrorAction Stop
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;Failed to download $AppName&#34;</span>
+</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;Failed to download </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Installing $AppName v</span>$($LatestVersion)<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>        Start-Process <span style="color:#e6db74">&#34;MSIEXEC.exe&#34;</span> -ArgumentList <span style="color:#e6db74">&#34;/I &#34;&#34;$DownloadPath\$InstallerName&#34;&#34; /qn /norestart /l* &#34;&#34;$DownloadPath\RDINSTALL</span>$(get-Date -format yyyy-MM-dd)<span style="color:#e6db74">.log&#34;&#34;&#34;</span> -Wait
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Installing </span>$AppName<span style="color:#e6db74"> v</span>$($LatestVersion)<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        Start-Process <span style="color:#e6db74">&#34;MSIEXEC.exe&#34;</span> -ArgumentList <span style="color:#e6db74">&#34;/I &#34;&#34;</span>$DownloadPath<span style="color:#e6db74">\</span>$InstallerName<span style="color:#e6db74">&#34;&#34; /qn /norestart /l* &#34;&#34;</span>$DownloadPath<span style="color:#e6db74">\RDINSTALL</span>$(get-Date -format yyyy-MM-dd)<span style="color:#e6db74">.log&#34;&#34;&#34;</span> -Wait
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;failed to Install $AppName&#34;</span>
+</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;failed to Install </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> Uninstall-Application {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Uninstalling $AppName&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Uninstalling </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">IF</span> (Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$AppName*&#34;</span>} -ErrorAction SilentlyContinue) {
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Uninstalling $AppName&#34;</span>
-</span></span><span style="display:flex;"><span>            $UninstallGUID = (Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$AppName*&#34;</span>}).PSChildName
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">IF</span> (Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$AppName<span style="color:#e6db74">*&#34;</span>} -ErrorAction SilentlyContinue) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Uninstalling </span>$AppName<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>            $UninstallGUID = (Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$AppName<span style="color:#e6db74">*&#34;</span>}).PSChildName
 </span></span><span style="display:flex;"><span>            $UninstallArgs = <span style="color:#e6db74">&#34;/X &#34;</span> + $UninstallGUID + <span style="color:#e6db74">&#34; /qn&#34;</span>
 </span></span><span style="display:flex;"><span>            Start-Process <span style="color:#e6db74">&#34;MSIEXEC.EXE&#34;</span> -ArgumentList $UninstallArgs -Wait
 </span></span><span style="display:flex;"><span>        }      
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">IF</span> (Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$AppName*&#34;</span>} -ErrorAction SilentlyContinue) {
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Uninstalling $AppName&#34;</span> 
-</span></span><span style="display:flex;"><span>            $UninstallGUID = (Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$AppName*&#34;</span>}).UninstallString
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">IF</span> (Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$AppName<span style="color:#e6db74">*&#34;</span>} -ErrorAction SilentlyContinue) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Uninstalling </span>$AppName<span style="color:#e6db74">&#34;</span> 
+</span></span><span style="display:flex;"><span>            $UninstallGUID = (Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$AppName<span style="color:#e6db74">*&#34;</span>}).UninstallString
 </span></span><span style="display:flex;"><span>            $UninstallArgs = <span style="color:#e6db74">&#34;/X &#34;</span> + $UninstallGUID + <span style="color:#e6db74">&#34; /qn&#34;</span>
 </span></span><span style="display:flex;"><span>            Start-Process <span style="color:#e6db74">&#34;MSIEXEC.EXE&#34;</span> -ArgumentList $UninstallArgs -Wait
 </span></span><span style="display:flex;"><span>        } 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;failed to Uninstall $AppName&#34;</span>
+</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;failed to Uninstall </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$UninstallKey = <span style="color:#e6db74">&#34;HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\&#34;</span>
 </span></span><span style="display:flex;"><span>$UninstallKeyWow6432Node = <span style="color:#e6db74">&#34;HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\&#34;</span>
-</span></span><span style="display:flex;"><span>$LatestVersion = ((Get-LatestVersion | Get-Unique | Sort-Object $_.LatestVersion)[0]).LatestVersion
-</span></span><span style="display:flex;"><span>$InstallerName = <span style="color:#e6db74">&#34;RemoteDesktop-$LatestVersion-$Arch.msi&#34;</span>
+</span></span><span style="display:flex;"><span>$LatestVersion = ((Get-LatestVersion | Get-Unique | Sort-Object $_.LatestVersion)[<span style="color:#ae81ff">0</span>]).LatestVersion
+</span></span><span style="display:flex;"><span>$InstallerName = <span style="color:#e6db74">&#34;RemoteDesktop-</span>$LatestVersion<span style="color:#e6db74">-</span>$Arch<span style="color:#e6db74">.msi&#34;</span>
 </span></span><span style="display:flex;"><span>$AppName = <span style="color:#e6db74">&#34;Remote Desktop&#34;</span>
 </span></span><span style="display:flex;"><span>$DownloadLink = Get-DownloadLink
 </span></span><span style="display:flex;"><span>
@@ -800,7 +799,7 @@ For Example &quot;The file is located: &quot;&quot;$Variable\Path.txt&quot;&quot
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Uninstallation Complete&#34;</span>
 </span></span><span style="display:flex;"><span>        } 
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>            Write-Error <span style="color:#e6db74">&#34;Failed to Install $AppName&#34;</span>
+</span></span><span style="display:flex;"><span>            Write-Error <span style="color:#e6db74">&#34;Failed to Install </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Default</span> {
@@ -810,10 +809,10 @@ For Example &quot;The file is located: &quot;&quot;$Variable\Path.txt&quot;&quot
 </span></span><span style="display:flex;"><span>                Install-Application -ErrorAction Stop
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Installation Complete&#34;</span>
 </span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>                Write-Error <span style="color:#e6db74">&#34;Failed to Install $AppName&#34;</span>
+</span></span><span style="display:flex;"><span>                Write-Error <span style="color:#e6db74">&#34;Failed to Install </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">ELSE</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;The Latest Version ($LatestVersion) of $AppName is already installed&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;The Latest Version (</span>$LatestVersion<span style="color:#e6db74">) of </span>$AppName<span style="color:#e6db74"> is already installed&#34;</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
@@ -880,20 +879,20 @@ You will need to take this into account if you plan to package multiple applicat
 <p>First of all we need to get the latest version, to do this we first perform and API Call to get all of the information and store the information in the <code>$RestResult</code> variable.</p>
 <p>Take a look at the below snippet;</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span><span style="color:#66d9ef">param</span> (
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">ValidateSet</span>(<span style="color:#e6db74">&#39;64-bit&#39;</span>,<span style="color:#e6db74">&#39;32-bit&#39;</span>,<span style="color:#e6db74">&#39;ARM64&#39;</span>)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[String]</span>$Arch = <span style="color:#e6db74">&#39;64-bit&#39;</span>,
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">ValidateSet</span>(<span style="color:#e6db74">&#39;Install&#39;</span>,<span style="color:#e6db74">&#39;Uninstall&#39;</span>,<span style="color:#e6db74">&#34;Detect&#34;</span>)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$ExecutionType = <span style="color:#e6db74">&#34;Detect&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$DownloadPath = <span style="color:#e6db74">&#34;$env:Temp\GitInstaller\&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$GITPAC 
+</span></span><span style="display:flex;"><span>    [ValidateSet(<span style="color:#e6db74">&#39;64-bit&#39;</span>,<span style="color:#e6db74">&#39;32-bit&#39;</span>,<span style="color:#e6db74">&#39;ARM64&#39;</span>)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">String</span>]$Arch = <span style="color:#e6db74">&#39;64-bit&#39;</span>,
+</span></span><span style="display:flex;"><span>    [ValidateSet(<span style="color:#e6db74">&#39;Install&#39;</span>,<span style="color:#e6db74">&#39;Uninstall&#39;</span>,<span style="color:#e6db74">&#34;Detect&#34;</span>)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$ExecutionType = <span style="color:#e6db74">&#34;Detect&#34;</span>,
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$DownloadPath = <span style="color:#e6db74">&#34;</span>$env:Temp<span style="color:#e6db74">\GitInstaller\&#34;</span>,
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$GITPAC 
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##############################################################################</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##################### Get the Information from the API #######################</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##############################################################################</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[String]</span>$GitHubURI = <span style="color:#e6db74">&#34;https://api.github.com/repos/git-for-windows/git/releases/latest&#34;</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#66d9ef">String</span>]$GitHubURI = <span style="color:#e6db74">&#34;https://api.github.com/repos/git-for-windows/git/releases/latest&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span> ($GITPAC) {
-</span></span><span style="display:flex;"><span>    $RestResult = Invoke-RestMethod -Method GET -Uri $GitHubURI -ContentType <span style="color:#e6db74">&#34;application/json&#34;</span> -Headers @{Authorization = <span style="color:#e6db74">&#34;token $GITPAC&#34;</span>}
+</span></span><span style="display:flex;"><span>    $RestResult = Invoke-RestMethod -Method GET -Uri $GitHubURI -ContentType <span style="color:#e6db74">&#34;application/json&#34;</span> -Headers @{Authorization = <span style="color:#e6db74">&#34;token </span>$GITPAC<span style="color:#e6db74">&#34;</span>}
 </span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">ELSE</span> {
 </span></span><span style="display:flex;"><span>    $RestResult = Invoke-RestMethod -Method GET -Uri $GitHubURI -ContentType <span style="color:#e6db74">&#34;application/json&#34;</span>
 </span></span><span style="display:flex;"><span>}
@@ -901,13 +900,13 @@ You will need to take this into account if you plan to package multiple applicat
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##############################################################################</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">########################## Set Required Variables ############################</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##############################################################################</span>
-</span></span><span style="display:flex;"><span>$LatestVersion = $RestResult.name.split()[-1]
+</span></span><span style="display:flex;"><span>$LatestVersion = $RestResult.name.split()[<span style="color:#ae81ff">-1</span>]
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>The first thing to note on this snippet is the method it will use to connect to the API, If you specify a <a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token">Personal Access Token</a> with the <code>-GITPAC</code> parameter or via the variable in the script you will be able to have 5000 API calls for your application installs.</p>
 <p>In short we specify the <code>$URL</code> variable and then run a <strong>GET</strong> request with <code>Invoke-RestMethod</code> and specify that we want the output as <code>application/json</code>. Once it has the data we want to then format the <code>$LatestVersion</code> variable to return just the version number, for this we use the <code>.split()</code> operator, by default this splits on spaces, you can specify other characters to split it with by adding in something like <code>'.'</code> and it would split the string at every point there is a dot. Now we have split the string, we want to select the index, for this example as the version number is at the end we want to select the index <code>[-1]</code>. If the index was at the start we would use <code>[0]</code>, feel free to experiment with this.</p>
 <p>This variable is then used to call the <code>Detect-Application</code> function which will return <code>True</code> if the application is installed, otherwise it will return <code>null</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span>$LatestVersion = $RestResult.name.split()[-1]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span>$LatestVersion = $RestResult.name.split()[<span style="color:#ae81ff">-1</span>]
 </span></span><span style="display:flex;"><span>$UninstallKey = <span style="color:#e6db74">&#34;HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\&#34;</span>
 </span></span><span style="display:flex;"><span>$UninstallKeyWow6432Node = <span style="color:#e6db74">&#34;HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\&#34;</span>
 </span></span><span style="display:flex;"><span>$DetectionString = <span style="color:#e6db74">&#34;Git version&#34;</span>
@@ -917,9 +916,9 @@ You will need to take this into account if you plan to package multiple applicat
 </span></span><span style="display:flex;"><span><span style="color:#75715e">########################## Application Detection #############################</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##############################################################################</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> Detect-Application {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">IF</span> (((Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$DetectionString*&#34;</span>}).DisplayVersion <span style="color:#f92672">-Match</span> $LatestVersion) <span style="color:#f92672">-or</span> ((Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$DetectionString*&#34;</span>}).DisplayVersion <span style="color:#f92672">-Match</span> $LatestVersion))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">IF</span> (((Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$DetectionString<span style="color:#e6db74">*&#34;</span>}).DisplayVersion <span style="color:#f92672">-Match</span> $LatestVersion) <span style="color:#f92672">-or</span> ((Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$DetectionString<span style="color:#e6db74">*&#34;</span>}).DisplayVersion <span style="color:#f92672">-Match</span> $LatestVersion))
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        Write-Output <span style="color:#e6db74">&#34;$AppName is installed&#34;</span>
+</span></span><span style="display:flex;"><span>        Write-Output <span style="color:#e6db74">&#34;</span>$AppName<span style="color:#e6db74"> is installed&#34;</span>
 </span></span><span style="display:flex;"><span>        $True
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
@@ -938,20 +937,20 @@ You will need to take this into account if you plan to package multiple applicat
 <p>Once the name EXE Name is sorted, we then use this to get the link, by using the <code>Where-Object</code> function to select the download URL from the asset where the <code>$_.name</code> matches <code>$EXEName</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> (
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">ValidateSet</span>(<span style="color:#e6db74">&#39;64-bit&#39;</span>,<span style="color:#e6db74">&#39;32-bit&#39;</span>,<span style="color:#e6db74">&#39;ARM64&#39;</span>)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[String]</span>$Arch = <span style="color:#e6db74">&#39;64-bit&#39;</span>,
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">ValidateSet</span>(<span style="color:#e6db74">&#39;Install&#39;</span>,<span style="color:#e6db74">&#39;Uninstall&#39;</span>,<span style="color:#e6db74">&#34;Detect&#34;</span>)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$ExecutionType = <span style="color:#e6db74">&#34;Detect&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$DownloadPath = <span style="color:#e6db74">&#34;$env:Temp\GitInstaller\&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$GITPAC 
+</span></span><span style="display:flex;"><span>    [ValidateSet(<span style="color:#e6db74">&#39;64-bit&#39;</span>,<span style="color:#e6db74">&#39;32-bit&#39;</span>,<span style="color:#e6db74">&#39;ARM64&#39;</span>)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">String</span>]$Arch = <span style="color:#e6db74">&#39;64-bit&#39;</span>,
+</span></span><span style="display:flex;"><span>    [ValidateSet(<span style="color:#e6db74">&#39;Install&#39;</span>,<span style="color:#e6db74">&#39;Uninstall&#39;</span>,<span style="color:#e6db74">&#34;Detect&#34;</span>)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$ExecutionType = <span style="color:#e6db74">&#34;Detect&#34;</span>,
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$DownloadPath = <span style="color:#e6db74">&#34;</span>$env:Temp<span style="color:#e6db74">\GitInstaller\&#34;</span>,
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$GITPAC 
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##############################################################################</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">########################## Set Required Variables ############################</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##############################################################################</span>
-</span></span><span style="display:flex;"><span>$LatestVersion = $RestResult.name.split()[-1]
-</span></span><span style="display:flex;"><span>$EXEName = <span style="color:#e6db74">&#34;Git-$LatestVersion-$Arch.exe&#34;</span>
+</span></span><span style="display:flex;"><span>$LatestVersion = $RestResult.name.split()[<span style="color:#ae81ff">-1</span>]
+</span></span><span style="display:flex;"><span>$EXEName = <span style="color:#e6db74">&#34;Git-</span>$LatestVersion<span style="color:#e6db74">-</span>$Arch<span style="color:#e6db74">.exe&#34;</span>
 </span></span><span style="display:flex;"><span>$DownloadLink = ($RestResult.assets | Where-Object {$_.Name <span style="color:#f92672">-Match</span> $EXEName}).browser_download_url
 </span></span></code></pre></div></div></div>
 </div>
@@ -976,7 +975,7 @@ You will need to take this into account if you plan to package multiple applicat
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Uninstallation Complete&#34;</span>
 </span></span><span style="display:flex;"><span>        } 
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>                Write-Error <span style="color:#e6db74">&#34;Failed to Install $AppName&#34;</span>
+</span></span><span style="display:flex;"><span>                Write-Error <span style="color:#e6db74">&#34;Failed to Install </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex; background-color:#3c3d38"><span>    <span style="color:#66d9ef">Default</span> {
@@ -986,7 +985,7 @@ You will need to take this into account if you plan to package multiple applicat
 </span></span><span style="display:flex; background-color:#3c3d38"><span>                Install-Application -ErrorAction Stop
 </span></span><span style="display:flex; background-color:#3c3d38"><span>                <span style="color:#e6db74">&#34;Installation Complete&#34;</span>
 </span></span><span style="display:flex; background-color:#3c3d38"><span>            } <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex; background-color:#3c3d38"><span>                Write-Error <span style="color:#e6db74">&#34;Failed to Install $AppName&#34;</span>
+</span></span><span style="display:flex; background-color:#3c3d38"><span>                Write-Error <span style="color:#e6db74">&#34;Failed to Install </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex; background-color:#3c3d38"><span>            }
 </span></span><span style="display:flex; background-color:#3c3d38"><span>        } <span style="color:#66d9ef">ELSE</span> {
 </span></span><span style="display:flex; background-color:#3c3d38"><span>            <span style="color:#e6db74">&#34;The Latest Version is already installed&#34;</span>
@@ -1001,17 +1000,17 @@ You will need to take this into account if you plan to package multiple applicat
 <li>Install the application with the additional command line arguments stored in the <code>$InstallArgs</code> variable.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span><span style="color:#66d9ef">param</span> (
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">ValidateSet</span>(<span style="color:#e6db74">&#39;64-bit&#39;</span>,<span style="color:#e6db74">&#39;32-bit&#39;</span>,<span style="color:#e6db74">&#39;ARM64&#39;</span>)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[String]</span>$Arch = <span style="color:#e6db74">&#39;64-bit&#39;</span>,
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">ValidateSet</span>(<span style="color:#e6db74">&#39;Install&#39;</span>,<span style="color:#e6db74">&#39;Uninstall&#39;</span>,<span style="color:#e6db74">&#34;Detect&#34;</span>)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$ExecutionType = <span style="color:#e6db74">&#34;Detect&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$DownloadPath = <span style="color:#e6db74">&#34;$env:Temp\GitInstaller\&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$GITPAC 
+</span></span><span style="display:flex;"><span>    [ValidateSet(<span style="color:#e6db74">&#39;64-bit&#39;</span>,<span style="color:#e6db74">&#39;32-bit&#39;</span>,<span style="color:#e6db74">&#39;ARM64&#39;</span>)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">String</span>]$Arch = <span style="color:#e6db74">&#39;64-bit&#39;</span>,
+</span></span><span style="display:flex;"><span>    [ValidateSet(<span style="color:#e6db74">&#39;Install&#39;</span>,<span style="color:#e6db74">&#39;Uninstall&#39;</span>,<span style="color:#e6db74">&#34;Detect&#34;</span>)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$ExecutionType = <span style="color:#e6db74">&#34;Detect&#34;</span>,
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$DownloadPath = <span style="color:#e6db74">&#34;</span>$env:Temp<span style="color:#e6db74">\GitInstaller\&#34;</span>,
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$GITPAC 
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$LatestVersion = $RestResult.name.split()[-1]
+</span></span><span style="display:flex;"><span>$LatestVersion = $RestResult.name.split()[<span style="color:#ae81ff">-1</span>]
 </span></span><span style="display:flex;"><span>$DownloadLink = ($RestResult.assets | Where-Object {$_.Name <span style="color:#f92672">-Match</span> $EXEName}).browser_download_url
-</span></span><span style="display:flex;"><span>$EXEName = <span style="color:#e6db74">&#34;Git-$LatestVersion-$Arch.exe&#34;</span>
+</span></span><span style="display:flex;"><span>$EXEName = <span style="color:#e6db74">&#34;Git-</span>$LatestVersion<span style="color:#e6db74">-</span>$Arch<span style="color:#e6db74">.exe&#34;</span>
 </span></span><span style="display:flex;"><span>$InstallArgs = <span style="color:#e6db74">&#34;/SP- /VERYSILENT /SUPPRESSMSGBOXES /NORESTART&#34;</span>
 </span></span><span style="display:flex;"><span>$AppName = <span style="color:#e6db74">&#34;Git For Windows&#34;</span>
 </span></span><span style="display:flex;"><span>
@@ -1022,27 +1021,27 @@ You will need to take this into account if you plan to package multiple applicat
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># If the Download Path does not exist, Then try and crate it. </span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">IF</span> (!(Test-Path $DownloadPath)) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>            Write-Verbose <span style="color:#e6db74">&#34;$DownloadPath Does not exist, Creating the folder&#34;</span>
+</span></span><span style="display:flex;"><span>            Write-Verbose <span style="color:#e6db74">&#34;</span>$DownloadPath<span style="color:#e6db74"> Does not exist, Creating the folder&#34;</span>
 </span></span><span style="display:flex;"><span>            New-Item -Path $DownloadPath -ItemType Directory -ErrorAction Stop | Out-Null
 </span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>            Write-Verbose <span style="color:#e6db74">&#34;Failed to create folder $DownloadPath&#34;</span>
+</span></span><span style="display:flex;"><span>            Write-Verbose <span style="color:#e6db74">&#34;Failed to create folder </span>$DownloadPath<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Once the folder exists, download the installer</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>        Write-Verbose <span style="color:#e6db74">&#34;Downloading Application Binaries for $AppName&#34;</span>
-</span></span><span style="display:flex;"><span>        Invoke-WebRequest -Usebasicparsing -URI $DownloadLink -Outfile <span style="color:#e6db74">&#34;$DownloadPath\$EXEName&#34;</span> -ErrorAction Stop
+</span></span><span style="display:flex;"><span>        Write-Verbose <span style="color:#e6db74">&#34;Downloading Application Binaries for </span>$AppName<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        Invoke-WebRequest -Usebasicparsing -URI $DownloadLink -Outfile <span style="color:#e6db74">&#34;</span>$DownloadPath<span style="color:#e6db74">\</span>$EXEName<span style="color:#e6db74">&#34;</span> -ErrorAction Stop
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">catch</span> {
 </span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;Failed to download application binaries&#34;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Once Downloaded, Install the application</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Installing $AppName </span>$($LatestVersion)<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>        Start-Process <span style="color:#e6db74">&#34;$DownloadPath\$EXEName&#34;</span> -ArgumentList $InstallArgs -Wait
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Installing </span>$AppName<span style="color:#e6db74"> </span>$($LatestVersion)<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        Start-Process <span style="color:#e6db74">&#34;</span>$DownloadPath<span style="color:#e6db74">\</span>$EXEName<span style="color:#e6db74">&#34;</span> -ArgumentList $InstallArgs -Wait
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;Failed to Install $AppName, please check the transcript file ($TranscriptFile) for further details.&#34;</span>
+</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;Failed to Install </span>$AppName<span style="color:#e6db74">, please check the transcript file (</span>$TranscriptFile<span style="color:#e6db74">) for further details.&#34;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div></div></div>
@@ -1074,20 +1073,20 @@ You will need to take this into account if you plan to package multiple applicat
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> Uninstall-Application {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
 </span></span><span style="display:flex;"><span>               
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">IF</span> (Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$DetectionString*&#34;</span>} -ErrorAction SilentlyContinue) {
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Uninstalling $AppName&#34;</span>
-</span></span><span style="display:flex;"><span>            $UninstallExe = (Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$DetectionString*&#34;</span>}).UninstallString
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">IF</span> (Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$DetectionString<span style="color:#e6db74">*&#34;</span>} -ErrorAction SilentlyContinue) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Uninstalling </span>$AppName<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>            $UninstallExe = (Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$DetectionString<span style="color:#e6db74">*&#34;</span>}).UninstallString
 </span></span><span style="display:flex;"><span>            Start-Process $UninstallExe -ArgumentList $UninstallArgs -Wait
 </span></span><span style="display:flex;"><span>        }      
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">IF</span> (Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$DetectionString*&#34;</span>} -ErrorAction SilentlyContinue) {
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Uninstalling $AppName&#34;</span> 
-</span></span><span style="display:flex;"><span>            $UninstallExe = (Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$DetectionString*&#34;</span>}).UninstallString
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">IF</span> (Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$DetectionString<span style="color:#e6db74">*&#34;</span>} -ErrorAction SilentlyContinue) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Uninstalling </span>$AppName<span style="color:#e6db74">&#34;</span> 
+</span></span><span style="display:flex;"><span>            $UninstallExe = (Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$DetectionString<span style="color:#e6db74">*&#34;</span>}).UninstallString
 </span></span><span style="display:flex;"><span>            Start-Process $UninstallExe -ArgumentList $UninstallArgs -Wait
 </span></span><span style="display:flex;"><span>        } 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;failed to Uninstall $AppName&#34;</span>
+</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;failed to Uninstall </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div></div></div>
@@ -1113,21 +1112,21 @@ You will need to take this into account if you plan to package multiple applicat
 <div class="notices note" ><p>You will need to change the param block variable for <code>$ExecutionType</code> to <code>$ExecutionType = Detect</code> when using this as a detection method within Intune or ConfigMGR.</p></div>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;#
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.SYNOPSIS</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.</span><span style="color:#e6db74">SYNOPSIS</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  This is a script to Dynamically Detect, Install and Uninstall the Git for Windows Client.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  https://gitforwindows.org/
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.DESCRIPTION</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.</span><span style="color:#e6db74">DESCRIPTION</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  Use this script to detect, install or uninstall the Git for Windows client.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.PARAMETER</span><span style="color:#75715e"> Arch
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.PARAMETER Arch
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Select the architecture you would like to install, select from the following
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    - 64-bit (Default)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    - 32-bit
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    - ARM64
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.PARAMETER</span><span style="color:#75715e"> ExecutionType
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.PARAMETER ExecutionType
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Select the Execution type, this determines if you will be detecting, installing uninstalling the application.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    The options are as follows;
@@ -1135,12 +1134,12 @@ You will need to take this into account if you plan to package multiple applicat
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    - Detect
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    - Uninstall
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.Parameter</span><span style="color:#75715e"> DownloadPath
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.Parameter DownloadPath
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    The location you would like the downloaded installer to go. 
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">    Default: $env:TEMP\GitInstall
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">.NOTES</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">.</span><span style="color:#e6db74">NOTES</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  Version:        1.0
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  Author:         David Brook
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  Creation Date:  21/02/2021
@@ -1149,15 +1148,15 @@ You will need to take this into account if you plan to package multiple applicat
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">#&gt;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> (
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">ValidateSet</span>(<span style="color:#e6db74">&#39;64-bit&#39;</span>,<span style="color:#e6db74">&#39;32-bit&#39;</span>,<span style="color:#e6db74">&#39;ARM64&#39;</span>)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[String]</span>$Arch = <span style="color:#e6db74">&#39;64-bit&#39;</span>,
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">ValidateSet</span>(<span style="color:#e6db74">&#39;Install&#39;</span>,<span style="color:#e6db74">&#39;Uninstall&#39;</span>,<span style="color:#e6db74">&#34;Detect&#34;</span>)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$ExecutionType = <span style="color:#e6db74">&#34;Detect&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$DownloadPath = <span style="color:#e6db74">&#34;$env:Temp\GitInstaller\&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[string]</span>$GITPAC 
+</span></span><span style="display:flex;"><span>    [ValidateSet(<span style="color:#e6db74">&#39;64-bit&#39;</span>,<span style="color:#e6db74">&#39;32-bit&#39;</span>,<span style="color:#e6db74">&#39;ARM64&#39;</span>)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">String</span>]$Arch = <span style="color:#e6db74">&#39;64-bit&#39;</span>,
+</span></span><span style="display:flex;"><span>    [ValidateSet(<span style="color:#e6db74">&#39;Install&#39;</span>,<span style="color:#e6db74">&#39;Uninstall&#39;</span>,<span style="color:#e6db74">&#34;Detect&#34;</span>)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$ExecutionType = <span style="color:#e6db74">&#34;Detect&#34;</span>,
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$DownloadPath = <span style="color:#e6db74">&#34;</span>$env:Temp<span style="color:#e6db74">\GitInstaller\&#34;</span>,
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]$GITPAC 
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$TranscriptFile = <span style="color:#e6db74">&#34;$env:SystemRoot\Logs\Software\GitForWindows_Dynamic_Install.Log&#34;</span>
+</span></span><span style="display:flex;"><span>$TranscriptFile = <span style="color:#e6db74">&#34;</span>$env:SystemRoot<span style="color:#e6db74">\Logs\Software\GitForWindows_Dynamic_Install.Log&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span> (<span style="color:#f92672">-Not</span> ($ExecutionType <span style="color:#f92672">-Match</span> <span style="color:#e6db74">&#34;Detect&#34;</span>)) {
 </span></span><span style="display:flex;"><span>    Start-Transcript -Path $TranscriptFile
 </span></span><span style="display:flex;"><span>}
@@ -1167,9 +1166,9 @@ You will need to take this into account if you plan to package multiple applicat
 </span></span><span style="display:flex;"><span><span style="color:#75715e">########################## Application Detection #############################</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##############################################################################</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> Detect-Application {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">IF</span> (((Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$DetectionString*&#34;</span>}).DisplayVersion <span style="color:#f92672">-Match</span> $LatestVersion) <span style="color:#f92672">-or</span> ((Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$DetectionString*&#34;</span>}).DisplayVersion <span style="color:#f92672">-Match</span> $LatestVersion))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">IF</span> (((Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$DetectionString<span style="color:#e6db74">*&#34;</span>}).DisplayVersion <span style="color:#f92672">-Match</span> $LatestVersion) <span style="color:#f92672">-or</span> ((Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$DetectionString<span style="color:#e6db74">*&#34;</span>}).DisplayVersion <span style="color:#f92672">-Match</span> $LatestVersion))
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        Write-Output <span style="color:#e6db74">&#34;$AppName is installed&#34;</span>
+</span></span><span style="display:flex;"><span>        Write-Output <span style="color:#e6db74">&#34;</span>$AppName<span style="color:#e6db74"> is installed&#34;</span>
 </span></span><span style="display:flex;"><span>        $True
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
@@ -1181,47 +1180,47 @@ You will need to take this into account if you plan to package multiple applicat
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># If the Download Path does not exist, Then try and crate it. </span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">IF</span> (!(Test-Path $DownloadPath)) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>            Write-Verbose <span style="color:#e6db74">&#34;$DownloadPath Does not exist, Creating the folder&#34;</span>
+</span></span><span style="display:flex;"><span>            Write-Verbose <span style="color:#e6db74">&#34;</span>$DownloadPath<span style="color:#e6db74"> Does not exist, Creating the folder&#34;</span>
 </span></span><span style="display:flex;"><span>            New-Item -Path $DownloadPath -ItemType Directory -ErrorAction Stop | Out-Null
 </span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>            Write-Verbose <span style="color:#e6db74">&#34;Failed to create folder $DownloadPath&#34;</span>
+</span></span><span style="display:flex;"><span>            Write-Verbose <span style="color:#e6db74">&#34;Failed to create folder </span>$DownloadPath<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Once the folder exists, download the installer</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>        Write-Verbose <span style="color:#e6db74">&#34;Downloading Application Binaries for $AppName&#34;</span>
-</span></span><span style="display:flex;"><span>        Invoke-WebRequest -Usebasicparsing -URI $DownloadLink -Outfile <span style="color:#e6db74">&#34;$DownloadPath\$EXEName&#34;</span> -ErrorAction Stop
+</span></span><span style="display:flex;"><span>        Write-Verbose <span style="color:#e6db74">&#34;Downloading Application Binaries for </span>$AppName<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        Invoke-WebRequest -Usebasicparsing -URI $DownloadLink -Outfile <span style="color:#e6db74">&#34;</span>$DownloadPath<span style="color:#e6db74">\</span>$EXEName<span style="color:#e6db74">&#34;</span> -ErrorAction Stop
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">catch</span> {
 </span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;Failed to download application binaries&#34;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Once Downloaded, Install the application</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Installing $AppName </span>$($LatestVersion)<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>        Start-Process <span style="color:#e6db74">&#34;$DownloadPath\$EXEName&#34;</span> -ArgumentList $InstallArgs -Wait
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Installing </span>$AppName<span style="color:#e6db74"> </span>$($LatestVersion)<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        Start-Process <span style="color:#e6db74">&#34;</span>$DownloadPath<span style="color:#e6db74">\</span>$EXEName<span style="color:#e6db74">&#34;</span> -ArgumentList $InstallArgs -Wait
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;Failed to Install $AppName, please check the transcript file ($TranscriptFile) for further details.&#34;</span>
+</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;Failed to Install </span>$AppName<span style="color:#e6db74">, please check the transcript file (</span>$TranscriptFile<span style="color:#e6db74">) for further details.&#34;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> Uninstall-Application {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
 </span></span><span style="display:flex;"><span>               
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">IF</span> (Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$DetectionString*&#34;</span>} -ErrorAction SilentlyContinue) {
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Uninstalling $AppName&#34;</span>
-</span></span><span style="display:flex;"><span>            $UninstallExe = (Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$DetectionString*&#34;</span>}).UninstallString
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">IF</span> (Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$DetectionString<span style="color:#e6db74">*&#34;</span>} -ErrorAction SilentlyContinue) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Uninstalling </span>$AppName<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>            $UninstallExe = (Get-ChildItem -Path $UninstallKey | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$DetectionString<span style="color:#e6db74">*&#34;</span>}).UninstallString
 </span></span><span style="display:flex;"><span>            Start-Process $UninstallExe -ArgumentList $UninstallArgs -Wait
 </span></span><span style="display:flex;"><span>        }      
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">IF</span> (Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$DetectionString*&#34;</span>} -ErrorAction SilentlyContinue) {
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Uninstalling $AppName&#34;</span> 
-</span></span><span style="display:flex;"><span>            $UninstallExe = (Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*$DetectionString*&#34;</span>}).UninstallString
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">IF</span> (Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$DetectionString<span style="color:#e6db74">*&#34;</span>} -ErrorAction SilentlyContinue) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Uninstalling </span>$AppName<span style="color:#e6db74">&#34;</span> 
+</span></span><span style="display:flex;"><span>            $UninstallExe = (Get-ChildItem -Path $UninstallKeyWow6432Node | Get-ItemProperty | Where-Object {$_.DisplayName <span style="color:#f92672">-like</span> <span style="color:#e6db74">&#34;*</span>$DetectionString<span style="color:#e6db74">*&#34;</span>}).UninstallString
 </span></span><span style="display:flex;"><span>            Start-Process $UninstallExe -ArgumentList $UninstallArgs -Wait
 </span></span><span style="display:flex;"><span>        } 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;failed to Uninstall $AppName&#34;</span>
+</span></span><span style="display:flex;"><span>        Write-Error <span style="color:#e6db74">&#34;failed to Uninstall </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
@@ -1229,9 +1228,9 @@ You will need to take this into account if you plan to package multiple applicat
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##############################################################################</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##################### Get the Information from the API #######################</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##############################################################################</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[String]</span>$GitHubURI = <span style="color:#e6db74">&#34;https://api.github.com/repos/git-for-windows/git/releases/latest&#34;</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#66d9ef">String</span>]$GitHubURI = <span style="color:#e6db74">&#34;https://api.github.com/repos/git-for-windows/git/releases/latest&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span> ($GITPAC) {
-</span></span><span style="display:flex;"><span>    $RestResult = Invoke-RestMethod -Method GET -Uri $GitHubURI -ContentType <span style="color:#e6db74">&#34;application/json&#34;</span> -Headers @{Authorization = <span style="color:#e6db74">&#34;token $GITPAC&#34;</span>}
+</span></span><span style="display:flex;"><span>    $RestResult = Invoke-RestMethod -Method GET -Uri $GitHubURI -ContentType <span style="color:#e6db74">&#34;application/json&#34;</span> -Headers @{Authorization = <span style="color:#e6db74">&#34;token </span>$GITPAC<span style="color:#e6db74">&#34;</span>}
 </span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">ELSE</span> {
 </span></span><span style="display:flex;"><span>    $RestResult = Invoke-RestMethod -Method GET -Uri $GitHubURI -ContentType <span style="color:#e6db74">&#34;application/json&#34;</span>
 </span></span><span style="display:flex;"><span>}
@@ -1239,8 +1238,8 @@ You will need to take this into account if you plan to package multiple applicat
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##############################################################################</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">########################## Set Required Variables ############################</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##############################################################################</span>
-</span></span><span style="display:flex;"><span>$LatestVersion = $RestResult.name.split()[-1]
-</span></span><span style="display:flex;"><span>$EXEName = <span style="color:#e6db74">&#34;Git-$LatestVersion-$Arch.exe&#34;</span>
+</span></span><span style="display:flex;"><span>$LatestVersion = $RestResult.name.split()[<span style="color:#ae81ff">-1</span>]
+</span></span><span style="display:flex;"><span>$EXEName = <span style="color:#e6db74">&#34;Git-</span>$LatestVersion<span style="color:#e6db74">-</span>$Arch<span style="color:#e6db74">.exe&#34;</span>
 </span></span><span style="display:flex;"><span>$DownloadLink = ($RestResult.assets | Where-Object {$_.Name <span style="color:#f92672">-Match</span> $EXEName}).browser_download_url
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##############################################################################</span>
@@ -1267,7 +1266,7 @@ You will need to take this into account if you plan to package multiple applicat
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Uninstallation Complete&#34;</span>
 </span></span><span style="display:flex;"><span>        } 
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>                Write-Error <span style="color:#e6db74">&#34;Failed to Install $AppName&#34;</span>
+</span></span><span style="display:flex;"><span>                Write-Error <span style="color:#e6db74">&#34;Failed to Install </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Default</span> {
@@ -1277,7 +1276,7 @@ You will need to take this into account if you plan to package multiple applicat
 </span></span><span style="display:flex;"><span>                Install-Application -ErrorAction Stop
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Installation Complete&#34;</span>
 </span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>                Write-Error <span style="color:#e6db74">&#34;Failed to Install $AppName&#34;</span>
+</span></span><span style="display:flex;"><span>                Write-Error <span style="color:#e6db74">&#34;Failed to Install </span>$AppName<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">ELSE</span> {
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;The Latest Version is already installed&#34;</span>

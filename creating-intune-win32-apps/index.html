@@ -17,7 +17,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 <meta name="description" content="A brief guide on creating Win32 Apps for Intune application Deployments, Win32 Apps are effectively your source files for you app installs | EUC365">
 <meta name="author" content="DBBROOK24">
-<meta name="generator" content="Hugo 0.106.0">
+<meta name="generator" content="Hugo 0.110.0">
 
 
 
@@ -55,7 +55,6 @@
 <meta property="og:url" content="https://euc365.com/creating-intune-win32-apps/" /><meta property="og:image" content="https://euc365.com/images/post/createwin32/FeaturedImage.png" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-01-05T20:17:00+00:00" />
 <meta property="article:modified_time" content="2022-06-09T13:24:55+00:00" />
-
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://euc365.com/images/post/createwin32/FeaturedImage.png"/>
@@ -544,7 +543,7 @@ Now that rule is very quick and simple, as mentioned you can use the date modifi
 <p>For me, this is the most favorable option, but I love to script :D. But that aside you can check multiple actions, the only thing you need to do is return any value other than <strong>Null </strong>for the detection to pass. For example the below script checks for the registry value and also that the file exists, if they do it will return a <strong>True </strong>value, else it will return nothing.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span><span style="color:#75715e">#</span>
 </span></span><span style="display:flex;"><span>$7zReg = <span style="color:#e6db74">&#34;HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\7-Zip&#34;</span>
-</span></span><span style="display:flex;"><span>$7zExe = <span style="color:#e6db74">&#34;$env:ProgramFiles\7-zip\7z.exe&#34;</span>
+</span></span><span style="display:flex;"><span>$7zExe = <span style="color:#e6db74">&#34;</span>$env:ProgramFiles<span style="color:#e6db74">\7-zip\7z.exe&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">IF</span> ((Get-ItemPropertyValue -Path $7zReg -Name DisplayVersion) <span style="color:#f92672">-and</span> (Test-Path $7zExe)) {
 </span></span><span style="display:flex;"><span>    $true

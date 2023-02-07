@@ -17,7 +17,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 <meta name="description" content="Create a Microsoft Team with the Graph API, with additional channels add and remove tabs too | EUC365">
 <meta name="author" content="DBBROOK24">
-<meta name="generator" content="Hugo 0.106.0">
+<meta name="generator" content="Hugo 0.110.0">
 
 
 
@@ -55,7 +55,6 @@
 <meta property="og:url" content="https://euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/" /><meta property="og:image" content="https://euc365.com/images/post/teams/TeamsGraphFeaturedImage.png" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-08-03T19:31:42+00:00" />
 <meta property="article:modified_time" content="2022-08-03T19:30:15+00:00" />
-
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://euc365.com/images/post/teams/TeamsGraphFeaturedImage.png"/>
@@ -506,14 +505,14 @@ if (!doNotTrack) {
   <a class="d-flex p-2 collapse-head" data-toggle="collapse" href="#powershell-script-example" role="button">
     PowerShell Script Example <i class="fas fa-plus ml-auto"></i>
   </a>
-  <div class="collapse" id="powershell-script-example"><div class="p-2"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span>[<span style="color:#66d9ef">CmdletBinding</span>()]
+  <div class="collapse" id="powershell-script-example"><div class="p-2"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span>[CmdletBinding()]
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> (
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">Parameter</span>(DontShow = $true)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[Array]</span>
+</span></span><span style="display:flex;"><span>    [Parameter(<span style="color:#a6e22e">DontShow</span> = $true)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">Array</span>]
 </span></span><span style="display:flex;"><span>    $ModuleNames = @(<span style="color:#e6db74">&#34;Microsoft.Graph.Teams&#34;</span>),
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Teams Channel Name</span>
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">Parameter</span>(<span style="color:#66d9ef">Mandatory</span> = $true)]
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[String]</span>
+</span></span><span style="display:flex;"><span>    [Parameter(<span style="color:#a6e22e">Mandatory</span> = $true)]
+</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">String</span>]
 </span></span><span style="display:flex;"><span>    $TeamName
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
@@ -522,11 +521,11 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">FOREACH</span> ($Module <span style="color:#66d9ef">in</span> $ModuleNames) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">IF</span> (!(Get-Module -ListAvailable -Name $Module)) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>            Write-Output <span style="color:#e6db74">&#34;Attempting to install $Module Module for the Current Device&#34;</span>
+</span></span><span style="display:flex;"><span>            Write-Output <span style="color:#e6db74">&#34;Attempting to install </span>$Module<span style="color:#e6db74"> Module for the Current Device&#34;</span>
 </span></span><span style="display:flex;"><span>            Install-Module -Name $Module -Force -AllowClobber
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">catch</span> {
-</span></span><span style="display:flex;"><span>            Write-Output <span style="color:#e6db74">&#34;Attempting to install $Module Module for the Current User&#34;</span>
+</span></span><span style="display:flex;"><span>            Write-Output <span style="color:#e6db74">&#34;Attempting to install </span>$Module<span style="color:#e6db74"> Module for the Current User&#34;</span>
 </span></span><span style="display:flex;"><span>            Install-Module -Name $Module -Force -AllowClobber -Scope CurrentUser
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }  
@@ -602,7 +601,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#Wait while the team is created, this below link tracks the job. </span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> ((Invoke-MGGraphRequest -URI <span style="color:#e6db74">&#34;https://graph.microsoft.com/beta</span>$($Team.Headers.Location.OriginalString)<span style="color:#e6db74">&#34;</span>).status <span style="color:#f92672">-ne</span> <span style="color:#e6db74">&#34;succeeded&#34;</span>) {
-</span></span><span style="display:flex;"><span>    Start-Sleep 60
+</span></span><span style="display:flex;"><span>    Start-Sleep <span style="color:#ae81ff">60</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Awaiting the team creation to complete...&#34;</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div></div></div>
@@ -614,12 +613,12 @@ if (!doNotTrack) {
 <p>After the initial <strong>POST</strong> to the API, the example then use a while loop to track the creation of the team. As mentioned in the tip at the start of this section, the API call to create the team is more of an orchestration API which is the reason we need to go to the additional effort to track the progress of creation.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span><span style="color:#75715e">#Wait while the team is created, this below link tracks the job. </span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> ((Invoke-MGGraphRequest -URI <span style="color:#e6db74">&#34;https://graph.microsoft.com/beta</span>$($Team.Headers.Location.OriginalString)<span style="color:#e6db74">&#34;</span>).status <span style="color:#f92672">-ne</span> <span style="color:#e6db74">&#34;succeeded&#34;</span>) {
-</span></span><span style="display:flex;"><span>    Start-Sleep 60
+</span></span><span style="display:flex;"><span>    Start-Sleep <span style="color:#ae81ff">60</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Awaiting the team creation to complete...&#34;</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Once the operation has succeeded, you can then layer on additional customisations, such as removing the Wiki tab as shown in the example below.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span><span style="color:#75715e">#Get the Teams ID from the Output of the header</span>
-</span></span><span style="display:flex;"><span>$TeamID = (Select-String -Pattern <span style="color:#e6db74">&#34;\&#39;([^\&#39;]*)\&#39;&#34;</span> -InputObject $Team.Content.Headers.ContentLocation.OriginalString).Matches.Groups[1].Value
+</span></span><span style="display:flex;"><span>$TeamID = (Select-String -Pattern <span style="color:#e6db74">&#34;\&#39;([^\&#39;]*)\&#39;&#34;</span> -InputObject $Team.Content.Headers.ContentLocation.OriginalString).Matches.Groups[<span style="color:#ae81ff">1</span>].Value
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#Get the Teams Channels for the new Team</span>
 </span></span><span style="display:flex;"><span>$TeamChannels = Get-MgTeamChannel -TeamId $TeamID
 </span></span><span style="display:flex;"><span>
