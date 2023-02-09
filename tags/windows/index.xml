@@ -6,7 +6,37 @@
     <description>Recent content in Windows on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Jan 2023 09:38:04 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Feb 2023 22:16:45 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VLOG - Driver and Firmware Updates Preview GUI Configuration</title>
+      <link>https://euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</link>
+      <pubDate>Thu, 09 Feb 2023 22:16:45 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</guid>
+      <description>&lt;p&gt;In this video, we’ll walk you through:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Installing required components&lt;/li&gt;
+&lt;li&gt;Configuring the App Registration&lt;/li&gt;
+&lt;li&gt;Securing your Web Application with User or Group Access&lt;/li&gt;
+&lt;li&gt;Launching the GUI&lt;/li&gt;
+&lt;li&gt;A brief look around the GUI&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;useful-links&#34;&gt;Useful Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://nodejs.org/en/download&#34;&gt;&lt;strong&gt;Node.JS Downloads&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/microsoft/wufbdsWebApplicatio&#34;&gt;&lt;strong&gt;WUfB DS Web Application Repo&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/graph/api/resources/adminwindowsupdates?view=graph-rest-beta&#34;&gt;&lt;strong&gt;Graph API Documentation&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;Driver Management via Graph API and PowerShell&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/w0H8yE50l5M&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
     <item>
       <title>VLOG - Windows 365 Access Solutions</title>
       <link>https://euc365.com/post/vlog-windows-365-access-solutions/</link>
