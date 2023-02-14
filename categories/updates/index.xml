@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Updates on EUC365 | Modern Technology Blog</title>
+    <link>https://euc365.com/categories/updates/</link>
+    <description>Recent content in Updates on EUC365 | Modern Technology Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Feb 2023 14:17:46 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/updates/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Driver Management via Graph API  and PowerShell</title>
+      <link>https://euc365.com/post/driver-management-graph-api/</link>
+      <pubDate>Tue, 14 Feb 2023 14:17:46 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/driver-management-graph-api/</guid>
+      <description>&lt;p&gt;Microsoft have now released the Driver and Firmware Update management via the Graph API to the public!! This is one small step for some, but a giant leap in terms of the management of Drivers and Firmware using the &lt;a href=&#34;https://learn.microsoft.com/en-us/windows/deployment/update/deployment-service-overview&#34;&gt;&lt;strong&gt;Windows Update for Business Deployment Service (WUfB DS)&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Many of you may have been anticipating this for a while as there has been various posts about it like the &lt;a href=&#34;https://techcommunity.microsoft.com/t5/windows-it-pro-blog/introducing-a-new-deployment-service-for-driver-and-firmware/ba-p/2176942&#34;&gt;&lt;strong&gt;Tech Community Post&lt;/strong&gt;&lt;/a&gt; from March 2021.&lt;/p&gt;
+&lt;p&gt;While the solution isn&amp;rsquo;t yet baked into Intune, it is on the horizon and anticipated to land in preview some time this year (but don&amp;rsquo;t hold me to it!). The Driver and Firmware team though are committed to delivering the solution components via WUfB DS for organisations and SMBs to start to take control of their environments.&lt;/p&gt;
+&lt;p&gt;The solution may only be configurable via the Graph API, however, the product team behind the solution have delivered an application that can be used to drive this in a GUI format, take a look at my &lt;a href=&#34;https://euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/&#34;&gt;&lt;strong&gt;VLOG Post&lt;/strong&gt;&lt;/a&gt; to find out how to configure this.&lt;/p&gt;
+&lt;p&gt;Without further ado though, let take a look at how we can interact with the service with the Graph API and PowerShell.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Permissions to connect to the Graph API with the following scopes
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;WindowsUpdates.ReadWrite.All&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Permission to view DeviceIDs in Azure AD&lt;/li&gt;
+&lt;li&gt;Microsoft.Graph PowerShell Module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;connecting-to-the-graph-api&#34;&gt;Connecting to the Graph API&lt;/h2&gt;
+&lt;p&gt;Connecting via this module could not be easier, follow the below steps after ensuring the Microsoft.Graph module is installed.;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Launch a PowerShell prompt&lt;/li&gt;
+&lt;li&gt;Enter &lt;code&gt;Connect-MgGraph -Scopes WindowsUpdates.ReadWrite.All -ContextScope Process&lt;/code&gt;, hit Enter&lt;/li&gt;
+&lt;li&gt;Sign in, If not already consented, you will be prompted with an image like the below. You can choose to grant for yourself or your organisation if you have the permissions.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;h3 id=&#34;microsoft-graph-profile-selection&#34;&gt;Microsoft Graph Profile Selection&lt;/h3&gt;
+&lt;p&gt;The first thing we need to do before running any commands is call &lt;code&gt;Select-MgProfile -Name beta&lt;/code&gt; to ensure we are using the Beta endpoint of the Microsoft Graph.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;managing-update-policies&#34;&gt;Managing Update Policies&lt;/h1&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;At the time of writing this article, the Policy Name was not available in the Graph API, this change is expected to be implemented in the future, but all of the work in this article is based on IDs. &lt;/br&gt; &lt;/br&gt; If you use the GUI, the Policy Names only exist on that device, if you were to try and use another machine with the same configuration the names would not appear.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;So before we get to looking at the graph calls and creating policies, it is important to know that each &lt;strong&gt;Update Policy&lt;/strong&gt; has an &lt;strong&gt;Update Audience&lt;/strong&gt; which holds the Azure AD &lt;strong&gt;DeviceID&lt;/strong&gt;. Each device, then also needs to be &lt;strong&gt;enrolled&lt;/strong&gt; into the &lt;strong&gt;driver&lt;/strong&gt; updateCategory.&lt;/p&gt;
+
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;Make sure you use the &lt;strong&gt;DeviceID&lt;/strong&gt; from Azure AD, and not the Object ID.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;listing-update-policies&#34;&gt;Listing Update Policies&lt;/h2&gt;
+&lt;p&gt;As mentioned in the note at the start of this section, there are no policy names stored in the API, so knowing the ID&amp;rsquo;s for the policies is imperative if you wish to undertake certain operations on a specific policy. For me, I store these in a hash table and in my IDE like follows;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$policyMap = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Test       = &amp;lt;TestGUID&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Pilot      = &amp;lt;PilotGUID&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Production = &amp;lt;ProductionGUID&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This not only helps me understand which ID I am interacting with, but it allows me to utilise this for some mapping to audiences later down the line.&lt;/p&gt;
+&lt;p&gt;To list all of the policies within your environment, you can run &lt;code&gt;(Invoke-MgGraphRequest -Method GET -Uri &amp;quot;https://graph.microsoft.com/beta/admin/windows/updates/updatePolicies&amp;quot;).Value&lt;/code&gt; which will return something like the following;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Name                           Value
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----                           -----
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;audience                       {id, applicableContent}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;id                             &amp;lt;GUID&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;createdDateTime                &lt;span style=&#34;color:#ae81ff&#34;&gt;03&lt;/span&gt;/&lt;span style=&#34;color:#ae81ff&#34;&gt;02&lt;/span&gt;/&lt;span style=&#34;color:#ae81ff&#34;&gt;2023&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;44&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;deploymentSettings             {schedule, monitoring, expedite, userExperience...}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;autoEnrollmentUpdateCategories {driver}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;complianceChangeRules          {}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can also call the policy directly if you know the ID by running &lt;code&gt;(Invoke-MgGraphRequest -Method GET -Uri &amp;quot;https://graph.microsoft.com/beta/admin/windows/updates/updatePolicies(&#39;&amp;lt;GUID&amp;gt;&#39;)&amp;quot;).Value&lt;/code&gt;, but replacing the GUID placeholder.&lt;/p&gt;
+&lt;h3 id=&#34;listing-deployment-audience&#34;&gt;Listing Deployment Audience&lt;/h3&gt;
+&lt;p&gt;Now that&amp;rsquo;s great, we can see the policies, but what is the deployment audience you speak of? Well let look at that. If you re-run the command above but with a few changes as follow  you will see the deployment audience id.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;PS C:\&amp;gt; (Invoke-MgGraphRequest -Method GET -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/admin/windows/updates/updatePolicies&amp;#34;&lt;/span&gt;).Value[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;].audience
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Name                           Value
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----                           -----
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;id                             8f636944-xxxx-xxxx-xxxx-a8abd4179687
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;applicableContent              {}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once you have the deployment audience ID, you can see the members of the audience by running &lt;code&gt;(Invoke-MgGraphRequest -Method GET -Uri &amp;quot;https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences(&#39;GUID&#39;)/members&amp;quot;).Value&lt;/code&gt; by replacing the GUID placeholder with the id, which will return something like the below;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Name                           Value
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----                           -----
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;id                             xxxxxx-15f2-xxxx-b195-316d6xxxxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@odata.type                    &lt;span style=&#34;color:#75715e&#34;&gt;#microsoft.graph.windowsUpdates.azureADDevice&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;errors                         {}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;enrollments                    {System.Collections.Hashtable, System.Collections.Hashtable}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;id                             xxxxxx-15f2-xxxx-b195-316d7xxxxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@odata.type                    &lt;span style=&#34;color:#75715e&#34;&gt;#microsoft.graph.windowsUpdates.azureADDevice&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;errors                         {}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;enrollments                    {System.Collections.Hashtable, System.Collections.Hashtable}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;These ID&amp;rsquo;s relate to the Azure AD &lt;strong&gt;DeviceID&lt;/strong&gt; property, if you further expand one of the values using &lt;code&gt;(Invoke-MgGraphRequest -Method GET -Uri &amp;quot;https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences(&#39;8f636944-xxxx-xxxx-xxxx-a8abd4179687&#39;)/members&amp;quot;).Value[0].enrollments&lt;/code&gt; you will see the device is on-boarded for Driver management.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Name                           Value
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----                           -----
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@odata.type                    &lt;span style=&#34;color:#75715e&#34;&gt;#microsoft.graph.windowsUpdates.updateManagementEnrollment&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;updateCategory                 feature
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@odata.type                    &lt;span style=&#34;color:#75715e&#34;&gt;#microsoft.graph.windowsUpdates.updateManagementEnrollment&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;updateCategory                 driver
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ok, so now we&amp;rsquo;ve seen them listed, lets look how to conceptually create a policy from the ground up.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;creating-an-update-policy&#34;&gt;Creating an Update Policy&lt;/h2&gt;
+&lt;p&gt;At the start of the &lt;a href=&#34;#managing-update-policies&#34;&gt;&lt;strong&gt;Managing Update Policies&lt;/strong&gt;&lt;/a&gt; section we mentioned the fact that each update policy requires an audience right? Well you cannot create a policy without an audience, so that is the first item on the Agenda.&lt;/p&gt;
+&lt;h3 id=&#34;creating-an-update-audience&#34;&gt;Creating an Update Audience&lt;/h3&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;You &lt;strong&gt;CAN NOT&lt;/strong&gt; add members to an audience during it&amp;rsquo;s creation, this has to be done once created.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Creating an Audience is easy, it doesn&amp;rsquo;t require a post body as such, just a blank JSON object. In the below example we are going to create this and assign it to a variable that will be used in other parts the process.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$daAudience = Invoke-MgGraphRequest -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences&amp;#34;&lt;/span&gt; -Method POST -Body @{} -ContentType &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;application/json&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Calling the variable will return the response&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;PS C:\&amp;gt; $daAudience                                                                                                                                                                 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Name                           Value
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----                           -----
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@odata.context                 https&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt;//graph.microsoft.com/beta/$metadata&lt;span style=&#34;color:#75715e&#34;&gt;#admin/windows/updates/deploymentAudiences/$entity&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;id                             dbe37901-xxxx-xxxx-xxxx-4745de6ee147
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;applicableContent              {}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
+&lt;h4 id=&#34;adding-members-to-the-policy&#34;&gt;Adding Members to the policy&lt;/h4&gt;
+
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;Adding members can only be done in batches of 200!&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Now we have our audience, you will want to add devices right? for this you will need a list of your device IDs in an object as below and then make the post request to add the members to the audience.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$addMembersPostBody = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    addMembers = @(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;@odata.type&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#microsoft.graph.windowsUpdates.azureADDevice&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            id            = &amp;lt;DeviceID&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;@odata.type&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#microsoft.graph.windowsUpdates.azureADDevice&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            id            = &amp;lt;DeviceID2&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Invoke-MgGraphRequest -Method POST -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences(&amp;#39;&lt;/span&gt;$($daAudience.id)&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;)/updateAudience&amp;#34;&lt;/span&gt; -Body $addMembersPostBody -ContentType &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;application/json&amp;#39;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ok, we are kind of close, but as of yet, no cigar. There are two ways to enrol your devices, Implicitly or Explicitly. You can create your update policies to &lt;strong&gt;Implicitly&lt;/strong&gt; enroll device, however, for a larger number of devices (more likely during initial on-boarding) the longer this will take. You also have to bear in mind, this is a global service, so if everyone relies on implicit enrolment, then the slower your devices will be enrolled.&lt;/p&gt;
+&lt;p&gt;It is recommended, that devices are &lt;strong&gt;Explicitly&lt;/strong&gt; enrolled as per the &lt;a href=&#34;#explicitly-enrolling-devices&#34;&gt;&lt;strong&gt;Explicitly Enrolling Devices&lt;/strong&gt;&lt;/a&gt; section below.&lt;/p&gt;
+&lt;/br&gt;
+&lt;h4 id=&#34;explicitly-enrolling-devices&#34;&gt;Explicitly Enrolling Devices&lt;/h4&gt;
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;While there isn&amp;rsquo;t a limit on the amount of devices you can post, the more devices you add, the longer it will take to complete the request.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Enrolling a device, is somewhat similar to the adding members, you need an object with you devices in to be used as the body of the Graph call. A sample of this object would look like the following snippet, with the invoked call following .&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$enrollPostBody = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            updateCategory = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;driver&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            assets = @(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;@odata.type&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#microsoft.graph.windowsUpdates.azureADDevice&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    id = &amp;lt;DeviceID&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;@odata.type&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#microsoft.graph.windowsUpdates.azureADDevice&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    id = &amp;lt;DeviceID2&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Invoke-MgGraphRequest -Method POST -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/admin/windows/updates/updatableAssets/enrollAssets&amp;#34;&lt;/span&gt; -Body $enrollPostBody -ContentType &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;application/json&amp;#39;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once enrolled, you can review the enrolment configuration as per the end of the &lt;a href=&#34;#listing-deployment-audience&#34;&gt;&lt;strong&gt;Listing Deployment Audience&lt;/strong&gt;&lt;/a&gt; section.&lt;/p&gt;
+&lt;h3 id=&#34;creating-an-update-policy-1&#34;&gt;Creating an update policy&lt;/h3&gt;
+&lt;p&gt;There are two types of policies to create, &lt;strong&gt;Manual&lt;/strong&gt; and &lt;strong&gt;Automatic&lt;/strong&gt;. So in the drop-down&amp;rsquo;s below there are code snippets that will create the policies for you.&lt;/p&gt;
+
+
+&lt;div class=&#34;border border-default collapse-wrapper&#34;&gt;
+  &lt;a class=&#34;d-flex p-2 collapse-head&#34; data-toggle=&#34;collapse&#34; href=&#34;#manual&#34; role=&#34;button&#34;&gt;
+    Manual &lt;i class=&#34;fas fa-plus ml-auto&#34;&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  &lt;div class=&#34;collapse&#34; id=&#34;manual&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$manualUpdatePolicyParams = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;@odata.type&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#microsoft.graph.windowsUpdates.updatePolicy&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    audience = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        id = $daAudience.id
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    autoEnrollmentUpdateCategories = @(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;driver&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    complianceChanges = @()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    deploymentSettings = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        schedule = $null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        monitoring = $null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        contentApplicability = $null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        userExperience = $null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        expedite = $null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Invoke-MgGraphRequest -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/admin/windows/updates/updatePolicies&amp;#34;&lt;/span&gt; -Method POST -Body $manualUpdatePolicyParams -ContentType &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;application/json&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&#34;border border-default collapse-wrapper&#34;&gt;
+  &lt;a class=&#34;d-flex p-2 collapse-head&#34; data-toggle=&#34;collapse&#34; href=&#34;#automatic&#34; role=&#34;button&#34;&gt;
+    Automatic &lt;i class=&#34;fas fa-plus ml-auto&#34;&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  &lt;div class=&#34;collapse&#34; id=&#34;automatic&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$automaticUpdatePolicyParams = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;@odata.type&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#microsoft.graph.windowsUpdates.updatePolicy&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    audience = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        id = $daAudience.id
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    autoEnrollmentUpdateCategories = @(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;driver&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    complianceChangeRules = @(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;@odata.type&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#microsoft.graph.windowsUpdates.contentApprovalRule&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            durationBeforeDeploymentStart = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;PT0S&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            contentFilter = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;@odata.type&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#microsoft.graph.windowsUpdates.driverUpdateFilter&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    deploymentSettings = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        schedule = $null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        monitoring = $null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        contentApplicability = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            offerWhileRecommendedBy = @(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;microsoft&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            safeguard = $null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        userExperience = $null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        expedite = $null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Invoke-MgGraphRequest -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/admin/windows/updates/updatePolicies&amp;#34;&lt;/span&gt; -Method POST -Body $automaticUpdatePolicyParams -ContentType &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;application/json&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;There are a couple of properties that are worth noting.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;autoEnrollmentUpdateCategories&lt;/strong&gt; - This array allows you to specify auto enrolment into the driver service, meaning if you forget to manually enrol them, it will take care of it for you, albeit slower.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;durationBeforeDeploymentStart&lt;/strong&gt; - This property specifies the deferral in an ISO8601 format, e.g PT1D = 1 Day, PT2H30M = 2 hours and 30 Minutes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can also dig further into these setting in the &lt;a href=&#34;https://learn.microsoft.com/en-us/graph/api/adminwindowsupdates-post-updatepolicies?view=graph-rest-beta&#34;&gt;&lt;strong&gt;Graph API Documentation&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;listing-applicable-content&#34;&gt;Listing Applicable Content&lt;/h2&gt;
+&lt;p&gt;Now we have our policies, let look at how we see the applicable content for devices in an deployment audience. We will use the same audience we created earlier so we will continue to use the &lt;code&gt;$daAudience&lt;/code&gt; variable.&lt;/p&gt;
+&lt;p&gt;To list the applicable content, you can run &lt;code&gt;(Invoke-MgGraphRequest -Method GET -Uri &amp;quot;https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences/$($daAudience.id)/applicableContent&amp;quot;).value&lt;/code&gt; and it will return all applicable content, with their respective applicable device ids. You can further expand into one of these values by appending either &lt;code&gt;.value[0].catalogentry&lt;/code&gt; or &lt;code&gt;.value[0].matchedDevices&lt;/code&gt; in place of the .value.&lt;/p&gt;
+&lt;h2 id=&#34;manually-approving-driver-content&#34;&gt;Manually Approving Driver Content&lt;/h2&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;While I am writing this up for visibility, I would highly recommend standing up a machine to host the GUI with the configuration as required..&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;To manually approve the driver content, you will first need to find the &lt;strong&gt;catalogID&lt;/strong&gt; of the desired update. This will take us on a journey back through the eco system, firstly finding the &lt;strong&gt;policy&lt;/strong&gt; you want to review, followed by locating the &lt;strong&gt;audience id&lt;/strong&gt;, and then reviewing the applicable content manually, and noting the &lt;strong&gt;catalogEntry id&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;I wont walk through the whole process, as they are stepped out along the way of this article, but I will summarise the order below.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Locate the &lt;strong&gt;Policy&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Locate the &lt;strong&gt;audience&lt;/strong&gt; id&lt;/li&gt;
+&lt;li&gt;Review the &lt;a href=&#34;#listing-applicable-content&#34;&gt;&lt;strong&gt;Applicable Content&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Note the &lt;strong&gt;catalogEntry&lt;/strong&gt; id&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Once you have done the above, you can compile another object as per below to approve the content, replacing the &lt;strong&gt;CatalogEntryID&lt;/strong&gt; and &lt;strong&gt;UpdatePolicyID&lt;/strong&gt; placeholders with the correct values.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;@odata.type&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#microsoft.graph.windowsUpdates.contentApproval&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    content = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;@odata.type&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#microsoft.graph.windowsUpdates.catalogContent&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        catalogEntry = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;@odata.type&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#microsoft.graph.windowsUpdates.driverUpdateCatalogEntry&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            id = &amp;lt;CatalogEntryID&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Invoke-MgGraphRequest -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/admin/windows/updates/updatePolicies/&amp;lt;UpdatePolicyID&amp;gt;/complianceChanges&amp;#34;&lt;/span&gt; -Method POST -Body $automaticUpdatePolicyParams -ContentType &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;application/json&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;closing-thoughts&#34;&gt;Closing Thoughts&lt;/h2&gt;
+&lt;p&gt;It has been a long time in the making, but gosh, its going to help so many organisations, and in the future it will be a must have implementation. But for now, lets feed back to the Microsoft Team and get this service in use to ensure we can build a brighter and better future for device management.&lt;/p&gt;
+&lt;p&gt;Time to sign off on this one now, We&amp;rsquo;ve covered a lot in this article, and there is surely more to come. I always love hearing from people, so please comment, share and feedback on the article :).&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
