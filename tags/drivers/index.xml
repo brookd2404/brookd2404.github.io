@@ -6,7 +6,115 @@
     <description>Recent content in Drivers on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Feb 2023 14:17:46 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/drivers/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Feb 2023 15:17:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/drivers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Add Offer Deferrals to Driver and Firmware Policies</title>
+      <link>https://euc365.com/post/add-offer-deferrals-driver-firmware-policies/</link>
+      <pubDate>Wed, 15 Feb 2023 15:17:00 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/add-offer-deferrals-driver-firmware-policies/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s been a days or so since the release of the public preview of Driver and Firmware management (&lt;a href=&#34;https://techcommunity.microsoft.com/t5/windows-it-pro-blog/commercial-driver-and-firmware-servicing-is-publicly-available/ba-p/3741194&#34;&gt;&lt;strong&gt;SEE PRESS RELEASE HERE&lt;/strong&gt;&lt;/a&gt;), and many of you may have used the GUI to create your policies, and have been left scratching your head as to why you cannot specify a deferral period. Well, let me let you into a secret, &lt;strong&gt;IT IS&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;If you have looked at my &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;Driver Management via Graph API and PowerShell&lt;/strong&gt;&lt;/a&gt; post, I call it out within the &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/#creating-an-update-policy-1&#34;&gt;&lt;strong&gt;Create an Update Policy&lt;/strong&gt;&lt;/a&gt; section.&lt;/p&gt;
+&lt;p&gt;So, how do we add this to our policies so you don&amp;rsquo;t have to re-create your policies? Let&amp;rsquo;s take a look shall we.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Permissions to connect to the Graph API with the following scopes
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;WindowsUpdates.ReadWrite.All&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Microsoft.Graph PowerShell Module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;connecting-to-the-graph-api&#34;&gt;Connecting to the Graph API&lt;/h2&gt;
+&lt;p&gt;Connecting via this module could not be easier, follow the below steps after ensuring the Microsoft.Graph module is installed.;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Launch a PowerShell prompt&lt;/li&gt;
+&lt;li&gt;Enter &lt;code&gt;Connect-MgGraph -Scopes WindowsUpdates.ReadWrite.All&lt;/code&gt;, hit Enter&lt;/li&gt;
+&lt;li&gt;Sign in, If not already consented, you will be prompted with an image like the one below. You can choose to grant for yourself or your organisation if you have the permissions.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+
+
+
+&lt;h3 id=&#34;microsoft-graph-profile-selection&#34;&gt;Microsoft Graph Profile Selection&lt;/h3&gt;
+&lt;p&gt;The first thing we need to do before running any commands is call &lt;code&gt;Select-MgProfile -Name beta&lt;/code&gt; to ensure we are using the Beta endpoint of the Microsoft Graph.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;addupdate-deferral-dates&#34;&gt;Add/Update Deferral Dates&lt;/h2&gt;
+&lt;p&gt;Throughout the rest of this article we will be referring to a script called &lt;strong&gt;Update-PatchDeferrals.ps1&lt;/strong&gt;, this script can be found by using the GitHub Resource link below.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/Powershell_Scripts/blob/master/MS-Graph/WUfB%20DS/Update-PatchDeferrals.ps1&#34;&gt;&lt;img src=&#34;http://euc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The aim of this script is to simplify the process as much as possible for everyone. I will step through the manual process so the understanding of what is happening is there, but for simplicity, the use of the script (or function within) will be the better option.&lt;/p&gt;
+&lt;p&gt;To update a policy using the script, it simply needs to be called as follows;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Update-PatchDeferrals.ps1 -updatePolicyID &#39;cc4fbe71-a024-41c2-a99f-559dcde6e916&#39; -deferralTime &#39;PT5D&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;looking-through-the-function&#34;&gt;Looking through the Function&lt;/h3&gt;
+&lt;p&gt;The basic premise of this script is to use the current complianceChangeRules, but only modify the durationBeforeDeploymentStart property which will control the deferral date. I thought the simplest way to do this was to pull in the current configuration, and amend only the durationBeforeDeploymentStart property. Let&amp;rsquo;s take a look at how we achieve this then shall we.&lt;/p&gt;
+&lt;p&gt;First of all, we have our &lt;strong&gt;Mandatory&lt;/strong&gt; parameters, &lt;strong&gt;updatePolicyID&lt;/strong&gt; and the &lt;strong&gt;deferralTime&lt;/strong&gt;. The update policy ID can be found by looking at the &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/#listing-update-policies&#34;&gt;&lt;strong&gt;Listing Update Policies&lt;/strong&gt;&lt;/a&gt; section in my original &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;article&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;deferralTime&lt;/strong&gt;, is the parameter that gives us what we need. This needs to be formatted in the &lt;strong&gt;ISO8601&lt;/strong&gt; standards for duration (&lt;a href=&#34;https://en.wikipedia.org/wiki/ISO_8601#Durations&#34;&gt;&lt;strong&gt;LINK&lt;/strong&gt;&lt;/a&gt;), for example, If we added PT1H, that would defer the update for an hour before offering. If we was to use PT10D, that would defer the offer for 10 days.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[CmdletBinding()]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;param&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# The Update Policy ID&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [Parameter(&lt;span style=&#34;color:#a6e22e&#34;&gt;Mandatory&lt;/span&gt; = $true)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $updatePolicyID,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# ISO8601 Timeformat for Deferral&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [Parameter(&lt;span style=&#34;color:#a6e22e&#34;&gt;Mandatory&lt;/span&gt; = $true)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $deferralTime
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
+&lt;p&gt;The first thing the function then does in the &lt;strong&gt;begin&lt;/strong&gt; section is form the base object for the &lt;strong&gt;POST&lt;/strong&gt; request later in the module, it then fulfils the &lt;code&gt;$complianceChangeRules&lt;/code&gt; variable with the current settings from the policy.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;begin&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;#The Base Object for the post Body&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $paramBody = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;@odata.type&amp;#34;&lt;/span&gt;         = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#microsoft.graph.windowsUpdates.updatePolicy&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        complianceChangeRules = @()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Create the param body base&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $complianceChangeRules = (Invoke-MgGraphRequest -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/admin/windows/updates/updatePolicies/&lt;/span&gt;$updatePolicyID&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; -Method GET).complianceChangeRules
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;   
+&lt;p&gt;In the &lt;strong&gt;process&lt;/strong&gt; section, this is where the object combines the &lt;code&gt;$paramBody&lt;/code&gt; and the &lt;code&gt;$complianceChangeRules&lt;/code&gt; objects, and then for each object in the &lt;strong&gt;complianceChangeRules&lt;/strong&gt; array, it will update the deferral time.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;process&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $paramBody.complianceChangeRules += $complianceChangeRules
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $paramBody.complianceChangeRules | foreach-object {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $_.durationBeforeDeploymentStart = $deferralTime
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
+&lt;p&gt;Finally, within the &lt;strong&gt;end&lt;/strong&gt; section, we post the &lt;code&gt;$paramBody&lt;/code&gt; object to the Graph API to update the deferral on the policy.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Invoke-MgGraphRequest -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/admin/windows/updates/updatePolicies/&lt;/span&gt;$updatePolicyID&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; -Method PATCH -Body $paramBody
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;This deferral will only apply to updates approved &lt;strong&gt;Automatically&lt;/strong&gt; after the change has been made. Any current approvals are unaffected.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;closing-thoughts&#34;&gt;Closing Thoughts&lt;/h2&gt;
+&lt;p&gt;From what I have been seeing in the community, there seems to be an air of expectation that this would have been released with Intune UI Capability. However, what has been released is the foundations of the building, it is everything that underpins the structural walls of what is to come!, without what we have today, the roof would never be added!&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>Driver Management via Graph API  and PowerShell</title>
       <link>https://euc365.com/post/driver-management-graph-api/</link>
