@@ -132,7 +132,7 @@
 &lt;h2 id=&#34;useful-links&#34;&gt;Useful Links&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://nodejs.org/en/download&#34;&gt;&lt;strong&gt;Node.JS Downloads&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/microsoft/wufbdsWebApplication&#34;&gt;&lt;strong&gt;WUfB DS Web Application Repo&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/microsoftgraph/windowsupdates-webapplication-sample&#34;&gt;&lt;strong&gt;WUfB DS Web Application Repo&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/graph/api/resources/adminwindowsupdates?view=graph-rest-beta&#34;&gt;&lt;strong&gt;Graph API Documentation&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;Driver Management via Graph API and PowerShell&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
