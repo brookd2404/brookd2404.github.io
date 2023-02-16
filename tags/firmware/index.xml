@@ -6,7 +6,181 @@
     <description>Recent content in Firmware on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Feb 2023 15:17:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/firmware/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Feb 2023 08:59:43 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/firmware/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>View Applicable Devices for Driver Deployments</title>
+      <link>https://euc365.com/post/view-applicable-devices-driver-deployments/</link>
+      <pubDate>Thu, 16 Feb 2023 08:59:43 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/view-applicable-devices-driver-deployments/</guid>
+      <description>&lt;p&gt;The commercial Driver and Firmware servicing has been big talk across the system management community (&lt;a href=&#34;https://techcommunity.microsoft.com/t5/windows-it-pro-blog/commercial-driver-and-firmware-servicing-is-publicly-available/ba-p/3741194&#34;&gt;&lt;strong&gt;SEE PRESS RELEASE HERE&lt;/strong&gt;&lt;/a&gt;) since it&amp;rsquo;s release on valentines day. It can be challenging though to find out the applicable devices, the UI does offer an applicable device count in its current state, however this post is to show you how to find the applicable devices in your audiences.&lt;/p&gt;
+&lt;p&gt;We will be looking at how we can do this via the Graph API, and also how you can retrieve this data from the Windows Update for Business Reports log analytics workspace.&lt;/p&gt;
+&lt;p&gt;If you don&amp;rsquo;t have WUfB Reports configured, you can take a look at my &lt;a href=&#34;https://euc365.com/post/vlog-wufb-reports.md&#34;&gt;&lt;strong&gt;VLOG&lt;/strong&gt;&lt;/a&gt; to assist with the configuration.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Permissions to connect to the Graph API with the following scopes
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;WindowsUpdates.ReadWrite.All&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Permission to query your Log Analytics workspace hosting WUfB Reports data&lt;/li&gt;
+&lt;li&gt;Permissions to Azure AD with the Ability to connect via PowerShell&lt;/li&gt;
+&lt;li&gt;Microsoft.Graph PowerShell Module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;connecting-to-the-graph-api&#34;&gt;Connecting to the Graph API&lt;/h2&gt;
+&lt;p&gt;Connecting via this module could not be easier, follow the below steps after ensuring the Microsoft.Graph module is installed.;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Launch a PowerShell prompt&lt;/li&gt;
+&lt;li&gt;Enter &lt;code&gt;Connect-MgGraph -Scopes WindowsUpdates.ReadWrite.All -ContextScope Process&lt;/code&gt;, hit Enter&lt;/li&gt;
+&lt;li&gt;Sign in, If not already consented, you will be prompted with an image like the below. You can choose to grant for yourself or your organisation if you have the permissions.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;h3 id=&#34;microsoft-graph-profile-selection&#34;&gt;Microsoft Graph Profile Selection&lt;/h3&gt;
+&lt;p&gt;The first thing we need to do before running any commands is call &lt;code&gt;Select-MgProfile -Name beta&lt;/code&gt; to ensure we are using the Beta endpoint of the Microsoft Graph.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;find-applicable-device-ids-using-the-graph&#34;&gt;Find Applicable Device id&amp;rsquo;s using the Graph&lt;/h1&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;This will only display the AzureAD Device ID, this will not give you the device name.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;To list all of the applicable content from a policy, you must first know the deploymentAudience id to which your policy is targeted. You can take a look at my &lt;a href=&#34;https://euc365.com/post/2023-02-07-driver-management-via-graph-api.md&#34;&gt;&lt;strong&gt;Driver Management via Graph API  and PowerShell&lt;/strong&gt;&lt;/a&gt; post on how to obtain this information.&lt;/p&gt;
+&lt;p&gt;Once you have your deployment audience you can run &lt;code&gt;(Invoke-MgGraphRequest -Method GET -Uri &amp;quot;https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences(&#39;&amp;lt;audienceID&amp;gt;&#39;)/applicableContent?`$expand=catalogEntry&amp;quot;).Value&lt;/code&gt;, replacing the &lt;code&gt;&amp;lt;audienceID&amp;gt;&lt;/code&gt; with your audience id, this will return something like the following;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Name                           Value
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----                           -----
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;matchedDevices                 {8exxxxxx-2bbe-xxxx-ba2c-xxxxxxxxxxf9, 16xxxxxx-aee7-xxxx-xxxx-xxxxxxxxxx39}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;catalogEntry                   {[&lt;span style=&#34;color:#66d9ef&#34;&gt;deployableUntilDateTime, ], [setupInformationFile, ], [provider, Intel&lt;/span&gt;], [versionDate&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;…&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;matchedDevices                 {24xxxxx-xxxx-xxxx-b50c-xxxxxxxxxxda, 8exxxxxx-2bbe-xxxx-ba2c-xxxxxxxxxxf9, 16xxxxxx-a&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;…&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;catalogEntry                   {[&lt;span style=&#34;color:#66d9ef&#34;&gt;deployableUntilDateTime, ], [setupInformationFile, ], [provider, Intel&lt;/span&gt;], [versionDate&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;…&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;matchedDevices                 {8exxxxxx-2bbe-xxxx-ba2c-xxxxxxxxxxf9, 16xxxxxx-aee7-xxxx-xxxx-xxxxxxxxxx39, dd8af46f-&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;…&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;catalogEntry                   {[&lt;span style=&#34;color:#66d9ef&#34;&gt;deployableUntilDateTime, ], [setupInformationFile, ], [provider, Intel&lt;/span&gt;], [versionDate&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;…&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;matchedDevices                 {8exxxxxx-2bbe-xxxx-ba2c-xxxxxxxxxxf9}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;As you can see the &lt;strong&gt;matchedDevices&lt;/strong&gt; has your Device IDs, however, from the above view, it isn&amp;rsquo;t ver consumable as you cannot see what driver is which, so you could run something like the following to try and make it a bit better;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$applicableConent = (Invoke-MgGraphRequest -Method GET -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences(&amp;#39;&amp;lt;audienceID&amp;gt;&amp;#39;)/applicableContent?&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;`$&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;expand=catalogEntry&amp;#34;&lt;/span&gt;).Value
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$consumableContent = @()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FOREACH&lt;/span&gt; ($dObj &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; $applicableConent) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $dContent = @{}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $dContent.driverDisplayName += $dObj.catalogEntry.displayName
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $dContent.matchedDevices += $dObj.matchedDevices
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $consumableContent += $dContent
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Run this to view an example of your output&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$consumableContent[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you have run the above you should then see something like the following.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Name                           Value
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----                           -----
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;matchedDevices                 {8exxxxxx-2bbe-xxxx-ba2c-xxxxxxxxxxf9, 16xxxxxx-aee7-xxxx-xxxx-xxxxxxxxxx39}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;driverDisplayName              Intel - net - &lt;span style=&#34;color:#ae81ff&#34;&gt;22.190&lt;/span&gt;.0.4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
+&lt;p&gt;This is a lot more consumable, however, it is still only a list of ID&amp;rsquo;s which you would then have to circle through with the AzureAD powershell module to help this be of more use. You also have to do this for each deployment audience you have, so if you have multiple, this could soon become very complex.&lt;/p&gt;
+&lt;p&gt;So, with that in mind, lets take a look at a more consumable, and user friendly way to do this with WUfB Reports Log Data.&lt;/p&gt;
+&lt;h2 id=&#34;wufb-reports-data&#34;&gt;WUfB Reports Data&lt;/h2&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;This data will have a delay of up to 24 hours.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;We will not be looking at the Monitor Workbook for this section, we will only be looking at the Log Data in the Log Analytics workspace. So if you browse to your workspace and open up the logs section we will then be able to run a couple of queries.&lt;/p&gt;
+&lt;p&gt;Lets break the first couple of lines of the queries down a little before we look at the final summarization.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;We select the table where the data is stored&lt;/li&gt;
+&lt;li&gt;We filter for the DriverUpdate Category&lt;/li&gt;
+&lt;li&gt;We ensure we are only picking up devices with applicable content, and where the status is not cancelled&lt;/li&gt;
+&lt;li&gt;We join the UCClient table on the AzureADDeviceID so we can consume the DeviceName&lt;/li&gt;
+&lt;li&gt;We then summerize the results to get the latest entry per device object.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;From the above we then summerize this data in a couple of ways to get different views on the data.&lt;/p&gt;
+&lt;h3 id=&#34;by-catalogid&#34;&gt;By CatalogID&lt;/h3&gt;
+&lt;p&gt;There are numerous ways we can group the data for review, however, no matter what the &lt;strong&gt;PolicyID&lt;/strong&gt;, or &lt;strong&gt;DeploymentID&lt;/strong&gt; is, if the update &lt;strong&gt;CatalogID&lt;/strong&gt; is the same it makes sense to logically group them by this for a view across the entire estate.&lt;/p&gt;
+&lt;p&gt;So with that you end up with the following query, which will display a count of devices, the Device DisplayNames along with the catalogID and Update DisplayName as in the image at the end.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;UCServiceUpdateStatus
+| where UpdateCategory == &amp;#34;DriverUpdate&amp;#34;
+| where isnotempty(ServiceState) and ServiceState !in (&amp;#34;Cancelled&amp;#34;)
+| join UCClient on AzureADDeviceId
+| summarize arg_max(TimeGenerated,*) by AzureADDeviceId
+| summarize DeviceCount=count(), Devices=make_list(DeviceName) by CatalogId, UpdateDisplayName
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/daf/deploymentsPerDeviceFeature_huefc0c7c1cf085a68f039545df14c5611_19881_551x0_resize_q100_h2_box_3.webp&#34; alt=&#34;query1 Output&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;h2 id=&#34;by-policy&#34;&gt;By Policy&lt;/h2&gt;
+&lt;p&gt;If you would prefer to view applicable device by policy, the following query will do just that, the output will be very similar to above however it will be broken down by the PolicyID as show in the image.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;UCServiceUpdateStatus
+| where UpdateCategory == &amp;#34;DriverUpdate&amp;#34;
+| where isnotempty(ServiceState) and ServiceState !in (&amp;#34;Cancelled&amp;#34;)
+| join UCClient on AzureADDeviceId
+| summarize arg_max(TimeGenerated,*) by AzureADDeviceId
+| summarize DeviceCount=count(), Devices=make_list(DeviceName) by PolicyId, UpdateDisplayName
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/daf/kqlByPolicy_hu27b85ae30c69a585fae69c0962e2b85c_36814_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;query2 Output&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+
+
+
+&lt;hr&gt;
+&lt;h2 id=&#34;closing-thoughts&#34;&gt;Closing Thoughts&lt;/h2&gt;
+&lt;p&gt;When all is said and done, I would choose the Log Analytics data to report on this, I know it&amp;rsquo;s 24 hours behind, but how often do you need to know the data at that single point in time? And if you do, you could then always perform is semi-manully.&lt;/p&gt;
+&lt;p&gt;There are also many other ways you can manipulate this data for your needs, these are basic examples to set you on your way!.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>Add Offer Deferrals to Driver and Firmware Policies</title>
       <link>https://euc365.com/post/add-offer-deferrals-driver-firmware-policies/</link>
