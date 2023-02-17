@@ -8,6 +8,119 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 10 Jun 2022 09:08:42 +0000</lastBuildDate><atom:link href="https://euc365.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Bulk Enrol Device to Driver and Firmware Servicing</title>
+      <link>https://euc365.com/post/bulk-enrol-device-driver-firmware-servicing/</link>
+      <pubDate>Fri, 17 Feb 2023 17:33:09 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/bulk-enrol-device-driver-firmware-servicing/</guid>
+      <description>&lt;p&gt;The driver and firmware serving solution currently allows you to onboard up to 200 devices at once using a CSV file, and even then most of the leg work need to be completed by the Admin to export, populate a CSV and then upload it and so on. It isn&amp;rsquo;t yet possible to map an AAD Group to the deployment audience either which again, isn&amp;rsquo;t always ideal if you have devices in their thousands and you want to enrol them into the service to bring back some more control.&lt;/p&gt;
+&lt;p&gt;With all that said and done, it is completely possible to automate this process with the Graph API and PowerShell. In this article we will focus on how to achieve just that with very little effort required from admins.&lt;/p&gt;
+
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;While this solution will check the current update audience for a device, it will not check all of your audiences.&lt;/br&gt;&lt;/br&gt;
+This can leave devices ending up in multiple policies if they exist in multiple groups, and this is not a recommended practice, although it is allowed.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Permissions to connect to the Graph API with the following scopes
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;WindowsUpdates.ReadWrite.All&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Group.Read.All&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Permissions to Azure AD with the Ability to connect via PowerShell&lt;/li&gt;
+&lt;li&gt;Microsoft.Graph PowerShell Module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;The script snippets and process will all be driven around a script called &lt;strong&gt;Update-BulkMembers.ps1&lt;/strong&gt; which is store on my GitHub repo, this can be accessed using the button below;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/Powershell_Scripts/blob/master/MS-Graph/WUfB%20DS/Update-BulkMembers.ps1&#34;&gt;&lt;img src=&#34;http://euc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;executing-the-script&#34;&gt;Executing the Script&lt;/h2&gt;
+&lt;p&gt;There are two things needed to execute the script;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Azure AD Group ID&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Update Audience ID&lt;/strong&gt; (for assistance on finding this, look at &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api&#34;&gt;&lt;strong&gt;THIS POST&lt;/strong&gt;&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It is super simple to achieve the end goal by just executing the scrip with the following command;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Update-BulkMembers.ps1 -aadGroupID &amp;lt;AADGroupID&amp;gt; -audienceId &amp;lt;updateAudienceID&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This will then get all group members, break them up in to chunks of 200 devices and then onboard them into the services and populate the audience. However, if you want to know how it works, stick around and lets break it down.&lt;/p&gt;
+&lt;h3 id=&#34;breaking-down-the-script&#34;&gt;Breaking down the script&lt;/h3&gt;
+&lt;p&gt;We will skip past the first few bits which handle parameters, module installation and authentication and skip straight to the goodies!&lt;/p&gt;
+&lt;p&gt;The first part of the code (below), will get the &lt;strong&gt;ObjectID&amp;rsquo;s&lt;/strong&gt; of the members of the Azure AD Group, and then display the count of devices, before then breaking it down into chunks of 200 ids, and then getting all of the members of the current audience.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Get Group Members IDs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$GroupMemberIDs = (Get-MgGroupMember -GroupId $aadGroupID -All).id
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$aadgroupID&lt;span style=&#34;color:#e6db74&#34;&gt; &lt;/span&gt;$($GroupMemberIDs.Count)&lt;span style=&#34;color:#e6db74&#34;&gt; members&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Break the id&amp;#39;s into chunks of 200&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$chunks = [&lt;span style=&#34;color:#66d9ef&#34;&gt;System.Collections.ArrayList&lt;/span&gt;]::new()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; ($i = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; $i &lt;span style=&#34;color:#f92672&#34;&gt;-lt&lt;/span&gt; $GroupMemberIDs.Count; $i += &lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (($GroupMemberIDs.Count - $i) &lt;span style=&#34;color:#f92672&#34;&gt;-gt&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;199&lt;/span&gt;  ) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $chunks.add($GroupMemberIDs[$i..($i + &lt;span style=&#34;color:#ae81ff&#34;&gt;199&lt;/span&gt;)])
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $chunks.add($GroupMemberIDs[$i..($GroupMemberIDs.Count - &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)])
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$updateAudienceMembers = Invoke-GetRequest `
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences(&amp;#39;&lt;/span&gt;$audienceId&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;)/members&amp;#34;&lt;/span&gt; -All
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
+&lt;p&gt;Following on from this, we enter the &lt;strong&gt;foreach&lt;/strong&gt; loop for the &lt;strong&gt;chunks&lt;/strong&gt; that were created in the previous snippet. Inside this foreach loop, it will get the &lt;strong&gt;DeviceID&lt;/strong&gt; for each of the members and add them to the &lt;code&gt;$azureDeviceIDs&lt;/code&gt; variable as follows;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$AzureDeviceIDs = @()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$GroupMemberIDs | foreach-object {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $DeviceID = (Get-AzureADDevice -ObjectID $_).DeviceID
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $AzureDeviceIDs += $DeviceID
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
+Following that, we create two post body objects, one for the enrollment into the service, the second for adding the device to the audience. 
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$enrollParamBody = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    updateCategory = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;driver&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    assets = @(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$audienceParamBody = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    addMembers = @(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
+&lt;p&gt;We then do a foreach loop of the Azure AD &lt;strong&gt;DeviceID`s&lt;/strong&gt;, and check if they exist in the policy audience, and also check if they are enrolled into the service. If they are &lt;strong&gt;NOT&lt;/strong&gt; if will add them to the respective post bodies for invocation a right at the end.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;foreach&lt;/span&gt; ($id &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; $azureDeviceIDs) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;-Not&lt;/span&gt;($updateAudienceMembers.id &lt;span style=&#34;color:#f92672&#34;&gt;-contains&lt;/span&gt; $id)) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $memberObject = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;@odata.type&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#microsoft.graph.windowsUpdates.azureADDevice&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            id            = $id
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $audienceParamBody.addMembers += $memberObject
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;-Not&lt;/span&gt;($updateAudienceMembers.id &lt;span style=&#34;color:#f92672&#34;&gt;-contains&lt;/span&gt; $id) &lt;span style=&#34;color:#f92672&#34;&gt;-or&lt;/span&gt; ($updateAudienceMembers | Where-Object {$_.id &lt;span style=&#34;color:#f92672&#34;&gt;-match&lt;/span&gt; $id}).enrollments.updateCategory &lt;span style=&#34;color:#f92672&#34;&gt;-notcontains&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;driver&amp;#34;&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $memberObject = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;@odata.type&amp;#34;&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#microsoft.graph.windowsUpdates.azureADDevice&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            id            = $id
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $enrollParamBody.assets += $memberObject
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
+Last, but not least we post the relevant bodies to the relevant endpoints and we are a wrap! 
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Explicitly Enrol Devices&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Invoke-MgGraphRequest `
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    -Method POST `
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/admin/windows/updates/updatableAssets/enrollAssets&amp;#34;&lt;/span&gt; `
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    -Body $enrollParamBody 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Post Audience Members&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Invoke-MgGraphRequest `
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    -Method POST `
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    -Uri &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences(&amp;#39;&lt;/span&gt;$audienceId&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;)/updateAudience&amp;#34;&lt;/span&gt; `
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    -Body ( $audienceParamBody | ConvertTo-Json -Depth &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;closing-thoughts&#34;&gt;Closing Thoughts&lt;/h2&gt;
+&lt;p&gt;I hope this will help you further onboard devices at scale to really put the services to the test before we get the intune capabilities or even the ability to use native Azure AD groups.&lt;/p&gt;
+&lt;p&gt;Please reach out with any feedback you may have too :).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>View Applicable Devices for Driver Deployments</title>
       <link>https://euc365.com/post/view-applicable-devices-driver-deployments/</link>
       <pubDate>Thu, 16 Feb 2023 08:59:43 +0000</pubDate>
