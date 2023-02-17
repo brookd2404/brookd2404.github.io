@@ -15,7 +15,7 @@
       <guid>https://euc365.com/post/view-applicable-devices-driver-deployments/</guid>
       <description>&lt;p&gt;The commercial Driver and Firmware servicing has been big talk across the system management community (&lt;a href=&#34;https://techcommunity.microsoft.com/t5/windows-it-pro-blog/commercial-driver-and-firmware-servicing-is-publicly-available/ba-p/3741194&#34;&gt;&lt;strong&gt;SEE PRESS RELEASE HERE&lt;/strong&gt;&lt;/a&gt;) since it&amp;rsquo;s release on valentines day. It can be challenging though to find out the applicable devices, the UI does offer an applicable device count in its current state, however this post is to show you how to find the applicable devices in your audiences.&lt;/p&gt;
 &lt;p&gt;We will be looking at how we can do this via the Graph API, and also how you can retrieve this data from the Windows Update for Business Reports log analytics workspace.&lt;/p&gt;
-&lt;p&gt;If you don&amp;rsquo;t have WUfB Reports configured, you can take a look at my &lt;a href=&#34;https://euc365.com/post/vlog-wufb-reports.md&#34;&gt;&lt;strong&gt;VLOG&lt;/strong&gt;&lt;/a&gt; to assist with the configuration.&lt;/p&gt;
+&lt;p&gt;If you don&amp;rsquo;t have WUfB Reports configured, you can take a look at my &lt;a href=&#34;https://euc365.com/post/vlog-wufb-reports&#34;&gt;&lt;strong&gt;VLOG&lt;/strong&gt;&lt;/a&gt; to assist with the configuration.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Permissions to connect to the Graph API with the following scopes
@@ -65,7 +65,7 @@
 
 &lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;This will only display the AzureAD Device ID, this will not give you the device name.&lt;/p&gt;&lt;/div&gt;
 
-&lt;p&gt;To list all of the applicable content from a policy, you must first know the deploymentAudience id to which your policy is targeted. You can take a look at my &lt;a href=&#34;https://euc365.com/post/2023-02-07-driver-management-via-graph-api.md&#34;&gt;&lt;strong&gt;Driver Management via Graph API  and PowerShell&lt;/strong&gt;&lt;/a&gt; post on how to obtain this information.&lt;/p&gt;
+&lt;p&gt;To list all of the applicable content from a policy, you must first know the deploymentAudience id to which your policy is targeted. You can take a look at my &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api&#34;&gt;&lt;strong&gt;Driver Management via Graph API  and PowerShell&lt;/strong&gt;&lt;/a&gt; post on how to obtain this information.&lt;/p&gt;
 &lt;p&gt;Once you have your deployment audience you can run &lt;code&gt;(Invoke-MgGraphRequest -Method GET -Uri &amp;quot;https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences(&#39;&amp;lt;audienceID&amp;gt;&#39;)/applicableContent?`$expand=catalogEntry&amp;quot;).Value&lt;/code&gt;, replacing the &lt;code&gt;&amp;lt;audienceID&amp;gt;&lt;/code&gt; with your audience id, this will return something like the following;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Name                           Value
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----                           -----

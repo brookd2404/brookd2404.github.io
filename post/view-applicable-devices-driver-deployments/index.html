@@ -54,7 +54,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://euc365.com/post/view-applicable-devices-driver-deployments/" /><meta property="og:image" content="https://euc365.com/images/post/daf/deploymentsPerDeviceFeature.png" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-02-16T08:59:43+00:00" />
-<meta property="article:modified_time" content="2023-02-16T10:19:05+00:00" />
+<meta property="article:modified_time" content="2023-02-17T14:34:36+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://euc365.com/images/post/daf/deploymentsPerDeviceFeature.png"/>
@@ -367,7 +367,7 @@ if (!doNotTrack) {
           </ul>
           <div class="content"><p>The commercial Driver and Firmware servicing has been big talk across the system management community (<a href="https://techcommunity.microsoft.com/t5/windows-it-pro-blog/commercial-driver-and-firmware-servicing-is-publicly-available/ba-p/3741194"><strong>SEE PRESS RELEASE HERE</strong></a>) since it&rsquo;s release on valentines day. It can be challenging though to find out the applicable devices, the UI does offer an applicable device count in its current state, however this post is to show you how to find the applicable devices in your audiences.</p>
 <p>We will be looking at how we can do this via the Graph API, and also how you can retrieve this data from the Windows Update for Business Reports log analytics workspace.</p>
-<p>If you don&rsquo;t have WUfB Reports configured, you can take a look at my <a href="/post/vlog-wufb-reports.md"><strong>VLOG</strong></a> to assist with the configuration.</p>
+<p>If you don&rsquo;t have WUfB Reports configured, you can take a look at my <a href="/post/vlog-wufb-reports"><strong>VLOG</strong></a> to assist with the configuration.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>Permissions to connect to the Graph API with the following scopes
@@ -417,7 +417,7 @@ if (!doNotTrack) {
 
 <div class="notices note" ><p>This will only display the AzureAD Device ID, this will not give you the device name.</p></div>
 
-<p>To list all of the applicable content from a policy, you must first know the deploymentAudience id to which your policy is targeted. You can take a look at my <a href="/post/2023-02-07-driver-management-via-graph-api.md"><strong>Driver Management via Graph API  and PowerShell</strong></a> post on how to obtain this information.</p>
+<p>To list all of the applicable content from a policy, you must first know the deploymentAudience id to which your policy is targeted. You can take a look at my <a href="/post/driver-management-graph-api"><strong>Driver Management via Graph API  and PowerShell</strong></a> post on how to obtain this information.</p>
 <p>Once you have your deployment audience you can run <code>(Invoke-MgGraphRequest -Method GET -Uri &quot;https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences('&lt;audienceID&gt;')/applicableContent?`$expand=catalogEntry&quot;).Value</code>, replacing the <code>&lt;audienceID&gt;</code> with your audience id, this will return something like the following;</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span>Name                           Value
 </span></span><span style="display:flex;"><span>----                           -----
