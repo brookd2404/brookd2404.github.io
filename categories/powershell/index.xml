@@ -13,7 +13,7 @@
       <pubDate>Fri, 17 Feb 2023 17:33:09 +0000</pubDate>
       
       <guid>https://euc365.com/post/bulk-enrol-device-driver-firmware-servicing/</guid>
-      <description>&lt;p&gt;The driver and firmware serving solution currently allows you to onboard up to 200 devices at once using a CSV file, and even then most of the leg work need to be completed by the Admin to export, populate a CSV and then upload it and so on. It isn&amp;rsquo;t yet possible to map an AAD Group to the deployment audience either which again, isn&amp;rsquo;t always ideal if you have devices in their thousands and you want to enrol them into the service to bring back some more control.&lt;/p&gt;
+      <description>&lt;p&gt;The driver and firmware serving solution currently allows you to onboard up to 2000 devices at once using a CSV file, and even then most of the leg work need to be completed by the Admin to export, populate a CSV and then upload it and so on. It isn&amp;rsquo;t yet possible to map an AAD Group to the deployment audience either which again, isn&amp;rsquo;t always ideal if you have devices in their thousands and you want to enrol them into the service to bring back some more control.&lt;/p&gt;
 &lt;p&gt;With all that said and done, it is completely possible to automate this process with the Graph API and PowerShell. In this article we will focus on how to achieve just that with very little effort required from admins.&lt;/p&gt;
 
 &lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;While this solution will check the current update audience for a device, it will not check all of your audiences.&lt;/br&gt;&lt;/br&gt;
@@ -41,19 +41,19 @@ This can leave devices ending up in multiple policies if they exist in multiple 
 &lt;/ul&gt;
 &lt;p&gt;It is super simple to achieve the end goal by just executing the scrip with the following command;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Update-BulkMembers.ps1 -aadGroupID &amp;lt;AADGroupID&amp;gt; -audienceId &amp;lt;updateAudienceID&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;This will then get all group members, break them up in to chunks of 200 devices and then onboard them into the services and populate the audience. However, if you want to know how it works, stick around and lets break it down.&lt;/p&gt;
+&lt;p&gt;This will then get all group members, break them up in to chunks of 2000 devices and then onboard them into the services and populate the audience. However, if you want to know how it works, stick around and lets break it down.&lt;/p&gt;
 &lt;h3 id=&#34;breaking-down-the-script&#34;&gt;Breaking down the script&lt;/h3&gt;
 &lt;p&gt;We will skip past the first few bits which handle parameters, module installation and authentication and skip straight to the goodies!&lt;/p&gt;
-&lt;p&gt;The first part of the code (below), will get the &lt;strong&gt;ObjectID&amp;rsquo;s&lt;/strong&gt; of the members of the Azure AD Group, and then display the count of devices, before then breaking it down into chunks of 200 ids, and then getting all of the members of the current audience.&lt;/p&gt;
+&lt;p&gt;The first part of the code (below), will get the &lt;strong&gt;ObjectID&amp;rsquo;s&lt;/strong&gt; of the members of the Azure AD Group, and then display the count of devices, before then breaking it down into chunks of 2000 ids, and then getting all of the members of the current audience.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Get Group Members IDs&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$GroupMemberIDs = (Get-MgGroupMember -GroupId $aadGroupID -All).id
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$aadgroupID&lt;span style=&#34;color:#e6db74&#34;&gt; &lt;/span&gt;$($GroupMemberIDs.Count)&lt;span style=&#34;color:#e6db74&#34;&gt; members&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Break the id&amp;#39;s into chunks of 200&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Break the id&amp;#39;s into chunks of 2000&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$chunks = [&lt;span style=&#34;color:#66d9ef&#34;&gt;System.Collections.ArrayList&lt;/span&gt;]::new()
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; ($i = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; $i &lt;span style=&#34;color:#f92672&#34;&gt;-lt&lt;/span&gt; $GroupMemberIDs.Count; $i += &lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt;) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (($GroupMemberIDs.Count - $i) &lt;span style=&#34;color:#f92672&#34;&gt;-gt&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;199&lt;/span&gt;  ) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $chunks.add($GroupMemberIDs[$i..($i + &lt;span style=&#34;color:#ae81ff&#34;&gt;199&lt;/span&gt;)])
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; ($i = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; $i &lt;span style=&#34;color:#f92672&#34;&gt;-lt&lt;/span&gt; $GroupMemberIDs.Count; $i += &lt;span style=&#34;color:#ae81ff&#34;&gt;2000&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (($GroupMemberIDs.Count - $i) &lt;span style=&#34;color:#f92672&#34;&gt;-gt&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1999&lt;/span&gt; ) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $chunks.add($GroupMemberIDs[$i..($i + &lt;span style=&#34;color:#ae81ff&#34;&gt;1999&lt;/span&gt;)])
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $chunks.add($GroupMemberIDs[$i..($GroupMemberIDs.Count - &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)])
@@ -423,7 +423,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
 &lt;h4 id=&#34;adding-members-to-the-policy&#34;&gt;Adding Members to the policy&lt;/h4&gt;
 
-&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;Adding members can only be done in batches of 200!&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;The reccomended device limit is 2000 when using the Graph API.&lt;/p&gt;&lt;/div&gt;
 
 &lt;p&gt;Now we have our audience, you will want to add devices right? for this you will need a list of your device IDs in an object as below and then make the post request to add the members to the audience.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$addMembersPostBody = @{
