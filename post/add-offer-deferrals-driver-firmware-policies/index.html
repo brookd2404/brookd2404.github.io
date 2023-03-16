@@ -17,7 +17,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 <meta name="description" content="Adding Offer Deferrals to Driver WUfB DS Driver Policies with PowerShell and the Graph API. | EUC365 null">
 <meta name="author" content="DBBROOK24">
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.111.3">
 
 
 
@@ -54,7 +54,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://euc365.com/post/add-offer-deferrals-driver-firmware-policies/" /><meta property="og:image" content="https://euc365.com/images/post/daf/deferralsFeatured.png" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-02-15T15:17:00+00:00" />
-<meta property="article:modified_time" content="2023-02-15T16:25:16+00:00" />
+<meta property="article:modified_time" content="2023-02-28T12:40:52+00:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://euc365.com/images/post/daf/deferralsFeatured.png"/>
@@ -420,7 +420,7 @@ if (!doNotTrack) {
 <h3 id="looking-through-the-function">Looking through the Function</h3>
 <p>The basic premise of this script is to use the current complianceChangeRules, but only modify the durationBeforeDeploymentStart property which will control the deferral date. I thought the simplest way to do this was to pull in the current configuration, and amend only the durationBeforeDeploymentStart property. Let&rsquo;s take a look at how we achieve this then shall we.</p>
 <p>First of all, we have our <strong>Mandatory</strong> parameters, <strong>updatePolicyID</strong> and the <strong>deferralTime</strong>. The update policy ID can be found by looking at the <a href="/post/driver-management-graph-api/#listing-update-policies"><strong>Listing Update Policies</strong></a> section in my original <a href="/post/driver-management-graph-api/"><strong>article</strong></a>.</p>
-<p>The <strong>deferralTime</strong>, is the parameter that gives us what we need. This needs to be formatted in the <strong>ISO8601</strong> standards for duration (<a href="https://en.wikipedia.org/wiki/ISO_8601#Durations"><strong>LINK</strong></a>), for example, If we added PT1H, that would defer the update for an hour before offering. If we was to use PT10D, that would defer the offer for 10 days.</p>
+<p>The <strong>deferralTime</strong>, is the parameter that gives us what we need. This needs to be formatted in the <strong>ISO8601</strong> standards for duration (<a href="https://en.wikipedia.org/wiki/ISO_8601#Durations"><strong>LINK</strong></a>), for example, If we added PT1H, that would defer the update for an hour before offering. If we was to use P10D, that would defer the offer for 10 days.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span>[CmdletBinding()]
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">param</span> (
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># The Update Policy ID</span>
