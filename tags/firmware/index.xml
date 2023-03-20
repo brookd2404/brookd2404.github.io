@@ -6,7 +6,69 @@
     <description>Recent content in Firmware on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Feb 2023 17:33:09 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/firmware/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Mar 2023 13:43:22 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/firmware/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Driver and Firmware Servicing PowerShell Module</title>
+      <link>https://euc365.com/post/driver-firmware-servicing-powershell-module/</link>
+      <pubDate>Mon, 20 Mar 2023 13:43:22 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/driver-firmware-servicing-powershell-module/</guid>
+      <description>&lt;p&gt;Its been just over a month since the announcement of Commercial Driver and Firmware Servicing by Microsoft. Since then I have been working on delivering this to businesses, and sometimes it can be a challenge to keep on top of all of the different graph endpoints that are required to keep the cogs turning. So, out of my own sanity saving idea, I pulled together a PowerShell Module (&lt;a href=&#34;https://www.powershellgallery.com/packages/Driver.Firmware.Servicing/&#34;&gt;&lt;strong&gt;Driver.Firmware.Servicing&lt;/strong&gt;&lt;/a&gt;) to help make the service a lot more consumable for admins.&lt;/p&gt;
+&lt;p&gt;Microsoft provided some great conceptual documentation on the service, but I wanted to make it a lot easier to consume. So, I have created a PowerShell Module that abstracts away the complexity of the Graph API, and provides a simple interface to manage the service. See the &lt;a href=&#34;https://learn.microsoft.com/en-us/graph/windowsupdates-manage-driver-update&#34;&gt;&lt;strong&gt;Microsoft documentation&lt;/strong&gt;&lt;/a&gt; for more information on the service.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-driver-and-firmware-servicing&#34;&gt;What is Driver and Firmware Servicing?&lt;/h2&gt;
+&lt;p&gt;Let us quickly recap on what Driver and Firmware Servicing is. Utilising the Windows Update for Business Deployment Service (WUfBDS), Driver and Firmware Servicing is a service that allows you to manage the drivers and firmware that are deployed to your devices. It is available to commercial customers, with one of the following licencing SKUs.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Microsoft 365 E3 &amp;amp; E5&lt;/li&gt;
+&lt;li&gt;Microsoft 365 A3 &amp;amp; A5&lt;/li&gt;
+&lt;li&gt;Microsoft 365 Business Premium&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;what-does-the-powershell-module-do&#34;&gt;What does the PowerShell Module do?&lt;/h2&gt;
+&lt;p&gt;The PowerShell Module is designed to make the management of Driver and Firmware Servicing a lot easier. Behind the scenes it is using the Graph API to make the calls to the service, with the PowerShell Module abstracting away the complexity of the Graph API.&lt;/p&gt;
+&lt;h2 id=&#34;where-can-i-get-the-powershell-module&#34;&gt;Where can I get the PowerShell Module?&lt;/h2&gt;
+&lt;p&gt;As mentioned in the opening paragraph, the PowerShell Module is available from the PowerShell Gallery. You can install it by running the following command in PowerShell.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Install-module Driver.Firmware.Servicing &lt;span style=&#34;color:#75715e&#34;&gt;#-MinimumVersion 1.0.0 is recommended&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-do-i-use-the-powershell-module&#34;&gt;How do I use the PowerShell Module?&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/Driver.Firmware.Servicing&#34;&gt;&lt;img src=&#34;http://euc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Whist I have also documented these on the GitHub repo (linked above), alongside the source code, I will also cover them here.&lt;/p&gt;
+&lt;h3 id=&#34;create-a-new-policy&#34;&gt;Create a new policy&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Create a deployment audience&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$deploymentAudience = New-DeploymentAudience
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#create a new automatic policy, deferring updates for 1 day&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$policy = New-DriverUpdatePolicy -audienceID $deploymentAudience.id -policyType &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Automatic&amp;#34;&lt;/span&gt; -deferralTime &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;P1D&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;add-a-device-to-a-policy&#34;&gt;Add a device to a policy&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Array of Azure AD Device IDs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$deviceIDs = @(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;deviceID1&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;deviceID2&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Explicitly Enrol the devices to the WUfBDS Driver Feature&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Push-EnrollUpdateableAsset -deviceIDs $deviceIDs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Add the devices to the deployment audience&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Add-DeploymentAudienceMember -audienceID $deploymentAudience.id -azureDeviceIDs $deviceIDs
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;get-a-list-of-applicable-content&#34;&gt;Get a list of applicable content&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Get a list of applicable content for the policy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Get-DriverUpdatePolicyApplicableContent -policyID $policy.id
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;get-a-list-of-compliance-changes--view-update-schedule&#34;&gt;Get a list of compliance changes &amp;amp; view update schedule&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Get a list of compliance changes for the policy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$complianceChanges = Get-DriverUpdatePolicyComplianceChange -policyID $policy.id
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#View Update Schedule&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$updateEntry = $complianceChanges | Where-Object {$_.content.catalogEntry.displayName &lt;span style=&#34;color:#f92672&#34;&gt;-eq&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Intel - System - 4/12/2017 12:00:00 AM - 14.28.47.630&amp;#34;&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$updateEntry.deploymentSettings.schedule
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;add-a-driver-update-approval&#34;&gt;Add a Driver Update Approval&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Get the Update Catalog ID for the driver update.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$catalogID = (Get-DriverUpdatePolicyApplicableContent -policyID $policy.id | Where-Object {$_.catalogEntry.displayName &lt;span style=&#34;color:#f92672&#34;&gt;-eq&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Intel - System - 4/12/2017 12:00:00 AM - 14.28.47.630&amp;#34;&lt;/span&gt;}).catalogEntry.id
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Add the driver update approval and defer it for 2 days (Deferral time is set to 0 day in the policy)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Add-DriverUpdateApproval -policyIDs @($($policy.id),&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;PolicyID2&amp;#34;&lt;/span&gt;) -catalogEntryID $catalogID -deferDays &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;revoke-a-driver-update-approval&#34;&gt;Revoke a Driver Update Approval&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Get the Update Catalog ID for the driver update.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$catalogID = (Get-DriverUpdatePolicyApplicableContent -policyID $policy.id | Where-Object {$_.catalogEntry.displayName &lt;span style=&#34;color:#f92672&#34;&gt;-eq&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Intel - System - 4/12/2017 12:00:00 AM - 14.28.47.630&amp;#34;&lt;/span&gt;}).catalogEntry.id
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Revoke the driver update approval&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Revoke-DriverUpdateApproval -policyIDs @($($policy.id),&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;PolicyID2&amp;#34;&lt;/span&gt;) -catalogEntryID $catalogID
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;update-a-driver-update-deferral&#34;&gt;Update a Driver Update Deferral&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Update the deferral time for the policy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Update-DriverUpdatePatchDeferral -policyID $policy.id -deferralTime &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;P2D&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;There are so many more things that you can do with the PowerShell Module, and I will be adding more functionality to it over time. If you have any suggestions, please let me know by using the discussions and issues tabs on the GitHub repo.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>Bulk Enrol Device to Driver and Firmware Servicing</title>
       <link>https://euc365.com/post/bulk-enrol-device-driver-firmware-servicing/</link>

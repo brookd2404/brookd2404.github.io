@@ -2,62 +2,71 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://euc365.com/categories/</loc>
+    <lastmod>2023-03-20T13:44:38+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/driver-and-firmware/</loc>
+    <lastmod>2023-03-20T13:44:38+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/post/driver-firmware-servicing-powershell-module/</loc>
+    <lastmod>2023-03-20T13:44:38+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/drivers/</loc>
+    <lastmod>2023-03-20T13:44:38+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/</loc>
+    <lastmod>2023-03-20T13:44:38+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/firmware/</loc>
+    <lastmod>2023-03-20T13:44:38+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/graph-api/</loc>
+    <lastmod>2023-03-20T13:44:38+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/graph-api/</loc>
+    <lastmod>2023-03-20T13:44:38+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/powershell/</loc>
+    <lastmod>2023-03-20T13:44:38+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/powershell/</loc>
+    <lastmod>2023-03-20T13:44:38+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/</loc>
+    <lastmod>2023-03-20T13:44:38+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/updates/</loc>
+    <lastmod>2023-03-20T13:44:38+00:00</lastmod>
+  </url><url>
     <loc>https://euc365.com/post/bulk-enrol-device-driver-firmware-servicing/</loc>
     <lastmod>2023-02-27T08:32:06+00:00</lastmod>
   </url><url>
-    <loc>https://euc365.com/categories/</loc>
-    <lastmod>2023-02-28T12:40:52+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/categories/driver-and-firmware/</loc>
-    <lastmod>2023-02-28T12:40:52+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/drivers/</loc>
-    <lastmod>2023-02-28T12:40:52+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/</loc>
-    <lastmod>2023-02-28T12:40:52+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/firmware/</loc>
-    <lastmod>2023-02-28T12:40:52+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/categories/graph-api/</loc>
-    <lastmod>2023-02-28T12:40:28+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/categories/powershell/</loc>
-    <lastmod>2023-02-28T12:40:28+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/</loc>
-    <lastmod>2023-02-28T12:40:52+00:00</lastmod>
-  </url><url>
     <loc>https://euc365.com/categories/updates/</loc>
-    <lastmod>2023-02-28T12:40:28+00:00</lastmod>
+    <lastmod>2023-03-20T13:40:59+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/kql/</loc>
-    <lastmod>2023-02-27T08:32:01+00:00</lastmod>
+    <lastmod>2023-03-20T13:40:59+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/log-analytics/</loc>
-    <lastmod>2023-02-27T08:32:01+00:00</lastmod>
+    <lastmod>2023-03-20T13:40:59+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/post/view-applicable-devices-driver-deployments/</loc>
-    <lastmod>2023-02-27T08:32:01+00:00</lastmod>
+    <lastmod>2023-03-20T13:40:59+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/post/add-offer-deferrals-driver-firmware-policies/</loc>
     <lastmod>2023-02-28T12:40:52+00:00</lastmod>
   </url><url>
-    <loc>https://euc365.com/tags/updates/</loc>
-    <lastmod>2023-02-28T12:40:52+00:00</lastmod>
-  </url><url>
     <loc>https://euc365.com/post/driver-management-graph-api/</loc>
-    <lastmod>2023-02-28T12:40:28+00:00</lastmod>
+    <lastmod>2023-03-20T13:40:16+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/vlog/</loc>
-    <lastmod>2023-02-15T16:59:23+00:00</lastmod>
+    <lastmod>2023-03-20T13:40:48+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</loc>
-    <lastmod>2023-02-15T16:59:23+00:00</lastmod>
+    <lastmod>2023-03-20T13:40:48+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/windows/</loc>
-    <lastmod>2023-02-15T16:59:23+00:00</lastmod>
+    <lastmod>2023-03-20T13:40:48+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/cloud-pc/</loc>
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
@@ -65,17 +74,11 @@
     <loc>https://euc365.com/post/create-windows-365-azure-network-connections-powershell/</loc>
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
   </url><url>
-    <loc>https://euc365.com/tags/graph-api/</loc>
-    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
-  </url><url>
     <loc>https://euc365.com/tags/intune/</loc>
-    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/powershell/</loc>
-    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+    <lastmod>2023-03-20T13:38:49+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/windows-365/</loc>
-    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+    <lastmod>2023-03-20T13:38:49+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/windows-365/</loc>
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
@@ -84,7 +87,7 @@
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/microsoft-intune/</loc>
-    <lastmod>2023-01-05T11:01:33+00:00</lastmod>
+    <lastmod>2023-03-20T13:38:21+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/microsoft-store-apps/</loc>
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
@@ -96,10 +99,10 @@
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/entitlement-management/</loc>
-    <lastmod>2022-11-03T11:43:59+00:00</lastmod>
+    <lastmod>2023-03-20T13:38:37+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/post/vlog-windows-365-access-solutions/</loc>
-    <lastmod>2022-11-03T11:43:59+00:00</lastmod>
+    <lastmod>2023-03-20T13:38:37+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/post/why-windows-365/</loc>
     <lastmod>2023-01-05T11:01:33+00:00</lastmod>
@@ -123,7 +126,7 @@
     <lastmod>2022-07-05T14:37:16+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/post/vlog-gs-windows365/</loc>
-    <lastmod>2022-11-03T11:43:59+00:00</lastmod>
+    <lastmod>2023-03-20T13:38:49+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/autopatch/</loc>
     <lastmod>2022-11-01T19:28:50+00:00</lastmod>
@@ -132,13 +135,13 @@
     <lastmod>2022-11-01T19:28:50+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/azure/</loc>
-    <lastmod>2022-09-22T09:15:52+00:00</lastmod>
+    <lastmod>2023-03-20T13:38:21+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/azure/</loc>
-    <lastmod>2022-09-22T09:15:52+00:00</lastmod>
+    <lastmod>2023-03-20T13:38:21+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/azure-ad/</loc>
-    <lastmod>2022-09-22T09:15:52+00:00</lastmod>
+    <lastmod>2023-03-20T13:38:21+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/post/configure-service-password-reset-cloud-sync/</loc>
     <lastmod>2022-09-22T09:15:52+00:00</lastmod>
@@ -237,19 +240,19 @@
     <lastmod>2022-06-10T13:42:00+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/app-registrations/</loc>
-    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
+    <lastmod>2023-03-20T13:38:21+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/logic-apps/</loc>
-    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
+    <lastmod>2023-03-20T13:38:21+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/microsoft-graph-and-powerbi/</loc>
-    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
+    <lastmod>2023-03-20T13:38:21+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/powerbi/</loc>
-    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
+    <lastmod>2023-03-20T13:38:21+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/powerbi/</loc>
-    <lastmod>2022-07-17T10:54:30+00:00</lastmod>
+    <lastmod>2023-03-20T13:38:21+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/apple/</loc>
     <lastmod>2022-06-09T15:27:24+00:00</lastmod>
