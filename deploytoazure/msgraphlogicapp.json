@@ -36,10 +36,10 @@
                   "properties": {
                     "Url": {
                       "type": "string",
+                      },
                       "accesstoken": {
                         "type": "string"
                       }
-                    }
                   },
                   "required": [
                     "Url",
