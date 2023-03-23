@@ -28,28 +28,24 @@
           "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "triggers": {
             "http_request": {
-              "type": "request",
-              "kind": "http",
-              "inputs": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "Url": {
-                      "type": "string",
-                      },
-                      "accesstoken": {
-                        "type": "string"
-                      }
-                  },
-                  "required": [
-                    "Url",
-                    "accesstoken"
-                  ]
-                }
-              },
-              "operationOptions": "EnableSchemaValidation"
+                "inputs": {
+                    "schema": {
+                        "properties": {
+                            "AccessToken": {
+                                "type": "string"
+                            },
+                            "URL": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "kind": "Http",
+                "operationOptions": "EnableSchemaValidation",
+                "type": "Request"
             }
-          },
+        },
           "actions": {
             "Initialize_variable_-_Graph_Return": {
               "inputs": {
