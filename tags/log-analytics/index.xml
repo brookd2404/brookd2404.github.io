@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Log Analytics on EUC365 | Modern Technology Blog</title>
+    <link>https://euc365.com/tags/log-analytics/</link>
+    <description>Recent content in Log Analytics on EUC365 | Modern Technology Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 May 2023 21:09:46 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/log-analytics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Log Analytics API Data Access with Service Principals</title>
+      <link>https://euc365.com/post/2023-05-06-log-analytics-api-data-access-with-service-prinicipals/</link>
+      <pubDate>Tue, 09 May 2023 21:09:46 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/2023-05-06-log-analytics-api-data-access-with-service-prinicipals/</guid>
+      <description>&lt;p&gt;As IT Professionals start to look to the cloud for solutions, more and more of us are starting to utilise Log Analytics, weather that be to underpin other services &amp;amp; solutions or writing our own custom log collection scripts, it is becoming a very key piece of many deployments.&lt;/p&gt;
+&lt;p&gt;As much as I love using Kusto (KQL), Log Analytics Workbooks are very tedious to create and can take a log time to get right, those that have gone to the effort of doing so, I tip my hat to you!!&lt;/p&gt;
+&lt;p&gt;Because of this tedious nature, I decided I wanted to get the dara into Power BI, which is easy enough when you authenticate with your organisational account, but the problem with this, is just that, it ties it to that org account. Using service principals (App Registrations), removes such reliance.&lt;/p&gt;
+&lt;p&gt;This post will not focus on getting the data into Power BI, there will be further post&amp;rsquo;s to follow on such subjects, it will focus on Authenticating and Retrieving the data using the API, with the tool shown in my case been PowerShell.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;For this post we will need the following;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Azure App Registration, please see my previous post (&lt;a href=&#34;%5Ccreate_an_azure_app_registration)&#34;&gt;&lt;strong&gt;Create an Azure App Registration&lt;/strong&gt;&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;A log analytics workspace&lt;/li&gt;
+&lt;li&gt;Your preferred client to Access APIs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;granting-authorisation&#34;&gt;Granting Authorisation&lt;/h2&gt;
+&lt;h3 id=&#34;log-analytics-data&#34;&gt;Log Analytics Data&lt;/h3&gt;
+&lt;p&gt;When you create an Application Registration, you will have a service principal that you can use to grant access to resources, for example, If I created a a registration with the name &lt;strong&gt;EUC365 - Reporting&lt;/strong&gt; it would show as below.&lt;/p&gt;
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/loganalytics/servicePrincipalDisplay_hu0dfc32a21e2e2c33315c621875debdff_7116_406x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Service Principal Display&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+  
+  
+
+  &lt;/br&gt;
+&lt;p&gt;This is the principal we will be using to grant access to the log analytics workspace to consume your data. The only thing we can do with this data is read it, so we will only be granting &lt;strong&gt;Reader&lt;/strong&gt; access to the data, to grant authorisation follow the below steps.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Locate the Log Analytics workspace you wish to use&lt;/li&gt;
+&lt;li&gt;In the left-hand pane select &lt;strong&gt;Access Control (IAM)&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Select the &lt;strong&gt;Role Assignments&lt;/strong&gt; tab&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Add&lt;/strong&gt; ? &lt;strong&gt;Add role assignment&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Reader&lt;/strong&gt; from the Role pane, then click &lt;strong&gt;Next&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Member type should be &lt;strong&gt;User, group, or service principal&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;+ Select Members&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Search for the name of the service principal you created earlier, then click &lt;strong&gt;Select&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Review + assign&lt;/strong&gt;, and then click it again&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The principal now has access to read the data, however we have not yet granted access to the actual API from the Service Principal, so lets take a look at that in the next section.&lt;/p&gt;
+&lt;h3 id=&#34;api-authorisation&#34;&gt;API Authorisation&lt;/h3&gt;
+&lt;p&gt;Lets dive straight into this, to grant authorisation to the Log Analytic APIs, follow the below steps;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Locate the Application Registration&lt;/li&gt;
+&lt;li&gt;In the left-hand pane, select &lt;strong&gt;API permissions&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Add a permission&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select the &lt;strong&gt;APIs my organisation uses&lt;/strong&gt; tab&lt;/li&gt;
+&lt;li&gt;Start typing Log Analytics in the search bar&lt;/li&gt;
+&lt;li&gt;Select the &lt;strong&gt;Log Analytics API&lt;/strong&gt; result&lt;/li&gt;
+&lt;/ol&gt;
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/loganalytics/logAnaylticsAPISelect_hu72edb3dea8b6ad6c009b05159cc6afd9_27898_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Log Analytics API Selection&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+  
+  
+
+&lt;/br&gt;
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;Select &lt;strong&gt;Application permissions&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Select the &lt;strong&gt;Data.Read&lt;/strong&gt; permission&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Add permissions&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Grant admin consent for &lt;Tenant Name&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Yes&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This will now allow you to use the service principal to call the API.&lt;/p&gt;
+&lt;hr&gt; 
+&lt;h2 id=&#34;testing-it-out&#34;&gt;Testing it out&lt;/h2&gt;
+&lt;p&gt;Now that we have granted the service principal access to the data and the API, we can now test it out. For this I will be using PowerShell, but you can use any client you wish, such as PostMan, Python, etc.&lt;/p&gt;
+&lt;h3 id=&#34;powershell&#34;&gt;PowerShell&lt;/h3&gt;
+&lt;p&gt;Below is a quick script to gather the data in PowerShell, it will prompt you the Tenant ID, Client ID, Client Secret and Workspace ID, it will then connect to Azure with the Service Principal and retrieve the data from the API.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;param&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [Parameter(&lt;span style=&#34;color:#a6e22e&#34;&gt;Mandatory&lt;/span&gt; = $true)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $TenantId,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [Parameter(&lt;span style=&#34;color:#a6e22e&#34;&gt;Mandatory&lt;/span&gt; = $true)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ClientId,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [Parameter(&lt;span style=&#34;color:#a6e22e&#34;&gt;Mandatory&lt;/span&gt; = $true)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $ClientSecret,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [Parameter(&lt;span style=&#34;color:#a6e22e&#34;&gt;Mandatory&lt;/span&gt; = $true)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $workspaceId
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Create the Service Principal Credential object&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$SPCredentials = [&lt;span style=&#34;color:#66d9ef&#34;&gt;System.Management.Automation.PSCredential&lt;/span&gt;]::new($ClientId, (ConvertTo-SecureString $ClientSecret -AsPlainText -Force))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Connect to Azure with the Service Principal&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Connect-AzAccount -Tenant $TenantId -Credential $SPCredentials -ServicePrincipal | Out-Null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$AccessToken = (Get-AzAccessToken -ResourceUrl &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://api.loganalytics.io&amp;#34;&lt;/span&gt;).Token
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Get WUfB Reports Data&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$WUfBReportsData = Invoke-RestMethod -Method Get &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://api.loganalytics.io/v1/workspaces/&lt;/span&gt;$workspaceId&lt;span style=&#34;color:#e6db74&#34;&gt;/query?query=UCClient | summarize arg_max(TimeGenerated,*) by AzureADDeviceId | project-away TenantId, TimeGenerated, AzureADTenantId, SourceSystem, Type&amp;#34;&lt;/span&gt; -Headers @{Authorization = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bearer &lt;/span&gt;$AccessToken&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Display Columns&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$WUfBReportsData.Tables[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;].Columns
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Display Data Rows&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$WUfBReportsData.Tables[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;].Rows
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The data you gather back from the API will be broken down into Columns and Rows, and the matching up of such data can be a bit of a pain, however this post is focusing on simply getting the data, not manipulating it, as the manipulation of the data will be done in Power BI which will be covered in a future post.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;This post has shown how to grant access to the Log Analytics API using a Service Principal, and how to retrieve the data using PowerShell. The returned data directly from the API needs some work to match it up to the columns, but this is usable data that can be used in Power BI or any other tool you wish to use.&lt;/p&gt;
+&lt;p&gt;I hope you found this post useful, and if you have any questions, please feel free to reach out to me!! If you have a function or code snippet that you think would be useful to others, please feel free to reach out to me and I will add it to the post.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
