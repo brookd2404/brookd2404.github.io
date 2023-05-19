@@ -6,13 +6,31 @@
     <description>Recent content in Tags on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 May 2023 21:09:46 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 May 2023 13:37:08 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Intune</title>
+      <link>https://euc365.com/tags/intune/</link>
+      <pubDate>Fri, 19 May 2023 13:37:08 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/intune/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Log Analytics</title>
       <link>https://euc365.com/tags/log-analytics/</link>
-      <pubDate>Tue, 09 May 2023 21:09:46 +0000</pubDate>
+      <pubDate>Fri, 19 May 2023 13:37:08 +0000</pubDate>
       
       <guid>https://euc365.com/tags/log-analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Power BI</title>
+      <link>https://euc365.com/tags/power-bi/</link>
+      <pubDate>Fri, 19 May 2023 13:37:08 +0000</pubDate>
+      
+      <guid>https://euc365.com/tags/power-bi/</guid>
       <description></description>
     </item>
     
@@ -76,15 +94,6 @@
       <pubDate>Mon, 23 Jan 2023 09:16:47 +0000</pubDate>
       
       <guid>https://euc365.com/tags/cloud-pc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Intune</title>
-      <link>https://euc365.com/tags/intune/</link>
-      <pubDate>Mon, 23 Jan 2023 09:16:47 +0000</pubDate>
-      
-      <guid>https://euc365.com/tags/intune/</guid>
       <description></description>
     </item>
     

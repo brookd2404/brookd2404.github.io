@@ -3,11 +3,11 @@
 
 <head>
 	<meta charset="utf-8">
-<title>Log Analytics API Data Access with Service Principals</title>
+<title>Power BI</title>
 
 
 
-<base href="https://euc365.com/post/2023-05-06-log-analytics-api-data-access-with-service-prinicipals/">
+<base href="https://euc365.com/categories/power-bi/">
 
 
 
@@ -15,7 +15,7 @@
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<meta name="description" content="Did you know you can use service principals to access the Log Analytics API? Come and find out how! | EUC365">
+<meta name="description" content="This is meta description">
 <meta name="author" content="DBBROOK24">
 <meta name="generator" content="Hugo 0.111.3">
 
@@ -44,23 +44,19 @@
 
 
 
-<meta name="twitter:title" content="Log Analytics API Data Access with Service Principals"/>
-<meta name="twitter:description" content="Did you know you can use service principals to access the Log Analytics API? Come and find out how! | EUC365"/>
+<meta name="twitter:title" content="Power BI"/>
+<meta name="twitter:description" content="This is meta description"/>
 
 
 
-<meta property="og:title" content="Log Analytics API Data Access with Service Principals" />
-<meta property="og:description" content="Did you know you can use service principals to access the Log Analytics API? Come and find out how! | EUC365" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://euc365.com/post/2023-05-06-log-analytics-api-data-access-with-service-prinicipals/" /><meta property="og:image" content="https://euc365.com/images/post/loganalytics/logAnalyticAPIFeatured.png" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2023-05-09T21:09:46+00:00" />
-<meta property="article:modified_time" content="2023-05-09T21:09:49+00:00" />
+<meta property="og:title" content="Power BI" />
+<meta property="og:description" content="This is meta description" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://euc365.com/categories/power-bi/" />
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://euc365.com/images/post/loganalytics/logAnalyticAPIFeatured.png"/>
-
-<meta name="twitter:title" content="Log Analytics API Data Access with Service Principals"/>
-<meta name="twitter:description" content="Did you know you can use service principals to access the Log Analytics API? Come and find out how! | EUC365"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Power BI"/>
+<meta name="twitter:description" content="This is meta description"/>
 
 
 
@@ -297,230 +293,134 @@ if (!doNotTrack) {
 
 
 
-
-
-
-
-
-<div class="py-4"></div>
-
 <section class="section">
-  <div class="container">
-    <div class="row">
-      
-      
-      
-
-      <div
-        class=" col-lg-8   mb-5 mb-lg-0">
-        <article>
-          
-          
-          
-
-          <h1 class="h1">Log Analytics API Data Access with Service Principals</h1>
-          <ul class="card-meta my-3 list-inline">
-            <li class="list-inline-item">
-              <a href="/author/david-brook/" class="card-meta-author">
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                <img loading="lazy" src="/images/author/db_b&amp;w_hu991eb01a4ce650e837368792e9667a87_187533_20x20_fill_box_smart1_3.png" alt="David Brook" class="img-fluid">
-                
-                
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <i class="far fa-clock"></i>5 Min To Read
-            </li>
-            <li class="list-inline-item">
-              <i class="far fa-calendar-alt"></i>09 May, 2023
-            </li>
-            <li class="list-inline-item">
-              <ul class="card-meta-tag list-inline">
-                
-                
-                <li class="list-inline-item"><a
-                    href="/tags/log-analytics">Log analytics</a></li>
-                
-              </ul>
-            </li>
-            <li class="list-inline-item">
-              <ul class="card-meta-tag list-inline">
-                
-                
-                <li class="list-inline-item"><a
-                    href="/categories/analytics">Analytics</a></li> 
-              </ul>
-            </li>
-          </ul>
-          <div class="content"><p>As IT Professionals start to look to the cloud for solutions, more and more of us are starting to utilise Log Analytics, weather that be to underpin other services &amp; solutions or writing our own custom log collection scripts, it is becoming a very key piece of many deployments.</p>
-<p>As much as I love using Kusto (KQL), Log Analytics Workbooks are very tedious to create and can take a log time to get right, those that have gone to the effort of doing so, I tip my hat to you!!</p>
-<p>Because of this tedious nature, I decided I wanted to get the dara into Power BI, which is easy enough when you authenticate with your organisational account, but the problem with this, is just that, it ties it to that org account. Using service principals (App Registrations), removes such reliance.</p>
-<p>This post will not focus on getting the data into Power BI, there will be further post&rsquo;s to follow on such subjects, it will focus on Authenticating and Retrieving the data using the API, with the tool shown in my case been PowerShell.</p>
-<hr>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>For this post we will need the following;</p>
-<ul>
-<li>Azure App Registration, please see my previous post (<a href="%5Ccreate_an_azure_app_registration)"><strong>Create an Azure App Registration</strong></a>).</li>
-<li>A log analytics workspace</li>
-<li>Your preferred client to Access APIs</li>
-</ul>
-<h2 id="granting-authorisation">Granting Authorisation</h2>
-<h3 id="log-analytics-data">Log Analytics Data</h3>
-<p>When you create an Application Registration, you will have a service principal that you can use to grant access to resources, for example, If I created a a registration with the name <strong>EUC365 - Reporting</strong> it would show as below.</p>
-
+  <div class="py-4"></div>
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <img loading="lazy" decoding="async" class="mx-auto d-block" src="/images/post/loganalytics/servicePrincipalDisplay_hu0dfc32a21e2e2c33315c621875debdff_7116_406x0_resize_q100_h2_box_3.webp" alt="Service Principal Display" height="" width="">
   
   
 
-  </br>
-<p>This is the principal we will be using to grant access to the log analytics workspace to consume your data. The only thing we can do with this data is read it, so we will only be granting <strong>Reader</strong> access to the data, to grant authorisation follow the below steps.</p>
-<ol>
-<li>Locate the Log Analytics workspace you wish to use</li>
-<li>In the left-hand pane select <strong>Access Control (IAM)</strong>.</li>
-<li>Select the <strong>Role Assignments</strong> tab</li>
-<li>Click <strong>Add</strong> ? <strong>Add role assignment</strong></li>
-<li>Select <strong>Reader</strong> from the Role pane, then click <strong>Next</strong></li>
-<li>Member type should be <strong>User, group, or service principal</strong></li>
-<li>Click <strong>+ Select Members</strong></li>
-<li>Search for the name of the service principal you created earlier, then click <strong>Select</strong></li>
-<li>Click <strong>Review + assign</strong>, and then click it again</li>
-</ol>
-<p>The principal now has access to read the data, however we have not yet granted access to the actual API from the Service Principal, so lets take a look at that in the next section.</p>
-<h3 id="api-authorisation">API Authorisation</h3>
-<p>Lets dive straight into this, to grant authorisation to the Log Analytic APIs, follow the below steps;</p>
-<ol>
-<li>Locate the Application Registration</li>
-<li>In the left-hand pane, select <strong>API permissions</strong></li>
-<li>Click <strong>Add a permission</strong></li>
-<li>Select the <strong>APIs my organisation uses</strong> tab</li>
-<li>Start typing Log Analytics in the search bar</li>
-<li>Select the <strong>Log Analytics API</strong> result</li>
-</ol>
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <img loading="lazy" decoding="async" class="mx-auto d-block" src="/images/post/loganalytics/logAnaylticsAPISelect_hu72edb3dea8b6ad6c009b05159cc6afd9_27898_750x0_resize_q100_h2_box_3.webp" alt="Log Analytics API Selection" height="" width="">
-  
-  
 
-</br>
-<ol start="9">
-<li>Select <strong>Application permissions</strong>.</li>
-<li>Select the <strong>Data.Read</strong> permission</li>
-<li>Click <strong>Add permissions</strong></li>
-<li>Click <strong>Grant admin consent for <Tenant Name></strong></li>
-<li>Click <strong>Yes</strong></li>
-</ol>
-<p>This will now allow you to use the service principal to call the API.</p>
-<hr> 
-<h2 id="testing-it-out">Testing it out</h2>
-<p>Now that we have granted the service principal access to the data and the API, we can now test it out. For this I will be using PowerShell, but you can use any client you wish, such as PostMan, Python, etc.</p>
-<h3 id="powershell">PowerShell</h3>
-<p>Below is a quick script to gather the data in PowerShell, it will prompt you the Tenant ID, Client ID, Client Secret and Workspace ID, it will then connect to Azure with the Service Principal and retrieve the data from the API.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-posh" data-lang="posh"><span style="display:flex;"><span><span style="color:#66d9ef">param</span> (
-</span></span><span style="display:flex;"><span>    [Parameter(<span style="color:#a6e22e">Mandatory</span> = $true)]
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]
-</span></span><span style="display:flex;"><span>    $TenantId,
-</span></span><span style="display:flex;"><span>    [Parameter(<span style="color:#a6e22e">Mandatory</span> = $true)]
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]
-</span></span><span style="display:flex;"><span>    $ClientId,
-</span></span><span style="display:flex;"><span>    [Parameter(<span style="color:#a6e22e">Mandatory</span> = $true)]
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]
-</span></span><span style="display:flex;"><span>    $ClientSecret,
-</span></span><span style="display:flex;"><span>    [Parameter(<span style="color:#a6e22e">Mandatory</span> = $true)]
-</span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">string</span>]
-</span></span><span style="display:flex;"><span>    $workspaceId
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Create the Service Principal Credential object</span>
-</span></span><span style="display:flex;"><span>$SPCredentials = [<span style="color:#66d9ef">System.Management.Automation.PSCredential</span>]::new($ClientId, (ConvertTo-SecureString $ClientSecret -AsPlainText -Force))
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Connect to Azure with the Service Principal</span>
-</span></span><span style="display:flex;"><span>Connect-AzAccount -Tenant $TenantId -Credential $SPCredentials -ServicePrincipal | Out-Null
-</span></span><span style="display:flex;"><span>$AccessToken = (Get-AzAccessToken -ResourceUrl <span style="color:#e6db74">&#34;https://api.loganalytics.io&#34;</span>).Token
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Get WUfB Reports Data</span>
-</span></span><span style="display:flex;"><span>$WUfBReportsData = Invoke-RestMethod -Method Get <span style="color:#e6db74">&#34;https://api.loganalytics.io/v1/workspaces/</span>$workspaceId<span style="color:#e6db74">/query?query=UCClient | summarize arg_max(TimeGenerated,*) by AzureADDeviceId | project-away TenantId, TimeGenerated, AzureADTenantId, SourceSystem, Type&#34;</span> -Headers @{Authorization = <span style="color:#e6db74">&#34;Bearer </span>$AccessToken<span style="color:#e6db74">&#34;</span>}
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Display Columns</span>
-</span></span><span style="display:flex;"><span>$WUfBReportsData.Tables[<span style="color:#ae81ff">0</span>].Columns
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Display Data Rows</span>
-</span></span><span style="display:flex;"><span>$WUfBReportsData.Tables[<span style="color:#ae81ff">0</span>].Rows
-</span></span></code></pre></div><p>The data you gather back from the API will be broken down into Columns and Rows, and the matching up of such data can be a bit of a pain, however this post is focusing on simply getting the data, not manipulating it, as the manipulation of the data will be done in Power BI which will be covered in a future post.</p>
-<hr>
-<h2 id="conclusion">Conclusion</h2>
-<p>This post has shown how to grant access to the Log Analytics API using a Service Principal, and how to retrieve the data using PowerShell. The returned data directly from the API needs some work to match it up to the columns, but this is usable data that can be used in Power BI or any other tool you wish to use.</p>
-<p>I hope you found this post useful, and if you have any questions, please feel free to reach out to me!! If you have a function or code snippet that you think would be useful to others, please feel free to reach out to me and I will add it to the post.</p>
-</div>
-        </article>
-        
-        
-        <div class="mt-5 border-default border p-4 bg-white">
-          <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
+
+
+<div class="container">
+  <div class="row">
     
     
     
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "euc365-com" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <div
+      class="col-lg-8  mb-5 mb-lg-0">
+
+      
+      
+      <h1 class="h2 mb-5">Showing items from <mark>Power BI</mark></h1>
+      
+      
+
+      
+      
+      
+      <article class="card mb-4">
+        <div class="row card-body">
+          
+          <div class="col-md-4 mb-4 mb-md-0">
+            
+            <div class="post-slider slider-sm">
+              
+              
+                
+                
+                
+                <picture>
+                  <source srcset="https://euc365.com/images/post/powerbi/graphpbimms_huca6733458c13dbb19797d4ddcbaa639d_97980_460x200_fill_q100_h2_box_smart1_3.webp" media="(max-width: 767px)">
+                  <source srcset="https://euc365.com/images/post/powerbi/graphpbimms_huca6733458c13dbb19797d4ddcbaa639d_97980_200x200_fill_q100_h2_box_smart1_3.webp" media="(min-width: 768px)">
+                  <source srcset="/images/post/powerbi/graphpbimms.png">
+                  <img loading="lazy" decoding="async" src="/images/post/powerbi/graphpbimms_huca6733458c13dbb19797d4ddcbaa639d_97980_460x200_fill_q100_h2_box_smart1_3.webp" class="card-img-top img-fluid"  alt="post-thumb" width="500" height="500">
+                </picture>
+              
+              
+            </div>
+            
+          </div>
+          
+          <div class="col-md-8">
+            <h3 class="h4 mb-3"><a class="post-title" href="https://euc365.com/post/intune-power-bi-mms-edition/">Graph API &amp; Power BI - MMS Edition</a></h3>
+            <ul class="card-meta list-inline">
+              <li class="list-inline-item">
+                <a href="/author/david-brook/" class="card-meta-author">
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <img loading="lazy" decoding="async" width="20" height="20" src="/images/author/db_b&amp;w_hu991eb01a4ce650e837368792e9667a87_187533_20x20_fill_q100_h2_box_smart1_3.webp" alt="David Brook" class="img-fluid">
+                  
+                  
+                  
+                  <span>David Brook</span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <i class="far fa-clock"></i>6 Min To Read
+              </li>
+              <li class="list-inline-item">
+                <i class="far fa-calendar-alt"></i>19 May, 2023
+              </li>
+              <li class="list-inline-item">
+                <ul class="card-meta-tag list-inline">
+                  
+                  
+                  
+                  
+                  <li class="list-inline-item"><a
+                      href="/tags/power-bi">Power bi</a></li>
+                  
+                  <li class="list-inline-item"><a
+                      href="/tags/intune">Intune</a></li>
+                  
+                  <li class="list-inline-item"><a
+                      href="/tags/log-analytics">Log analytics</a></li>
+                  
+                  
+                </ul>
+              </li>
+            </ul>
+            <p>
+              
+              What a blast this year at MMS MOA 2023!
+              
+            </p>
+            <a href="https://euc365.com/post/intune-power-bi-mms-edition/" class="btn btn-outline-primary">Read More</a>
+          </div>
         </div>
-        
-      </div>
+      </article>
+      
+      
+
+      
 
       
       
-      <aside class="col-lg-4"><!-- Promotion -->
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+    </div>
+
+    
+    
+    <aside class="col-lg-4 sidebar-inner"><!-- Promotion -->
 
 <div class="promotion">
   
@@ -547,6 +447,23 @@ if (!doNotTrack) {
       
       
       
+      <img loading="lazy" decoding="async" width="70" height="70" src="/images/author/SteveB_hucb59ef8f50d338adfa484a9a02a68f86_1668435_70x70_fill_q100_h2_box_smart1_3.webp" alt="Steve Beaumont" class="img-fluid">
+      
+      
+    </div>
+    <div class="media-body">
+      <h5 class="mb-1"><a class="post-title" href="https://euc365.com/author/steve-beaumont/">Steve Beaumont</a></h5>
+      <span>Contributor</span>
+    </div>
+  </div>
+  
+  <div class="media align-items-center">
+    <div class="mr-3">
+      
+      
+      
+      
+      
       <img loading="lazy" decoding="async" width="70" height="70" src="/images/author/db_b&amp;w_hu991eb01a4ce650e837368792e9667a87_187533_70x70_fill_q100_h2_box_smart1_3.webp" alt="David Brook" class="img-fluid">
       
       
@@ -561,7 +478,7 @@ if (!doNotTrack) {
 <div class="widget widget-categories">
   <h4 class="widget-title"><span>Categories</span></h4>
   <ul class="list-unstyled widget-list">
-    <li><a href="/categories/analytics" class="d-flex">Analytics <small class="ml-auto">(1)</small></a></li>
+    <li><a href="/categories/analytics" class="d-flex">Analytics <small class="ml-auto">(2)</small></a></li>
     <li><a href="/categories/apple" class="d-flex">Apple <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/azure" class="d-flex">Azure <small class="ml-auto">(9)</small></a></li>
     <li><a href="/categories/azure-resource-manager" class="d-flex">Azure resource manager <small class="ml-auto">(1)</small></a></li>
@@ -571,12 +488,14 @@ if (!doNotTrack) {
     <li><a href="/categories/governance" class="d-flex">Governance <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/graph-api" class="d-flex">Graph API <small class="ml-auto">(14)</small></a></li>
     <li><a href="/categories/group-policy" class="d-flex">Group policy <small class="ml-auto">(1)</small></a></li>
+    <li><a href="/categories/intune" class="d-flex">Intune <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/kql" class="d-flex">Kql <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/log-analytics" class="d-flex">Log analytics <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/memcm" class="d-flex">Memcm <small class="ml-auto">(3)</small></a></li>
     <li><a href="/categories/microsoft-intune" class="d-flex">Microsoft intune <small class="ml-auto">(19)</small></a></li>
     <li><a href="/categories/microsoft-store-apps" class="d-flex">Microsoft store apps <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/mobile-device-management" class="d-flex">Mobile device management <small class="ml-auto">(3)</small></a></li>
+    <li><a href="/categories/power-bi" class="d-flex">Power bi <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/powerbi" class="d-flex">Powerbi <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/powershell" class="d-flex">Powershell <small class="ml-auto">(19)</small></a></li>
     <li><a href="/categories/samsung-knox" class="d-flex">Samsung knox <small class="ml-auto">(3)</small></a></li>
@@ -659,6 +578,8 @@ if (!doNotTrack) {
     <li class="list-inline-item"><a
         href="/tags/microsoft-graph-module">Microsoft graph module</a></li>
     <li class="list-inline-item"><a
+        href="/tags/power-bi">Power bi</a></li>
+    <li class="list-inline-item"><a
         href="/tags/powerbi">Powerbi</a></li>
     <li class="list-inline-item"><a
         href="/tags/powershell">Powershell</a></li>
@@ -685,10 +606,10 @@ if (!doNotTrack) {
   </ul>
 </div><!-- subscribe -->
 </aside>
-      
-      
-    </div>
+    
+    
   </div>
+</div>
 </section>
 
 

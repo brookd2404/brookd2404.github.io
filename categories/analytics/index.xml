@@ -6,13 +6,153 @@
     <description>Recent content in Analytics on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 May 2023 21:09:46 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/analytics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 May 2023 13:37:08 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/analytics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graph API &amp; Power BI - MMS Edition</title>
+      <link>https://euc365.com/post/intune-power-bi-mms-edition/</link>
+      <pubDate>Fri, 19 May 2023 13:37:08 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/intune-power-bi-mms-edition/</guid>
+      <description>&lt;p&gt;What a blast this year at &lt;a href=&#34;https://mmsmoa.com&#34;&gt;&lt;strong&gt;MMS MOA&lt;/strong&gt;&lt;/a&gt; 2023!!. The time last year I spoke for the first time and did a quick 3 minute session in Tips &amp;amp; Tricks and this year (2023) I returned as a speaker, with an improved and fleshed out Power BI Session alongside &lt;a href=&#34;https://euc365.com/author/steve-beumont&#34;&gt;&lt;strong&gt;Steve Beaumont&lt;/strong&gt;&lt;/a&gt;. Some may recall my previous post &lt;a href=&#34;https://euc365.com/microsoft-graph-and-powerbi/&#34;&gt;&lt;strong&gt;Microsoft Graph API and PowerBI&lt;/strong&gt;&lt;/a&gt;, there will be some reference back to this as we go through this one.&lt;/p&gt;
+&lt;p&gt;We covered a lot on stage, and this post is here to help flesh out those configuration area&amp;rsquo;s that we didn&amp;rsquo;t cover in the session, and also has the link to the goodies for you to start the journey to feature rich reports with Intune &amp;amp; Power BI.&lt;/p&gt;
+&lt;h2 id=&#34;getting-prepared&#34;&gt;Getting Prepared&lt;/h2&gt;
+&lt;p&gt;As per the previous &lt;a href=&#34;https://euc365.com/microsoft-graph-and-powerbi/&#34;&gt;&lt;strong&gt;post&lt;/strong&gt;&lt;/a&gt;, we will still be using a service principal to access the data, however we will also be expanding this scope to allowing data read access to your log analytics workspace.&lt;/p&gt;
+&lt;p&gt;The dataset that is available for download has the following &lt;strong&gt;Application&lt;/strong&gt; API permission requirements for Intune and AAD:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DeviceManagementManagedDevices.Read.All&lt;/strong&gt; (Intune Devices Data &amp;amp; Autopilot Events)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Device.Read.All&lt;/strong&gt; (AAD Data - Device)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;User.Read.All&lt;/strong&gt; (AAD Data - User)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For information on creating a service principal (App Registration) and assigning the permissions, please refer to one of my previous &lt;a href=&#34;https://euc365.com/create_an_azure_app_registration/&#34;&gt;&lt;strong&gt;post&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Aside from the above, we also need to grant access to the Log Analytics Workspace that holds the Windows Update for Business reports data, please refer to the following &lt;a href=&#34;https://euc365.com/post/log-analytics-api-data-access-service-principals/&#34;&gt;&lt;strong&gt;post&lt;/strong&gt;&lt;/a&gt; for more information on how to grant access to the service principal.&lt;/p&gt;
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;You can utilise the same service principal for both the Intune and Log Analytics API&amp;rsquo;s, just ensure you have the correct permissions assigned.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;Once all of the permissions have been granted, you will need the following information to configure the Power BI report:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tenant ID&lt;/strong&gt; - This is the tenant ID of the Azure AD Tenant&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Application ID&lt;/strong&gt; - This is the Application ID of the App Registration&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Application Secret&lt;/strong&gt; - An application secret key of the App Registration&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Log Analytics Workspace ID&lt;/strong&gt; - This is the Workspace ID of the Log Analytics Workspace&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt; 
+&lt;h2 id=&#34;configuring-the-power-bi-report&#34;&gt;Configuring the Power BI Report&lt;/h2&gt;
+&lt;p&gt;The Power BI Files used in the session are available for download from the below button.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/powerbi/Intune&#34;&gt;&lt;img src=&#34;http://euc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Once you have downloaded the files, you will need to open the &lt;strong&gt;MMS 2023 - Intune Data Model.pbit&lt;/strong&gt; file, once launched you will be prompted to enter the information we gathered in the previous section. In addition to this, you will also need to select a time period for the data from the Log Analytics Workspace, I have put this in a drop down option, but this can be amended to suit your needs once the report is loaded.&lt;/p&gt;
+&lt;p&gt;The logicAppURL is not required for the report to function, however there is a template query which will use this for data ingestion and this was again the premise of my previous &lt;a href=&#34;https://euc365.com/microsoft-graph-and-powerbi/&#34;&gt;&lt;strong&gt;post&lt;/strong&gt;&lt;/a&gt;, where the Deploy to Azure Button will allow you to deploy the Logic App in under 3 minutes.&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;It is important that you select the &lt;strong&gt;beta&lt;/strong&gt; option from the &lt;strong&gt;Graph Version&lt;/strong&gt; dropdown.&lt;/p&gt;&lt;/div&gt;
+
+&lt;/br&gt;
+&lt;p&gt;This should leave you with something like the below configuration screen.
+&lt;/br&gt;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/powerbi/mmsdatamodconfig_hu84c3cb01cdf1a4a009f93b04bb392817_23470_700x0_resize_q100_h2_box_3.webp&#34; alt=&#34;mms data model config&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;p&gt;Once you click &lt;strong&gt;Load&lt;/strong&gt;, you will be prompted about privacy levels, ensure you configure these as Public for the purposes of this guide, this is the only configuration that has been tested and confirmed working. This will then initiate the data load from the API&amp;rsquo;s and Log Analytics Workspace.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/powerbi/dataload_huf1abd584e15a0b99ca41d31598af7b56_17208_500x0_resize_q100_h2_box_3.webp&#34; alt=&#34;mms data model load&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;p&gt;Now we have the data loaded, we can start to build out the reports, you will see that there is a template page with the report which demonstrates basic usage of the data model, this is a good starting point for you to build out your own reports.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/powerbi/datavisual_hu23865522e704d8a9b20c29f2c0305e63_132603_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;mms data model template page&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;p&gt;To further enhance the usage of the report, you should look to publish the report to the Power BI Service, this will allow you to configure the report to refresh on a schedule, and also allow you to share the report with other users. Please see the &lt;a href=&#34;https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-upload-desktop-files&#34;&gt;&lt;strong&gt;Microsoft Documentation&lt;/strong&gt;&lt;/a&gt; for more information on publishing Power BI Desktop files to the Power BI Service.&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;You will need a Power BI Pro License to publish the data model to the Power BI Service.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;expanding-the-report&#34;&gt;Expanding the Report&lt;/h2&gt;
+&lt;p&gt;So now we have the report loaded, we can start to expand on the report and add additional data from other Microsoft Graph and Log Analytics endpoints. A few things do need to be taken into account when adding additional data to the report, and these are as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Permissions&lt;/strong&gt; - The service principal will need to have the correct permissions assigned to access the data.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Error Fields&lt;/strong&gt; - You may see additional fields in the data table that you do not see when querying the Graph API Directly, it is best to only select the fields you need.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Standardisation&lt;/strong&gt; - Standardise your queries where possible.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Resource Authentication&lt;/strong&gt; - The GraphToken function accepts an input which is used to determine the resource to authenticate against, this is important when you are querying different API&amp;rsquo;s, i.e. Graph and Log Analytics.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;template-queries&#34;&gt;Template Queries&lt;/h3&gt;
+&lt;p&gt;There are a number of template queries that are available in the report, these are as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Native Web Contents&lt;/strong&gt; - This query is used to query the Graph API directly, this will not handle pagination over 1000 objects.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Invoked Logic App&lt;/strong&gt; - If you implemented the logic app to query the data, this query will be used to interact with the Logic App to gather data.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Template Graph Call&lt;/strong&gt; - This query will use the odata query to obtain the data from the Graph API, this will handle pagination natively.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There is not a template query for the Log Analytics Workspace, however you can copy the query of the WUfB report and modify it to suit your needs.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;tips--tricks-from-the-session&#34;&gt;Tips &amp;amp; Tricks from the Session&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Friendly Names Everywhere&lt;/strong&gt; - Rename your columns and tables to something that makes sense enmasse, this will make it easier to build out your reports collaboratively.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Set your Data Types&lt;/strong&gt; - Ensure you set the data types for your columns, this will ensure that the data is displayed correctly in the report &amp;amp; it will also enhance the report performance.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Only Get the data that is required&lt;/strong&gt; - When querying the Graph API, only select the fields that you need, this will reduce the amount of data that is returned and will also improve the performance of the report.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
     <item>
       <title>Log Analytics API Data Access with Service Principals</title>
-      <link>https://euc365.com/post/2023-05-06-log-analytics-api-data-access-with-service-prinicipals/</link>
+      <link>https://euc365.com/post/log-analytics-api-data-access-service-principals/</link>
       <pubDate>Tue, 09 May 2023 21:09:46 +0000</pubDate>
       
-      <guid>https://euc365.com/post/2023-05-06-log-analytics-api-data-access-with-service-prinicipals/</guid>
+      <guid>https://euc365.com/post/log-analytics-api-data-access-service-principals/</guid>
       <description>&lt;p&gt;As IT Professionals start to look to the cloud for solutions, more and more of us are starting to utilise Log Analytics, weather that be to underpin other services &amp;amp; solutions or writing our own custom log collection scripts, it is becoming a very key piece of many deployments.&lt;/p&gt;
 &lt;p&gt;As much as I love using Kusto (KQL), Log Analytics Workbooks are very tedious to create and can take a log time to get right, those that have gone to the effort of doing so, I tip my hat to you!!&lt;/p&gt;
 &lt;p&gt;Because of this tedious nature, I decided I wanted to get the dara into Power BI, which is easy enough when you authenticate with your organisational account, but the problem with this, is just that, it ties it to that org account. Using service principals (App Registrations), removes such reliance.&lt;/p&gt;
