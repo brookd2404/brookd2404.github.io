@@ -38,7 +38,7 @@
 &lt;hr&gt; 
 &lt;h2 id=&#34;configuring-the-power-bi-report&#34;&gt;Configuring the Power BI Report&lt;/h2&gt;
 &lt;p&gt;The Power BI Files used in the session are available for download from the below button.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/powerbi/Intune&#34;&gt;&lt;img src=&#34;http://euc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/powerbi/tree/main/Intune&#34;&gt;&lt;img src=&#34;http://euc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Once you have downloaded the files, you will need to open the &lt;strong&gt;MMS 2023 - Intune Data Model.pbit&lt;/strong&gt; file, once launched you will be prompted to enter the information we gathered in the previous section. In addition to this, you will also need to select a time period for the data from the Log Analytics Workspace, I have put this in a drop down option, but this can be amended to suit your needs once the report is loaded.&lt;/p&gt;
 &lt;p&gt;The logicAppURL is not required for the report to function, however there is a template query which will use this for data ingestion and this was again the premise of my previous &lt;a href=&#34;https://euc365.com/microsoft-graph-and-powerbi/&#34;&gt;&lt;strong&gt;post&lt;/strong&gt;&lt;/a&gt;, where the Deploy to Azure Button will allow you to deploy the Logic App in under 3 minutes.&lt;/p&gt;
 
