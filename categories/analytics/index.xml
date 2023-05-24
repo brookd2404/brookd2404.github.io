@@ -6,7 +6,118 @@
     <description>Recent content in Analytics on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 May 2023 13:37:08 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/analytics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 May 2023 20:05:23 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/analytics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ASR Custom Data Collection with Intune</title>
+      <link>https://euc365.com/post/asr-custom-data-collection-intune/</link>
+      <pubDate>Wed, 24 May 2023 20:05:23 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/asr-custom-data-collection-intune/</guid>
+      <description>&lt;p&gt;At MMS MOA 2023, I presented a session alongside &lt;a href=&#34;https://twitter.com/KennyBuntinx&#34;&gt;&lt;strong&gt;Kenny Buntinx&lt;/strong&gt;&lt;/a&gt; on Attack Surface Reduction (ASR) rules, a session filled with lessons learnt, interaction and belgian chocolate. During this session, I showed a custom data collection script that I had written to collect the ASR events from the event log and send them to a Log Analytics workspace, and then how to inject that data into a Power BI report.&lt;/p&gt;
+&lt;p&gt;This post will cover the configuration of the Power BI Report and the Intune Remediation Script, to help you better report on ASR events in your environment, without having to pay for an E5 license.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;getting-prepared&#34;&gt;Getting Prepared&lt;/h2&gt;
+&lt;p&gt;First of all, you will need a Log Analytics Workspace, if you don&amp;rsquo;t have one already, you can create one in the Azure Portal. Once you have the workspace created, we will need the &lt;strong&gt;Workspace ID&lt;/strong&gt; and &lt;strong&gt;Primary Key&lt;/strong&gt; for the workspace, these can be found in the &lt;strong&gt;Agents&lt;/strong&gt; section of the workspace.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/asr/lawsinfo_hu9ce6f959a1af8a672cd6f46c85599429_98095_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Log Analytics Workspace&#34; height=&#34;&#34; width=&#34;100%&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;p&gt;The second thing we will need is the Intune Remediation Script, this is available for download from the below button. The script will need to be configured with the &lt;strong&gt;Workspace ID&lt;/strong&gt; and &lt;strong&gt;Primary Key&lt;/strong&gt; from the Log Analytics Workspace at a minimum, there are other configurable options in the script, but these are optional, and are noted in the HelpMessage of the parameters.&lt;/p&gt;
+&lt;p&gt;Once the script has been amended, the information on how to configure the tested configuration within Intune is available in the &lt;strong&gt;README&lt;/strong&gt; file in the repository.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/IntunePRs/tree/main/Inventory/ASR%20Events&#34;&gt;&lt;img src=&#34;http://euc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;configuring-the-power-bi-report&#34;&gt;Configuring the Power BI Report&lt;/h2&gt;
+&lt;p&gt;Ok, so this section is to assume that there is now data flowing into the Log Analytics Workspace, as without the data, the report will be empty.&lt;/p&gt;
+&lt;p&gt;The first thing we need to do in this section is create an Azure App Registration that can be used to access both the Log Analytics Workspace and the Graph API.&lt;/p&gt;
+&lt;p&gt;To do this, we will need to create a new App Registration in the Azure Portal, and give it the following Graph API &lt;strong&gt;Application&lt;/strong&gt; permissions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DeviceManagementManagedDevices.Read.All&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can follow my guide on how to create an App Registration &lt;a href=&#34;https://euc365.com/create_an_azure_app_registration/&#34;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;, and then how to grant access to the Log Analytics Workspace &lt;a href=&#34;https://euc365.com/post/log-analytics-api-data-access-service-principals/&#34;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Once the App Registration has been created, we will need to download the Power BI Report, from the below button, and open it in Power BI Desktop.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/powerbi/tree/main/ASR&#34;&gt;&lt;img src=&#34;http://euc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;When you first open the report, you will be prompted to enter the following information:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tenant ID&lt;/strong&gt; - This is the tenant ID of the Azure AD Tenant&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Application ID&lt;/strong&gt; - This is the Application ID of the App Registration&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Application Secret&lt;/strong&gt; - An application secret key of the App Registration&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Log Analytics Workspace ID&lt;/strong&gt; - This is the Workspace ID of the Log Analytics Workspace&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You will also need to select the Timeframe you wish to query from a drop down list, however this is further configurable in the report itself.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/asr/reportconfig_hu80eabda50e35a15cf71c2db25414a828_18047_700x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Power BI Report Configuration&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;/br&gt; 
+&lt;p&gt;Once you click &lt;strong&gt;Load&lt;/strong&gt;, you will be prompted about privacy levels, ensure you configure these as Public for the purposes of this guide, this is the only configuration that has been tested and confirmed working. This will then initiate the data load from the API&amp;rsquo;s and Log Analytics Workspace.&lt;/p&gt;
+&lt;p&gt;Once the Data has been loaded, you will be presented with the following report visual:&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/asr/reportpreview_hua7dc859dbcce61fddb146d67c42340c1_167370_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Power BI Report Preview&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;p&gt;Once you click on an Event in the bottom left-hand table, the event data will be displayed to the right-hand side to help you make informed decisions on your data.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;credits--conclusion&#34;&gt;Credits &amp;amp; Conclusion&lt;/h2&gt;
+&lt;p&gt;This post utilises frameworks of the Guys and Girls over at &lt;a href=&#34;https://msendpointmgr.com/&#34;&gt;&lt;strong&gt;MSEndpointMGR&lt;/strong&gt;&lt;/a&gt;, the function used to post the data to the LAW is based on a function used in other inventory collection scripts.&lt;/p&gt;
+&lt;p&gt;You can also look to further secure you data collection by utilising one of their other framworks which utilises Azure Function Apps (&lt;a href=&#34;https://msendpointmgr.com/2022/01/17/securing-intune-enhanced-inventory-with-azure-function/&#34;&gt;&lt;strong&gt;SEE HERE&lt;/strong&gt;&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;I hope you find this post useful, and if you have any questions, please reach out to me or leave a comment below.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>Graph API &amp; Power BI - MMS Edition</title>
       <link>https://euc365.com/post/intune-power-bi-mms-edition/</link>
@@ -161,7 +272,7 @@
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;p&gt;For this post we will need the following;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Azure App Registration, please see my previous post (&lt;a href=&#34;%5Ccreate_an_azure_app_registration)&#34;&gt;&lt;strong&gt;Create an Azure App Registration&lt;/strong&gt;&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Azure App Registration, please see my previous post (&lt;a href=&#34;https://euc365.com/create_an_azure_app_registration/&#34;&gt;&lt;strong&gt;Create an Azure App Registration&lt;/strong&gt;&lt;/a&gt;)).&lt;/li&gt;
 &lt;li&gt;A log analytics workspace&lt;/li&gt;
 &lt;li&gt;Your preferred client to Access APIs&lt;/li&gt;
 &lt;/ul&gt;
