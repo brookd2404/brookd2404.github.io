@@ -2,17 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://euc365.com/categories/analytics/</loc>
-    <lastmod>2023-05-24T21:46:30+00:00</lastmod>
+    <loc>https://euc365.com/tags/azure/</loc>
+    <lastmod>2023-05-31T08:37:19+00:00</lastmod>
   </url><url>
-    <loc>https://euc365.com/tags/asr/</loc>
-    <lastmod>2023-05-24T21:46:30+00:00</lastmod>
+    <loc>https://euc365.com/categories/azure/</loc>
+    <lastmod>2023-05-31T08:37:19+00:00</lastmod>
   </url><url>
-    <loc>https://euc365.com/post/asr-custom-data-collection-intune/</loc>
-    <lastmod>2023-05-24T21:46:30+00:00</lastmod>
+    <loc>https://euc365.com/tags/azure-image-builder/</loc>
+    <lastmod>2023-05-31T08:37:19+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/azure-image-builder/</loc>
+    <lastmod>2023-05-31T08:37:19+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/</loc>
-    <lastmod>2023-05-24T21:46:30+00:00</lastmod>
+    <lastmod>2023-05-31T08:37:19+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="params"
@@ -25,7 +28,7 @@
                 />
   </url><url>
     <loc>https://euc365.com/</loc>
-    <lastmod>2023-05-24T21:46:30+00:00</lastmod>
+    <lastmod>2023-05-31T08:37:19+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="params"
@@ -36,6 +39,67 @@
                 hreflang="en"
                 href="https://euc365.com/"
                 />
+  </url><url>
+    <loc>https://euc365.com/tags/powershell/</loc>
+    <lastmod>2023-05-31T08:37:19+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/</loc>
+    <lastmod>2023-05-31T08:37:19+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="params"
+                href="https://euc365.com/params/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://euc365.com/tags/"
+                />
+  </url><url>
+    <loc>https://euc365.com/tags/windows-365/</loc>
+    <lastmod>2023-05-31T08:37:19+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/windows-365/</loc>
+    <lastmod>2023-05-31T08:37:19+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/post/windows-365-custom-images-part-1-foundations/</loc>
+    <lastmod>2023-05-31T08:37:19+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/</loc>
+    <lastmod>2023-05-31T08:37:11+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/bicep/</loc>
+    <lastmod>2023-05-31T08:37:05+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/bicep/</loc>
+    <lastmod>2023-05-31T08:37:05+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/devops/</loc>
+    <lastmod>2023-05-31T08:37:05+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/devops/</loc>
+    <lastmod>2023-05-31T08:37:05+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/</loc>
+    <lastmod>2023-05-31T08:37:05+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/yaml/</loc>
+    <lastmod>2023-05-31T08:37:05+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/yaml/</loc>
+    <lastmod>2023-05-31T08:37:05+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/</loc>
+    <lastmod>2023-05-31T08:37:00+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/categories/analytics/</loc>
+    <lastmod>2023-05-24T21:46:30+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/tags/asr/</loc>
+    <lastmod>2023-05-24T21:46:30+00:00</lastmod>
+  </url><url>
+    <loc>https://euc365.com/post/asr-custom-data-collection-intune/</loc>
+    <lastmod>2023-05-24T21:46:30+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/intune/</loc>
     <lastmod>2023-05-24T21:46:30+00:00</lastmod>
@@ -54,19 +118,6 @@
   </url><url>
     <loc>https://euc365.com/categories/security/</loc>
     <lastmod>2023-05-24T21:46:30+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/</loc>
-    <lastmod>2023-05-24T21:46:30+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="params"
-                href="https://euc365.com/params/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://euc365.com/tags/"
-                />
   </url><url>
     <loc>https://euc365.com/post/intune-power-bi-mms-edition/</loc>
     <lastmod>2023-05-19T13:47:45+00:00</lastmod>
@@ -99,9 +150,6 @@
     <lastmod>2023-05-19T12:46:17+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/graph-api/</loc>
-    <lastmod>2023-05-19T12:46:17+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/powershell/</loc>
     <lastmod>2023-05-19T12:46:17+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/powershell/</loc>
@@ -144,12 +192,6 @@
     <lastmod>2023-05-19T12:46:17+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/post/create-windows-365-azure-network-connections-powershell/</loc>
-    <lastmod>2023-05-19T12:46:17+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/windows-365/</loc>
-    <lastmod>2023-05-19T12:46:17+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/categories/windows-365/</loc>
     <lastmod>2023-05-19T12:46:17+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/application-deployment/</loc>
@@ -203,12 +245,6 @@
     <loc>https://euc365.com/post/vlog-windows-autopatch/</loc>
     <lastmod>2023-05-19T12:46:17+00:00</lastmod>
   </url><url>
-    <loc>https://euc365.com/tags/azure/</loc>
-    <lastmod>2023-05-19T12:46:17+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/categories/azure/</loc>
-    <lastmod>2023-05-19T12:46:17+00:00</lastmod>
-  </url><url>
     <loc>https://euc365.com/tags/azure-ad/</loc>
     <lastmod>2023-05-19T12:46:17+00:00</lastmod>
   </url><url>
@@ -249,12 +285,6 @@
     <lastmod>2023-05-19T12:46:17+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/categories/azure-resource-manager/</loc>
-    <lastmod>2023-05-19T12:46:17+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/tags/bicep/</loc>
-    <lastmod>2023-05-19T12:46:17+00:00</lastmod>
-  </url><url>
-    <loc>https://euc365.com/categories/bicep/</loc>
     <lastmod>2023-05-19T12:46:17+00:00</lastmod>
   </url><url>
     <loc>https://euc365.com/tags/infrastructure-as-code/</loc>

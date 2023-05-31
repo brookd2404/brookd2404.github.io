@@ -1,12 +1,534 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Powershell on EUC365 | Modern Technology Blog</title>
+    <title>PowerShell on EUC365 | Modern Technology Blog</title>
     <link>https://euc365.com/tags/powershell/</link>
-    <description>Recent content in Powershell on EUC365 | Modern Technology Blog</description>
+    <description>Recent content in PowerShell on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 20 Mar 2023 13:43:22 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 May 2023 08:37:18 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows 365 Custom Images - Part 1 - The Foundations</title>
+      <link>https://euc365.com/post/windows-365-custom-images-part-1-foundations/</link>
+      <pubDate>Wed, 31 May 2023 08:37:18 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/windows-365-custom-images-part-1-foundations/</guid>
+      <description>&lt;p&gt;Welcome along for the ride as we talk about Windows 365 Custom Images, and how we can use Azure Image Builder to create these images. In the upcoming series of posts, we will cover the following topics;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
+&lt;li&gt;Part 2 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 3 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 4 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In this post we are going to discuss the foundations &amp;amp; requirements for creating a custom images, it is intended that this post is read first before moving onto the other parts of the series to ensure you fully understand the required components and how they work together. So without any further ado, let&amp;rsquo;s get started.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;permission-requirements&#34;&gt;Permission Requirements&lt;/h2&gt;
+&lt;p&gt;This first part of the series will cover the requirements for the Azure Infrastructure and the Azure Image Builder prerequisites, and as such will require the following permissions;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Owner&lt;/strong&gt; permissions on the target Azure Subscription.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Really, nothing more than that for creating the infrastructure.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;what-is-azure-image-builder&#34;&gt;What is Azure Image Builder?&lt;/h2&gt;
+&lt;p&gt;Azure Image Builder is a service that allows you to create custom images in Azure, this is based on HashiCorp Packer. Until recently, Image Templates had to be specified in either ARM (Azure Resource Manager) Templates, BICEP or you could use PowerShell to create your image. However, as of May 2023 there is a new kid on the block, you can now create images in the Azure Portal&amp;hellip; see [&lt;strong&gt;Part 4&lt;/strong&gt;] for more information on this.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;what-will-we-need-to-create-for-the-foundations&#34;&gt;What will we need to create for the Foundations?&lt;/h2&gt;
+&lt;p&gt;Well the answer is&amp;hellip; not a lot and certainly nothing manually. This section is to first of all highlight what will be done in the Infrastructure setup script, and then we will go through the steps to execute the script. No one wants to blindly run it without knowing what it is doing&amp;hellip;. Right?&amp;hellip; Right?&amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;azure-resource-group&#34;&gt;Azure Resource Group&lt;/h3&gt;
+&lt;p&gt;This will come of no surprise to many, but we will need a resource group to store all of the resources we will create. This will be created in the subscription of your choice, and will have the name you specify with the &lt;code&gt;-aibRG&lt;/code&gt; parameter. This will also be used to scope the permissions for the User Managed Identity and the Custom Role.&lt;/p&gt;
+&lt;h3 id=&#34;custom-azure-role&#34;&gt;Custom Azure Role&lt;/h3&gt;
+&lt;p&gt;Azure Image builder requires some specific permissions to be able to manage different aspects of the deployment. Rather than giving it full access to the subscription, we will create a custom role that will be scoped to the resource group we created above.&lt;/p&gt;
+&lt;p&gt;The role will have the following permissions;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Microsoft.Compute/galleries/read&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Microsoft.Compute/galleries/images/read&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Microsoft.Compute/galleries/images/versions/read&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Microsoft.Compute/galleries/images/versions/write&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Microsoft.Compute/images/write&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Microsoft.Compute/images/read&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Microsoft.Compute/images/delete&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Microsoft.ManagedIdentity/userAssignedIdentities/assign/action&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;See the &lt;a href=&#34;https://learn.microsoft.com/en-us/azure/virtual-machines/linux/image-builder-permissions-powershell&#34;&gt;&lt;strong&gt;Microsoft Documentation&lt;/strong&gt;&lt;/a&gt; for more information on the permissions.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Microsoft.ManagedIdentity/userAssignedIdentities/assign/action&lt;/strong&gt; is not defined in the documentation, but is required when using Azure DevOps for Deployments using this solution.&lt;/p&gt;
+&lt;h3 id=&#34;user-managed-identity&#34;&gt;User Managed Identity&lt;/h3&gt;
+&lt;p&gt;The Azure Image Builder service requires a User Managed Identity to be able to perform the actions required to create the image. This will be created in the resource group we created above, and will be given the name of the resource group with the suffix of &lt;strong&gt;-UMI&lt;/strong&gt;, unless you specify something different with the &lt;code&gt;-identityName&lt;/code&gt; parameter.&lt;/p&gt;
+&lt;p&gt;Once the User Managed Identity has been created, it will be assigned the custom role we created above.&lt;/p&gt;
+&lt;h3 id=&#34;azure-resource-providers&#34;&gt;Azure Resource Providers&lt;/h3&gt;
+&lt;p&gt;To support the provisioning of the Azure resources within your subscription, the following resource providers will need to be registered;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Microsoft.Compute&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Microsoft.Storage&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Microsoft.VirtualMachineImages&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Microsoft.Network&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;(Optional) &lt;strong&gt;Microsoft.KeyVault&lt;/strong&gt; - This is only required if you are using a Key Vault to store your secrets.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Documentation can be found on this &lt;a href=&#34;https://learn.microsoft.com/en-us/azure/virtual-machines/windows/image-builder-powershell#register-features&#34;&gt;LINK&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;deploying-the-foundations&#34;&gt;Deploying the Foundations&lt;/h2&gt;
+&lt;p&gt;Now we understand what the script will do, let&amp;rsquo;s go through the steps to execute the script. The script can be found on my GitHub repository, and can be downloaded from the link below;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/windows365/blob/main/Custom%20Images/Create-AIBInfrastructure.ps1&#34;&gt;&lt;img src=&#34;http://euc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Create-AIBInfrastructure.ps1&lt;/strong&gt; script, once executed will install the required PowerShell modules, and then prompt you to login to Azure.&lt;/p&gt;
+&lt;p&gt;Below is an example of the parameters that can be used to execute the script;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$splat = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    SubscriptionID = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;b493a1f9-4895-45fe-bb71-152b36eea469&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# The ID of the Azure Subscription where the resources will be created.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    geoLocation = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;UKSouth&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# The Azure region in which resources will be provisioned&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    aibRG = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;W365-CI-EUC365&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# The name of the resource group to be created&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.\Create-AIBInfrastructure.ps1 @splat
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
+&lt;p&gt;Once the script is executed, you will start to see the resource information in the console;&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/foundationExecute_hued813d45066a380b444f1d6f23611c53_97552_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Foundation Script Execution Output&#34; height=&#34;&#34; width=&#34;100%&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;p&gt;Once the execution has complete you will have a resource group with the Custom Roles &amp;amp; the User Managed Identity with the Custom Role assigned to it.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/foundationRG_hu64e7c07917baf29ec5f79875b729408e_52537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Resource Group&#34; height=&#34;&#34; width=&#34;85%&#34;&gt;
+
+
+
+&lt;hr&gt; 
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Stick around and check our the other parts of the series noted in the introduction, and if you have any questions or comments, please feel free to reach out to me on Twitter or leave a comment below.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Windows 365 Custom Images - Part 2 - PowerShell Deployment</title>
+      <link>https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/</link>
+      <pubDate>Wed, 31 May 2023 08:37:10 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/</guid>
+      <description>&lt;p&gt;Welcome to the second post in the series talking about Windows 365 Custom Images, and how we can use Azure Image Builder to create these images. In this series of posts, we will cover the following topics;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 2 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
+&lt;li&gt;Part 3 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 4 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The first post in the series covered the foundations for all of the deployment methods, and as such, this post will cover the PowerShell deployment method. We will cover additional requirements and what to expect as an output from the script.&lt;/p&gt;
+&lt;p&gt;The PowerShell deployment method will not only create the Image, but it will also upload the image to the Windows 365 Service, and then create a new Windows 365 Cloud PC Provisioning Policy, or update and existing policy if one already exists.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;The ids in the script are fictitious and for example purposes only, please do not use these in your environment.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;permission-requirements&#34;&gt;Permission Requirements&lt;/h2&gt;
+&lt;p&gt;As we are executing this manually, the &lt;strong&gt;Owner&lt;/strong&gt; permission on the Subscription is not required, you will require the following permissions to execute the script;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Intune Administrator&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Contributor&lt;/strong&gt; on the Resource Group where the resources will be created&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;getting-prepared&#34;&gt;Getting Prepared&lt;/h2&gt;
+&lt;p&gt;Before we can execute the script, we will need to ensure that we gather all of the information we will need to execute the script and achieve our goal of creating a custom image for Windows 365.&lt;/p&gt;
+&lt;h3 id=&#34;image-offer-and-sku&#34;&gt;Image Offer and SKU&lt;/h3&gt;
+&lt;p&gt;One of the first things we need to obtain is the Image Offer we will use as our base template. To do so, follow the below steps;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Obtain the &lt;a href=&#34;https://github.com/brookd2404/Powershell_Scripts/blob/master/Azure/Get-ImageOptions.ps1&#34;&gt;&lt;strong&gt;Get-ImageOptions.ps1&lt;/strong&gt;&lt;/a&gt; script&lt;/li&gt;
+&lt;li&gt;Run this script, specifying your Subscription ID, Geo Locations (e.g UKSouth, EastUS etc.) and the Image Publisher (which for this case is MicrosoftWindowsDesktop), as below.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;Get-ImageOptions.ps1 -SubscriptionId &amp;lt;Subid&amp;gt; -geoLocation &amp;quot;UKSouth&amp;quot; -imagePublisher &amp;quot;MicrosoftWindowsDesktop&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Locate the &lt;strong&gt;windows-ent-cpc&lt;/strong&gt; heading, and take note of an image offer you wish to use.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For those wondering, this denotes &lt;strong&gt;Windows Enterprise Cloud PC&lt;/strong&gt;. There are two options for later versions of the OS, which are M365 or OS. To help make your decision, please review the &lt;a href=&#34;https://learn.microsoft.com/en-us/windows-365/enterprise/device-images#gallery-images&#34;&gt;&lt;strong&gt;Cloud PC Device images overview&lt;/strong&gt;&lt;/a&gt; documentation.&lt;/p&gt;
+&lt;h2 id=&#34;image-customisations&#34;&gt;Image Customisations&lt;/h2&gt;
+&lt;p&gt;As you will see in the script, there are three customisations, two &amp;lsquo;Inline&amp;rsquo; and 1 script URI. Now these are the bits that make your images do the business, there is a bit of trial and error some times, but when you find your groove, it becomes like shelling peas.&lt;/p&gt;
+&lt;p&gt;If you search for &lt;code&gt;$ImgCustomParams&lt;/code&gt; this will locate the customisations. If you add, or remove one, please do not forget to update the &lt;code&gt;$ImgTemplateParams&lt;/code&gt; object!, more information on customiser objects in PowerShell can be found &lt;a href=&#34;https://learn.microsoft.com/en-us/powershell/module/az.imagebuilder/new-azimagebuildertemplatecustomizerobject?view=azps-10.0.0&amp;amp;viewFallbackFrom=azps-9.1.0&#34;&gt;&lt;strong&gt;HERE&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can use the Managed Identity to access Azure Storage Accounts for Files, there is documentation on this &lt;a href=&#34;https://learn.microsoft.com/en-us/azure/virtual-machines/linux/image-builder-user-assigned-identity#&#34;&gt;&lt;strong&gt;HERE&lt;/strong&gt;&lt;/a&gt;, this is not in in a PowerShell formate but it does outline the concept.&lt;/p&gt;
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;Generation 2 Virtual Machine Templates require both &lt;strong&gt;RunAsSystem&lt;/strong&gt; &amp;amp; &lt;strong&gt;RunAsElevated&lt;/strong&gt; to be set to &lt;strong&gt;True&lt;/strong&gt;. If you do not do this, the image will fail to build.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;executing-the-script&#34;&gt;Executing the Script&lt;/h2&gt;
+&lt;p&gt;Ok, lets get some resources in the over, go grab a coffee, and come back to a fully built image, and a new Windows 365 Provisioning Policy&amp;hellip; honestly, this process from start to finish takes longer than 1 hour&amp;hellip; Why not use a Windows 365 to do it to avoid any unexpected interruptions 😋😋!!&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;This script will create a shared image gallery where the image will be built to before creating the Managed disk. This is to also provide additional value in that you can create multiple images in the same gallery, and then use the same image for multiple purposes. For example, you could create a Windows 10 Enterprise image, and then use this for both Windows 365 and Azure Virtual Desktop.&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;To execute the script, ensure you have added your Customisations and gathered all the information you need to pass into the script, and then execute the script as the below example;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$Params = @{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    subscriptionID = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;b493a1f9-4895-45fe-bb71-152b36eea469&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#The ID of the Azure Subscription where the resources will be created.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    geoLocation = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;uksouth&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#The Azure region in which resources will be provisioned.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    aibRG = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;w365-CICD-rg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#The name of the resource group to be created&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    imageTemplateName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;w365CustomCICD&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#The name of the Image Template to Create.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    aibGalleryName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;sigw365&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#The name of the Image Gallery to create/update, You cannot use special characters or spaces in this field.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    imageDefinitionName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;w365Images&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#The name of the image definition to create&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    provisioningPolicyDisplayName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;W365 Demo&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#The name of your Windows 365 Provisioning Policy.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    publisher = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;MicrosoftWindowsDesktop&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#This value is set by default, but please do update to suit your needs, please see the Image Offer and SKU section above&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    offerName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;windows-ent-cpc&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#This value is set by default, but please do update to suit your needs, please see the Image Offer and SKU section above&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    offerSku = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;win11-22h2-ent-cpc-m365&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#This value is set by default, but please do update to suit your needs, please see the Image Offer and SKU section above&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    runOutputName = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;w365DistResult&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#The Result Output Name.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;amp; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;.\Create-Windows365AIB.ps1&amp;#39;&lt;/span&gt; @Params
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Don&amp;rsquo;t worry, you will be able to see it is still working though, as the script will check the progress on actions periodically, and output information to the console&amp;hellip; I have been there, and I know the feeling of &amp;lsquo;is it still working&amp;rsquo; 🤣🤣&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;So there you have it, a fully automated (yet Manually Invoked) image build process for Windows 365, and a new Windows 365 Provisioning Policy. Stick around for the next post in the series, where we will cover the Azure DevOps deployment method for a complete hands off approach to deploying your Windows 365 Custom Images.&lt;/p&gt;
+&lt;p&gt;If you have any questions, please do reach out to me on Twitter or in the comments below.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Windows 365 Custom Images - Part 4 - Azure AVD UI</title>
+      <link>https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/</link>
+      <pubDate>Wed, 31 May 2023 08:36:57 +0000</pubDate>
+      
+      <guid>https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/</guid>
+      <description>&lt;p&gt;Welcome to the fourth (&amp;amp; final&amp;hellip; for now) post in the series talking about Windows 365 Custom Images, and how we can use Azure Image Builder to create these images. In this series of posts, we will cover the following topics;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Part 1 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 2 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 3 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 4 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This has been a long time coming for people not so involved with ARM, BICEP, DevOps or PowerShell as there is now UI Capabilities for you to create your own custom images. You can even use some &amp;lsquo;in-built&amp;rsquo; customisation options to give you that extra hand along the way.&lt;/p&gt;
+&lt;p&gt;This is by far the most manually involved piece, but it is a great way to get started with Azure Image Builder, and then you can start to explore the other options available to you.&lt;/p&gt;
+&lt;p&gt;So without further ado, lets get into it!&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;You must still use the Foundation post to create the required resources, as this post will not cover the creation of the required resources.&lt;/p&gt;&lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;permission-requirements&#34;&gt;Permission Requirements&lt;/h2&gt;
+&lt;p&gt;For this post, you will need access to the Subscription and Resource Group created in the Foundations post. During Testing no other permissions were required, but as with everything this may change in the future.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;getting-prepared&#34;&gt;Getting Prepared&lt;/h2&gt;
+&lt;p&gt;Ok, before we start getting into the creating of the template, ensure you have the publicly available links to your resources, even if you are using something with a SAS token or in a storage account, it needs to be accessible from the internet.&lt;/p&gt;
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;If you are using the Managed Identity to get data from a storage account, please ensure that this has the relevant permissions on that account.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;creating-the-image&#34;&gt;Creating the Image&lt;/h2&gt;
+&lt;p&gt;So we are now ready to start creating the image, so let&amp;rsquo;s head over to the &lt;a href=&#34;https://portal.azure.com&#34;&gt;&lt;strong&gt;Azure Portal&lt;/strong&gt;&lt;/a&gt; and then head to the &lt;strong&gt;Azure Virtual Desktop&lt;/strong&gt; blade.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/avdblade_hu778898063c6d8de5e701e77fbfb39d16_26113_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop blade&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;p&gt;Once you are in the Azure Virtual Desktop blade, you will need to select the &lt;strong&gt;Custom image templates&lt;/strong&gt; option from the left hand menu.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/avdcioptions_hu2801852e31a0583f0516b511f91b5fad_11105_272x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Option&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;hr&gt;
+&lt;h3 id=&#34;create-a-custom-image&#34;&gt;Create a Custom Image&lt;/h3&gt;
+
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;The same rule still applies here, you cannot currently update an image template. However, you will see as you go through the UI Selection options, it will give you the ability to select a previous template to use as a base. We won&amp;rsquo;t cover that here, but I wanted to make you aware of it.&lt;/p&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Click &lt;strong&gt;Add custom image template&lt;/strong&gt; from the ribbon&lt;/li&gt;
+&lt;li&gt;Enter the follwing information on the basic pane;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Template Name&lt;/strong&gt;: The name you wish to call the image template&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Import from existing template&lt;/strong&gt;: If you have a previous template you wish to use as a base, select it here, other wise select &lt;strong&gt;No&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Subscription&lt;/strong&gt;: The subscription your resource group is in&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Resource Group&lt;/strong&gt;: The resource group you created in the Foundations post&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Location&lt;/strong&gt;: The region you wish to deploy the image to&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Managed Identity&lt;/strong&gt;: The Managed Identity created in the Foundations post&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/avdcibasic_hu9012fe3d09e45c478a3ea5eedea1725f_22846_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Basic Blade&#34; height=&#34;80%&#34; width=&#34;80%&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;On the &lt;strong&gt;Source Image&lt;/strong&gt; pane, enter the following details;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Source Type&lt;/strong&gt;: For this post we will be using a &lt;strong&gt;Platform Image&lt;/strong&gt;, but if you have other image types you can explore them here.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Select Image&lt;/strong&gt;: Select the image you wish to use as a base for your custom image (If you choose a Windows 10 Image, I recommend using the ones appended with Gen2)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/selectsource_huf3006c8c85dd3f8fcf4cacd5f7c8f095_38458_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Source Blade&#34; height=&#34;80%&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;On the &lt;strong&gt;Distribution Targets&lt;/strong&gt; pane, enter the following details, and then click &lt;strong&gt;Next&lt;/strong&gt;;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Managed Image&lt;/strong&gt;: Select this option as this is what we are focusing on in this post&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Resource Group&lt;/strong&gt;: Select the resource group you created in the Foundations post&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Image Name&lt;/strong&gt;: The name you wish to call the image&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Location&lt;/strong&gt;: The region you wish to deploy the image to&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Run output name&lt;/strong&gt;: The name you wish to call the run output&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/disttarget_hua0fd067a64de8c83b0ad172a60722fbd_37601_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Distribution Blade&#34; height=&#34;80%&#34; width=&#34;80%&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;On the &lt;strong&gt;Build Properties&lt;/strong&gt; Pane, we can leave all options as default. However, this is where you could add a VNET, increase the size of the packer VM to improve build speed etc. for now we can just click &lt;strong&gt;Next&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ok, now we are onto the &lt;strong&gt;Customizations&lt;/strong&gt; pane, this is where you will add in links to your scripts, or use the built-in scripts to help tailor the experience for your needs. Feel free to play around here and then click &lt;strong&gt;Next&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/portalcustomisations_hu79d20c7044884d8d8ae77709ee2d5ef5_41833_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Customizations Blade&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Add any tags you wish to add to the image, and then click &lt;strong&gt;Next&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Review the information you have entered, and then click &lt;strong&gt;Create&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Once you click create, you will be taken back to the Custom Image Templates blade, and you will see your new template being created, this normally only takes a few minutes, but the image is not quite ready at this point.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/creatingtemplate_hua61144197f9d8016b8906ee91fa352ae_68081_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Template&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;p&gt;Once the template status changes to to &lt;strong&gt;Success&lt;/strong&gt;, you can select the template and then click &lt;strong&gt;Run&lt;/strong&gt; from the ribbon.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/startbuild_hu33487020f63f5569ef2d7a7314802443_52830_727x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Template - start build&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;p&gt;This process creation time can vary, it all depends on the customisations you have added, and the size of the image you are creating, go grab a coffee and come back in a little while.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;uploading-the-image-to-windows-365&#34;&gt;Uploading the Image to Windows 365&lt;/h2&gt;
+&lt;p&gt;A little while later&amp;hellip; we can finally upload the image to Windows 365.&lt;/p&gt;
+&lt;p&gt;Lets start by heading over to the &lt;a href=&#34;https://intune.microsoft.com&#34;&gt;&lt;strong&gt;Intune Console&lt;/strong&gt;&lt;/a&gt; and then head to the &lt;strong&gt;Devices Windows 365&lt;/strong&gt; blade.&lt;/p&gt;
+&lt;p&gt;From here we need to select the &lt;strong&gt;Custom Images&lt;/strong&gt; tab, and then click &lt;strong&gt;Add&lt;/strong&gt; from the ribbon. The configuration menu will appear to the right of the screen, where you should enter the following information;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Image Name&lt;/strong&gt;: The display name of the image in Windows 365&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Image Version&lt;/strong&gt;: A version number for the image, I use the date format, for example 22.05.26.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Subscription&lt;/strong&gt;: The subscription your image is in&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Source Image&lt;/strong&gt;: The image you created in the previous section&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/w365ImageConfig_hub6630b53745c50f9e1843fbcde86210d_21626_325x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Windows 365 Custom Image Configuration&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;/br&gt;
+&lt;p&gt;Once you have entered the information, click &lt;strong&gt;Add&lt;/strong&gt; and you will see the image appear in the list, once the upload completes, the status will change to &lt;strong&gt;Upload successful&lt;/strong&gt; and be available for selection in the provisioning policy.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/w365ImageList_huff17fe2c60f360e05021906c2344c47b_36591_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Windows 365 Custom Image List&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+
+
+
+&lt;hr&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I love that this is now making image creation more accessible to admins, however I find this the most labour intensive process as with the PowerShell and DevOps options, you can automate the process, and not have to worry about checking the status of the image creation &amp;amp; upload.&lt;/p&gt;
+&lt;p&gt;I hope you have enjoyed this series, and I hope it has helped you on your journey to Windows 365 with Custom Images.&lt;/p&gt;
+&lt;p&gt;As always, if you have any questions, please feel free to reach ou t to me on Twitter or leave a comment below.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>Driver and Firmware Servicing PowerShell Module</title>
       <link>https://euc365.com/post/driver-firmware-servicing-powershell-module/</link>
