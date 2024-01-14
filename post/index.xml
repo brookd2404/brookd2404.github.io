@@ -4147,8 +4147,9 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 &lt;li&gt;
 &lt;p&gt;Complete the information on the &lt;strong&gt;Create your Samsung account&lt;/strong&gt; form, then click &lt;strong&gt;Next&lt;/strong&gt;
 
-&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src = &#34;/images/knox/15charpwd.png&#34; /&gt;
-   If you try enter a password longer than 15 characters you will be presented with the above message.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;   &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src = &#34;/images/knox/15charpwd.png&#34; /&gt;
+   If you try enter a password longer than 15 characters you will be presented with the above message.
+&lt;/p&gt;&lt;/div&gt;
 &lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -5397,7 +5398,8 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 &lt;/ul&gt;
 
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/termsmultiplepdfs.png&#34; alt=&#34;Terms MultiplePDFS&#34; width=&#34;587px&#34; height=&#34;175px&#34; /&gt;
-&lt;br&gt;At this point you can upload the same terms in a different language, simply click **+ Add language**, Upload the PDF and then select its language from the drop down to the right-hand side.&lt;/p&gt;&lt;/div&gt;
+&lt;br&gt;At this point you can upload the same terms in a different language, simply click **+ Add language**, Upload the PDF and then select its language from the drop down to the right-hand side.
+&lt;/p&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Require user to expand the terms of use&lt;/strong&gt;, now this is optional, you can choose to require the users to expand the terms of use or not. Personally, I prefer too as if the terms are broken you can show that they would have had to read them.&lt;/li&gt;
@@ -6545,8 +6547,7 @@ You will need to take this into account if you plan to package multiple applicat
 &lt;/li&gt;
 &lt;li&gt;Click through the windows to complete the creation&lt;/li&gt;
 &lt;li&gt;Deploy the app to your desired collection&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;&lt;/div&gt;
+&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/br&gt;
 &lt;p&gt;During the installation and the uninstallation of the apps, there is a transcript of the session that is by default stored in &lt;code&gt;C:\Windows\Logs\Software&lt;/code&gt;. This will help in troubleshooting the install should you have any issues.&lt;/p&gt;
@@ -6791,8 +6792,7 @@ Finish both of the off the dialog windows through the summary panes and then dep
 &lt;li&gt;Enter the &lt;strong&gt;Name&lt;/strong&gt; of the group&lt;/li&gt;
 &lt;li&gt;Select the Group&lt;/li&gt;
 &lt;li&gt;Click &lt;strong&gt;Add Groups&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;&lt;/div&gt;
+&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;

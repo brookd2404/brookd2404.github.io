@@ -999,8 +999,7 @@ You will need to take this into account if you plan to package multiple applicat
 &lt;/li&gt;
 &lt;li&gt;Click through the windows to complete the creation&lt;/li&gt;
 &lt;li&gt;Deploy the app to your desired collection&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;&lt;/div&gt;
+&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/br&gt;
 &lt;p&gt;During the installation and the uninstallation of the apps, there is a transcript of the session that is by default stored in &lt;code&gt;C:\Windows\Logs\Software&lt;/code&gt;. This will help in troubleshooting the install should you have any issues.&lt;/p&gt;
@@ -1245,8 +1244,7 @@ Finish both of the off the dialog windows through the summary panes and then dep
 &lt;li&gt;Enter the &lt;strong&gt;Name&lt;/strong&gt; of the group&lt;/li&gt;
 &lt;li&gt;Select the Group&lt;/li&gt;
 &lt;li&gt;Click &lt;strong&gt;Add Groups&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;&lt;/div&gt;
+&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;

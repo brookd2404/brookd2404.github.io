@@ -368,8 +368,9 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 &lt;li&gt;
 &lt;p&gt;Complete the information on the &lt;strong&gt;Create your Samsung account&lt;/strong&gt; form, then click &lt;strong&gt;Next&lt;/strong&gt;
 
-&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src = &#34;/images/knox/15charpwd.png&#34; /&gt;
-   If you try enter a password longer than 15 characters you will be presented with the above message.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;   &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src = &#34;/images/knox/15charpwd.png&#34; /&gt;
+   If you try enter a password longer than 15 characters you will be presented with the above message.
+&lt;/p&gt;&lt;/div&gt;
 &lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
