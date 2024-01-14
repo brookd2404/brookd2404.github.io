@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Windows on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/windows/</link>
+    <link>https://hugo.euc365.com/tags/windows/</link>
     <description>Recent content in Windows on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 14 Feb 2023 14:17:39 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Feb 2023 14:17:39 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VLOG - Driver and Firmware Updates Preview GUI Configuration</title>
-      <link>https://euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</link>
+      <link>https://hugo.euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</link>
       <pubDate>Tue, 14 Feb 2023 14:17:39 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</guid>
       <description>&lt;p&gt;In this video, we’ll walk you through:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Installing required components&lt;/li&gt;
@@ -26,7 +26,7 @@
 &lt;li&gt;&lt;a href=&#34;https://nodejs.org/en/download&#34;&gt;&lt;strong&gt;Node.JS Downloads&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/microsoftgraph/windowsupdates-webapplication-sample&#34;&gt;&lt;strong&gt;WUfB DS Web Application Repo&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/graph/api/resources/adminwindowsupdates?view=graph-rest-beta&#34;&gt;&lt;strong&gt;Graph API Documentation&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;Driver Management via Graph API and PowerShell&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;Driver Management via Graph API and PowerShell&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 
@@ -39,10 +39,10 @@
     
     <item>
       <title>VLOG - Windows 365 Access Solutions</title>
-      <link>https://euc365.com/post/vlog-windows-365-access-solutions/</link>
+      <link>https://hugo.euc365.com/post/vlog-windows-365-access-solutions/</link>
       <pubDate>Mon, 09 Jan 2023 09:38:04 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-windows-365-access-solutions/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-windows-365-access-solutions/</guid>
       <description>&lt;p&gt;In this video, we’ll walk you through:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Self service methods of Access&lt;/li&gt;
@@ -70,10 +70,10 @@
     
     <item>
       <title>VLOG - Windows Update for Business Reports</title>
-      <link>https://euc365.com/post/vlog-wufb-reports/</link>
+      <link>https://hugo.euc365.com/post/vlog-wufb-reports/</link>
       <pubDate>Fri, 02 Dec 2022 13:48:29 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-wufb-reports/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-wufb-reports/</guid>
       <description>
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
   &lt;iframe src=&#34;https://www.youtube.com/embed/W30BT2Pk4kU&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
@@ -97,10 +97,10 @@ Don’t forget to subscribe!&lt;/p&gt;
     
     <item>
       <title>VLOG - Getting Started with Windows 365 Enterprise</title>
-      <link>https://euc365.com/post/vlog-gs-windows365/</link>
+      <link>https://hugo.euc365.com/post/vlog-gs-windows365/</link>
       <pubDate>Thu, 03 Nov 2022 11:38:42 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-gs-windows365/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-gs-windows365/</guid>
       <description>&lt;p&gt;A look into a &amp;lsquo;From the Ground Up&amp;rsquo; approach to Windows 365, including Licensing, differences in Product SKUs, configuration and also three ways to access Windows 365.&lt;/p&gt;
 &lt;h2 id=&#34;useful-links&#34;&gt;Useful Links&lt;/h2&gt;
 &lt;ul&gt;

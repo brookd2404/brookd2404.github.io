@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Terms of Use on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/terms-of-use/</link>
+    <link>https://hugo.euc365.com/tags/terms-of-use/</link>
     <description>Recent content in Terms of Use on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 May 2021 08:06:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/terms-of-use/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 May 2021 08:06:00 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/terms-of-use/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Autopilot Enrolment Terms of Use</title>
-      <link>https://euc365.com/autopilot-enrolment-terms-of-use/</link>
+      <link>https://hugo.euc365.com/autopilot-enrolment-terms-of-use/</link>
       <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
       
-      <guid>https://euc365.com/autopilot-enrolment-terms-of-use/</guid>
+      <guid>https://hugo.euc365.com/autopilot-enrolment-terms-of-use/</guid>
       <description>&lt;h2 id=&#34;why-would-i-want-to-do-this-whats-the-purpose&#34;&gt;Why would I want to do this? Whats the Purpose?&lt;/h2&gt;
 &lt;p&gt;You maybe asking yourself why should I be adding Terms of use to Autopilot Enrolment? Well there are a few use cases that spring to mind.&lt;/p&gt;
 &lt;p&gt;The first been accepting an It acceptable use policy, for many years users have come to collect devices from a field office and/or had the devices delivered to them by an internal tech. Well in the current day and age of Modern Management and Windows Autopilot you now have the option to ship straight from the vendor to the end user, ensuring that the user accepts the policy prior to using the device maybe an absolute must for your organisation.&lt;/p&gt;
@@ -50,7 +50,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termsnameanddisplay_hub8ff1006e3bc9242cc17866791a4f670_26243_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Name and DisplayName&#34; height=&#34;138px&#34; width=&#34;587px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/termsnameanddisplay_hub8ff1006e3bc9242cc17866791a4f670_26243_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Name and DisplayName&#34; height=&#34;138px&#34; width=&#34;587px&#34;&gt;
 
 
 &lt;/p&gt;
@@ -63,7 +63,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/termsmultiplepdfs.png&#34; alt=&#34;Terms MultiplePDFS&#34; width=&#34;587px&#34; height=&#34;175px&#34; /&gt;
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/apterms/termsmultiplepdfs.png&#34; alt=&#34;Terms MultiplePDFS&#34; width=&#34;587px&#34; height=&#34;175px&#34; /&gt;
 &lt;br&gt;At this point you can upload the same terms in a different language, simply click **+ Add language**, Upload the PDF and then select its language from the drop down to the right-hand side.
 &lt;/p&gt;&lt;/div&gt;
 
@@ -72,7 +72,7 @@
 &lt;li&gt;&lt;strong&gt;Require users to consent on every device&lt;/strong&gt;, This one &lt;strong&gt;HAS&lt;/strong&gt; to be set to &lt;strong&gt;Off&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/consentwarning.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;650px&#34; height=&#34;138px&#34; /&gt;&lt;br&gt;
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/apterms/consentwarning.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;650px&#34; height=&#34;138px&#34; /&gt;&lt;br&gt;
 This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on the device has to be Joined to Azure AD Already and in fully working order. You will see this warning if you do attempt to switch it on.&lt;/p&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -102,7 +102,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termscomplete_hu78f625e649dfc516ebb0eba7978febd3_121537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;650px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/termscomplete_hu78f625e649dfc516ebb0eba7978febd3_121537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;650px&#34;&gt;
 
 
 &lt;/p&gt;
@@ -148,7 +148,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/grantselectterms_hu18dde69c3568addac427ca6104d8369f_93291_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;250px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/grantselectterms_hu18dde69c3568addac427ca6104d8369f_93291_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;250px&#34;&gt;
 
 
 
@@ -178,13 +178,13 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termsduringap_hu243e40b91a29d7e929c678b53a0b3d64_18595_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;300px&#34; width=&#34;1000px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/termsduringap_hu243e40b91a29d7e929c678b53a0b3d64_18595_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;300px&#34; width=&#34;1000px&#34;&gt;
 
 
 
 
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;If you selected to force the users to expand the terms, but just click accept you will see the message below pop up.
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/termsnoexpand.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;450px&#34; height=&#34;150px&#34; /&gt;&lt;/p&gt;&lt;/div&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/apterms/termsnoexpand.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;450px&#34; height=&#34;150px&#34; /&gt;&lt;/p&gt;&lt;/div&gt;
 
 &lt;p&gt;If you expand the terms you will see your terms in an embedded PDF viewer, once you have finished click &lt;strong&gt;Accept&lt;/strong&gt;, you will then just continue along your way on a standard Autopilot build.&lt;/p&gt;
 
@@ -210,7 +210,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/acceptteddeclinenumbers_hufcb2f10437b382c8df62e46426bbab6e_3110_635x0_resize_q100_h2_box_3.webp&#34; alt=&#34;acceptteddeclinenumbers&#34; height=&#34;75px&#34; width=&#34;600px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/acceptteddeclinenumbers_hufcb2f10437b382c8df62e46426bbab6e_3110_635x0_resize_q100_h2_box_3.webp&#34; alt=&#34;acceptteddeclinenumbers&#34; height=&#34;75px&#34; width=&#34;600px&#34;&gt;
 
 
 

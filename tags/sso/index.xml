@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SSO on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/sso/</link>
+    <link>https://hugo.euc365.com/tags/sso/</link>
     <description>Recent content in SSO on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 09 Jun 2022 12:52:16 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/sso/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Jun 2022 12:52:16 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/sso/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Configure Samsung Knox SSO with Azure </title>
-      <link>https://euc365.com/configure-samsung-knox-sso-azure/</link>
+      <link>https://hugo.euc365.com/configure-samsung-knox-sso-azure/</link>
       <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
       
-      <guid>https://euc365.com/configure-samsung-knox-sso-azure/</guid>
+      <guid>https://hugo.euc365.com/configure-samsung-knox-sso-azure/</guid>
       <description>&lt;h2 id=&#34;why-should-i-configure-sso&#34;&gt;Why should I configure SSO?&lt;/h2&gt;
 &lt;h2 id=&#34;configuring-sso-in-knox&#34;&gt;Configuring SSO in Knox&lt;/h2&gt;
 &lt;ol&gt;
@@ -54,7 +54,7 @@
     
     
     
-    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/samsungsearchsso_hud98b4c801f7d168b2c055739a31b2a1e_19212_465x0_resize_q100_h2_box_3.webp&#34; alt=&#34;AAD Search for Samsung&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/samsungsearchsso_hud98b4c801f7d168b2c055739a31b2a1e_19212_465x0_resize_q100_h2_box_3.webp&#34; alt=&#34;AAD Search for Samsung&#34; height=&#34;&#34; width=&#34;&#34;&gt;
     
     
 &lt;/p&gt;
@@ -107,7 +107,7 @@
     
     
     
-    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/samlconfig_hua9e69e5bc687730f4e87018779e9fdad_50013_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSO SAML Config&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/samlconfig_hua9e69e5bc687730f4e87018779e9fdad_50013_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSO SAML Config&#34; height=&#34;&#34; width=&#34;&#34;&gt;
     
     
 
@@ -134,7 +134,7 @@
     
     
     
-    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/samsungssosettings_hu0b7a21d533ed5e5d25ecce878a9aa789_56330_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSO Settings&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/samsungssosettings_hu0b7a21d533ed5e5d25ecce878a9aa789_56330_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSO Settings&#34; height=&#34;&#34; width=&#34;&#34;&gt;
     
     
 

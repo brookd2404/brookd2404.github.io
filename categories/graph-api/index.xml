@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Graph API on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/categories/graph-api/</link>
+    <link>https://hugo.euc365.com/categories/graph-api/</link>
     <description>Recent content in Graph API on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 20 Mar 2023 13:43:22 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/graph-api/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Mar 2023 13:43:22 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/graph-api/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Driver and Firmware Servicing PowerShell Module</title>
-      <link>https://euc365.com/post/driver-firmware-servicing-powershell-module/</link>
+      <link>https://hugo.euc365.com/post/driver-firmware-servicing-powershell-module/</link>
       <pubDate>Mon, 20 Mar 2023 13:43:22 +0000</pubDate>
       
-      <guid>https://euc365.com/post/driver-firmware-servicing-powershell-module/</guid>
+      <guid>https://hugo.euc365.com/post/driver-firmware-servicing-powershell-module/</guid>
       <description>&lt;p&gt;Its been just over a month since the announcement of Commercial Driver and Firmware Servicing by Microsoft. Since then I have been working on delivering this to businesses, and sometimes it can be a challenge to keep on top of all of the different graph endpoints that are required to keep the cogs turning. So, out of my own sanity saving idea, I pulled together a PowerShell Module (&lt;a href=&#34;https://www.powershellgallery.com/packages/Driver.Firmware.Servicing/&#34;&gt;&lt;strong&gt;Driver.Firmware.Servicing&lt;/strong&gt;&lt;/a&gt;) to help make the service a lot more consumable for admins.&lt;/p&gt;
 &lt;p&gt;Microsoft provided some great conceptual documentation on the service, but I wanted to make it a lot easier to consume. So, I have created a PowerShell Module that abstracts away the complexity of the Graph API, and provides a simple interface to manage the service. See the &lt;a href=&#34;https://learn.microsoft.com/en-us/graph/windowsupdates-manage-driver-update&#34;&gt;&lt;strong&gt;Microsoft documentation&lt;/strong&gt;&lt;/a&gt; for more information on the service.&lt;/p&gt;
 &lt;h2 id=&#34;what-is-driver-and-firmware-servicing&#34;&gt;What is Driver and Firmware Servicing?&lt;/h2&gt;
@@ -71,10 +71,10 @@
     
     <item>
       <title>Bulk Enrol Device to Driver and Firmware Servicing</title>
-      <link>https://euc365.com/post/bulk-enrol-device-driver-firmware-servicing/</link>
+      <link>https://hugo.euc365.com/post/bulk-enrol-device-driver-firmware-servicing/</link>
       <pubDate>Fri, 17 Feb 2023 17:33:09 +0000</pubDate>
       
-      <guid>https://euc365.com/post/bulk-enrol-device-driver-firmware-servicing/</guid>
+      <guid>https://hugo.euc365.com/post/bulk-enrol-device-driver-firmware-servicing/</guid>
       <description>&lt;p&gt;The driver and firmware serving solution currently allows you to onboard up to 2000 devices at once using a CSV file, and even then most of the leg work need to be completed by the Admin to export, populate a CSV and then upload it and so on. It isn&amp;rsquo;t yet possible to map an AAD Group to the deployment audience either which again, isn&amp;rsquo;t always ideal if you have devices in their thousands and you want to enrol them into the service to bring back some more control.&lt;/p&gt;
 &lt;p&gt;With all that said and done, it is completely possible to automate this process with the Graph API and PowerShell. In this article we will focus on how to achieve just that with very little effort required from admins.&lt;/p&gt;
 
@@ -99,7 +99,7 @@ This can leave devices ending up in multiple policies if they exist in multiple 
 &lt;p&gt;There are two things needed to execute the script;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Azure AD Group ID&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Update Audience ID&lt;/strong&gt; (for assistance on finding this, look at &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api&#34;&gt;&lt;strong&gt;THIS POST&lt;/strong&gt;&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Update Audience ID&lt;/strong&gt; (for assistance on finding this, look at &lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api&#34;&gt;&lt;strong&gt;THIS POST&lt;/strong&gt;&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;It is super simple to achieve the end goal by just executing the scrip with the following command;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Update-BulkMembers.ps1 -aadGroupID &amp;lt;AADGroupID&amp;gt; -audienceId &amp;lt;updateAudienceID&amp;gt;&lt;/code&gt;&lt;/p&gt;
@@ -184,13 +184,13 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
     
     <item>
       <title>View Applicable Devices for Driver Deployments</title>
-      <link>https://euc365.com/post/view-applicable-devices-driver-deployments/</link>
+      <link>https://hugo.euc365.com/post/view-applicable-devices-driver-deployments/</link>
       <pubDate>Thu, 16 Feb 2023 08:59:43 +0000</pubDate>
       
-      <guid>https://euc365.com/post/view-applicable-devices-driver-deployments/</guid>
+      <guid>https://hugo.euc365.com/post/view-applicable-devices-driver-deployments/</guid>
       <description>&lt;p&gt;The commercial Driver and Firmware servicing has been big talk across the system management community (&lt;a href=&#34;https://techcommunity.microsoft.com/t5/windows-it-pro-blog/commercial-driver-and-firmware-servicing-is-publicly-available/ba-p/3741194&#34;&gt;&lt;strong&gt;SEE PRESS RELEASE HERE&lt;/strong&gt;&lt;/a&gt;) since it&amp;rsquo;s release on valentines day. It can be challenging though to find out the applicable devices, the UI does offer an applicable device count in its current state, however this post is to show you how to find the applicable devices in your audiences.&lt;/p&gt;
 &lt;p&gt;We will be looking at how we can do this via the Graph API, and also how you can retrieve this data from the Windows Update for Business Reports log analytics workspace.&lt;/p&gt;
-&lt;p&gt;If you don&amp;rsquo;t have WUfB Reports configured, you can take a look at my &lt;a href=&#34;https://euc365.com/post/vlog-wufb-reports&#34;&gt;&lt;strong&gt;VLOG&lt;/strong&gt;&lt;/a&gt; to assist with the configuration.&lt;/p&gt;
+&lt;p&gt;If you don&amp;rsquo;t have WUfB Reports configured, you can take a look at my &lt;a href=&#34;https://hugo.euc365.com/post/vlog-wufb-reports&#34;&gt;&lt;strong&gt;VLOG&lt;/strong&gt;&lt;/a&gt; to assist with the configuration.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Permissions to connect to the Graph API with the following scopes
@@ -228,7 +228,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -240,7 +240,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 &lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;This will only display the AzureAD Device ID, this will not give you the device name.&lt;/p&gt;&lt;/div&gt;
 
-&lt;p&gt;To list all of the applicable content from a policy, you must first know the deploymentAudience id to which your policy is targeted. You can take a look at my &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api&#34;&gt;&lt;strong&gt;Driver Management via Graph API  and PowerShell&lt;/strong&gt;&lt;/a&gt; post on how to obtain this information.&lt;/p&gt;
+&lt;p&gt;To list all of the applicable content from a policy, you must first know the deploymentAudience id to which your policy is targeted. You can take a look at my &lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api&#34;&gt;&lt;strong&gt;Driver Management via Graph API  and PowerShell&lt;/strong&gt;&lt;/a&gt; post on how to obtain this information.&lt;/p&gt;
 &lt;p&gt;Once you have your deployment audience you can run &lt;code&gt;(Invoke-MgGraphRequest -Method GET -Uri &amp;quot;https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences(&#39;&amp;lt;audienceID&amp;gt;&#39;)/applicableContent?`$expand=catalogEntry&amp;quot;).Value&lt;/code&gt;, replacing the &lt;code&gt;&amp;lt;audienceID&amp;gt;&lt;/code&gt; with your audience id, this will return something like the following;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Name                           Value
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----                           -----
@@ -315,7 +315,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/daf/deploymentsPerDeviceFeature_huefc0c7c1cf085a68f039545df14c5611_19881_551x0_resize_q100_h2_box_3.webp&#34; alt=&#34;query1 Output&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/daf/deploymentsPerDeviceFeature_huefc0c7c1cf085a68f039545df14c5611_19881_551x0_resize_q100_h2_box_3.webp&#34; alt=&#34;query1 Output&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -345,7 +345,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/daf/kqlByPolicy_hu27b85ae30c69a585fae69c0962e2b85c_36814_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;query2 Output&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/daf/kqlByPolicy_hu27b85ae30c69a585fae69c0962e2b85c_36814_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;query2 Output&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
 
 
 
@@ -358,14 +358,14 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
     
     <item>
       <title>Driver Management via Graph API  and PowerShell</title>
-      <link>https://euc365.com/post/driver-management-graph-api/</link>
+      <link>https://hugo.euc365.com/post/driver-management-graph-api/</link>
       <pubDate>Tue, 14 Feb 2023 14:17:46 +0000</pubDate>
       
-      <guid>https://euc365.com/post/driver-management-graph-api/</guid>
+      <guid>https://hugo.euc365.com/post/driver-management-graph-api/</guid>
       <description>&lt;p&gt;Microsoft have now released the Driver and Firmware Update management via the Graph API to the public!! This is one small step for some, but a giant leap in terms of the management of Drivers and Firmware using the &lt;a href=&#34;https://learn.microsoft.com/en-us/windows/deployment/update/deployment-service-overview&#34;&gt;&lt;strong&gt;Windows Update for Business Deployment Service (WUfB DS)&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Many of you may have been anticipating this for a while as there has been various posts about it like the &lt;a href=&#34;https://techcommunity.microsoft.com/t5/windows-it-pro-blog/introducing-a-new-deployment-service-for-driver-and-firmware/ba-p/2176942&#34;&gt;&lt;strong&gt;Tech Community Post&lt;/strong&gt;&lt;/a&gt; from March 2021.&lt;/p&gt;
 &lt;p&gt;While the solution isn&amp;rsquo;t yet baked into Intune, it is on the horizon and anticipated to land in preview some time this year (but don&amp;rsquo;t hold me to it!). The Driver and Firmware team though are committed to delivering the solution components via WUfB DS for organisations and SMBs to start to take control of their environments.&lt;/p&gt;
-&lt;p&gt;The solution may only be configurable via the Graph API, however, the product team behind the solution have delivered an application that can be used to drive this in a GUI format, take a look at my &lt;a href=&#34;https://euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/&#34;&gt;&lt;strong&gt;VLOG Post&lt;/strong&gt;&lt;/a&gt; to find out how to configure this.&lt;/p&gt;
+&lt;p&gt;The solution may only be configurable via the Graph API, however, the product team behind the solution have delivered an application that can be used to drive this in a GUI format, take a look at my &lt;a href=&#34;https://hugo.euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/&#34;&gt;&lt;strong&gt;VLOG Post&lt;/strong&gt;&lt;/a&gt; to find out how to configure this.&lt;/p&gt;
 &lt;p&gt;Without further ado though, let take a look at how we can interact with the service with the Graph API and PowerShell.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
@@ -403,7 +403,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -637,10 +637,10 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
     
     <item>
       <title>Windows 365 - Graph API and PowerShell Basics</title>
-      <link>https://euc365.com/post/windows-365-graph-api-powershell-basics/</link>
+      <link>https://hugo.euc365.com/post/windows-365-graph-api-powershell-basics/</link>
       <pubDate>Mon, 05 Dec 2022 20:00:30 +0000</pubDate>
       
-      <guid>https://euc365.com/post/windows-365-graph-api-powershell-basics/</guid>
+      <guid>https://hugo.euc365.com/post/windows-365-graph-api-powershell-basics/</guid>
       <description>
 &lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;This article was composed using Windows 365 Enterprise licences, the experience may differ if using Windows 365 Business.&lt;/p&gt;&lt;/div&gt;
 
@@ -690,7 +690,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/msalAuthPrompt_hu35aaa84b100d30774695ebd34191cdad_36238_568x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MSAL Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/msalAuthPrompt_hu35aaa84b100d30774695ebd34191cdad_36238_568x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MSAL Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -726,7 +726,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -781,7 +781,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/basicGraphMSAL.gif&#34; alt=&#34;MSAL Basic Call Demo&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/basicGraphMSAL.gif&#34; alt=&#34;MSAL Basic Call Demo&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -843,7 +843,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/basicGraphMGPS.gif&#34; alt=&#34;MGPS Basic Call Demo&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/basicGraphMGPS.gif&#34; alt=&#34;MGPS Basic Call Demo&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -873,7 +873,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/mgpsGalImage.gif&#34; alt=&#34;MGPS Gallery Image&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/mgpsGalImage.gif&#34; alt=&#34;MGPS Gallery Image&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -1041,10 +1041,10 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
     
     <item>
       <title>Import GPOs to Group Policy Analytics using Graph API</title>
-      <link>https://euc365.com/post/import-gpos-group-policy-analytics-graph-api/</link>
+      <link>https://hugo.euc365.com/post/import-gpos-group-policy-analytics-graph-api/</link>
       <pubDate>Fri, 18 Nov 2022 22:00:01 +0000</pubDate>
       
-      <guid>https://euc365.com/post/import-gpos-group-policy-analytics-graph-api/</guid>
+      <guid>https://hugo.euc365.com/post/import-gpos-group-policy-analytics-graph-api/</guid>
       <description>&lt;p&gt;Many organisations are starting to adopt cloud technologies, some of which decide to start again with a clean slate and add in policies where necessary. However, some organisations still look to take migrate their complex Group Policies.&lt;/p&gt;
 
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;I would recommend taking the approach of clean slate, aligned to relevant framework(s) such as NCSC, NIST or CIS and applying only relevant policies there after. &lt;/br&gt;&lt;/br&gt;
@@ -1093,7 +1093,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/grouppolicy/exportGPOs.gif&#34; alt=&#34;Export GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/grouppolicy/exportGPOs.gif&#34; alt=&#34;Export GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -1128,7 +1128,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/grouppolicy/importGPOs.gif&#34; alt=&#34;Import GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/grouppolicy/importGPOs.gif&#34; alt=&#34;Import GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -1150,7 +1150,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/grouppolicy/importResult.gif&#34; alt=&#34;Import GPOs Result&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/grouppolicy/importResult.gif&#34; alt=&#34;Import GPOs Result&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -1165,10 +1165,10 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
     
     <item>
       <title>Bulk Remove Autopilot DisplayName Property</title>
-      <link>https://euc365.com/post/remove-autopilot-displayname/</link>
+      <link>https://hugo.euc365.com/post/remove-autopilot-displayname/</link>
       <pubDate>Thu, 10 Nov 2022 12:39:33 +0000</pubDate>
       
-      <guid>https://euc365.com/post/remove-autopilot-displayname/</guid>
+      <guid>https://hugo.euc365.com/post/remove-autopilot-displayname/</guid>
       <description>&lt;p&gt;Often, during the initial adoption of Microsoft Intune you will see organisations and admins try and maintain some of their technical debt of old. One of those areas is often the device naming conventions. In the modern management world, tracking assets via this method is long out dated, and if you are using Hybrid Azure AD Joined Devices you end up with an entirely new challenge on your hands anyway.&lt;/p&gt;
 &lt;p&gt;This post is aimed at organisations and admins who have decided to remove some of this technical debt and move towards using the options available within the &lt;a href=&#34;https://learn.microsoft.com/en-us/mem/autopilot/profiles&#34;&gt;&lt;strong&gt;Deployment Profiles&lt;/strong&gt;&lt;/a&gt; for Autopilot.&lt;/p&gt;
 &lt;p&gt;In this post we will be using a PowerShell Script with the &lt;a href=&#34;https://www.powershellgallery.com/packages/Microsoft.Graph&#34;&gt;&lt;strong&gt;Microsoft.Graph&lt;/strong&gt;&lt;/a&gt; module to achieve our goal and also take a backup of the devices previously specified DisplayNames.&lt;/p&gt;
@@ -1196,7 +1196,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/assumption_gs_hu5df4ecf98f56a3c1772c2b2ea9131e86_26473_484x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Display Name Value Magnified&#34; height=&#34;50%&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/autopilot/assumption_gs_hu5df4ecf98f56a3c1772c2b2ea9131e86_26473_484x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Display Name Value Magnified&#34; height=&#34;50%&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -1220,7 +1220,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/removeidentities.gif&#34; alt=&#34;Remove Identities Overview&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/autopilot/removeidentities.gif&#34; alt=&#34;Remove Identities Overview&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -1243,7 +1243,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/rmidenlogoutput_hueeca295891e6afe644887b6489d5762b_16366_643x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Remove Identities Log&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/autopilot/rmidenlogoutput_hueeca295891e6afe644887b6489d5762b_16366_643x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Remove Identities Log&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -1255,10 +1255,10 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
     
     <item>
       <title>Create a Microsoft Team with Graph API and PowerShell</title>
-      <link>https://euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</link>
+      <link>https://hugo.euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</link>
       <pubDate>Wed, 03 Aug 2022 19:31:42 +0000</pubDate>
       
-      <guid>https://euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</guid>
+      <guid>https://hugo.euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</guid>
       <description>&lt;h2 id=&#34;why-use-an-api-to-create-a-teams-channel&#34;&gt;Why use an API to create a Teams Channel?&lt;/h2&gt;
 &lt;p&gt;Using API&amp;rsquo;s and Automation accounts help create a continuously repeatable process whilst minimising human error and providing a consistent experience. It has many purposes, should that be to provide a script to a managed client, create a team from a form submission, the list could go on, and If you&amp;rsquo;ve found this post by organic search, then it must be at least in some way what your are looking for.&lt;/p&gt;
 &lt;hr&gt;
@@ -1531,10 +1531,10 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
     
     <item>
       <title>Microsoft Graph API and PowerBI</title>
-      <link>https://euc365.com/microsoft-graph-and-powerbi/</link>
+      <link>https://hugo.euc365.com/microsoft-graph-and-powerbi/</link>
       <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
       
-      <guid>https://euc365.com/microsoft-graph-and-powerbi/</guid>
+      <guid>https://hugo.euc365.com/microsoft-graph-and-powerbi/</guid>
       <description>&lt;h2 id=&#34;a-little-bit-about-this-post&#34;&gt;A little bit about this post&lt;/h2&gt;
 &lt;p&gt;At &lt;a href=&#34;http://mmsmoa.com&#34;&gt;MMS 2022&lt;/a&gt; I took a huge leap and briefly presented this in the &lt;strong&gt;Tips &amp;amp; Tricks&lt;/strong&gt; Session. This was the first time I had ever presented in front of an audience.&lt;/p&gt;
 &lt;p&gt;I thought it would be good to give a bit of context on how this was conceptualised and why certain aspects are the way they are (some of them still make me shudder).&lt;/p&gt;
@@ -1559,7 +1559,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;DeviceManagementManagedDevices.Read.All&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If you are not familiar with creating App Registrations, take a look at my &lt;a href=&#34;https://euc365.com/create-an-azure-app-registration&#34;&gt;Create an Azure App Registration&lt;/a&gt; post.&lt;/p&gt;
+&lt;p&gt;If you are not familiar with creating App Registrations, take a look at my &lt;a href=&#34;https://hugo.euc365.com/create-an-azure-app-registration&#34;&gt;Create an Azure App Registration&lt;/a&gt; post.&lt;/p&gt;
 &lt;p&gt;Once you have added permissions and granted consent, you need to obtain a secret, this can be done from the App Registration by;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Clicking &lt;strong&gt;Certificates &amp;amp; Secrets&lt;/strong&gt;&lt;/li&gt;
@@ -1922,7 +1922,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/logicapphttptrigger_hu338a9792ae73f90bd9539efe780b309c_19341_603x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;375px&#34; width=&#34;600px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/logicapphttptrigger_hu338a9792ae73f90bd9539efe780b309c_19341_603x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;375px&#34; width=&#34;600px&#34;&gt;
 
 
 
@@ -2032,7 +2032,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/biignoreprivacy_hue5264bb602aa113c8ac9babd235921e4_24178_639x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Ignore Privacy PowerBIx&#34; height=&#34;250px&#34; width=&#34;500px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/biignoreprivacy_hue5264bb602aa113c8ac9babd235921e4_24178_639x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Ignore Privacy PowerBIx&#34; height=&#34;250px&#34; width=&#34;500px&#34;&gt;
 
 
 
@@ -2240,7 +2240,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/expandgraphcall_hu3f6d3ee85f51aa6b27eccc41a3056c8b_5617_167x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand Graph Call Table&#34; height=&#34;200px&#34; width=&#34;167px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/expandgraphcall_hu3f6d3ee85f51aa6b27eccc41a3056c8b_5617_167x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand Graph Call Table&#34; height=&#34;200px&#34; width=&#34;167px&#34;&gt;
 
 
 
@@ -2267,7 +2267,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/expandhwinfo_hua40fe5206a377732053e5581dcd2fd48_29194_349x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand hardwareInformation&#34; height=&#34;450px&#34; width=&#34;300px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/expandhwinfo_hua40fe5206a377732053e5581dcd2fd48_29194_349x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand hardwareInformation&#34; height=&#34;450px&#34; width=&#34;300px&#34;&gt;
 
 
 
@@ -2298,7 +2298,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/modelbutton_huad4a1917d5b6128e85ae823a2a11966c_10638_216x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Model button&#34; height=&#34;252px&#34; width=&#34;216px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/modelbutton_huad4a1917d5b6128e85ae823a2a11966c_10638_216x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Model button&#34; height=&#34;252px&#34; width=&#34;216px&#34;&gt;
 
 
 
@@ -2320,7 +2320,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/linktables.gif&#34; alt=&#34;Model button&#34; height=&#34;500px&#34; width=&#34;800px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/linktables.gif&#34; alt=&#34;Model button&#34; height=&#34;500px&#34; width=&#34;800px&#34;&gt;
 
 
 
@@ -2335,10 +2335,10 @@ Voilà!, you now have the hardware information for each device. There are still 
     
     <item>
       <title>Finding Microsoft Graph API&#39;s from the Web</title>
-      <link>https://euc365.com/finding-microsoft-graph-apis-from-the-web/</link>
+      <link>https://hugo.euc365.com/finding-microsoft-graph-apis-from-the-web/</link>
       <pubDate>Mon, 05 Oct 2020 16:18:00 +0000</pubDate>
       
-      <guid>https://euc365.com/finding-microsoft-graph-apis-from-the-web/</guid>
+      <guid>https://hugo.euc365.com/finding-microsoft-graph-apis-from-the-web/</guid>
       <description>&lt;h2 id=&#34;why-do-i-need-to-find-these&#34;&gt;Why do I need to find these?&lt;/h2&gt;
 &lt;p&gt;Welcome (Back) to another post about the graph API&amp;rsquo;s, This time it isn&amp;rsquo;t so much about rambling through documentation but about giving you a nice handy tip on your route to finding what API is been called when browsing in the Web Console.&lt;/p&gt;
 &lt;p&gt;The only things your are going to need for this will be an &lt;b&gt;Azure AD Account&lt;/b&gt; with permissions to at least &lt;b&gt;Read&lt;/b&gt; policies and a modern web browser, Yes really that&amp;rsquo;s it.&lt;/p&gt;
@@ -2364,7 +2364,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/findapis/DevToolsTabs_hu263fe55261254b26a66783d5d9793455_3463_559x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;43&#34; width=&#34;559&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/findapis/DevToolsTabs_hu263fe55261254b26a66783d5d9793455_3463_559x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;43&#34; width=&#34;559&#34;&gt;
 
 
 
@@ -2387,7 +2387,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/findapis/Network-Pane_hu9c8ab21e5f886923c79852df5ce0c776_24041_206x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;535&#34; width=&#34;206&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/findapis/Network-Pane_hu9c8ab21e5f886923c79852df5ce0c776_24041_206x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;535&#34; width=&#34;206&#34;&gt;
 
 
 
@@ -2409,7 +2409,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/findapis/Network-Pane-DataReturn_hua3a680465a25672fa15ad98cd815f8fb_49560_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;400&#34; width=&#34;800&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/findapis/Network-Pane-DataReturn_hua3a680465a25672fa15ad98cd815f8fb_49560_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;400&#34; width=&#34;800&#34;&gt;
 
 
 &lt;/p&gt;
@@ -2431,7 +2431,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/findapis/APIHover_hud29685835cbbb5311b013760c4ac7052_10522_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/findapis/APIHover_hud29685835cbbb5311b013760c4ac7052_10522_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -2453,7 +2453,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/findapis/GraphExplorer_hu113933821425111d428596dbdd3f93eb_48495_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/findapis/GraphExplorer_hu113933821425111d428596dbdd3f93eb_48495_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -2464,10 +2464,10 @@ Voilà!, you now have the hardware information for each device. There are still 
     
     <item>
       <title>Backup and Import Conditional Access Policies</title>
-      <link>https://euc365.com/backup-and-import-conditional-access-policies/</link>
+      <link>https://hugo.euc365.com/backup-and-import-conditional-access-policies/</link>
       <pubDate>Mon, 14 Sep 2020 13:20:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backup-and-import-conditional-access-policies/</guid>
+      <guid>https://hugo.euc365.com/backup-and-import-conditional-access-policies/</guid>
       <description>&lt;h2 id=&#34;why-backup-conditional-access-policies&#34;&gt;Why backup Conditional Access Policies?&lt;/h2&gt;
 &lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
 &lt;ul&gt;
@@ -2675,7 +2675,7 @@ Using the ClientID, ClientSecret and TenantID (Unattended) you will need;
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupconditionalaccess/NoRedirectURI_hu6ae5db7a752f041bfb3ec13814289dc1_8084_399x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;192&#34; width=&#34;399&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupconditionalaccess/NoRedirectURI_hu6ae5db7a752f041bfb3ec13814289dc1_8084_399x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;192&#34; width=&#34;399&#34;&gt;
 
 
 
@@ -2737,7 +2737,7 @@ You will finally end up with something like this;
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupconditionalaccess/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupconditionalaccess/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
 
 
 
@@ -2753,10 +2753,10 @@ You will finally end up with something like this;
     
     <item>
       <title>Backup and Import Intune Compliance Policies</title>
-      <link>https://euc365.com/backup-and-import-intune-compliance-policies/</link>
+      <link>https://hugo.euc365.com/backup-and-import-intune-compliance-policies/</link>
       <pubDate>Wed, 09 Sep 2020 16:09:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backup-and-import-intune-compliance-policies/</guid>
+      <guid>https://hugo.euc365.com/backup-and-import-intune-compliance-policies/</guid>
       <description>&lt;h2 id=&#34;why-backup-compliance-policies&#34;&gt;Why backup Compliance Policies&lt;/h2&gt;
 &lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
 &lt;ul&gt;
@@ -2978,7 +2978,7 @@ If you launch the script without the Client ID, Secret and Tenant ID you will be
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupcompliencepolicy/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupcompliencepolicy/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -2996,10 +2996,10 @@ You will need an account with permissions to be able to read (for backups only) 
     
     <item>
       <title>Backup and Import Intune Device Configuration Profiles</title>
-      <link>https://euc365.com/backing-up-intune-device-configuration-profiles/</link>
+      <link>https://hugo.euc365.com/backing-up-intune-device-configuration-profiles/</link>
       <pubDate>Wed, 02 Sep 2020 11:02:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backing-up-intune-device-configuration-profiles/</guid>
+      <guid>https://hugo.euc365.com/backing-up-intune-device-configuration-profiles/</guid>
       <description>&lt;h2 id=&#34;why-backup-device-configuration-profiles&#34;&gt;Why backup Device Configuration Profiles?&lt;/h2&gt;
 &lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
 &lt;ul&gt;
@@ -3211,7 +3211,7 @@ If you launch the script without the Client ID, Secret and Tenant ID you will be
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupconfigprofile/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupconfigprofile/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
 
 
 
@@ -3227,10 +3227,10 @@ If you launch the script without the Client ID, Secret and Tenant ID you will be
     
     <item>
       <title>Enrol Devices to Autopilot (Unattended)</title>
-      <link>https://euc365.com/enrol-devices-to-autopilot-unattended/</link>
+      <link>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</link>
       <pubDate>Fri, 07 Aug 2020 17:17:00 +0000</pubDate>
       
-      <guid>https://euc365.com/enrol-devices-to-autopilot-unattended/</guid>
+      <guid>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</guid>
       <description>&lt;p&gt;I have been working on a project at the company I work for, and up to this point we have been primarily focused on getting new devices imported and deploying via Autopilot.&lt;/p&gt;
 &lt;p&gt;Now we have successfully leaped over that hurdle with very little issues (apart from the odd TPM attestation issue here and there and the ESP Profile page been skipped), we moved onto focusing on our current estate and how to import these into Autopilot .&lt;/p&gt;
 &lt;p&gt;There is a couple of ways to do this, you could run this in a package, as an application, as a script or in a task sequence for when you decide to re-build the machines.&lt;/p&gt;
@@ -3391,7 +3391,7 @@ If you launch the script without the Client ID, Secret and Tenant ID you will be
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ScriptDetails_huffb502f169b84fe148c90c7f2f982cd5_56051_691x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/ScriptDetails_huffb502f169b84fe148c90c7f2f982cd5_56051_691x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -3418,7 +3418,7 @@ If you launch the script without the Client ID, Secret and Tenant ID you will be
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ScriptOutput_hu553da8b8a7270aa60479ecb1f20212da_42524_689x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;742&#34; width=&#34;689&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/ScriptOutput_hu553da8b8a7270aa60479ecb1f20212da_42524_689x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;742&#34; width=&#34;689&#34;&gt;
 
 
 
@@ -3445,7 +3445,7 @@ If you launch the script without the Client ID, Secret and Tenant ID you will be
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ExisitingTS_hu65d58b8f3b5a1e165321170cdfcb01dc_65154_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/ExisitingTS_hu65d58b8f3b5a1e165321170cdfcb01dc_65154_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -3482,7 +3482,7 @@ If you launch the script without the Client ID, Secret and Tenant ID you will be
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/AddedPStoTS_huc17e98f7bc193bccfffa80135edbc451_71594_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;653&#34; width=&#34;959&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/AddedPStoTS_huc17e98f7bc193bccfffa80135edbc451_71594_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;653&#34; width=&#34;959&#34;&gt;
 
 
 
@@ -3506,7 +3506,7 @@ If you launch the script without the Client ID, Secret and Tenant ID you will be
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ScriptRunning_hu8c821047757f90b60671961d0e039542_16087_675x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;141&#34; width=&#34;675&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/ScriptRunning_hu8c821047757f90b60671961d0e039542_16087_675x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;141&#34; width=&#34;675&#34;&gt;
 
 
 
@@ -3529,7 +3529,7 @@ If you launch the script without the Client ID, Secret and Tenant ID you will be
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/DevInAP_huef4c9c829fe1307dbd7eb33e8076c322_45112_299x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;814&#34; width=&#34;299&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/DevInAP_huef4c9c829fe1307dbd7eb33e8076c322_45112_299x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;814&#34; width=&#34;299&#34;&gt;
 
 
 

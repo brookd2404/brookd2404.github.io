@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Microsoft Intune on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/categories/microsoft-intune/</link>
+    <link>https://hugo.euc365.com/categories/microsoft-intune/</link>
     <description>Recent content in Microsoft Intune on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 12 Jan 2023 19:12:28 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/microsoft-intune/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Jan 2023 19:12:28 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/microsoft-intune/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Troubleshooting New MS Store App Install Error 0x00000000</title>
-      <link>https://euc365.com/post/troubleshooting-ms-store-app-install-error-0x00000000/</link>
+      <link>https://hugo.euc365.com/post/troubleshooting-ms-store-app-install-error-0x00000000/</link>
       <pubDate>Thu, 12 Jan 2023 19:12:28 +0000</pubDate>
       
-      <guid>https://euc365.com/post/troubleshooting-ms-store-app-install-error-0x00000000/</guid>
+      <guid>https://hugo.euc365.com/post/troubleshooting-ms-store-app-install-error-0x00000000/</guid>
       <description>&lt;p&gt;While performing some work out in the wild, it was noted that one of the Microsoft Store Apps (New) would not install unless excluded from all policies. The app in this case was the Company Portal app which is pretty vital for self-service application delivery. The error displayed was
 0x00000000 in the Intune console as below.&lt;/p&gt;
 
@@ -32,7 +32,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/intuneStates_hu16abd48ce42cb8ca8d955ab3683b50dd_60495_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Status Code&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/winget/0x0/intuneStates_hu16abd48ce42cb8ca8d955ab3683b50dd_60495_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Status Code&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -60,7 +60,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/blockedByPolicy_hu36d5245d5cc098b17883ced742b899e0_48434_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Blocked by Policy&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/winget/0x0/blockedByPolicy_hu36d5245d5cc098b17883ced742b899e0_48434_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Blocked by Policy&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -84,7 +84,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/wingetFailed_hud80ecbb129c7232a3b357758e1d8db5c_173094_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;WinGet Failed&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/winget/0x0/wingetFailed_hud80ecbb129c7232a3b357758e1d8db5c_173094_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;WinGet Failed&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -108,7 +108,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/turnOffStore_hu747332f4cc2d491d128d773f1d8b725f_72129_695x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Turn off MS Store&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/winget/0x0/turnOffStore_hu747332f4cc2d491d128d773f1d8b725f_72129_695x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Turn off MS Store&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
 
 
 
@@ -131,7 +131,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/regeditPolicyKey_huc49e4df386f53c2fff4760bc77b7e337_55622_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Reg Key&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/winget/0x0/regeditPolicyKey_huc49e4df386f53c2fff4760bc77b7e337_55622_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Reg Key&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
 
 
 
@@ -154,7 +154,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/wingetSuccess_hub2c1ae989c73ab9e916ee8602b3da013_436836_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;WinGet Success&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/winget/0x0/wingetSuccess_hub2c1ae989c73ab9e916ee8602b3da013_436836_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;WinGet Success&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -177,7 +177,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/intuneStates_PostFix_hueb617e0658ad93015083a423ed73bce3_63735_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Status Code PostFix&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/winget/0x0/intuneStates_PostFix_hueb617e0658ad93015083a423ed73bce3_63735_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Status Code PostFix&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -190,10 +190,10 @@
     
     <item>
       <title>Import GPOs to Group Policy Analytics using Graph API</title>
-      <link>https://euc365.com/post/import-gpos-group-policy-analytics-graph-api/</link>
+      <link>https://hugo.euc365.com/post/import-gpos-group-policy-analytics-graph-api/</link>
       <pubDate>Fri, 18 Nov 2022 22:00:01 +0000</pubDate>
       
-      <guid>https://euc365.com/post/import-gpos-group-policy-analytics-graph-api/</guid>
+      <guid>https://hugo.euc365.com/post/import-gpos-group-policy-analytics-graph-api/</guid>
       <description>&lt;p&gt;Many organisations are starting to adopt cloud technologies, some of which decide to start again with a clean slate and add in policies where necessary. However, some organisations still look to take migrate their complex Group Policies.&lt;/p&gt;
 
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;I would recommend taking the approach of clean slate, aligned to relevant framework(s) such as NCSC, NIST or CIS and applying only relevant policies there after. &lt;/br&gt;&lt;/br&gt;
@@ -242,7 +242,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/grouppolicy/exportGPOs.gif&#34; alt=&#34;Export GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/grouppolicy/exportGPOs.gif&#34; alt=&#34;Export GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -277,7 +277,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/grouppolicy/importGPOs.gif&#34; alt=&#34;Import GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/grouppolicy/importGPOs.gif&#34; alt=&#34;Import GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -299,7 +299,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/grouppolicy/importResult.gif&#34; alt=&#34;Import GPOs Result&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/grouppolicy/importResult.gif&#34; alt=&#34;Import GPOs Result&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -314,10 +314,10 @@
     
     <item>
       <title>Bulk Remove Autopilot DisplayName Property</title>
-      <link>https://euc365.com/post/remove-autopilot-displayname/</link>
+      <link>https://hugo.euc365.com/post/remove-autopilot-displayname/</link>
       <pubDate>Thu, 10 Nov 2022 12:39:33 +0000</pubDate>
       
-      <guid>https://euc365.com/post/remove-autopilot-displayname/</guid>
+      <guid>https://hugo.euc365.com/post/remove-autopilot-displayname/</guid>
       <description>&lt;p&gt;Often, during the initial adoption of Microsoft Intune you will see organisations and admins try and maintain some of their technical debt of old. One of those areas is often the device naming conventions. In the modern management world, tracking assets via this method is long out dated, and if you are using Hybrid Azure AD Joined Devices you end up with an entirely new challenge on your hands anyway.&lt;/p&gt;
 &lt;p&gt;This post is aimed at organisations and admins who have decided to remove some of this technical debt and move towards using the options available within the &lt;a href=&#34;https://learn.microsoft.com/en-us/mem/autopilot/profiles&#34;&gt;&lt;strong&gt;Deployment Profiles&lt;/strong&gt;&lt;/a&gt; for Autopilot.&lt;/p&gt;
 &lt;p&gt;In this post we will be using a PowerShell Script with the &lt;a href=&#34;https://www.powershellgallery.com/packages/Microsoft.Graph&#34;&gt;&lt;strong&gt;Microsoft.Graph&lt;/strong&gt;&lt;/a&gt; module to achieve our goal and also take a backup of the devices previously specified DisplayNames.&lt;/p&gt;
@@ -345,7 +345,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/assumption_gs_hu5df4ecf98f56a3c1772c2b2ea9131e86_26473_484x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Display Name Value Magnified&#34; height=&#34;50%&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/autopilot/assumption_gs_hu5df4ecf98f56a3c1772c2b2ea9131e86_26473_484x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Display Name Value Magnified&#34; height=&#34;50%&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -369,7 +369,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/removeidentities.gif&#34; alt=&#34;Remove Identities Overview&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/autopilot/removeidentities.gif&#34; alt=&#34;Remove Identities Overview&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -392,7 +392,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/rmidenlogoutput_hueeca295891e6afe644887b6489d5762b_16366_643x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Remove Identities Log&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/autopilot/rmidenlogoutput_hueeca295891e6afe644887b6489d5762b_16366_643x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Remove Identities Log&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -404,10 +404,10 @@
     
     <item>
       <title>Disable WiFi MAC Randomization on Samsung with Intune</title>
-      <link>https://euc365.com/post/disable-wifi-mac-randomization-samsung-devices/</link>
+      <link>https://hugo.euc365.com/post/disable-wifi-mac-randomization-samsung-devices/</link>
       <pubDate>Fri, 17 Jun 2022 14:19:57 +0000</pubDate>
       
-      <guid>https://euc365.com/post/disable-wifi-mac-randomization-samsung-devices/</guid>
+      <guid>https://hugo.euc365.com/post/disable-wifi-mac-randomization-samsung-devices/</guid>
       <description>&lt;h2 id=&#34;why-disable-mac-randomization&#34;&gt;Why disable MAC Randomization?&lt;/h2&gt;
 &lt;p&gt;In some scenarios setting static IP Addresses for mobile devices is a requirement (such as EPOS, Kiosks, Meeting Room Self-Service Tablets etc.). With most modern Mobile Devices, they are shipped with MAC Randomization enabled by default, and that is certainly the case for Samsung Tablets.&lt;/p&gt;
 &lt;p&gt;This was introduced back in Android 8.0 when probing for new networks, however, starting in Android 10 this was enabled by default for client mode activities as mentioned in the &lt;a href=&#34;https://source.android.com/devices/tech/connect/wifi-mac-randomization#:~:text=In%20Android%2010%2C%20MAC%20randomization%20is%20enabled%20by,part%20of%20Wi-Fi%20Aware%20and%20Wi-Fi%20RTT%20operations.&#34; title=&#34;Implementing MAC Randomization&#34;&gt;Android Documentation&lt;/a&gt;.&lt;/p&gt;
@@ -437,7 +437,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 &lt;li&gt;&lt;strong&gt;Intune Licenses&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Intune Administrator Role&lt;/strong&gt; (Custom RBAC Roles are not in scope)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If you do not have a &lt;strong&gt;Samsung Knox&lt;/strong&gt; license or account, take a look at my &lt;a href=&#34;https://euc365.com/getting-started-with-knox-mobile-enrollment/&#34;&gt;&lt;strong&gt;Getting Started with Samsung Knox for Enterprise&lt;/strong&gt;&lt;/a&gt; post.&lt;/p&gt;
+&lt;p&gt;If you do not have a &lt;strong&gt;Samsung Knox&lt;/strong&gt; license or account, take a look at my &lt;a href=&#34;https://hugo.euc365.com/getting-started-with-knox-mobile-enrollment/&#34;&gt;&lt;strong&gt;Getting Started with Samsung Knox for Enterprise&lt;/strong&gt;&lt;/a&gt; post.&lt;/p&gt;
 &lt;br&gt;
 &lt;h3 id=&#34;import-the-samsung-knox-service-plugin-app&#34;&gt;Import the Samsung Knox Service Plugin App&lt;/h3&gt;
 &lt;ol&gt;
@@ -463,7 +463,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
   
   
   
-  &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/samsungknoxmgp_hu01467152f4833310a9ec4237097e7c1c_80248_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox Service Plugin MGP&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+  &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/samsungknoxmgp_hu01467152f4833310a9ec4237097e7c1c_80248_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox Service Plugin MGP&#34; height=&#34;&#34; width=&#34;&#34;&gt;
   
   
 
@@ -559,7 +559,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/wifipskcleartext_hu06e6b74b362d8c1e65f35aefe8ec9bf9_25941_383x0_resize_q100_h2_box_3.webp&#34; alt=&#34;KSP PSK in Clear Text&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/wifipskcleartext_hu06e6b74b362d8c1e65f35aefe8ec9bf9_25941_383x0_resize_q100_h2_box_3.webp&#34; alt=&#34;KSP PSK in Clear Text&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -574,10 +574,10 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
     
     <item>
       <title>Configure Samsung Knox SSO with Azure </title>
-      <link>https://euc365.com/configure-samsung-knox-sso-azure/</link>
+      <link>https://hugo.euc365.com/configure-samsung-knox-sso-azure/</link>
       <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
       
-      <guid>https://euc365.com/configure-samsung-knox-sso-azure/</guid>
+      <guid>https://hugo.euc365.com/configure-samsung-knox-sso-azure/</guid>
       <description>&lt;h2 id=&#34;why-should-i-configure-sso&#34;&gt;Why should I configure SSO?&lt;/h2&gt;
 &lt;h2 id=&#34;configuring-sso-in-knox&#34;&gt;Configuring SSO in Knox&lt;/h2&gt;
 &lt;ol&gt;
@@ -619,7 +619,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
     
     
     
-    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/samsungsearchsso_hud98b4c801f7d168b2c055739a31b2a1e_19212_465x0_resize_q100_h2_box_3.webp&#34; alt=&#34;AAD Search for Samsung&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/samsungsearchsso_hud98b4c801f7d168b2c055739a31b2a1e_19212_465x0_resize_q100_h2_box_3.webp&#34; alt=&#34;AAD Search for Samsung&#34; height=&#34;&#34; width=&#34;&#34;&gt;
     
     
 &lt;/p&gt;
@@ -672,7 +672,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
     
     
     
-    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/samlconfig_hua9e69e5bc687730f4e87018779e9fdad_50013_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSO SAML Config&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/samlconfig_hua9e69e5bc687730f4e87018779e9fdad_50013_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSO SAML Config&#34; height=&#34;&#34; width=&#34;&#34;&gt;
     
     
 
@@ -699,7 +699,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
     
     
     
-    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/samsungssosettings_hu0b7a21d533ed5e5d25ecce878a9aa789_56330_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSO Settings&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/samsungssosettings_hu0b7a21d533ed5e5d25ecce878a9aa789_56330_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSO Settings&#34; height=&#34;&#34; width=&#34;&#34;&gt;
     
     
 
@@ -731,10 +731,10 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
     
     <item>
       <title>Getting Started with Samsung Knox for Enterprise</title>
-      <link>https://euc365.com/getting-started-with-knox-mobile-enrollment/</link>
+      <link>https://hugo.euc365.com/getting-started-with-knox-mobile-enrollment/</link>
       <pubDate>Thu, 26 May 2022 14:00:00 +0000</pubDate>
       
-      <guid>https://euc365.com/getting-started-with-knox-mobile-enrollment/</guid>
+      <guid>https://hugo.euc365.com/getting-started-with-knox-mobile-enrollment/</guid>
       <description>&lt;h2 id=&#34;what-is-samsung-knox&#34;&gt;What is Samsung Knox?&lt;/h2&gt;
 &lt;p&gt;Samsung Knox is a service made up of a number of solutions such as &lt;strong&gt;Knox Mobile Enrollment&lt;/strong&gt; and &lt;strong&gt;Knox Platform for Enterprise&lt;/strong&gt;. Samsung Knox solutions provide extra security, and configurability and also improve the end-user onboarding experience.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Knox Mobile Enrollment&lt;/strong&gt; is Samsung&amp;rsquo;s alternative to Apple Business/School manager for devices. KME offers the ability to upload devices using an app on Samsung devices, or via a vendor/reseller channel.&lt;/p&gt;
@@ -802,7 +802,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/knoxlanding_hu3f67c15ae1ec4e4cab1339bee0c789ec_29738_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox Landing Page&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/knoxlanding_hu3f67c15ae1ec4e4cab1339bee0c789ec_29738_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox Landing Page&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -824,7 +824,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/knoxregistration_hu142dde179b6461c36fcbe80e462b607e_37636_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox License Registration&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/knoxregistration_hu142dde179b6461c36fcbe80e462b607e_37636_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox License Registration&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -855,7 +855,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
    
    
    
-   &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/knoxpfegen_hu75139081cc03e92ca6cbea5ab2e17e86_21992_399x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox PFE License Generation&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+   &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/knoxpfegen_hu75139081cc03e92ca6cbea5ab2e17e86_21992_399x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox PFE License Generation&#34; height=&#34;&#34; width=&#34;&#34;&gt;
    
    
 
@@ -888,7 +888,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/selectknoxservices_hu680a76a443555c318d2af7a350372cc4_79956_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox Service Select&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/selectknoxservices_hu680a76a443555c318d2af7a350372cc4_79956_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox Service Select&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 &lt;/li&gt;
@@ -972,10 +972,10 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
     
     <item>
       <title>Microsoft Graph API and PowerBI</title>
-      <link>https://euc365.com/microsoft-graph-and-powerbi/</link>
+      <link>https://hugo.euc365.com/microsoft-graph-and-powerbi/</link>
       <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
       
-      <guid>https://euc365.com/microsoft-graph-and-powerbi/</guid>
+      <guid>https://hugo.euc365.com/microsoft-graph-and-powerbi/</guid>
       <description>&lt;h2 id=&#34;a-little-bit-about-this-post&#34;&gt;A little bit about this post&lt;/h2&gt;
 &lt;p&gt;At &lt;a href=&#34;http://mmsmoa.com&#34;&gt;MMS 2022&lt;/a&gt; I took a huge leap and briefly presented this in the &lt;strong&gt;Tips &amp;amp; Tricks&lt;/strong&gt; Session. This was the first time I had ever presented in front of an audience.&lt;/p&gt;
 &lt;p&gt;I thought it would be good to give a bit of context on how this was conceptualised and why certain aspects are the way they are (some of them still make me shudder).&lt;/p&gt;
@@ -1000,7 +1000,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;DeviceManagementManagedDevices.Read.All&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If you are not familiar with creating App Registrations, take a look at my &lt;a href=&#34;https://euc365.com/create-an-azure-app-registration&#34;&gt;Create an Azure App Registration&lt;/a&gt; post.&lt;/p&gt;
+&lt;p&gt;If you are not familiar with creating App Registrations, take a look at my &lt;a href=&#34;https://hugo.euc365.com/create-an-azure-app-registration&#34;&gt;Create an Azure App Registration&lt;/a&gt; post.&lt;/p&gt;
 &lt;p&gt;Once you have added permissions and granted consent, you need to obtain a secret, this can be done from the App Registration by;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Clicking &lt;strong&gt;Certificates &amp;amp; Secrets&lt;/strong&gt;&lt;/li&gt;
@@ -1363,7 +1363,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/logicapphttptrigger_hu338a9792ae73f90bd9539efe780b309c_19341_603x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;375px&#34; width=&#34;600px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/logicapphttptrigger_hu338a9792ae73f90bd9539efe780b309c_19341_603x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;375px&#34; width=&#34;600px&#34;&gt;
 
 
 
@@ -1473,7 +1473,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/biignoreprivacy_hue5264bb602aa113c8ac9babd235921e4_24178_639x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Ignore Privacy PowerBIx&#34; height=&#34;250px&#34; width=&#34;500px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/biignoreprivacy_hue5264bb602aa113c8ac9babd235921e4_24178_639x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Ignore Privacy PowerBIx&#34; height=&#34;250px&#34; width=&#34;500px&#34;&gt;
 
 
 
@@ -1681,7 +1681,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/expandgraphcall_hu3f6d3ee85f51aa6b27eccc41a3056c8b_5617_167x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand Graph Call Table&#34; height=&#34;200px&#34; width=&#34;167px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/expandgraphcall_hu3f6d3ee85f51aa6b27eccc41a3056c8b_5617_167x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand Graph Call Table&#34; height=&#34;200px&#34; width=&#34;167px&#34;&gt;
 
 
 
@@ -1708,7 +1708,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/expandhwinfo_hua40fe5206a377732053e5581dcd2fd48_29194_349x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand hardwareInformation&#34; height=&#34;450px&#34; width=&#34;300px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/expandhwinfo_hua40fe5206a377732053e5581dcd2fd48_29194_349x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand hardwareInformation&#34; height=&#34;450px&#34; width=&#34;300px&#34;&gt;
 
 
 
@@ -1739,7 +1739,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/modelbutton_huad4a1917d5b6128e85ae823a2a11966c_10638_216x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Model button&#34; height=&#34;252px&#34; width=&#34;216px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/modelbutton_huad4a1917d5b6128e85ae823a2a11966c_10638_216x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Model button&#34; height=&#34;252px&#34; width=&#34;216px&#34;&gt;
 
 
 
@@ -1761,7 +1761,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/linktables.gif&#34; alt=&#34;Model button&#34; height=&#34;500px&#34; width=&#34;800px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/linktables.gif&#34; alt=&#34;Model button&#34; height=&#34;500px&#34; width=&#34;800px&#34;&gt;
 
 
 
@@ -1776,10 +1776,10 @@ Voilà!, you now have the hardware information for each device. There are still 
     
     <item>
       <title>Autopilot Enrolment Terms of Use</title>
-      <link>https://euc365.com/autopilot-enrolment-terms-of-use/</link>
+      <link>https://hugo.euc365.com/autopilot-enrolment-terms-of-use/</link>
       <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
       
-      <guid>https://euc365.com/autopilot-enrolment-terms-of-use/</guid>
+      <guid>https://hugo.euc365.com/autopilot-enrolment-terms-of-use/</guid>
       <description>&lt;h2 id=&#34;why-would-i-want-to-do-this-whats-the-purpose&#34;&gt;Why would I want to do this? Whats the Purpose?&lt;/h2&gt;
 &lt;p&gt;You maybe asking yourself why should I be adding Terms of use to Autopilot Enrolment? Well there are a few use cases that spring to mind.&lt;/p&gt;
 &lt;p&gt;The first been accepting an It acceptable use policy, for many years users have come to collect devices from a field office and/or had the devices delivered to them by an internal tech. Well in the current day and age of Modern Management and Windows Autopilot you now have the option to ship straight from the vendor to the end user, ensuring that the user accepts the policy prior to using the device maybe an absolute must for your organisation.&lt;/p&gt;
@@ -1817,7 +1817,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termsnameanddisplay_hub8ff1006e3bc9242cc17866791a4f670_26243_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Name and DisplayName&#34; height=&#34;138px&#34; width=&#34;587px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/termsnameanddisplay_hub8ff1006e3bc9242cc17866791a4f670_26243_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Name and DisplayName&#34; height=&#34;138px&#34; width=&#34;587px&#34;&gt;
 
 
 &lt;/p&gt;
@@ -1830,7 +1830,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/termsmultiplepdfs.png&#34; alt=&#34;Terms MultiplePDFS&#34; width=&#34;587px&#34; height=&#34;175px&#34; /&gt;
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/apterms/termsmultiplepdfs.png&#34; alt=&#34;Terms MultiplePDFS&#34; width=&#34;587px&#34; height=&#34;175px&#34; /&gt;
 &lt;br&gt;At this point you can upload the same terms in a different language, simply click **+ Add language**, Upload the PDF and then select its language from the drop down to the right-hand side.
 &lt;/p&gt;&lt;/div&gt;
 
@@ -1839,7 +1839,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 &lt;li&gt;&lt;strong&gt;Require users to consent on every device&lt;/strong&gt;, This one &lt;strong&gt;HAS&lt;/strong&gt; to be set to &lt;strong&gt;Off&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/consentwarning.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;650px&#34; height=&#34;138px&#34; /&gt;&lt;br&gt;
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/apterms/consentwarning.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;650px&#34; height=&#34;138px&#34; /&gt;&lt;br&gt;
 This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on the device has to be Joined to Azure AD Already and in fully working order. You will see this warning if you do attempt to switch it on.&lt;/p&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -1869,7 +1869,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termscomplete_hu78f625e649dfc516ebb0eba7978febd3_121537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;650px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/termscomplete_hu78f625e649dfc516ebb0eba7978febd3_121537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;650px&#34;&gt;
 
 
 &lt;/p&gt;
@@ -1915,7 +1915,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/grantselectterms_hu18dde69c3568addac427ca6104d8369f_93291_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;250px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/grantselectterms_hu18dde69c3568addac427ca6104d8369f_93291_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;250px&#34;&gt;
 
 
 
@@ -1945,13 +1945,13 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termsduringap_hu243e40b91a29d7e929c678b53a0b3d64_18595_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;300px&#34; width=&#34;1000px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/termsduringap_hu243e40b91a29d7e929c678b53a0b3d64_18595_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;300px&#34; width=&#34;1000px&#34;&gt;
 
 
 
 
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;If you selected to force the users to expand the terms, but just click accept you will see the message below pop up.
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/termsnoexpand.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;450px&#34; height=&#34;150px&#34; /&gt;&lt;/p&gt;&lt;/div&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/apterms/termsnoexpand.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;450px&#34; height=&#34;150px&#34; /&gt;&lt;/p&gt;&lt;/div&gt;
 
 &lt;p&gt;If you expand the terms you will see your terms in an embedded PDF viewer, once you have finished click &lt;strong&gt;Accept&lt;/strong&gt;, you will then just continue along your way on a standard Autopilot build.&lt;/p&gt;
 
@@ -1977,7 +1977,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/acceptteddeclinenumbers_hufcb2f10437b382c8df62e46426bbab6e_3110_635x0_resize_q100_h2_box_3.webp&#34; alt=&#34;acceptteddeclinenumbers&#34; height=&#34;75px&#34; width=&#34;600px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/acceptteddeclinenumbers_hufcb2f10437b382c8df62e46426bbab6e_3110_635x0_resize_q100_h2_box_3.webp&#34; alt=&#34;acceptteddeclinenumbers&#34; height=&#34;75px&#34; width=&#34;600px&#34;&gt;
 
 
 
@@ -1990,10 +1990,10 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
     
     <item>
       <title>Create Dynamic Application Packages with PowerShell</title>
-      <link>https://euc365.com/create-dynamic-application-packages-with-powershell/</link>
+      <link>https://hugo.euc365.com/create-dynamic-application-packages-with-powershell/</link>
       <pubDate>Wed, 31 Mar 2021 03:08:00 +0000</pubDate>
       
-      <guid>https://euc365.com/create-dynamic-application-packages-with-powershell/</guid>
+      <guid>https://hugo.euc365.com/create-dynamic-application-packages-with-powershell/</guid>
       <description>&lt;h2 id=&#34;dynamic-in-what-way&#34;&gt;Dynamic? In what way?&lt;/h2&gt;
 &lt;p&gt;When I say the packages are dynamic, I mean that you don&amp;rsquo;t have to update the application package when a new version is released by the vendor.&lt;/p&gt;
 &lt;p&gt;There are caveats to both methods that we walk through below, there are also other community and paid for tools to do similar things.&lt;/p&gt;
@@ -2012,9 +2012,9 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
   &lt;/a&gt;
   &lt;div class=&#34;collapse&#34; id=&#34;detection&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;p&gt;Lets start by looking at the way we obtain the latest version and check it again the version in the registry.&lt;/p&gt;
 &lt;p&gt;As you can see from the image below, there is a version table right at the top of the web page.&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/versiontable_hu1c23da9cfc0bedc4c104346e90921a98_11876_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/versiontable_hu1c23da9cfc0bedc4c104346e90921a98_11876_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;p&gt;If you press &lt;strong&gt;F12&lt;/strong&gt; and open the developer options, you can click through the HTML sections in the &lt;strong&gt;Elements&lt;/strong&gt; tab and find the table like below;&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/f12versiontable_hu9cda19cfd06773916047adad8dba8b92_31345_555x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/f12versiontable_hu9cda19cfd06773916047adad8dba8b92_31345_555x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;p&gt;As you can see from the snippet below we have to use a &lt;code&gt;HTMLContent&lt;/code&gt; &lt;strong&gt;COM&lt;/strong&gt; object to parse the HTML data so we can interact with the tables.&lt;/p&gt;
 &lt;p&gt;In it&amp;rsquo;s simplest form we get the &lt;strong&gt;RawContent&lt;/strong&gt; and then write it to the &lt;strong&gt;IHTMLDocument2&lt;/strong&gt; object with the &lt;strong&gt;COM&lt;/strong&gt; object, giving us the functionality  work with the tables.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; Get-LatestVersion {
@@ -2062,7 +2062,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s take a closer look at the interaction with the tables, as you can see the variable &lt;code&gt;$Tables&lt;/code&gt; uses the the &lt;code&gt;$HTML&lt;/code&gt; variable which contains the &lt;strong&gt;COM&lt;/strong&gt; object data to select everything with the tag of &lt;strong&gt;table&lt;/strong&gt; (&lt;code&gt;$Tables = @($html.all.tags(&#39;table&#39;))&lt;/code&gt;). From this point it uses a &lt;strong&gt;for&lt;/strong&gt; loop to gather the table data, until finally we decide which part of the table we want to use.&lt;/p&gt;
 &lt;p&gt;For example, We are focusing on the latest version, so if you run the &lt;strong&gt;for loop&lt;/strong&gt; manually and look at &lt;code&gt;$resultObject&lt;/code&gt; in PowerShell it will return something like this;&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/pswindow_resultobject_hu37262acdfae5055cb19d159b9e5bd811_8970_420x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/pswindow_resultobject_hu37262acdfae5055cb19d159b9e5bd811_8970_420x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;p&gt;From this point you can create a PSCustomObject with the table header you want. Now this is kind of over complicating it for this example as you could just return &lt;code&gt;$resultObject.&#39;Latest version&#39;&lt;/code&gt; however, I use this loop for other methods and keeping it in this format helps me standardise the way I work, but it also gives you the ability to use if for other things too.&lt;/p&gt;
 &lt;p&gt;All of this is wrapped inside a function (&lt;code&gt;Get-LatestVersion&lt;/code&gt;) as I plan on using the same script for the detection method as for the install, but I also like to re-check in my install script that the application definitely is not installed before the install action executes. If you look at the &lt;code&gt;Detect-Application&lt;/code&gt; function you can see that I check both the 64-bit and 32-bit registry locations with an &lt;strong&gt;IF&lt;/strong&gt; statement based on the variables below;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$UninstallKey = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\&amp;#34;&lt;/span&gt;
@@ -2109,9 +2109,9 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ($HTML.links | Where-Object {$_.InnerHTMl &lt;span style=&#34;color:#f92672&#34;&gt;-Like&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;*&lt;/span&gt;$Arch&lt;span style=&#34;color:#e6db74&#34;&gt;*&amp;#34;&lt;/span&gt;}).href        
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you look at the &lt;a href=&#34;https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop&#34;&gt;web page&lt;/a&gt; for the downloads you will see that the links are in an unordered list;&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/install_links_hu175eaed89cb75656c50c7774eeb1eccf_51511_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;250px&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/install_links_hu175eaed89cb75656c50c7774eeb1eccf_51511_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;250px&#34; width=&#34;&#34;&gt;
 &lt;p&gt;Again if you hit &lt;strong&gt;F12&lt;/strong&gt; and look at the html content behind the table, you will see the data we are looking for.&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/f12install_links_huae335265959d969c587091404647096f_106242_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;250px&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/f12install_links_huae335265959d969c587091404647096f_106242_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;250px&#34; width=&#34;&#34;&gt;
 &lt;p&gt;To get this using the script we simply run &lt;code&gt;($HTML.links | Where-Object {$_.InnerHTMl -Like &amp;quot;*$Arch*&amp;quot;}).href&lt;/code&gt; simple right?&lt;/p&gt;
 &lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -2454,7 +2454,7 @@ You will need to take this into account if you plan to package multiple applicat
   &lt;/a&gt;
   &lt;div class=&#34;collapse&#34; id=&#34;git-detection&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;p&gt;Lets start by looking at the &lt;a href=&#34;https://github.com/git-for-windows/git/releases/latest&#34;&gt;latest releases page&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The first thing you may notice that it automatically redirects the URL, but we just want to check the version.&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/gitreleasepage_hu909719682eb7fd19dcc6a36a2d87bb00_128796_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/gitreleasepage_hu909719682eb7fd19dcc6a36a2d87bb00_128796_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
 &lt;p&gt;Now that we know what the latest version is on the GitHub page, lets take a look at the API. If you change the URL in your browser to &lt;a href=&#34;https://api.github.com/repos/git-for-windows/git/releases/latest&#34;&gt;https://api.github.com/repos/git-for-windows/git/releases/latest&lt;/a&gt;, you will see a JSON response like the below.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;url&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://api.github.com/repos/git-for-windows/git/releases/37800609&amp;#34;&lt;/span&gt;,
@@ -2549,7 +2549,7 @@ You will need to take this into account if you plan to package multiple applicat
     GIT Download Link &lt;i class=&#34;fas fa-plus ml-auto&#34;&gt;&lt;/i&gt;
   &lt;/a&gt;
   &lt;div class=&#34;collapse&#34; id=&#34;git-download-link&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;p&gt;If you take a look back at the &lt;a href=&#34;https://github.com/git-for-windows/git/releases/latest&#34;&gt;latest releases page&lt;/a&gt;, and scroll down to &lt;strong&gt;Assets&lt;/strong&gt;, if you hover over one of them you will see the URL it links to in the bottom left-hand corner of your browser.&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/gitdownloadlink_hu7d4e75b3389a9760d62de70d46e7f76c_10729_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/gitdownloadlink_hu7d4e75b3389a9760d62de70d46e7f76c_10729_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
 &lt;p&gt;Now we know that we can &lt;strong&gt;Detect&lt;/strong&gt; the application, lets look at obtaining the download link.&lt;/p&gt;
 &lt;p&gt;If you look at the script snippet below, you can see that we are still using the &lt;code&gt;$RestResult&lt;/code&gt; to obtain the download link. To get the download link for the architecture you specify we first have to build up the &lt;code&gt;$EXEName&lt;/code&gt; Variable, this uses the &lt;code&gt;$LatestVersion&lt;/code&gt; and &lt;code&gt;$Arch&lt;/code&gt; variables to bring the name together.&lt;/p&gt;
 &lt;p&gt;Once the name EXE Name is sorted, we then use this to get the link, by using the &lt;code&gt;Where-Object&lt;/code&gt; function to select the download URL from the asset where the &lt;code&gt;$_.name&lt;/code&gt; matches &lt;code&gt;$EXEName&lt;/code&gt;.&lt;/p&gt;
@@ -2910,7 +2910,7 @@ You will need to take this into account if you plan to package multiple applicat
 &lt;br&gt;
 &lt;h2 id=&#34;application-deployment&#34;&gt;Application Deployment&lt;/h2&gt;
 
-&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Please see &lt;a href=&#34;https://euc365.com/creating-intune-win32-apps&#34;&gt;Creating Intune Win32 Apps&lt;/a&gt; for creating an Intune Win32 App Package.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Please see &lt;a href=&#34;https://hugo.euc365.com/creating-intune-win32-apps&#34;&gt;Creating Intune Win32 Apps&lt;/a&gt; for creating an Intune Win32 App Package.&lt;/p&gt;&lt;/div&gt;
 
 &lt;p&gt;Lets look at how we deploy these applications from ConfigMG (MEMCM) and Intune.&lt;/p&gt;
 
@@ -3000,10 +3000,10 @@ You will need to take this into account if you plan to package multiple applicat
     
     <item>
       <title>Deploy Windows Subsystem for Linux</title>
-      <link>https://euc365.com/deploy-windows-subsystem-for-linux/</link>
+      <link>https://hugo.euc365.com/deploy-windows-subsystem-for-linux/</link>
       <pubDate>Mon, 15 Feb 2021 22:29:00 +0000</pubDate>
       
-      <guid>https://euc365.com/deploy-windows-subsystem-for-linux/</guid>
+      <guid>https://hugo.euc365.com/deploy-windows-subsystem-for-linux/</guid>
       <description>&lt;h2 id=&#34;what-is-the-windows-susbsystem-for-linux&#34;&gt;What is the Windows Susbsystem for Linux?&lt;/h2&gt;
 &lt;p&gt;As per the &lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/faq#:~:text=The%20Windows%20Subsystem%20for%20Linux,desktop%20and%20modern%20store%20apps.&#34;&gt;Microsoft Documentation&lt;/a&gt;, &lt;strong&gt;The Windows Subsystem for Linux (WSL)&lt;/strong&gt; is a new &lt;strong&gt;Windows 10 feature&lt;/strong&gt; that enables you to run &lt;strong&gt;native Linux command-line tools directly on Windows&lt;/strong&gt;, alongside your traditional Windows desktop and modern store apps.&lt;/p&gt;
 &lt;p&gt;Now what does that mean? Can you run a full Linux setup in this way? Well the answer to that is &lt;strong&gt;NO&lt;/strong&gt; unfortunately not. This tool is designed for developers and other users who use bash and other common Linux tools.&lt;/p&gt;
@@ -3080,7 +3080,7 @@ You will need to take this into account if you plan to package multiple applicat
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/deploywsl/FeaturedImage_hu88af6168fb2889d0285544f033f3f748_59352_432x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;512&#34; width=&#34;432&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/deploywsl/FeaturedImage_hu88af6168fb2889d0285544f033f3f748_59352_432x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;512&#34; width=&#34;432&#34;&gt;
 
 
 &lt;/h2&gt;&lt;/p&gt;
@@ -3115,7 +3115,7 @@ Finish both of the off the dialog windows through the summary panes and then dep
 &lt;p&gt;As mentioned above you will need to use a Linux distribution to use with the Windows Subsystem for Linux which are available in the Microsoft Store.&lt;/p&gt;
 &lt;h2 id=&#34;intune-application&#34;&gt;Intune Application&lt;/h2&gt;
 
-&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Please see &lt;a href=&#34;https://euc365.com/creating-intune-win32-apps&#34;&gt;Creating Intune Win32 Apps&lt;/a&gt; for creating an Intune Win32 App Package.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Please see &lt;a href=&#34;https://hugo.euc365.com/creating-intune-win32-apps&#34;&gt;Creating Intune Win32 Apps&lt;/a&gt; for creating an Intune Win32 App Package.&lt;/p&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Select &lt;strong&gt;Apps&lt;/strong&gt; from the navigation pane&lt;/li&gt;
@@ -3164,7 +3164,7 @@ Finish both of the off the dialog windows through the summary panes and then dep
 
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;You will receive the WSL Distros at the top if you use the &lt;strong&gt;Developer Tools&lt;/strong&gt; category filter&lt;/p&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://euc365.com/images/post/deploywsl/linuxdistros.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://hugo.euc365.com/images/post/deploywsl/linuxdistros.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Click on the Distro you would like to use/deploy&lt;/li&gt;
 &lt;li&gt;Select you Licence Type, See &lt;a href=&#34;https://docs.microsoft.com/en-us/microsoft-store/acquire-apps-microsoft-store-for-business#:~:text=The%20Microsoft%20Store%20supports%20two%20options%20to%20license,is%20a%20new%20licensing%20option%20for%20Windows%2010.&#34;&gt;Microsoft Documentation&lt;/a&gt;, Click &lt;strong&gt;Get App&lt;/strong&gt;.&lt;/li&gt;
@@ -3242,7 +3242,7 @@ Finish both of the off the dialog windows through the summary panes and then dep
 &lt;li&gt;Click &lt;strong&gt;Manage&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Select your &lt;strong&gt;Platform&lt;/strong&gt;, &lt;strong&gt;Minimum Version&lt;/strong&gt;, &lt;strong&gt;Architecture&lt;/strong&gt;, &lt;strong&gt;App Metadata&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;You will then see something like the image below, this contains the &lt;strong&gt;Package Identity Name&lt;/strong&gt;, &lt;strong&gt;Package family name&lt;/strong&gt;, &lt;strong&gt;Package full name&lt;/strong&gt;, &lt;strong&gt;Package format&lt;/strong&gt; and the &lt;strong&gt;Supported architectures&lt;/strong&gt;.
-&lt;img src=&#34;https://euc365.com/images/post/deploywsl/offlineoptions.png&#34; alt=&#34;Image&#34;&gt;&lt;/li&gt;
+&lt;img src=&#34;https://hugo.euc365.com/images/post/deploywsl/offlineoptions.png&#34; alt=&#34;Image&#34;&gt;&lt;/li&gt;
 &lt;li&gt;Click &lt;strong&gt;Download&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;I will demonstrate how to install this using PowerShell, however, please see the &lt;a href=&#34;https://docs.microsoft.com/en-us/microsoft-store/distribute-offline-apps&#34;&gt;Distribute Offline Apps&lt;/a&gt; Microsoft Documentation for alternative methods.&lt;/p&gt;&lt;/div&gt;
@@ -3263,10 +3263,10 @@ Finish both of the off the dialog windows through the summary panes and then dep
 &lt;/ul&gt;
 
 &lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;To Enable WSL for use the device must be restarted, If you see the below message, WSL is either not installed or your device is pending a reboot.&lt;br&gt;
-&lt;img src=&#34;https://euc365.com/images/post/deploywsl/wslnotenabled.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;&lt;/div&gt;
+&lt;img src=&#34;https://hugo.euc365.com/images/post/deploywsl/wslnotenabled.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;&lt;/div&gt;
 
 &lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
-&lt;p&gt;I hope that you find this useful if you ever need to deploy WSL. If you have any questions please do not hesitate to reach out using the &lt;a href=&#34;https://euc365.com/contact&#34;&gt;Contact&lt;/a&gt; page or in the comment section below.&lt;/p&gt;
+&lt;p&gt;I hope that you find this useful if you ever need to deploy WSL. If you have any questions please do not hesitate to reach out using the &lt;a href=&#34;https://hugo.euc365.com/contact&#34;&gt;Contact&lt;/a&gt; page or in the comment section below.&lt;/p&gt;
 
 &lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;I had to use WSL the other day when deploying Docker Desktop as a dependency, the script came in handy for sure.&lt;/p&gt;&lt;/div&gt;
 
@@ -3275,10 +3275,10 @@ Finish both of the off the dialog windows through the summary panes and then dep
     
     <item>
       <title>Creating Intune Win32 Apps</title>
-      <link>https://euc365.com/creating-intune-win32-apps/</link>
+      <link>https://hugo.euc365.com/creating-intune-win32-apps/</link>
       <pubDate>Tue, 05 Jan 2021 20:17:00 +0000</pubDate>
       
-      <guid>https://euc365.com/creating-intune-win32-apps/</guid>
+      <guid>https://hugo.euc365.com/creating-intune-win32-apps/</guid>
       <description>&lt;h2 id=&#34;win32-apps-what-are-they&#34;&gt;Win32 Apps, What Are they?&lt;/h2&gt;
 &lt;p&gt;If you&amp;rsquo;re familiar with Configuration Manager/MEMCM then think of these files as your source directory, the difference being you are effectively zipping it up and then uploading to Intune.&lt;/p&gt;
 &lt;p&gt;According to Microsoft, if you decide to use Win32 Apps, it is &lt;strong&gt;advised&lt;/strong&gt; that you use these exclusively and NOT &lt;strong&gt;&amp;lsquo;Mix and Match&amp;rsquo;&lt;/strong&gt; these with Line of Business applications when using Autopilot (See Microsoft Doc link below).&lt;/p&gt;
@@ -3365,7 +3365,7 @@ That is your app finished and deploying, it is worth noting it may take &lt;str
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createwin32/FileDetection_huc0e49b822f03c69ba2bd53c4c8a32b09_10617_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;229&#34; width=&#34;402&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createwin32/FileDetection_huc0e49b822f03c69ba2bd53c4c8a32b09_10617_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;229&#34; width=&#34;402&#34;&gt;
 
 
 
@@ -3388,7 +3388,7 @@ That is your app finished and deploying, it is worth noting it may take &lt;str
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createwin32/Date_CreatedModified_hu93a36f35bddffda5f3d629ae6d3915c9_8390_577x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;126&#34; width=&#34;333&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createwin32/Date_CreatedModified_hu93a36f35bddffda5f3d629ae6d3915c9_8390_577x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;126&#34; width=&#34;333&#34;&gt;
 
 
 
@@ -3428,7 +3428,7 @@ Now that rule is very quick and simple, as mentioned you can use the date modifi
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createwin32/7z-Date-Mod-Endpoint_hu4194ba41d42d1ab3f3fc3c413cb3d5cd_14802_579x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;302&#34; width=&#34;409&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createwin32/7z-Date-Mod-Endpoint_hu4194ba41d42d1ab3f3fc3c413cb3d5cd_14802_579x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;302&#34; width=&#34;409&#34;&gt;
 
 
 
@@ -3481,10 +3481,10 @@ That covers the basics all of the detection methods, if you have any further que
     
     <item>
       <title>Finding Microsoft Graph API&#39;s from the Web</title>
-      <link>https://euc365.com/finding-microsoft-graph-apis-from-the-web/</link>
+      <link>https://hugo.euc365.com/finding-microsoft-graph-apis-from-the-web/</link>
       <pubDate>Mon, 05 Oct 2020 16:18:00 +0000</pubDate>
       
-      <guid>https://euc365.com/finding-microsoft-graph-apis-from-the-web/</guid>
+      <guid>https://hugo.euc365.com/finding-microsoft-graph-apis-from-the-web/</guid>
       <description>&lt;h2 id=&#34;why-do-i-need-to-find-these&#34;&gt;Why do I need to find these?&lt;/h2&gt;
 &lt;p&gt;Welcome (Back) to another post about the graph API&amp;rsquo;s, This time it isn&amp;rsquo;t so much about rambling through documentation but about giving you a nice handy tip on your route to finding what API is been called when browsing in the Web Console.&lt;/p&gt;
 &lt;p&gt;The only things your are going to need for this will be an &lt;b&gt;Azure AD Account&lt;/b&gt; with permissions to at least &lt;b&gt;Read&lt;/b&gt; policies and a modern web browser, Yes really that&amp;rsquo;s it.&lt;/p&gt;
@@ -3510,7 +3510,7 @@ That covers the basics all of the detection methods, if you have any further que
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/findapis/DevToolsTabs_hu263fe55261254b26a66783d5d9793455_3463_559x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;43&#34; width=&#34;559&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/findapis/DevToolsTabs_hu263fe55261254b26a66783d5d9793455_3463_559x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;43&#34; width=&#34;559&#34;&gt;
 
 
 
@@ -3533,7 +3533,7 @@ That covers the basics all of the detection methods, if you have any further que
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/findapis/Network-Pane_hu9c8ab21e5f886923c79852df5ce0c776_24041_206x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;535&#34; width=&#34;206&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/findapis/Network-Pane_hu9c8ab21e5f886923c79852df5ce0c776_24041_206x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;535&#34; width=&#34;206&#34;&gt;
 
 
 
@@ -3555,7 +3555,7 @@ That covers the basics all of the detection methods, if you have any further que
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/findapis/Network-Pane-DataReturn_hua3a680465a25672fa15ad98cd815f8fb_49560_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;400&#34; width=&#34;800&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/findapis/Network-Pane-DataReturn_hua3a680465a25672fa15ad98cd815f8fb_49560_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;400&#34; width=&#34;800&#34;&gt;
 
 
 &lt;/p&gt;
@@ -3577,7 +3577,7 @@ That covers the basics all of the detection methods, if you have any further que
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/findapis/APIHover_hud29685835cbbb5311b013760c4ac7052_10522_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/findapis/APIHover_hud29685835cbbb5311b013760c4ac7052_10522_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -3599,7 +3599,7 @@ That covers the basics all of the detection methods, if you have any further que
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/findapis/GraphExplorer_hu113933821425111d428596dbdd3f93eb_48495_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/findapis/GraphExplorer_hu113933821425111d428596dbdd3f93eb_48495_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -3610,10 +3610,10 @@ That covers the basics all of the detection methods, if you have any further que
     
     <item>
       <title>Backup and Import App Protection Policies</title>
-      <link>https://euc365.com/backup-and-import-app-protection-policies/</link>
+      <link>https://hugo.euc365.com/backup-and-import-app-protection-policies/</link>
       <pubDate>Fri, 18 Sep 2020 08:49:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backup-and-import-app-protection-policies/</guid>
+      <guid>https://hugo.euc365.com/backup-and-import-app-protection-policies/</guid>
       <description>&lt;h2 id=&#34;why-backup-app-protection-policies&#34;&gt;Why backup App Protection Policies?&lt;/h2&gt;
 &lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
 &lt;ul&gt;
@@ -3822,7 +3822,7 @@ You will finally end up with something like this;
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupappprotection/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupappprotection/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
 
 
 
@@ -3839,10 +3839,10 @@ You will finally end up with something like this;
     
     <item>
       <title>Backup and Import Conditional Access Policies</title>
-      <link>https://euc365.com/backup-and-import-conditional-access-policies/</link>
+      <link>https://hugo.euc365.com/backup-and-import-conditional-access-policies/</link>
       <pubDate>Mon, 14 Sep 2020 13:20:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backup-and-import-conditional-access-policies/</guid>
+      <guid>https://hugo.euc365.com/backup-and-import-conditional-access-policies/</guid>
       <description>&lt;h2 id=&#34;why-backup-conditional-access-policies&#34;&gt;Why backup Conditional Access Policies?&lt;/h2&gt;
 &lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
 &lt;ul&gt;
@@ -4050,7 +4050,7 @@ Using the ClientID, ClientSecret and TenantID (Unattended) you will need;
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupconditionalaccess/NoRedirectURI_hu6ae5db7a752f041bfb3ec13814289dc1_8084_399x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;192&#34; width=&#34;399&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupconditionalaccess/NoRedirectURI_hu6ae5db7a752f041bfb3ec13814289dc1_8084_399x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;192&#34; width=&#34;399&#34;&gt;
 
 
 
@@ -4112,7 +4112,7 @@ You will finally end up with something like this;
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupconditionalaccess/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupconditionalaccess/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
 
 
 
@@ -4128,10 +4128,10 @@ You will finally end up with something like this;
     
     <item>
       <title>Backup and Import Intune Compliance Policies</title>
-      <link>https://euc365.com/backup-and-import-intune-compliance-policies/</link>
+      <link>https://hugo.euc365.com/backup-and-import-intune-compliance-policies/</link>
       <pubDate>Wed, 09 Sep 2020 16:09:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backup-and-import-intune-compliance-policies/</guid>
+      <guid>https://hugo.euc365.com/backup-and-import-intune-compliance-policies/</guid>
       <description>&lt;h2 id=&#34;why-backup-compliance-policies&#34;&gt;Why backup Compliance Policies&lt;/h2&gt;
 &lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
 &lt;ul&gt;
@@ -4353,7 +4353,7 @@ If you launch the script without the Client ID, Secret and Tenant ID you will be
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupcompliencepolicy/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupcompliencepolicy/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -4371,10 +4371,10 @@ You will need an account with permissions to be able to read (for backups only) 
     
     <item>
       <title>Backup and Import Intune Device Configuration Profiles</title>
-      <link>https://euc365.com/backing-up-intune-device-configuration-profiles/</link>
+      <link>https://hugo.euc365.com/backing-up-intune-device-configuration-profiles/</link>
       <pubDate>Wed, 02 Sep 2020 11:02:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backing-up-intune-device-configuration-profiles/</guid>
+      <guid>https://hugo.euc365.com/backing-up-intune-device-configuration-profiles/</guid>
       <description>&lt;h2 id=&#34;why-backup-device-configuration-profiles&#34;&gt;Why backup Device Configuration Profiles?&lt;/h2&gt;
 &lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
 &lt;ul&gt;
@@ -4586,7 +4586,7 @@ If you launch the script without the Client ID, Secret and Tenant ID you will be
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupconfigprofile/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupconfigprofile/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
 
 
 
@@ -4602,10 +4602,10 @@ If you launch the script without the Client ID, Secret and Tenant ID you will be
     
     <item>
       <title>Add devices to an Azure Group using the Microsoft Graph API</title>
-      <link>https://euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</link>
+      <link>https://hugo.euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</link>
       <pubDate>Tue, 11 Aug 2020 11:54:00 +0000</pubDate>
       
-      <guid>https://euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</guid>
+      <guid>https://hugo.euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</guid>
       <description>&lt;p&gt;Have you ever needed to add a device to an Azure AD Group as part of your MEMCM or Autopilot deployment for specific app, profiles or scripts?&lt;/p&gt;
 &lt;p&gt;Well it became the case that my organisation needed to do so for a couple of reason, one of those was to disable Windows Hello and the other for devices migrating from a previous Configuration Manager (Not MEMCM).&lt;/p&gt;
 &lt;p&gt;Because I was using Hybrid AD Join Autopilot Deployments it became the case that I had to use the devices&amp;rsquo; computer name and get the device information that way.&lt;/p&gt;
@@ -4705,7 +4705,7 @@ If your not sure how to create an Azure AD App Registration head over to one of 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/addtoaadgroup/Script-Params-AADGroup_3_hu90e1e4c330db7090c37dcc8f6132ea13_26697_506x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;495&#34; width=&#34;506&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/addtoaadgroup/Script-Params-AADGroup_3_hu90e1e4c330db7090c37dcc8f6132ea13_26697_506x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;495&#34; width=&#34;506&#34;&gt;
 
 
 
@@ -4729,7 +4729,7 @@ If your not sure how to create an Azure AD App Registration head over to one of 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/addtoaadgroup/Hide_Input_hua553485fb62691c1f33ef9f5c0698f64_13264_393x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;420&#34; width=&#34;393&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/addtoaadgroup/Hide_Input_hua553485fb62691c1f33ef9f5c0698f64_13264_393x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;420&#34; width=&#34;393&#34;&gt;
 
 
 
@@ -4757,7 +4757,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/addtoaadgroup/ScriptOutput-1_huc3aabd5c534d9cd4863e0ad7d6cbd3c2_62689_692x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;745&#34; width=&#34;692&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/addtoaadgroup/ScriptOutput-1_huc3aabd5c534d9cd4863e0ad7d6cbd3c2_62689_692x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;745&#34; width=&#34;692&#34;&gt;
 
 
 
@@ -4785,7 +4785,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/addtoaadgroup/ScriptSliders_hu9dd1a09eec28ff928f41e32a8e77296b_13543_401x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;140&#34; width=&#34;401&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/addtoaadgroup/ScriptSliders_hu9dd1a09eec28ff928f41e32a8e77296b_13543_401x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;140&#34; width=&#34;401&#34;&gt;
 
 
 
@@ -4800,10 +4800,10 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
     
     <item>
       <title>Enrol Devices to Autopilot (Unattended)</title>
-      <link>https://euc365.com/enrol-devices-to-autopilot-unattended/</link>
+      <link>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</link>
       <pubDate>Fri, 07 Aug 2020 17:17:00 +0000</pubDate>
       
-      <guid>https://euc365.com/enrol-devices-to-autopilot-unattended/</guid>
+      <guid>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</guid>
       <description>&lt;p&gt;I have been working on a project at the company I work for, and up to this point we have been primarily focused on getting new devices imported and deploying via Autopilot.&lt;/p&gt;
 &lt;p&gt;Now we have successfully leaped over that hurdle with very little issues (apart from the odd TPM attestation issue here and there and the ESP Profile page been skipped), we moved onto focusing on our current estate and how to import these into Autopilot .&lt;/p&gt;
 &lt;p&gt;There is a couple of ways to do this, you could run this in a package, as an application, as a script or in a task sequence for when you decide to re-build the machines.&lt;/p&gt;
@@ -4964,7 +4964,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ScriptDetails_huffb502f169b84fe148c90c7f2f982cd5_56051_691x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/ScriptDetails_huffb502f169b84fe148c90c7f2f982cd5_56051_691x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -4991,7 +4991,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ScriptOutput_hu553da8b8a7270aa60479ecb1f20212da_42524_689x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;742&#34; width=&#34;689&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/ScriptOutput_hu553da8b8a7270aa60479ecb1f20212da_42524_689x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;742&#34; width=&#34;689&#34;&gt;
 
 
 
@@ -5018,7 +5018,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ExisitingTS_hu65d58b8f3b5a1e165321170cdfcb01dc_65154_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/ExisitingTS_hu65d58b8f3b5a1e165321170cdfcb01dc_65154_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -5055,7 +5055,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/AddedPStoTS_huc17e98f7bc193bccfffa80135edbc451_71594_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;653&#34; width=&#34;959&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/AddedPStoTS_huc17e98f7bc193bccfffa80135edbc451_71594_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;653&#34; width=&#34;959&#34;&gt;
 
 
 
@@ -5079,7 +5079,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ScriptRunning_hu8c821047757f90b60671961d0e039542_16087_675x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;141&#34; width=&#34;675&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/ScriptRunning_hu8c821047757f90b60671961d0e039542_16087_675x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;141&#34; width=&#34;675&#34;&gt;
 
 
 
@@ -5102,7 +5102,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/DevInAP_huef4c9c829fe1307dbd7eb33e8076c322_45112_299x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;814&#34; width=&#34;299&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/DevInAP_huef4c9c829fe1307dbd7eb33e8076c322_45112_299x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;814&#34; width=&#34;299&#34;&gt;
 
 
 
@@ -5116,10 +5116,10 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
     
     <item>
       <title>Breaking Down Custom OMA-URI (CSP) Policies</title>
-      <link>https://euc365.com/breaking-custom-oma-uri-csp-policies/</link>
+      <link>https://hugo.euc365.com/breaking-custom-oma-uri-csp-policies/</link>
       <pubDate>Tue, 30 Jun 2020 18:35:00 +0000</pubDate>
       
-      <guid>https://euc365.com/breaking-custom-oma-uri-csp-policies/</guid>
+      <guid>https://hugo.euc365.com/breaking-custom-oma-uri-csp-policies/</guid>
       <description>&lt;h2 id=&#34;what-is-an-oma-uri-policy&#34;&gt;What is an OMA-URI Policy?&lt;/h2&gt;
 &lt;h4 id=&#34;meaning-open-mobile-alliance-uniform-resource-identifier&#34;&gt;Meaning: Open Mobile Alliance Uniform Resource Identifier&lt;/h4&gt;
 &lt;p&gt;Traditionally when you implement a new piece of software which contains Group Policy Objects (GPO&amp;rsquo;s) to customise the feature of the application you would import the .adml and .admx files into the PolicyDefinitions folder located within SysVol (SYSVOL) for the domain or into the local PolicyDefinitions (C:\WindowsPolicyDefinitions) folder.&lt;/p&gt;
@@ -5146,7 +5146,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Dev_ConfigProfiles-1_hub4c1dfb37001814860e4d54f32983feb_70857_495x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Profile&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/Dev_ConfigProfiles-1_hub4c1dfb37001814860e4d54f32983feb_70857_495x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Profile&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -5172,7 +5172,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/profileselection_Custom_hu3a861b27495a45dcd027da4c8c3fe959_8956_579x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;60%&#34; width=&#34;60%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/profileselection_Custom_hu3a861b27495a45dcd027da4c8c3fe959_8956_579x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;60%&#34; width=&#34;60%&#34;&gt;
 
 
 
@@ -5197,7 +5197,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Add_Custom_hu20dddc9b2feb72a03cde2c793a07b7a4_18488_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;90%&#34; width=&#34;90%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/Add_Custom_hu20dddc9b2feb72a03cde2c793a07b7a4_18488_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;90%&#34; width=&#34;90%&#34;&gt;
 
 
 
@@ -5229,7 +5229,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/chromeadmx_hu086cffa5b21ffbc253f5dbda429b76b0_25205_580x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;402&#34; width=&#34;580&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/chromeadmx_hu086cffa5b21ffbc253f5dbda429b76b0_25205_580x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;402&#34; width=&#34;580&#34;&gt;
 
 
 
@@ -5276,7 +5276,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/RegSnap_PolicyADMX-1_hu3417758c36cd16322956ffede1fcbad1_49454_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/RegSnap_PolicyADMX-1_hu3417758c36cd16322956ffede1fcbad1_49454_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -5310,7 +5310,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Cat_SUbCat_GC-1_hub42571b1e7175f5ba0c0e1438475c4aa_7404_642x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;117&#34; width=&#34;642&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/Cat_SUbCat_GC-1_hub42571b1e7175f5ba0c0e1438475c4aa_7404_642x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;117&#34; width=&#34;642&#34;&gt;
 
 
 
@@ -5333,7 +5333,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Startup_Shot_hu9f38fa4a4a71e72eb893fd1012ed0316_11776_415x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;187&#34; width=&#34;415&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/Startup_Shot_hu9f38fa4a4a71e72eb893fd1012ed0316_11776_415x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;187&#34; width=&#34;415&#34;&gt;
 
 
 
@@ -5356,7 +5356,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/HomepageSetting_hue9c27d273b99d181e2a4d31e1ca3ec72_19374_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/HomepageSetting_hue9c27d273b99d181e2a4d31e1ca3ec72_19374_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
 
 
 
@@ -5381,7 +5381,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/PolicyClass_hu0a32aa200859219a652c97f51ac08d29_7084_477x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;157&#34; width=&#34;477&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/PolicyClass_hu0a32aa200859219a652c97f51ac08d29_7084_477x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;157&#34; width=&#34;477&#34;&gt;
 
 
 
@@ -5412,7 +5412,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Cat_SUbCat_GC-1_hub42571b1e7175f5ba0c0e1438475c4aa_7404_642x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/Cat_SUbCat_GC-1_hub42571b1e7175f5ba0c0e1438475c4aa_7404_642x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -5443,7 +5443,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/HomepageKey-1024x120_hu34eee4ff45c257f80c9ec29ab62b54dc_40615_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/HomepageKey-1024x120_hu34eee4ff45c257f80c9ec29ab62b54dc_40615_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -5468,7 +5468,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/simpledisable_hua57b6aeb75d1078af8ae4b713891b1e7_18118_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/simpledisable_hua57b6aeb75d1078af8ae4b713891b1e7_18118_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
 
 
 
@@ -5491,7 +5491,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/HomepageKey-1024x120_hu34eee4ff45c257f80c9ec29ab62b54dc_40615_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/HomepageKey-1024x120_hu34eee4ff45c257f80c9ec29ab62b54dc_40615_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -5514,7 +5514,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/HomepageSetting_hue9c27d273b99d181e2a4d31e1ca3ec72_19374_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/HomepageSetting_hue9c27d273b99d181e2a4d31e1ca3ec72_19374_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
 
 
 
@@ -5540,7 +5540,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Annotation-2020-07-02-123120_hu7cc69084f089061c99f2d44353ac98a4_23518_586x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;408&#34; width=&#34;586&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/Annotation-2020-07-02-123120_hu7cc69084f089061c99f2d44353ac98a4_23518_586x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;408&#34; width=&#34;586&#34;&gt;
 
 
 

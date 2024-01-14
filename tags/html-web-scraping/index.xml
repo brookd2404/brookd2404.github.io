@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HTML Web Scraping on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/html-web-scraping/</link>
+    <link>https://hugo.euc365.com/tags/html-web-scraping/</link>
     <description>Recent content in HTML Web Scraping on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 31 Mar 2021 03:08:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/html-web-scraping/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Mar 2021 03:08:00 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/html-web-scraping/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Create Dynamic Application Packages with PowerShell</title>
-      <link>https://euc365.com/create-dynamic-application-packages-with-powershell/</link>
+      <link>https://hugo.euc365.com/create-dynamic-application-packages-with-powershell/</link>
       <pubDate>Wed, 31 Mar 2021 03:08:00 +0000</pubDate>
       
-      <guid>https://euc365.com/create-dynamic-application-packages-with-powershell/</guid>
+      <guid>https://hugo.euc365.com/create-dynamic-application-packages-with-powershell/</guid>
       <description>&lt;h2 id=&#34;dynamic-in-what-way&#34;&gt;Dynamic? In what way?&lt;/h2&gt;
 &lt;p&gt;When I say the packages are dynamic, I mean that you don&amp;rsquo;t have to update the application package when a new version is released by the vendor.&lt;/p&gt;
 &lt;p&gt;There are caveats to both methods that we walk through below, there are also other community and paid for tools to do similar things.&lt;/p&gt;
@@ -31,9 +31,9 @@
   &lt;/a&gt;
   &lt;div class=&#34;collapse&#34; id=&#34;detection&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;p&gt;Lets start by looking at the way we obtain the latest version and check it again the version in the registry.&lt;/p&gt;
 &lt;p&gt;As you can see from the image below, there is a version table right at the top of the web page.&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/versiontable_hu1c23da9cfc0bedc4c104346e90921a98_11876_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/versiontable_hu1c23da9cfc0bedc4c104346e90921a98_11876_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;p&gt;If you press &lt;strong&gt;F12&lt;/strong&gt; and open the developer options, you can click through the HTML sections in the &lt;strong&gt;Elements&lt;/strong&gt; tab and find the table like below;&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/f12versiontable_hu9cda19cfd06773916047adad8dba8b92_31345_555x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/f12versiontable_hu9cda19cfd06773916047adad8dba8b92_31345_555x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;p&gt;As you can see from the snippet below we have to use a &lt;code&gt;HTMLContent&lt;/code&gt; &lt;strong&gt;COM&lt;/strong&gt; object to parse the HTML data so we can interact with the tables.&lt;/p&gt;
 &lt;p&gt;In it&amp;rsquo;s simplest form we get the &lt;strong&gt;RawContent&lt;/strong&gt; and then write it to the &lt;strong&gt;IHTMLDocument2&lt;/strong&gt; object with the &lt;strong&gt;COM&lt;/strong&gt; object, giving us the functionality  work with the tables.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; Get-LatestVersion {
@@ -81,7 +81,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s take a closer look at the interaction with the tables, as you can see the variable &lt;code&gt;$Tables&lt;/code&gt; uses the the &lt;code&gt;$HTML&lt;/code&gt; variable which contains the &lt;strong&gt;COM&lt;/strong&gt; object data to select everything with the tag of &lt;strong&gt;table&lt;/strong&gt; (&lt;code&gt;$Tables = @($html.all.tags(&#39;table&#39;))&lt;/code&gt;). From this point it uses a &lt;strong&gt;for&lt;/strong&gt; loop to gather the table data, until finally we decide which part of the table we want to use.&lt;/p&gt;
 &lt;p&gt;For example, We are focusing on the latest version, so if you run the &lt;strong&gt;for loop&lt;/strong&gt; manually and look at &lt;code&gt;$resultObject&lt;/code&gt; in PowerShell it will return something like this;&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/pswindow_resultobject_hu37262acdfae5055cb19d159b9e5bd811_8970_420x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/pswindow_resultobject_hu37262acdfae5055cb19d159b9e5bd811_8970_420x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;p&gt;From this point you can create a PSCustomObject with the table header you want. Now this is kind of over complicating it for this example as you could just return &lt;code&gt;$resultObject.&#39;Latest version&#39;&lt;/code&gt; however, I use this loop for other methods and keeping it in this format helps me standardise the way I work, but it also gives you the ability to use if for other things too.&lt;/p&gt;
 &lt;p&gt;All of this is wrapped inside a function (&lt;code&gt;Get-LatestVersion&lt;/code&gt;) as I plan on using the same script for the detection method as for the install, but I also like to re-check in my install script that the application definitely is not installed before the install action executes. If you look at the &lt;code&gt;Detect-Application&lt;/code&gt; function you can see that I check both the 64-bit and 32-bit registry locations with an &lt;strong&gt;IF&lt;/strong&gt; statement based on the variables below;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$UninstallKey = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\&amp;#34;&lt;/span&gt;
@@ -128,9 +128,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ($HTML.links | Where-Object {$_.InnerHTMl &lt;span style=&#34;color:#f92672&#34;&gt;-Like&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;*&lt;/span&gt;$Arch&lt;span style=&#34;color:#e6db74&#34;&gt;*&amp;#34;&lt;/span&gt;}).href        
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you look at the &lt;a href=&#34;https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop&#34;&gt;web page&lt;/a&gt; for the downloads you will see that the links are in an unordered list;&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/install_links_hu175eaed89cb75656c50c7774eeb1eccf_51511_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;250px&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/install_links_hu175eaed89cb75656c50c7774eeb1eccf_51511_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;250px&#34; width=&#34;&#34;&gt;
 &lt;p&gt;Again if you hit &lt;strong&gt;F12&lt;/strong&gt; and look at the html content behind the table, you will see the data we are looking for.&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/f12install_links_huae335265959d969c587091404647096f_106242_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;250px&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/f12install_links_huae335265959d969c587091404647096f_106242_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;250px&#34; width=&#34;&#34;&gt;
 &lt;p&gt;To get this using the script we simply run &lt;code&gt;($HTML.links | Where-Object {$_.InnerHTMl -Like &amp;quot;*$Arch*&amp;quot;}).href&lt;/code&gt; simple right?&lt;/p&gt;
 &lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -473,7 +473,7 @@ You will need to take this into account if you plan to package multiple applicat
   &lt;/a&gt;
   &lt;div class=&#34;collapse&#34; id=&#34;git-detection&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;p&gt;Lets start by looking at the &lt;a href=&#34;https://github.com/git-for-windows/git/releases/latest&#34;&gt;latest releases page&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The first thing you may notice that it automatically redirects the URL, but we just want to check the version.&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/gitreleasepage_hu909719682eb7fd19dcc6a36a2d87bb00_128796_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/gitreleasepage_hu909719682eb7fd19dcc6a36a2d87bb00_128796_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
 &lt;p&gt;Now that we know what the latest version is on the GitHub page, lets take a look at the API. If you change the URL in your browser to &lt;a href=&#34;https://api.github.com/repos/git-for-windows/git/releases/latest&#34;&gt;https://api.github.com/repos/git-for-windows/git/releases/latest&lt;/a&gt;, you will see a JSON response like the below.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;url&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://api.github.com/repos/git-for-windows/git/releases/37800609&amp;#34;&lt;/span&gt;,
@@ -568,7 +568,7 @@ You will need to take this into account if you plan to package multiple applicat
     GIT Download Link &lt;i class=&#34;fas fa-plus ml-auto&#34;&gt;&lt;/i&gt;
   &lt;/a&gt;
   &lt;div class=&#34;collapse&#34; id=&#34;git-download-link&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;p&gt;If you take a look back at the &lt;a href=&#34;https://github.com/git-for-windows/git/releases/latest&#34;&gt;latest releases page&lt;/a&gt;, and scroll down to &lt;strong&gt;Assets&lt;/strong&gt;, if you hover over one of them you will see the URL it links to in the bottom left-hand corner of your browser.&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/gitdownloadlink_hu7d4e75b3389a9760d62de70d46e7f76c_10729_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/gitdownloadlink_hu7d4e75b3389a9760d62de70d46e7f76c_10729_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
 &lt;p&gt;Now we know that we can &lt;strong&gt;Detect&lt;/strong&gt; the application, lets look at obtaining the download link.&lt;/p&gt;
 &lt;p&gt;If you look at the script snippet below, you can see that we are still using the &lt;code&gt;$RestResult&lt;/code&gt; to obtain the download link. To get the download link for the architecture you specify we first have to build up the &lt;code&gt;$EXEName&lt;/code&gt; Variable, this uses the &lt;code&gt;$LatestVersion&lt;/code&gt; and &lt;code&gt;$Arch&lt;/code&gt; variables to bring the name together.&lt;/p&gt;
 &lt;p&gt;Once the name EXE Name is sorted, we then use this to get the link, by using the &lt;code&gt;Where-Object&lt;/code&gt; function to select the download URL from the asset where the &lt;code&gt;$_.name&lt;/code&gt; matches &lt;code&gt;$EXEName&lt;/code&gt;.&lt;/p&gt;
@@ -929,7 +929,7 @@ You will need to take this into account if you plan to package multiple applicat
 &lt;br&gt;
 &lt;h2 id=&#34;application-deployment&#34;&gt;Application Deployment&lt;/h2&gt;
 
-&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Please see &lt;a href=&#34;https://euc365.com/creating-intune-win32-apps&#34;&gt;Creating Intune Win32 Apps&lt;/a&gt; for creating an Intune Win32 App Package.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Please see &lt;a href=&#34;https://hugo.euc365.com/creating-intune-win32-apps&#34;&gt;Creating Intune Win32 Apps&lt;/a&gt; for creating an Intune Win32 App Package.&lt;/p&gt;&lt;/div&gt;
 
 &lt;p&gt;Lets look at how we deploy these applications from ConfigMG (MEMCM) and Intune.&lt;/p&gt;
 

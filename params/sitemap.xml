@@ -2,40 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://euc365.com/params/categories/</loc>
+    <loc>https://hugo.euc365.com/params/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://euc365.com/categories/"
+                href="https://hugo.euc365.com/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="https://euc365.com/params/categories/"
+                href="https://hugo.euc365.com/params/categories/"
                 />
   </url><url>
-    <loc>https://euc365.com/params/</loc>
+    <loc>https://hugo.euc365.com/params/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://euc365.com/"
+                href="https://hugo.euc365.com/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="https://euc365.com/params/"
+                href="https://hugo.euc365.com/params/"
                 />
   </url><url>
-    <loc>https://euc365.com/params/tags/</loc>
+    <loc>https://hugo.euc365.com/params/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://euc365.com/tags/"
+                href="https://hugo.euc365.com/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="https://euc365.com/params/tags/"
+                href="https://hugo.euc365.com/params/tags/"
                 />
   </url>
 </urlset>

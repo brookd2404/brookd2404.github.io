@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PowerShell on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/powershell/</link>
+    <link>https://hugo.euc365.com/tags/powershell/</link>
     <description>Recent content in PowerShell on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 31 May 2023 08:37:18 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 May 2023 08:37:18 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows 365 Custom Images - Part 1 - The Foundations</title>
-      <link>https://euc365.com/post/windows-365-custom-images-part-1-foundations/</link>
+      <link>https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/</link>
       <pubDate>Wed, 31 May 2023 08:37:18 +0000</pubDate>
       
-      <guid>https://euc365.com/post/windows-365-custom-images-part-1-foundations/</guid>
+      <guid>https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/</guid>
       <description>&lt;p&gt;Welcome along for the ride as we talk about Windows 365 Custom Images, and how we can use Azure Image Builder to create these images. In the upcoming series of posts, we will cover the following topics;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Part 1 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
-&lt;li&gt;Part 2 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 3 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 4 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 1 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
+&lt;li&gt;Part 2 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 3 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 4 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;In this post we are going to discuss the foundations &amp;amp; requirements for creating a custom images, it is intended that this post is read first before moving onto the other parts of the series to ensure you fully understand the required components and how they work together. So without any further ado, let&amp;rsquo;s get started.&lt;/p&gt;
 &lt;hr&gt;
@@ -96,7 +96,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/foundationExecute_hued813d45066a380b444f1d6f23611c53_97552_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Foundation Script Execution Output&#34; height=&#34;&#34; width=&#34;100%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/foundationExecute_hued813d45066a380b444f1d6f23611c53_97552_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Foundation Script Execution Output&#34; height=&#34;&#34; width=&#34;100%&#34;&gt;
 
 
 
@@ -119,7 +119,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/foundationRG_hu64e7c07917baf29ec5f79875b729408e_52537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Resource Group&#34; height=&#34;&#34; width=&#34;85%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/foundationRG_hu64e7c07917baf29ec5f79875b729408e_52537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Resource Group&#34; height=&#34;&#34; width=&#34;85%&#34;&gt;
 
 
 
@@ -131,16 +131,16 @@
     
     <item>
       <title>Windows 365 Custom Images - Part 2 - PowerShell Deployment</title>
-      <link>https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/</link>
+      <link>https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/</link>
       <pubDate>Wed, 31 May 2023 08:37:10 +0000</pubDate>
       
-      <guid>https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/</guid>
+      <guid>https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/</guid>
       <description>&lt;p&gt;Welcome to the second post in the series talking about Windows 365 Custom Images, and how we can use Azure Image Builder to create these images. In this series of posts, we will cover the following topics;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Part 1 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 2 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
-&lt;li&gt;Part 3 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 4 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 1 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 2 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
+&lt;li&gt;Part 3 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 4 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The first post in the series covered the foundations for all of the deployment methods, and as such, this post will cover the PowerShell deployment method. We will cover additional requirements and what to expect as an output from the script.&lt;/p&gt;
 &lt;p&gt;The PowerShell deployment method will not only create the Image, but it will also upload the image to the Windows 365 Service, and then create a new Windows 365 Cloud PC Provisioning Policy, or update and existing policy if one already exists.&lt;/p&gt;
@@ -206,16 +206,16 @@
     
     <item>
       <title>Windows 365 Custom Images - Part 4 - Azure AVD UI</title>
-      <link>https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/</link>
+      <link>https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/</link>
       <pubDate>Wed, 31 May 2023 08:36:57 +0000</pubDate>
       
-      <guid>https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/</guid>
+      <guid>https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/</guid>
       <description>&lt;p&gt;Welcome to the fourth (&amp;amp; final&amp;hellip; for now) post in the series talking about Windows 365 Custom Images, and how we can use Azure Image Builder to create these images. In this series of posts, we will cover the following topics;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Part 1 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 2 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 3 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 4 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
+&lt;li&gt;Part 1 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 2 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 3 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 4 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This has been a long time coming for people not so involved with ARM, BICEP, DevOps or PowerShell as there is now UI Capabilities for you to create your own custom images. You can even use some &amp;lsquo;in-built&amp;rsquo; customisation options to give you that extra hand along the way.&lt;/p&gt;
 &lt;p&gt;This is by far the most manually involved piece, but it is a great way to get started with Azure Image Builder, and then you can start to explore the other options available to you.&lt;/p&gt;
@@ -251,7 +251,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/avdblade_hu778898063c6d8de5e701e77fbfb39d16_26113_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop blade&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/avdblade_hu778898063c6d8de5e701e77fbfb39d16_26113_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop blade&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -275,7 +275,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/avdcioptions_hu2801852e31a0583f0516b511f91b5fad_11105_272x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Option&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/avdcioptions_hu2801852e31a0583f0516b511f91b5fad_11105_272x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Option&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -313,7 +313,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/avdcibasic_hu9012fe3d09e45c478a3ea5eedea1725f_22846_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Basic Blade&#34; height=&#34;80%&#34; width=&#34;80%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/avdcibasic_hu9012fe3d09e45c478a3ea5eedea1725f_22846_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Basic Blade&#34; height=&#34;80%&#34; width=&#34;80%&#34;&gt;
 
 
 
@@ -342,7 +342,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/selectsource_huf3006c8c85dd3f8fcf4cacd5f7c8f095_38458_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Source Blade&#34; height=&#34;80%&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/selectsource_huf3006c8c85dd3f8fcf4cacd5f7c8f095_38458_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Source Blade&#34; height=&#34;80%&#34; width=&#34;&#34;&gt;
 
 
 
@@ -374,7 +374,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/disttarget_hua0fd067a64de8c83b0ad172a60722fbd_37601_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Distribution Blade&#34; height=&#34;80%&#34; width=&#34;80%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/disttarget_hua0fd067a64de8c83b0ad172a60722fbd_37601_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Distribution Blade&#34; height=&#34;80%&#34; width=&#34;80%&#34;&gt;
 
 
 
@@ -404,7 +404,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/portalcustomisations_hu79d20c7044884d8d8ae77709ee2d5ef5_41833_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Customizations Blade&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/portalcustomisations_hu79d20c7044884d8d8ae77709ee2d5ef5_41833_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Customizations Blade&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -435,7 +435,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/creatingtemplate_hua61144197f9d8016b8906ee91fa352ae_68081_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Template&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/creatingtemplate_hua61144197f9d8016b8906ee91fa352ae_68081_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Template&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -459,7 +459,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/startbuild_hu33487020f63f5569ef2d7a7314802443_52830_727x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Template - start build&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/startbuild_hu33487020f63f5569ef2d7a7314802443_52830_727x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Template - start build&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -494,7 +494,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/w365ImageConfig_hub6630b53745c50f9e1843fbcde86210d_21626_325x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Windows 365 Custom Image Configuration&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/w365ImageConfig_hub6630b53745c50f9e1843fbcde86210d_21626_325x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Windows 365 Custom Image Configuration&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -517,7 +517,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/w365ImageList_huff17fe2c60f360e05021906c2344c47b_36591_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Windows 365 Custom Image List&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/w365ImageList_huff17fe2c60f360e05021906c2344c47b_36591_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Windows 365 Custom Image List&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -531,10 +531,10 @@
     
     <item>
       <title>Driver and Firmware Servicing PowerShell Module</title>
-      <link>https://euc365.com/post/driver-firmware-servicing-powershell-module/</link>
+      <link>https://hugo.euc365.com/post/driver-firmware-servicing-powershell-module/</link>
       <pubDate>Mon, 20 Mar 2023 13:43:22 +0000</pubDate>
       
-      <guid>https://euc365.com/post/driver-firmware-servicing-powershell-module/</guid>
+      <guid>https://hugo.euc365.com/post/driver-firmware-servicing-powershell-module/</guid>
       <description>&lt;p&gt;Its been just over a month since the announcement of Commercial Driver and Firmware Servicing by Microsoft. Since then I have been working on delivering this to businesses, and sometimes it can be a challenge to keep on top of all of the different graph endpoints that are required to keep the cogs turning. So, out of my own sanity saving idea, I pulled together a PowerShell Module (&lt;a href=&#34;https://www.powershellgallery.com/packages/Driver.Firmware.Servicing/&#34;&gt;&lt;strong&gt;Driver.Firmware.Servicing&lt;/strong&gt;&lt;/a&gt;) to help make the service a lot more consumable for admins.&lt;/p&gt;
 &lt;p&gt;Microsoft provided some great conceptual documentation on the service, but I wanted to make it a lot easier to consume. So, I have created a PowerShell Module that abstracts away the complexity of the Graph API, and provides a simple interface to manage the service. See the &lt;a href=&#34;https://learn.microsoft.com/en-us/graph/windowsupdates-manage-driver-update&#34;&gt;&lt;strong&gt;Microsoft documentation&lt;/strong&gt;&lt;/a&gt; for more information on the service.&lt;/p&gt;
 &lt;h2 id=&#34;what-is-driver-and-firmware-servicing&#34;&gt;What is Driver and Firmware Servicing?&lt;/h2&gt;
@@ -593,10 +593,10 @@
     
     <item>
       <title>Create Windows 365 Azure Network Connections with PowerShell</title>
-      <link>https://euc365.com/post/create-windows-365-azure-network-connections-powershell/</link>
+      <link>https://hugo.euc365.com/post/create-windows-365-azure-network-connections-powershell/</link>
       <pubDate>Mon, 23 Jan 2023 09:16:47 +0000</pubDate>
       
-      <guid>https://euc365.com/post/create-windows-365-azure-network-connections-powershell/</guid>
+      <guid>https://hugo.euc365.com/post/create-windows-365-azure-network-connections-powershell/</guid>
       <description>&lt;p&gt;Windows 365 and Azure Network connections offers additional control over routing, IP Addresses, Subnets, Peerings and so on. It can also be incredibly useful to help with testing moving to Azure AD Only (Can you tell, I&amp;rsquo;m already not a fan of HAADJ), as with the right configuration on your Azure vNet you can connect back to your internal network and get straight to testing.&lt;/p&gt;
 &lt;p&gt;Using an ANC with Windows 365 and Cloud PCs does bring an additional cost, not to the license or compute though, just the network usage cost. Microsoft do recommend using their Hosted Network, but they are not fools, they have built a system for enterprise and allowing the capability of Bring-Your-Own-Network (BYON) is a clear no brainer for organisations with existing on-premise infrastructure.&lt;/p&gt;
 &lt;p&gt;BYON doesn&amp;rsquo;t just have to be used for a gateway connection back to on-premise though, it can be used to just add more control over the network traffic on these endpoint with firewalls etc. There is some further documentation on Azure Network Connections over on the &lt;a href=&#34;https://learn.microsoft.com/en-us/windows-365/enterprise/azure-network-connections&#34;&gt;&lt;strong&gt;Microsoft Learn Page&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
@@ -659,7 +659,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/ancCreatinonPSaad_hufbb491b713e446a3d71236753c81606d_24617_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;AAD Creation&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/ancCreatinonPSaad_hufbb491b713e446a3d71236753c81606d_24617_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;AAD Creation&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -683,7 +683,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/ancFeature_hu9332d07731226b04fa6e5eb784787c2b_18764_509x0_resize_q100_h2_box_3.webp&#34; alt=&#34;ANC Created&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/ancFeature_hu9332d07731226b04fa6e5eb784787c2b_18764_509x0_resize_q100_h2_box_3.webp&#34; alt=&#34;ANC Created&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -703,10 +703,10 @@
     
     <item>
       <title>Windows 365 - Graph API and PowerShell Basics</title>
-      <link>https://euc365.com/post/windows-365-graph-api-powershell-basics/</link>
+      <link>https://hugo.euc365.com/post/windows-365-graph-api-powershell-basics/</link>
       <pubDate>Mon, 05 Dec 2022 20:00:30 +0000</pubDate>
       
-      <guid>https://euc365.com/post/windows-365-graph-api-powershell-basics/</guid>
+      <guid>https://hugo.euc365.com/post/windows-365-graph-api-powershell-basics/</guid>
       <description>
 &lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;This article was composed using Windows 365 Enterprise licences, the experience may differ if using Windows 365 Business.&lt;/p&gt;&lt;/div&gt;
 
@@ -756,7 +756,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/msalAuthPrompt_hu35aaa84b100d30774695ebd34191cdad_36238_568x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MSAL Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/msalAuthPrompt_hu35aaa84b100d30774695ebd34191cdad_36238_568x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MSAL Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -792,7 +792,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -847,7 +847,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/basicGraphMSAL.gif&#34; alt=&#34;MSAL Basic Call Demo&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/basicGraphMSAL.gif&#34; alt=&#34;MSAL Basic Call Demo&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -909,7 +909,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/basicGraphMGPS.gif&#34; alt=&#34;MGPS Basic Call Demo&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/basicGraphMGPS.gif&#34; alt=&#34;MGPS Basic Call Demo&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -939,7 +939,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/mgpsGalImage.gif&#34; alt=&#34;MGPS Gallery Image&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/mgpsGalImage.gif&#34; alt=&#34;MGPS Gallery Image&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -1107,10 +1107,10 @@
     
     <item>
       <title>Import GPOs to Group Policy Analytics using Graph API</title>
-      <link>https://euc365.com/post/import-gpos-group-policy-analytics-graph-api/</link>
+      <link>https://hugo.euc365.com/post/import-gpos-group-policy-analytics-graph-api/</link>
       <pubDate>Fri, 18 Nov 2022 22:00:01 +0000</pubDate>
       
-      <guid>https://euc365.com/post/import-gpos-group-policy-analytics-graph-api/</guid>
+      <guid>https://hugo.euc365.com/post/import-gpos-group-policy-analytics-graph-api/</guid>
       <description>&lt;p&gt;Many organisations are starting to adopt cloud technologies, some of which decide to start again with a clean slate and add in policies where necessary. However, some organisations still look to take migrate their complex Group Policies.&lt;/p&gt;
 
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;I would recommend taking the approach of clean slate, aligned to relevant framework(s) such as NCSC, NIST or CIS and applying only relevant policies there after. &lt;/br&gt;&lt;/br&gt;
@@ -1159,7 +1159,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/grouppolicy/exportGPOs.gif&#34; alt=&#34;Export GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/grouppolicy/exportGPOs.gif&#34; alt=&#34;Export GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -1194,7 +1194,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/grouppolicy/importGPOs.gif&#34; alt=&#34;Import GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/grouppolicy/importGPOs.gif&#34; alt=&#34;Import GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -1216,7 +1216,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/grouppolicy/importResult.gif&#34; alt=&#34;Import GPOs Result&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/grouppolicy/importResult.gif&#34; alt=&#34;Import GPOs Result&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -1231,10 +1231,10 @@
     
     <item>
       <title>Bulk Remove Autopilot DisplayName Property</title>
-      <link>https://euc365.com/post/remove-autopilot-displayname/</link>
+      <link>https://hugo.euc365.com/post/remove-autopilot-displayname/</link>
       <pubDate>Thu, 10 Nov 2022 12:39:33 +0000</pubDate>
       
-      <guid>https://euc365.com/post/remove-autopilot-displayname/</guid>
+      <guid>https://hugo.euc365.com/post/remove-autopilot-displayname/</guid>
       <description>&lt;p&gt;Often, during the initial adoption of Microsoft Intune you will see organisations and admins try and maintain some of their technical debt of old. One of those areas is often the device naming conventions. In the modern management world, tracking assets via this method is long out dated, and if you are using Hybrid Azure AD Joined Devices you end up with an entirely new challenge on your hands anyway.&lt;/p&gt;
 &lt;p&gt;This post is aimed at organisations and admins who have decided to remove some of this technical debt and move towards using the options available within the &lt;a href=&#34;https://learn.microsoft.com/en-us/mem/autopilot/profiles&#34;&gt;&lt;strong&gt;Deployment Profiles&lt;/strong&gt;&lt;/a&gt; for Autopilot.&lt;/p&gt;
 &lt;p&gt;In this post we will be using a PowerShell Script with the &lt;a href=&#34;https://www.powershellgallery.com/packages/Microsoft.Graph&#34;&gt;&lt;strong&gt;Microsoft.Graph&lt;/strong&gt;&lt;/a&gt; module to achieve our goal and also take a backup of the devices previously specified DisplayNames.&lt;/p&gt;
@@ -1262,7 +1262,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/assumption_gs_hu5df4ecf98f56a3c1772c2b2ea9131e86_26473_484x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Display Name Value Magnified&#34; height=&#34;50%&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/autopilot/assumption_gs_hu5df4ecf98f56a3c1772c2b2ea9131e86_26473_484x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Display Name Value Magnified&#34; height=&#34;50%&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -1286,7 +1286,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/removeidentities.gif&#34; alt=&#34;Remove Identities Overview&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/autopilot/removeidentities.gif&#34; alt=&#34;Remove Identities Overview&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -1309,7 +1309,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/rmidenlogoutput_hueeca295891e6afe644887b6489d5762b_16366_643x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Remove Identities Log&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/autopilot/rmidenlogoutput_hueeca295891e6afe644887b6489d5762b_16366_643x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Remove Identities Log&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -1321,10 +1321,10 @@
     
     <item>
       <title>Create a Microsoft Team with Graph API and PowerShell</title>
-      <link>https://euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</link>
+      <link>https://hugo.euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</link>
       <pubDate>Wed, 03 Aug 2022 19:31:42 +0000</pubDate>
       
-      <guid>https://euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</guid>
+      <guid>https://hugo.euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</guid>
       <description>&lt;h2 id=&#34;why-use-an-api-to-create-a-teams-channel&#34;&gt;Why use an API to create a Teams Channel?&lt;/h2&gt;
 &lt;p&gt;Using API&amp;rsquo;s and Automation accounts help create a continuously repeatable process whilst minimising human error and providing a consistent experience. It has many purposes, should that be to provide a script to a managed client, create a team from a form submission, the list could go on, and If you&amp;rsquo;ve found this post by organic search, then it must be at least in some way what your are looking for.&lt;/p&gt;
 &lt;hr&gt;
@@ -1597,10 +1597,10 @@
     
     <item>
       <title>Microsoft Graph API and PowerBI</title>
-      <link>https://euc365.com/microsoft-graph-and-powerbi/</link>
+      <link>https://hugo.euc365.com/microsoft-graph-and-powerbi/</link>
       <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
       
-      <guid>https://euc365.com/microsoft-graph-and-powerbi/</guid>
+      <guid>https://hugo.euc365.com/microsoft-graph-and-powerbi/</guid>
       <description>&lt;h2 id=&#34;a-little-bit-about-this-post&#34;&gt;A little bit about this post&lt;/h2&gt;
 &lt;p&gt;At &lt;a href=&#34;http://mmsmoa.com&#34;&gt;MMS 2022&lt;/a&gt; I took a huge leap and briefly presented this in the &lt;strong&gt;Tips &amp;amp; Tricks&lt;/strong&gt; Session. This was the first time I had ever presented in front of an audience.&lt;/p&gt;
 &lt;p&gt;I thought it would be good to give a bit of context on how this was conceptualised and why certain aspects are the way they are (some of them still make me shudder).&lt;/p&gt;
@@ -1625,7 +1625,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;DeviceManagementManagedDevices.Read.All&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If you are not familiar with creating App Registrations, take a look at my &lt;a href=&#34;https://euc365.com/create-an-azure-app-registration&#34;&gt;Create an Azure App Registration&lt;/a&gt; post.&lt;/p&gt;
+&lt;p&gt;If you are not familiar with creating App Registrations, take a look at my &lt;a href=&#34;https://hugo.euc365.com/create-an-azure-app-registration&#34;&gt;Create an Azure App Registration&lt;/a&gt; post.&lt;/p&gt;
 &lt;p&gt;Once you have added permissions and granted consent, you need to obtain a secret, this can be done from the App Registration by;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Clicking &lt;strong&gt;Certificates &amp;amp; Secrets&lt;/strong&gt;&lt;/li&gt;
@@ -1988,7 +1988,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/logicapphttptrigger_hu338a9792ae73f90bd9539efe780b309c_19341_603x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;375px&#34; width=&#34;600px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/logicapphttptrigger_hu338a9792ae73f90bd9539efe780b309c_19341_603x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;375px&#34; width=&#34;600px&#34;&gt;
 
 
 
@@ -2098,7 +2098,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/biignoreprivacy_hue5264bb602aa113c8ac9babd235921e4_24178_639x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Ignore Privacy PowerBIx&#34; height=&#34;250px&#34; width=&#34;500px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/biignoreprivacy_hue5264bb602aa113c8ac9babd235921e4_24178_639x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Ignore Privacy PowerBIx&#34; height=&#34;250px&#34; width=&#34;500px&#34;&gt;
 
 
 
@@ -2306,7 +2306,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/expandgraphcall_hu3f6d3ee85f51aa6b27eccc41a3056c8b_5617_167x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand Graph Call Table&#34; height=&#34;200px&#34; width=&#34;167px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/expandgraphcall_hu3f6d3ee85f51aa6b27eccc41a3056c8b_5617_167x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand Graph Call Table&#34; height=&#34;200px&#34; width=&#34;167px&#34;&gt;
 
 
 
@@ -2333,7 +2333,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/expandhwinfo_hua40fe5206a377732053e5581dcd2fd48_29194_349x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand hardwareInformation&#34; height=&#34;450px&#34; width=&#34;300px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/expandhwinfo_hua40fe5206a377732053e5581dcd2fd48_29194_349x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand hardwareInformation&#34; height=&#34;450px&#34; width=&#34;300px&#34;&gt;
 
 
 
@@ -2364,7 +2364,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/modelbutton_huad4a1917d5b6128e85ae823a2a11966c_10638_216x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Model button&#34; height=&#34;252px&#34; width=&#34;216px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/modelbutton_huad4a1917d5b6128e85ae823a2a11966c_10638_216x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Model button&#34; height=&#34;252px&#34; width=&#34;216px&#34;&gt;
 
 
 
@@ -2386,7 +2386,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/linktables.gif&#34; alt=&#34;Model button&#34; height=&#34;500px&#34; width=&#34;800px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/linktables.gif&#34; alt=&#34;Model button&#34; height=&#34;500px&#34; width=&#34;800px&#34;&gt;
 
 
 
@@ -2401,10 +2401,10 @@ Voilà!, you now have the hardware information for each device. There are still 
     
     <item>
       <title>Create Dynamic Application Packages with PowerShell</title>
-      <link>https://euc365.com/create-dynamic-application-packages-with-powershell/</link>
+      <link>https://hugo.euc365.com/create-dynamic-application-packages-with-powershell/</link>
       <pubDate>Wed, 31 Mar 2021 03:08:00 +0000</pubDate>
       
-      <guid>https://euc365.com/create-dynamic-application-packages-with-powershell/</guid>
+      <guid>https://hugo.euc365.com/create-dynamic-application-packages-with-powershell/</guid>
       <description>&lt;h2 id=&#34;dynamic-in-what-way&#34;&gt;Dynamic? In what way?&lt;/h2&gt;
 &lt;p&gt;When I say the packages are dynamic, I mean that you don&amp;rsquo;t have to update the application package when a new version is released by the vendor.&lt;/p&gt;
 &lt;p&gt;There are caveats to both methods that we walk through below, there are also other community and paid for tools to do similar things.&lt;/p&gt;
@@ -2423,9 +2423,9 @@ Voilà!, you now have the hardware information for each device. There are still 
   &lt;/a&gt;
   &lt;div class=&#34;collapse&#34; id=&#34;detection&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;p&gt;Lets start by looking at the way we obtain the latest version and check it again the version in the registry.&lt;/p&gt;
 &lt;p&gt;As you can see from the image below, there is a version table right at the top of the web page.&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/versiontable_hu1c23da9cfc0bedc4c104346e90921a98_11876_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/versiontable_hu1c23da9cfc0bedc4c104346e90921a98_11876_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;p&gt;If you press &lt;strong&gt;F12&lt;/strong&gt; and open the developer options, you can click through the HTML sections in the &lt;strong&gt;Elements&lt;/strong&gt; tab and find the table like below;&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/f12versiontable_hu9cda19cfd06773916047adad8dba8b92_31345_555x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/f12versiontable_hu9cda19cfd06773916047adad8dba8b92_31345_555x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;p&gt;As you can see from the snippet below we have to use a &lt;code&gt;HTMLContent&lt;/code&gt; &lt;strong&gt;COM&lt;/strong&gt; object to parse the HTML data so we can interact with the tables.&lt;/p&gt;
 &lt;p&gt;In it&amp;rsquo;s simplest form we get the &lt;strong&gt;RawContent&lt;/strong&gt; and then write it to the &lt;strong&gt;IHTMLDocument2&lt;/strong&gt; object with the &lt;strong&gt;COM&lt;/strong&gt; object, giving us the functionality  work with the tables.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; Get-LatestVersion {
@@ -2473,7 +2473,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s take a closer look at the interaction with the tables, as you can see the variable &lt;code&gt;$Tables&lt;/code&gt; uses the the &lt;code&gt;$HTML&lt;/code&gt; variable which contains the &lt;strong&gt;COM&lt;/strong&gt; object data to select everything with the tag of &lt;strong&gt;table&lt;/strong&gt; (&lt;code&gt;$Tables = @($html.all.tags(&#39;table&#39;))&lt;/code&gt;). From this point it uses a &lt;strong&gt;for&lt;/strong&gt; loop to gather the table data, until finally we decide which part of the table we want to use.&lt;/p&gt;
 &lt;p&gt;For example, We are focusing on the latest version, so if you run the &lt;strong&gt;for loop&lt;/strong&gt; manually and look at &lt;code&gt;$resultObject&lt;/code&gt; in PowerShell it will return something like this;&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/pswindow_resultobject_hu37262acdfae5055cb19d159b9e5bd811_8970_420x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/pswindow_resultobject_hu37262acdfae5055cb19d159b9e5bd811_8970_420x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;p&gt;From this point you can create a PSCustomObject with the table header you want. Now this is kind of over complicating it for this example as you could just return &lt;code&gt;$resultObject.&#39;Latest version&#39;&lt;/code&gt; however, I use this loop for other methods and keeping it in this format helps me standardise the way I work, but it also gives you the ability to use if for other things too.&lt;/p&gt;
 &lt;p&gt;All of this is wrapped inside a function (&lt;code&gt;Get-LatestVersion&lt;/code&gt;) as I plan on using the same script for the detection method as for the install, but I also like to re-check in my install script that the application definitely is not installed before the install action executes. If you look at the &lt;code&gt;Detect-Application&lt;/code&gt; function you can see that I check both the 64-bit and 32-bit registry locations with an &lt;strong&gt;IF&lt;/strong&gt; statement based on the variables below;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$UninstallKey = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\&amp;#34;&lt;/span&gt;
@@ -2520,9 +2520,9 @@ Voilà!, you now have the hardware information for each device. There are still 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ($HTML.links | Where-Object {$_.InnerHTMl &lt;span style=&#34;color:#f92672&#34;&gt;-Like&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;*&lt;/span&gt;$Arch&lt;span style=&#34;color:#e6db74&#34;&gt;*&amp;#34;&lt;/span&gt;}).href        
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you look at the &lt;a href=&#34;https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop&#34;&gt;web page&lt;/a&gt; for the downloads you will see that the links are in an unordered list;&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/install_links_hu175eaed89cb75656c50c7774eeb1eccf_51511_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;250px&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/install_links_hu175eaed89cb75656c50c7774eeb1eccf_51511_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;250px&#34; width=&#34;&#34;&gt;
 &lt;p&gt;Again if you hit &lt;strong&gt;F12&lt;/strong&gt; and look at the html content behind the table, you will see the data we are looking for.&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/f12install_links_huae335265959d969c587091404647096f_106242_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;250px&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/f12install_links_huae335265959d969c587091404647096f_106242_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;250px&#34; width=&#34;&#34;&gt;
 &lt;p&gt;To get this using the script we simply run &lt;code&gt;($HTML.links | Where-Object {$_.InnerHTMl -Like &amp;quot;*$Arch*&amp;quot;}).href&lt;/code&gt; simple right?&lt;/p&gt;
 &lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -2865,7 +2865,7 @@ You will need to take this into account if you plan to package multiple applicat
   &lt;/a&gt;
   &lt;div class=&#34;collapse&#34; id=&#34;git-detection&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;p&gt;Lets start by looking at the &lt;a href=&#34;https://github.com/git-for-windows/git/releases/latest&#34;&gt;latest releases page&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The first thing you may notice that it automatically redirects the URL, but we just want to check the version.&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/gitreleasepage_hu909719682eb7fd19dcc6a36a2d87bb00_128796_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/gitreleasepage_hu909719682eb7fd19dcc6a36a2d87bb00_128796_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
 &lt;p&gt;Now that we know what the latest version is on the GitHub page, lets take a look at the API. If you change the URL in your browser to &lt;a href=&#34;https://api.github.com/repos/git-for-windows/git/releases/latest&#34;&gt;https://api.github.com/repos/git-for-windows/git/releases/latest&lt;/a&gt;, you will see a JSON response like the below.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;url&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://api.github.com/repos/git-for-windows/git/releases/37800609&amp;#34;&lt;/span&gt;,
@@ -2960,7 +2960,7 @@ You will need to take this into account if you plan to package multiple applicat
     GIT Download Link &lt;i class=&#34;fas fa-plus ml-auto&#34;&gt;&lt;/i&gt;
   &lt;/a&gt;
   &lt;div class=&#34;collapse&#34; id=&#34;git-download-link&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;p&gt;If you take a look back at the &lt;a href=&#34;https://github.com/git-for-windows/git/releases/latest&#34;&gt;latest releases page&lt;/a&gt;, and scroll down to &lt;strong&gt;Assets&lt;/strong&gt;, if you hover over one of them you will see the URL it links to in the bottom left-hand corner of your browser.&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/gitdownloadlink_hu7d4e75b3389a9760d62de70d46e7f76c_10729_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/gitdownloadlink_hu7d4e75b3389a9760d62de70d46e7f76c_10729_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
 &lt;p&gt;Now we know that we can &lt;strong&gt;Detect&lt;/strong&gt; the application, lets look at obtaining the download link.&lt;/p&gt;
 &lt;p&gt;If you look at the script snippet below, you can see that we are still using the &lt;code&gt;$RestResult&lt;/code&gt; to obtain the download link. To get the download link for the architecture you specify we first have to build up the &lt;code&gt;$EXEName&lt;/code&gt; Variable, this uses the &lt;code&gt;$LatestVersion&lt;/code&gt; and &lt;code&gt;$Arch&lt;/code&gt; variables to bring the name together.&lt;/p&gt;
 &lt;p&gt;Once the name EXE Name is sorted, we then use this to get the link, by using the &lt;code&gt;Where-Object&lt;/code&gt; function to select the download URL from the asset where the &lt;code&gt;$_.name&lt;/code&gt; matches &lt;code&gt;$EXEName&lt;/code&gt;.&lt;/p&gt;
@@ -3321,7 +3321,7 @@ You will need to take this into account if you plan to package multiple applicat
 &lt;br&gt;
 &lt;h2 id=&#34;application-deployment&#34;&gt;Application Deployment&lt;/h2&gt;
 
-&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Please see &lt;a href=&#34;https://euc365.com/creating-intune-win32-apps&#34;&gt;Creating Intune Win32 Apps&lt;/a&gt; for creating an Intune Win32 App Package.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Please see &lt;a href=&#34;https://hugo.euc365.com/creating-intune-win32-apps&#34;&gt;Creating Intune Win32 Apps&lt;/a&gt; for creating an Intune Win32 App Package.&lt;/p&gt;&lt;/div&gt;
 
 &lt;p&gt;Lets look at how we deploy these applications from ConfigMG (MEMCM) and Intune.&lt;/p&gt;
 
@@ -3411,10 +3411,10 @@ You will need to take this into account if you plan to package multiple applicat
     
     <item>
       <title>Deploy Windows Subsystem for Linux</title>
-      <link>https://euc365.com/deploy-windows-subsystem-for-linux/</link>
+      <link>https://hugo.euc365.com/deploy-windows-subsystem-for-linux/</link>
       <pubDate>Mon, 15 Feb 2021 22:29:00 +0000</pubDate>
       
-      <guid>https://euc365.com/deploy-windows-subsystem-for-linux/</guid>
+      <guid>https://hugo.euc365.com/deploy-windows-subsystem-for-linux/</guid>
       <description>&lt;h2 id=&#34;what-is-the-windows-susbsystem-for-linux&#34;&gt;What is the Windows Susbsystem for Linux?&lt;/h2&gt;
 &lt;p&gt;As per the &lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/faq#:~:text=The%20Windows%20Subsystem%20for%20Linux,desktop%20and%20modern%20store%20apps.&#34;&gt;Microsoft Documentation&lt;/a&gt;, &lt;strong&gt;The Windows Subsystem for Linux (WSL)&lt;/strong&gt; is a new &lt;strong&gt;Windows 10 feature&lt;/strong&gt; that enables you to run &lt;strong&gt;native Linux command-line tools directly on Windows&lt;/strong&gt;, alongside your traditional Windows desktop and modern store apps.&lt;/p&gt;
 &lt;p&gt;Now what does that mean? Can you run a full Linux setup in this way? Well the answer to that is &lt;strong&gt;NO&lt;/strong&gt; unfortunately not. This tool is designed for developers and other users who use bash and other common Linux tools.&lt;/p&gt;
@@ -3491,7 +3491,7 @@ You will need to take this into account if you plan to package multiple applicat
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/deploywsl/FeaturedImage_hu88af6168fb2889d0285544f033f3f748_59352_432x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;512&#34; width=&#34;432&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/deploywsl/FeaturedImage_hu88af6168fb2889d0285544f033f3f748_59352_432x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;512&#34; width=&#34;432&#34;&gt;
 
 
 &lt;/h2&gt;&lt;/p&gt;
@@ -3526,7 +3526,7 @@ Finish both of the off the dialog windows through the summary panes and then dep
 &lt;p&gt;As mentioned above you will need to use a Linux distribution to use with the Windows Subsystem for Linux which are available in the Microsoft Store.&lt;/p&gt;
 &lt;h2 id=&#34;intune-application&#34;&gt;Intune Application&lt;/h2&gt;
 
-&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Please see &lt;a href=&#34;https://euc365.com/creating-intune-win32-apps&#34;&gt;Creating Intune Win32 Apps&lt;/a&gt; for creating an Intune Win32 App Package.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Please see &lt;a href=&#34;https://hugo.euc365.com/creating-intune-win32-apps&#34;&gt;Creating Intune Win32 Apps&lt;/a&gt; for creating an Intune Win32 App Package.&lt;/p&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Select &lt;strong&gt;Apps&lt;/strong&gt; from the navigation pane&lt;/li&gt;
@@ -3575,7 +3575,7 @@ Finish both of the off the dialog windows through the summary panes and then dep
 
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;You will receive the WSL Distros at the top if you use the &lt;strong&gt;Developer Tools&lt;/strong&gt; category filter&lt;/p&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://euc365.com/images/post/deploywsl/linuxdistros.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://hugo.euc365.com/images/post/deploywsl/linuxdistros.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Click on the Distro you would like to use/deploy&lt;/li&gt;
 &lt;li&gt;Select you Licence Type, See &lt;a href=&#34;https://docs.microsoft.com/en-us/microsoft-store/acquire-apps-microsoft-store-for-business#:~:text=The%20Microsoft%20Store%20supports%20two%20options%20to%20license,is%20a%20new%20licensing%20option%20for%20Windows%2010.&#34;&gt;Microsoft Documentation&lt;/a&gt;, Click &lt;strong&gt;Get App&lt;/strong&gt;.&lt;/li&gt;
@@ -3653,7 +3653,7 @@ Finish both of the off the dialog windows through the summary panes and then dep
 &lt;li&gt;Click &lt;strong&gt;Manage&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Select your &lt;strong&gt;Platform&lt;/strong&gt;, &lt;strong&gt;Minimum Version&lt;/strong&gt;, &lt;strong&gt;Architecture&lt;/strong&gt;, &lt;strong&gt;App Metadata&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;You will then see something like the image below, this contains the &lt;strong&gt;Package Identity Name&lt;/strong&gt;, &lt;strong&gt;Package family name&lt;/strong&gt;, &lt;strong&gt;Package full name&lt;/strong&gt;, &lt;strong&gt;Package format&lt;/strong&gt; and the &lt;strong&gt;Supported architectures&lt;/strong&gt;.
-&lt;img src=&#34;https://euc365.com/images/post/deploywsl/offlineoptions.png&#34; alt=&#34;Image&#34;&gt;&lt;/li&gt;
+&lt;img src=&#34;https://hugo.euc365.com/images/post/deploywsl/offlineoptions.png&#34; alt=&#34;Image&#34;&gt;&lt;/li&gt;
 &lt;li&gt;Click &lt;strong&gt;Download&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;I will demonstrate how to install this using PowerShell, however, please see the &lt;a href=&#34;https://docs.microsoft.com/en-us/microsoft-store/distribute-offline-apps&#34;&gt;Distribute Offline Apps&lt;/a&gt; Microsoft Documentation for alternative methods.&lt;/p&gt;&lt;/div&gt;
@@ -3674,10 +3674,10 @@ Finish both of the off the dialog windows through the summary panes and then dep
 &lt;/ul&gt;
 
 &lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;To Enable WSL for use the device must be restarted, If you see the below message, WSL is either not installed or your device is pending a reboot.&lt;br&gt;
-&lt;img src=&#34;https://euc365.com/images/post/deploywsl/wslnotenabled.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;&lt;/div&gt;
+&lt;img src=&#34;https://hugo.euc365.com/images/post/deploywsl/wslnotenabled.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;&lt;/div&gt;
 
 &lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
-&lt;p&gt;I hope that you find this useful if you ever need to deploy WSL. If you have any questions please do not hesitate to reach out using the &lt;a href=&#34;https://euc365.com/contact&#34;&gt;Contact&lt;/a&gt; page or in the comment section below.&lt;/p&gt;
+&lt;p&gt;I hope that you find this useful if you ever need to deploy WSL. If you have any questions please do not hesitate to reach out using the &lt;a href=&#34;https://hugo.euc365.com/contact&#34;&gt;Contact&lt;/a&gt; page or in the comment section below.&lt;/p&gt;
 
 &lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;I had to use WSL the other day when deploying Docker Desktop as a dependency, the script came in handy for sure.&lt;/p&gt;&lt;/div&gt;
 
@@ -3686,10 +3686,10 @@ Finish both of the off the dialog windows through the summary panes and then dep
     
     <item>
       <title>Creating Intune Win32 Apps</title>
-      <link>https://euc365.com/creating-intune-win32-apps/</link>
+      <link>https://hugo.euc365.com/creating-intune-win32-apps/</link>
       <pubDate>Tue, 05 Jan 2021 20:17:00 +0000</pubDate>
       
-      <guid>https://euc365.com/creating-intune-win32-apps/</guid>
+      <guid>https://hugo.euc365.com/creating-intune-win32-apps/</guid>
       <description>&lt;h2 id=&#34;win32-apps-what-are-they&#34;&gt;Win32 Apps, What Are they?&lt;/h2&gt;
 &lt;p&gt;If you&amp;rsquo;re familiar with Configuration Manager/MEMCM then think of these files as your source directory, the difference being you are effectively zipping it up and then uploading to Intune.&lt;/p&gt;
 &lt;p&gt;According to Microsoft, if you decide to use Win32 Apps, it is &lt;strong&gt;advised&lt;/strong&gt; that you use these exclusively and NOT &lt;strong&gt;&amp;lsquo;Mix and Match&amp;rsquo;&lt;/strong&gt; these with Line of Business applications when using Autopilot (See Microsoft Doc link below).&lt;/p&gt;
@@ -3776,7 +3776,7 @@ That is your app finished and deploying, it is worth noting it may take &lt;str
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createwin32/FileDetection_huc0e49b822f03c69ba2bd53c4c8a32b09_10617_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;229&#34; width=&#34;402&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createwin32/FileDetection_huc0e49b822f03c69ba2bd53c4c8a32b09_10617_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;229&#34; width=&#34;402&#34;&gt;
 
 
 
@@ -3799,7 +3799,7 @@ That is your app finished and deploying, it is worth noting it may take &lt;str
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createwin32/Date_CreatedModified_hu93a36f35bddffda5f3d629ae6d3915c9_8390_577x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;126&#34; width=&#34;333&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createwin32/Date_CreatedModified_hu93a36f35bddffda5f3d629ae6d3915c9_8390_577x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;126&#34; width=&#34;333&#34;&gt;
 
 
 
@@ -3839,7 +3839,7 @@ Now that rule is very quick and simple, as mentioned you can use the date modifi
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createwin32/7z-Date-Mod-Endpoint_hu4194ba41d42d1ab3f3fc3c413cb3d5cd_14802_579x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;302&#34; width=&#34;409&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createwin32/7z-Date-Mod-Endpoint_hu4194ba41d42d1ab3f3fc3c413cb3d5cd_14802_579x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;302&#34; width=&#34;409&#34;&gt;
 
 
 
@@ -3892,10 +3892,10 @@ That covers the basics all of the detection methods, if you have any further que
     
     <item>
       <title>Backup and Import App Protection Policies</title>
-      <link>https://euc365.com/backup-and-import-app-protection-policies/</link>
+      <link>https://hugo.euc365.com/backup-and-import-app-protection-policies/</link>
       <pubDate>Fri, 18 Sep 2020 08:49:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backup-and-import-app-protection-policies/</guid>
+      <guid>https://hugo.euc365.com/backup-and-import-app-protection-policies/</guid>
       <description>&lt;h2 id=&#34;why-backup-app-protection-policies&#34;&gt;Why backup App Protection Policies?&lt;/h2&gt;
 &lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
 &lt;ul&gt;
@@ -4104,7 +4104,7 @@ You will finally end up with something like this;
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupappprotection/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupappprotection/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
 
 
 
@@ -4121,10 +4121,10 @@ You will finally end up with something like this;
     
     <item>
       <title>Backup and Import Conditional Access Policies</title>
-      <link>https://euc365.com/backup-and-import-conditional-access-policies/</link>
+      <link>https://hugo.euc365.com/backup-and-import-conditional-access-policies/</link>
       <pubDate>Mon, 14 Sep 2020 13:20:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backup-and-import-conditional-access-policies/</guid>
+      <guid>https://hugo.euc365.com/backup-and-import-conditional-access-policies/</guid>
       <description>&lt;h2 id=&#34;why-backup-conditional-access-policies&#34;&gt;Why backup Conditional Access Policies?&lt;/h2&gt;
 &lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
 &lt;ul&gt;
@@ -4332,7 +4332,7 @@ Using the ClientID, ClientSecret and TenantID (Unattended) you will need;
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupconditionalaccess/NoRedirectURI_hu6ae5db7a752f041bfb3ec13814289dc1_8084_399x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;192&#34; width=&#34;399&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupconditionalaccess/NoRedirectURI_hu6ae5db7a752f041bfb3ec13814289dc1_8084_399x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;192&#34; width=&#34;399&#34;&gt;
 
 
 
@@ -4394,7 +4394,7 @@ You will finally end up with something like this;
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupconditionalaccess/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupconditionalaccess/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
 
 
 
@@ -4410,10 +4410,10 @@ You will finally end up with something like this;
     
     <item>
       <title>Backup and Import Intune Compliance Policies</title>
-      <link>https://euc365.com/backup-and-import-intune-compliance-policies/</link>
+      <link>https://hugo.euc365.com/backup-and-import-intune-compliance-policies/</link>
       <pubDate>Wed, 09 Sep 2020 16:09:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backup-and-import-intune-compliance-policies/</guid>
+      <guid>https://hugo.euc365.com/backup-and-import-intune-compliance-policies/</guid>
       <description>&lt;h2 id=&#34;why-backup-compliance-policies&#34;&gt;Why backup Compliance Policies&lt;/h2&gt;
 &lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
 &lt;ul&gt;
@@ -4635,7 +4635,7 @@ If you launch the script without the Client ID, Secret and Tenant ID you will be
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupcompliencepolicy/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupcompliencepolicy/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -4653,10 +4653,10 @@ You will need an account with permissions to be able to read (for backups only) 
     
     <item>
       <title>Backup and Import Intune Device Configuration Profiles</title>
-      <link>https://euc365.com/backing-up-intune-device-configuration-profiles/</link>
+      <link>https://hugo.euc365.com/backing-up-intune-device-configuration-profiles/</link>
       <pubDate>Wed, 02 Sep 2020 11:02:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backing-up-intune-device-configuration-profiles/</guid>
+      <guid>https://hugo.euc365.com/backing-up-intune-device-configuration-profiles/</guid>
       <description>&lt;h2 id=&#34;why-backup-device-configuration-profiles&#34;&gt;Why backup Device Configuration Profiles?&lt;/h2&gt;
 &lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
 &lt;ul&gt;
@@ -4868,7 +4868,7 @@ If you launch the script without the Client ID, Secret and Tenant ID you will be
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupconfigprofile/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupconfigprofile/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
 
 
 

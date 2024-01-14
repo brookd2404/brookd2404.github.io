@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Teams on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/categories/teams/</link>
+    <link>https://hugo.euc365.com/categories/teams/</link>
     <description>Recent content in Teams on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 03 Aug 2022 19:31:42 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/teams/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Aug 2022 19:31:42 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/teams/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Create a Microsoft Team with Graph API and PowerShell</title>
-      <link>https://euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</link>
+      <link>https://hugo.euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</link>
       <pubDate>Wed, 03 Aug 2022 19:31:42 +0000</pubDate>
       
-      <guid>https://euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</guid>
+      <guid>https://hugo.euc365.com/post/create-a-microsoft-team-with-graph-api-powershell/</guid>
       <description>&lt;h2 id=&#34;why-use-an-api-to-create-a-teams-channel&#34;&gt;Why use an API to create a Teams Channel?&lt;/h2&gt;
 &lt;p&gt;Using API&amp;rsquo;s and Automation accounts help create a continuously repeatable process whilst minimising human error and providing a consistent experience. It has many purposes, should that be to provide a script to a managed client, create a team from a form submission, the list could go on, and If you&amp;rsquo;ve found this post by organic search, then it must be at least in some way what your are looking for.&lt;/p&gt;
 &lt;hr&gt;

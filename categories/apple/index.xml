@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Apple on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/categories/apple/</link>
+    <link>https://hugo.euc365.com/categories/apple/</link>
     <description>Recent content in Apple on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 08 May 2022 15:23:00 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/apple/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 May 2022 15:23:00 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/apple/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Update Apple SCIM Token</title>
-      <link>https://euc365.com/update-apple-scim-token/</link>
+      <link>https://hugo.euc365.com/update-apple-scim-token/</link>
       <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
       
-      <guid>https://euc365.com/update-apple-scim-token/</guid>
+      <guid>https://hugo.euc365.com/update-apple-scim-token/</guid>
       <description>&lt;h2 id=&#34;what-is-scim&#34;&gt;What is SCIM?&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Meaning:&lt;/strong&gt; SCIM (System for Cross-domain Identity Management)&lt;br&gt;
 &lt;br&gt;
@@ -45,7 +45,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/launchpref_hucdd93b0f2b7def139acf5a1585498382_19992_534x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Launch Preferences&#34; height=&#34;225px&#34; width=&#34;500px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/launchpref_hucdd93b0f2b7def139acf5a1585498382_19992_534x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Launch Preferences&#34; height=&#34;225px&#34; width=&#34;500px&#34;&gt;
 
 
 
@@ -69,7 +69,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/editsync_hua4708496e6dd0362aea1a42e0549cbbe_49783_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;100%&#34; width=&#34;100%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/editsync_hua4708496e6dd0362aea1a42e0549cbbe_49783_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;100%&#34; width=&#34;100%&#34;&gt;
 
 
 
@@ -94,7 +94,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/tokenscreen_hue88b80ce8971ec084768576963e12dd4_43840_744x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Token Pop-up&#34; height=&#34;475px&#34; width=&#34;400px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/tokenscreen_hue88b80ce8971ec084768576963e12dd4_43840_744x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Token Pop-up&#34; height=&#34;475px&#34; width=&#34;400px&#34;&gt;
 
 
 
@@ -132,7 +132,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/editprov_hu13798373de147c6e48c0bc8e68d77114_43470_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Provisioning&#34; height=&#34;325px&#34; width=&#34;800px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/editprov_hu13798373de147c6e48c0bc8e68d77114_43470_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Provisioning&#34; height=&#34;325px&#34; width=&#34;800px&#34;&gt;
 
 
 
@@ -156,7 +156,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/updateprov_huc07af3022dbc619d82f545ba8fc8a57f_29814_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Update Provisioning&#34; height=&#34;325px&#34; width=&#34;650px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/updateprov_huc07af3022dbc619d82f545ba8fc8a57f_29814_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Update Provisioning&#34; height=&#34;325px&#34; width=&#34;650px&#34;&gt;
 
 
 
@@ -181,7 +181,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/testresult_hu1d65da5bc27754a2671bdb52290bbdb6_16630_431x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Test Result&#34; height=&#34;125px&#34; width=&#34;350px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/testresult_hu1d65da5bc27754a2671bdb52290bbdb6_16630_431x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Test Result&#34; height=&#34;125px&#34; width=&#34;350px&#34;&gt;
 
 
 

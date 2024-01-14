@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Updates on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/categories/updates/</link>
+    <link>https://hugo.euc365.com/categories/updates/</link>
     <description>Recent content in Updates on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 17 Feb 2023 17:33:09 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/updates/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Feb 2023 17:33:09 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/updates/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bulk Enrol Device to Driver and Firmware Servicing</title>
-      <link>https://euc365.com/post/bulk-enrol-device-driver-firmware-servicing/</link>
+      <link>https://hugo.euc365.com/post/bulk-enrol-device-driver-firmware-servicing/</link>
       <pubDate>Fri, 17 Feb 2023 17:33:09 +0000</pubDate>
       
-      <guid>https://euc365.com/post/bulk-enrol-device-driver-firmware-servicing/</guid>
+      <guid>https://hugo.euc365.com/post/bulk-enrol-device-driver-firmware-servicing/</guid>
       <description>&lt;p&gt;The driver and firmware serving solution currently allows you to onboard up to 2000 devices at once using a CSV file, and even then most of the leg work need to be completed by the Admin to export, populate a CSV and then upload it and so on. It isn&amp;rsquo;t yet possible to map an AAD Group to the deployment audience either which again, isn&amp;rsquo;t always ideal if you have devices in their thousands and you want to enrol them into the service to bring back some more control.&lt;/p&gt;
 &lt;p&gt;With all that said and done, it is completely possible to automate this process with the Graph API and PowerShell. In this article we will focus on how to achieve just that with very little effort required from admins.&lt;/p&gt;
 
@@ -37,7 +37,7 @@ This can leave devices ending up in multiple policies if they exist in multiple 
 &lt;p&gt;There are two things needed to execute the script;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Azure AD Group ID&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Update Audience ID&lt;/strong&gt; (for assistance on finding this, look at &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api&#34;&gt;&lt;strong&gt;THIS POST&lt;/strong&gt;&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Update Audience ID&lt;/strong&gt; (for assistance on finding this, look at &lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api&#34;&gt;&lt;strong&gt;THIS POST&lt;/strong&gt;&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;It is super simple to achieve the end goal by just executing the scrip with the following command;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Update-BulkMembers.ps1 -aadGroupID &amp;lt;AADGroupID&amp;gt; -audienceId &amp;lt;updateAudienceID&amp;gt;&lt;/code&gt;&lt;/p&gt;
@@ -122,13 +122,13 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
     
     <item>
       <title>View Applicable Devices for Driver Deployments</title>
-      <link>https://euc365.com/post/view-applicable-devices-driver-deployments/</link>
+      <link>https://hugo.euc365.com/post/view-applicable-devices-driver-deployments/</link>
       <pubDate>Thu, 16 Feb 2023 08:59:43 +0000</pubDate>
       
-      <guid>https://euc365.com/post/view-applicable-devices-driver-deployments/</guid>
+      <guid>https://hugo.euc365.com/post/view-applicable-devices-driver-deployments/</guid>
       <description>&lt;p&gt;The commercial Driver and Firmware servicing has been big talk across the system management community (&lt;a href=&#34;https://techcommunity.microsoft.com/t5/windows-it-pro-blog/commercial-driver-and-firmware-servicing-is-publicly-available/ba-p/3741194&#34;&gt;&lt;strong&gt;SEE PRESS RELEASE HERE&lt;/strong&gt;&lt;/a&gt;) since it&amp;rsquo;s release on valentines day. It can be challenging though to find out the applicable devices, the UI does offer an applicable device count in its current state, however this post is to show you how to find the applicable devices in your audiences.&lt;/p&gt;
 &lt;p&gt;We will be looking at how we can do this via the Graph API, and also how you can retrieve this data from the Windows Update for Business Reports log analytics workspace.&lt;/p&gt;
-&lt;p&gt;If you don&amp;rsquo;t have WUfB Reports configured, you can take a look at my &lt;a href=&#34;https://euc365.com/post/vlog-wufb-reports&#34;&gt;&lt;strong&gt;VLOG&lt;/strong&gt;&lt;/a&gt; to assist with the configuration.&lt;/p&gt;
+&lt;p&gt;If you don&amp;rsquo;t have WUfB Reports configured, you can take a look at my &lt;a href=&#34;https://hugo.euc365.com/post/vlog-wufb-reports&#34;&gt;&lt;strong&gt;VLOG&lt;/strong&gt;&lt;/a&gt; to assist with the configuration.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Permissions to connect to the Graph API with the following scopes
@@ -166,7 +166,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -178,7 +178,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 &lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;This will only display the AzureAD Device ID, this will not give you the device name.&lt;/p&gt;&lt;/div&gt;
 
-&lt;p&gt;To list all of the applicable content from a policy, you must first know the deploymentAudience id to which your policy is targeted. You can take a look at my &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api&#34;&gt;&lt;strong&gt;Driver Management via Graph API  and PowerShell&lt;/strong&gt;&lt;/a&gt; post on how to obtain this information.&lt;/p&gt;
+&lt;p&gt;To list all of the applicable content from a policy, you must first know the deploymentAudience id to which your policy is targeted. You can take a look at my &lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api&#34;&gt;&lt;strong&gt;Driver Management via Graph API  and PowerShell&lt;/strong&gt;&lt;/a&gt; post on how to obtain this information.&lt;/p&gt;
 &lt;p&gt;Once you have your deployment audience you can run &lt;code&gt;(Invoke-MgGraphRequest -Method GET -Uri &amp;quot;https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences(&#39;&amp;lt;audienceID&amp;gt;&#39;)/applicableContent?`$expand=catalogEntry&amp;quot;).Value&lt;/code&gt;, replacing the &lt;code&gt;&amp;lt;audienceID&amp;gt;&lt;/code&gt; with your audience id, this will return something like the following;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Name                           Value
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----                           -----
@@ -253,7 +253,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/daf/deploymentsPerDeviceFeature_huefc0c7c1cf085a68f039545df14c5611_19881_551x0_resize_q100_h2_box_3.webp&#34; alt=&#34;query1 Output&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/daf/deploymentsPerDeviceFeature_huefc0c7c1cf085a68f039545df14c5611_19881_551x0_resize_q100_h2_box_3.webp&#34; alt=&#34;query1 Output&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -283,7 +283,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/daf/kqlByPolicy_hu27b85ae30c69a585fae69c0962e2b85c_36814_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;query2 Output&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/daf/kqlByPolicy_hu27b85ae30c69a585fae69c0962e2b85c_36814_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;query2 Output&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
 
 
 
@@ -296,14 +296,14 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
     
     <item>
       <title>Driver Management via Graph API  and PowerShell</title>
-      <link>https://euc365.com/post/driver-management-graph-api/</link>
+      <link>https://hugo.euc365.com/post/driver-management-graph-api/</link>
       <pubDate>Tue, 14 Feb 2023 14:17:46 +0000</pubDate>
       
-      <guid>https://euc365.com/post/driver-management-graph-api/</guid>
+      <guid>https://hugo.euc365.com/post/driver-management-graph-api/</guid>
       <description>&lt;p&gt;Microsoft have now released the Driver and Firmware Update management via the Graph API to the public!! This is one small step for some, but a giant leap in terms of the management of Drivers and Firmware using the &lt;a href=&#34;https://learn.microsoft.com/en-us/windows/deployment/update/deployment-service-overview&#34;&gt;&lt;strong&gt;Windows Update for Business Deployment Service (WUfB DS)&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Many of you may have been anticipating this for a while as there has been various posts about it like the &lt;a href=&#34;https://techcommunity.microsoft.com/t5/windows-it-pro-blog/introducing-a-new-deployment-service-for-driver-and-firmware/ba-p/2176942&#34;&gt;&lt;strong&gt;Tech Community Post&lt;/strong&gt;&lt;/a&gt; from March 2021.&lt;/p&gt;
 &lt;p&gt;While the solution isn&amp;rsquo;t yet baked into Intune, it is on the horizon and anticipated to land in preview some time this year (but don&amp;rsquo;t hold me to it!). The Driver and Firmware team though are committed to delivering the solution components via WUfB DS for organisations and SMBs to start to take control of their environments.&lt;/p&gt;
-&lt;p&gt;The solution may only be configurable via the Graph API, however, the product team behind the solution have delivered an application that can be used to drive this in a GUI format, take a look at my &lt;a href=&#34;https://euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/&#34;&gt;&lt;strong&gt;VLOG Post&lt;/strong&gt;&lt;/a&gt; to find out how to configure this.&lt;/p&gt;
+&lt;p&gt;The solution may only be configurable via the Graph API, however, the product team behind the solution have delivered an application that can be used to drive this in a GUI format, take a look at my &lt;a href=&#34;https://hugo.euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/&#34;&gt;&lt;strong&gt;VLOG Post&lt;/strong&gt;&lt;/a&gt; to find out how to configure this.&lt;/p&gt;
 &lt;p&gt;Without further ado though, let take a look at how we can interact with the service with the Graph API and PowerShell.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
@@ -341,7 +341,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
 
 
 

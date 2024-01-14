@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Samsung Knox on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/categories/samsung-knox/</link>
+    <link>https://hugo.euc365.com/categories/samsung-knox/</link>
     <description>Recent content in Samsung Knox on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 17 Jun 2022 14:19:57 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/samsung-knox/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Jun 2022 14:19:57 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/samsung-knox/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Disable WiFi MAC Randomization on Samsung with Intune</title>
-      <link>https://euc365.com/post/disable-wifi-mac-randomization-samsung-devices/</link>
+      <link>https://hugo.euc365.com/post/disable-wifi-mac-randomization-samsung-devices/</link>
       <pubDate>Fri, 17 Jun 2022 14:19:57 +0000</pubDate>
       
-      <guid>https://euc365.com/post/disable-wifi-mac-randomization-samsung-devices/</guid>
+      <guid>https://hugo.euc365.com/post/disable-wifi-mac-randomization-samsung-devices/</guid>
       <description>&lt;h2 id=&#34;why-disable-mac-randomization&#34;&gt;Why disable MAC Randomization?&lt;/h2&gt;
 &lt;p&gt;In some scenarios setting static IP Addresses for mobile devices is a requirement (such as EPOS, Kiosks, Meeting Room Self-Service Tablets etc.). With most modern Mobile Devices, they are shipped with MAC Randomization enabled by default, and that is certainly the case for Samsung Tablets.&lt;/p&gt;
 &lt;p&gt;This was introduced back in Android 8.0 when probing for new networks, however, starting in Android 10 this was enabled by default for client mode activities as mentioned in the &lt;a href=&#34;https://source.android.com/devices/tech/connect/wifi-mac-randomization#:~:text=In%20Android%2010%2C%20MAC%20randomization%20is%20enabled%20by,part%20of%20Wi-Fi%20Aware%20and%20Wi-Fi%20RTT%20operations.&#34; title=&#34;Implementing MAC Randomization&#34;&gt;Android Documentation&lt;/a&gt;.&lt;/p&gt;
@@ -42,7 +42,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 &lt;li&gt;&lt;strong&gt;Intune Licenses&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Intune Administrator Role&lt;/strong&gt; (Custom RBAC Roles are not in scope)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If you do not have a &lt;strong&gt;Samsung Knox&lt;/strong&gt; license or account, take a look at my &lt;a href=&#34;https://euc365.com/getting-started-with-knox-mobile-enrollment/&#34;&gt;&lt;strong&gt;Getting Started with Samsung Knox for Enterprise&lt;/strong&gt;&lt;/a&gt; post.&lt;/p&gt;
+&lt;p&gt;If you do not have a &lt;strong&gt;Samsung Knox&lt;/strong&gt; license or account, take a look at my &lt;a href=&#34;https://hugo.euc365.com/getting-started-with-knox-mobile-enrollment/&#34;&gt;&lt;strong&gt;Getting Started with Samsung Knox for Enterprise&lt;/strong&gt;&lt;/a&gt; post.&lt;/p&gt;
 &lt;br&gt;
 &lt;h3 id=&#34;import-the-samsung-knox-service-plugin-app&#34;&gt;Import the Samsung Knox Service Plugin App&lt;/h3&gt;
 &lt;ol&gt;
@@ -68,7 +68,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
   
   
   
-  &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/samsungknoxmgp_hu01467152f4833310a9ec4237097e7c1c_80248_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox Service Plugin MGP&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+  &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/samsungknoxmgp_hu01467152f4833310a9ec4237097e7c1c_80248_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox Service Plugin MGP&#34; height=&#34;&#34; width=&#34;&#34;&gt;
   
   
 
@@ -164,7 +164,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/wifipskcleartext_hu06e6b74b362d8c1e65f35aefe8ec9bf9_25941_383x0_resize_q100_h2_box_3.webp&#34; alt=&#34;KSP PSK in Clear Text&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/wifipskcleartext_hu06e6b74b362d8c1e65f35aefe8ec9bf9_25941_383x0_resize_q100_h2_box_3.webp&#34; alt=&#34;KSP PSK in Clear Text&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -179,10 +179,10 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
     
     <item>
       <title>Configure Samsung Knox SSO with Azure </title>
-      <link>https://euc365.com/configure-samsung-knox-sso-azure/</link>
+      <link>https://hugo.euc365.com/configure-samsung-knox-sso-azure/</link>
       <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
       
-      <guid>https://euc365.com/configure-samsung-knox-sso-azure/</guid>
+      <guid>https://hugo.euc365.com/configure-samsung-knox-sso-azure/</guid>
       <description>&lt;h2 id=&#34;why-should-i-configure-sso&#34;&gt;Why should I configure SSO?&lt;/h2&gt;
 &lt;h2 id=&#34;configuring-sso-in-knox&#34;&gt;Configuring SSO in Knox&lt;/h2&gt;
 &lt;ol&gt;
@@ -224,7 +224,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
     
     
     
-    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/samsungsearchsso_hud98b4c801f7d168b2c055739a31b2a1e_19212_465x0_resize_q100_h2_box_3.webp&#34; alt=&#34;AAD Search for Samsung&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/samsungsearchsso_hud98b4c801f7d168b2c055739a31b2a1e_19212_465x0_resize_q100_h2_box_3.webp&#34; alt=&#34;AAD Search for Samsung&#34; height=&#34;&#34; width=&#34;&#34;&gt;
     
     
 &lt;/p&gt;
@@ -277,7 +277,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
     
     
     
-    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/samlconfig_hua9e69e5bc687730f4e87018779e9fdad_50013_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSO SAML Config&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/samlconfig_hua9e69e5bc687730f4e87018779e9fdad_50013_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSO SAML Config&#34; height=&#34;&#34; width=&#34;&#34;&gt;
     
     
 
@@ -304,7 +304,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
     
     
     
-    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/samsungssosettings_hu0b7a21d533ed5e5d25ecce878a9aa789_56330_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSO Settings&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+    &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/samsungssosettings_hu0b7a21d533ed5e5d25ecce878a9aa789_56330_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSO Settings&#34; height=&#34;&#34; width=&#34;&#34;&gt;
     
     
 
@@ -336,10 +336,10 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
     
     <item>
       <title>Getting Started with Samsung Knox for Enterprise</title>
-      <link>https://euc365.com/getting-started-with-knox-mobile-enrollment/</link>
+      <link>https://hugo.euc365.com/getting-started-with-knox-mobile-enrollment/</link>
       <pubDate>Thu, 26 May 2022 14:00:00 +0000</pubDate>
       
-      <guid>https://euc365.com/getting-started-with-knox-mobile-enrollment/</guid>
+      <guid>https://hugo.euc365.com/getting-started-with-knox-mobile-enrollment/</guid>
       <description>&lt;h2 id=&#34;what-is-samsung-knox&#34;&gt;What is Samsung Knox?&lt;/h2&gt;
 &lt;p&gt;Samsung Knox is a service made up of a number of solutions such as &lt;strong&gt;Knox Mobile Enrollment&lt;/strong&gt; and &lt;strong&gt;Knox Platform for Enterprise&lt;/strong&gt;. Samsung Knox solutions provide extra security, and configurability and also improve the end-user onboarding experience.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Knox Mobile Enrollment&lt;/strong&gt; is Samsung&amp;rsquo;s alternative to Apple Business/School manager for devices. KME offers the ability to upload devices using an app on Samsung devices, or via a vendor/reseller channel.&lt;/p&gt;
@@ -407,7 +407,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/knoxlanding_hu3f67c15ae1ec4e4cab1339bee0c789ec_29738_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox Landing Page&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/knoxlanding_hu3f67c15ae1ec4e4cab1339bee0c789ec_29738_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox Landing Page&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -429,7 +429,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/knoxregistration_hu142dde179b6461c36fcbe80e462b607e_37636_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox License Registration&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/knoxregistration_hu142dde179b6461c36fcbe80e462b607e_37636_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox License Registration&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -460,7 +460,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
    
    
    
-   &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/knoxpfegen_hu75139081cc03e92ca6cbea5ab2e17e86_21992_399x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox PFE License Generation&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+   &lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/knoxpfegen_hu75139081cc03e92ca6cbea5ab2e17e86_21992_399x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox PFE License Generation&#34; height=&#34;&#34; width=&#34;&#34;&gt;
    
    
 
@@ -493,7 +493,7 @@ For this post I will be focusing on the core configuration and a WPA2 network.&l
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/knox/selectknoxservices_hu680a76a443555c318d2af7a350372cc4_79956_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox Service Select&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/knox/selectknoxservices_hu680a76a443555c318d2af7a350372cc4_79956_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Knox Service Select&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 &lt;/li&gt;

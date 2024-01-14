@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cloud PC on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/cloud-pc/</link>
+    <link>https://hugo.euc365.com/tags/cloud-pc/</link>
     <description>Recent content in Cloud PC on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 23 Jan 2023 09:16:47 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/cloud-pc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Jan 2023 09:16:47 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/cloud-pc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Create Windows 365 Azure Network Connections with PowerShell</title>
-      <link>https://euc365.com/post/create-windows-365-azure-network-connections-powershell/</link>
+      <link>https://hugo.euc365.com/post/create-windows-365-azure-network-connections-powershell/</link>
       <pubDate>Mon, 23 Jan 2023 09:16:47 +0000</pubDate>
       
-      <guid>https://euc365.com/post/create-windows-365-azure-network-connections-powershell/</guid>
+      <guid>https://hugo.euc365.com/post/create-windows-365-azure-network-connections-powershell/</guid>
       <description>&lt;p&gt;Windows 365 and Azure Network connections offers additional control over routing, IP Addresses, Subnets, Peerings and so on. It can also be incredibly useful to help with testing moving to Azure AD Only (Can you tell, I&amp;rsquo;m already not a fan of HAADJ), as with the right configuration on your Azure vNet you can connect back to your internal network and get straight to testing.&lt;/p&gt;
 &lt;p&gt;Using an ANC with Windows 365 and Cloud PCs does bring an additional cost, not to the license or compute though, just the network usage cost. Microsoft do recommend using their Hosted Network, but they are not fools, they have built a system for enterprise and allowing the capability of Bring-Your-Own-Network (BYON) is a clear no brainer for organisations with existing on-premise infrastructure.&lt;/p&gt;
 &lt;p&gt;BYON doesn&amp;rsquo;t just have to be used for a gateway connection back to on-premise though, it can be used to just add more control over the network traffic on these endpoint with firewalls etc. There is some further documentation on Azure Network Connections over on the &lt;a href=&#34;https://learn.microsoft.com/en-us/windows-365/enterprise/azure-network-connections&#34;&gt;&lt;strong&gt;Microsoft Learn Page&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
@@ -75,7 +75,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/ancCreatinonPSaad_hufbb491b713e446a3d71236753c81606d_24617_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;AAD Creation&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/ancCreatinonPSaad_hufbb491b713e446a3d71236753c81606d_24617_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;AAD Creation&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -99,7 +99,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/ancFeature_hu9332d07731226b04fa6e5eb784787c2b_18764_509x0_resize_q100_h2_box_3.webp&#34; alt=&#34;ANC Created&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/ancFeature_hu9332d07731226b04fa6e5eb784787c2b_18764_509x0_resize_q100_h2_box_3.webp&#34; alt=&#34;ANC Created&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -119,10 +119,10 @@
     
     <item>
       <title>Why Windows 365?</title>
-      <link>https://euc365.com/post/why-windows-365/</link>
+      <link>https://hugo.euc365.com/post/why-windows-365/</link>
       <pubDate>Thu, 05 Jan 2023 11:01:33 +0000</pubDate>
       
-      <guid>https://euc365.com/post/why-windows-365/</guid>
+      <guid>https://hugo.euc365.com/post/why-windows-365/</guid>
       <description>&lt;p&gt;Windows 365 (Cloud PC) is the hot topic of the moment, and why wouldn&amp;rsquo;t it be? For many years, before most can remember, it has been the norm for IT Departments to Image, configure and deploy Laptops and Workstations for end-users.&lt;/p&gt;
 &lt;p&gt;However, over the past couple of years, with COVID and other factors, the world has moved to a more distributed workforce, where country boundaries are no longer the border of employment. Companies invested in further development on  their virtualisation offerings, such as Azure Virtual Desktop, VMWare Horizon, Citrix etc., however, all of these solutions require specialised skill sets and are very complex and often high maintenance.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Microsoft&lt;/strong&gt; has taken this one step further and created a PaaS (Platform as a Service) solution that integrates and is managed via Microsoft Intune, delivering the &lt;strong&gt;&amp;lsquo;Single Pane of Glass&amp;rsquo;&lt;/strong&gt; management that many businesses seek. The beauty of this is that you do not need to maintain complex infrastructure and configuration sets or perform platform upgrades (including hardware replacements).&lt;/p&gt;
@@ -152,7 +152,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/CloudPCOptions_hu243cd0fd70bec37d3c1a42130b6b2108_81239_460x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Cloud PC Options&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/CloudPCOptions_hu243cd0fd70bec37d3c1a42130b6b2108_81239_460x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Cloud PC Options&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
 
 
 

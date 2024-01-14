@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ASR on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/asr/</link>
+    <link>https://hugo.euc365.com/tags/asr/</link>
     <description>Recent content in ASR on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 May 2023 20:05:23 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/asr/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 May 2023 20:05:23 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/asr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ASR Custom Data Collection with Intune</title>
-      <link>https://euc365.com/post/asr-custom-data-collection-intune/</link>
+      <link>https://hugo.euc365.com/post/asr-custom-data-collection-intune/</link>
       <pubDate>Wed, 24 May 2023 20:05:23 +0000</pubDate>
       
-      <guid>https://euc365.com/post/asr-custom-data-collection-intune/</guid>
+      <guid>https://hugo.euc365.com/post/asr-custom-data-collection-intune/</guid>
       <description>&lt;p&gt;At MMS MOA 2023, I presented a session alongside &lt;a href=&#34;https://twitter.com/KennyBuntinx&#34;&gt;&lt;strong&gt;Kenny Buntinx&lt;/strong&gt;&lt;/a&gt; on Attack Surface Reduction (ASR) rules, a session filled with lessons learnt, interaction and belgian chocolate. During this session, I showed a custom data collection script that I had written to collect the ASR events from the event log and send them to a Log Analytics workspace, and then how to inject that data into a Power BI report.&lt;/p&gt;
 &lt;p&gt;This post will cover the configuration of the Power BI Report and the Intune Remediation Script, to help you better report on ASR events in your environment, without having to pay for an E5 license.&lt;/p&gt;
 &lt;hr&gt;
@@ -35,7 +35,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/asr/lawsinfo_hu9ce6f959a1af8a672cd6f46c85599429_98095_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Log Analytics Workspace&#34; height=&#34;&#34; width=&#34;100%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/asr/lawsinfo_hu9ce6f959a1af8a672cd6f46c85599429_98095_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Log Analytics Workspace&#34; height=&#34;&#34; width=&#34;100%&#34;&gt;
 
 
 
@@ -51,7 +51,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;DeviceManagementManagedDevices.Read.All&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;You can follow my guide on how to create an App Registration &lt;a href=&#34;https://euc365.com/create_an_azure_app_registration/&#34;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;, and then how to grant access to the Log Analytics Workspace &lt;a href=&#34;https://euc365.com/post/log-analytics-api-data-access-service-principals/&#34;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can follow my guide on how to create an App Registration &lt;a href=&#34;https://hugo.euc365.com/create_an_azure_app_registration/&#34;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;, and then how to grant access to the Log Analytics Workspace &lt;a href=&#34;https://hugo.euc365.com/post/log-analytics-api-data-access-service-principals/&#34;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Once the App Registration has been created, we will need to download the Power BI Report, from the below button, and open it in Power BI Desktop.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/powerbi/tree/main/ASR&#34;&gt;&lt;img src=&#34;http://euc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;When you first open the report, you will be prompted to enter the following information:&lt;/p&gt;
@@ -80,7 +80,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/asr/reportconfig_hu80eabda50e35a15cf71c2db25414a828_18047_700x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Power BI Report Configuration&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/asr/reportconfig_hu80eabda50e35a15cf71c2db25414a828_18047_700x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Power BI Report Configuration&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -104,7 +104,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/asr/reportpreview_hua7dc859dbcce61fddb146d67c42340c1_167370_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Power BI Report Preview&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/asr/reportpreview_hua7dc859dbcce61fddb146d67c42340c1_167370_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Power BI Report Preview&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 

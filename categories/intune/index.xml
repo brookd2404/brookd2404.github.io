@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Intune on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/categories/intune/</link>
+    <link>https://hugo.euc365.com/categories/intune/</link>
     <description>Recent content in Intune on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 May 2023 20:05:23 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/intune/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 May 2023 20:05:23 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/intune/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ASR Custom Data Collection with Intune</title>
-      <link>https://euc365.com/post/asr-custom-data-collection-intune/</link>
+      <link>https://hugo.euc365.com/post/asr-custom-data-collection-intune/</link>
       <pubDate>Wed, 24 May 2023 20:05:23 +0000</pubDate>
       
-      <guid>https://euc365.com/post/asr-custom-data-collection-intune/</guid>
+      <guid>https://hugo.euc365.com/post/asr-custom-data-collection-intune/</guid>
       <description>&lt;p&gt;At MMS MOA 2023, I presented a session alongside &lt;a href=&#34;https://twitter.com/KennyBuntinx&#34;&gt;&lt;strong&gt;Kenny Buntinx&lt;/strong&gt;&lt;/a&gt; on Attack Surface Reduction (ASR) rules, a session filled with lessons learnt, interaction and belgian chocolate. During this session, I showed a custom data collection script that I had written to collect the ASR events from the event log and send them to a Log Analytics workspace, and then how to inject that data into a Power BI report.&lt;/p&gt;
 &lt;p&gt;This post will cover the configuration of the Power BI Report and the Intune Remediation Script, to help you better report on ASR events in your environment, without having to pay for an E5 license.&lt;/p&gt;
 &lt;hr&gt;
@@ -35,7 +35,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/asr/lawsinfo_hu9ce6f959a1af8a672cd6f46c85599429_98095_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Log Analytics Workspace&#34; height=&#34;&#34; width=&#34;100%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/asr/lawsinfo_hu9ce6f959a1af8a672cd6f46c85599429_98095_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Log Analytics Workspace&#34; height=&#34;&#34; width=&#34;100%&#34;&gt;
 
 
 
@@ -51,7 +51,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;DeviceManagementManagedDevices.Read.All&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;You can follow my guide on how to create an App Registration &lt;a href=&#34;https://euc365.com/create_an_azure_app_registration/&#34;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;, and then how to grant access to the Log Analytics Workspace &lt;a href=&#34;https://euc365.com/post/log-analytics-api-data-access-service-principals/&#34;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can follow my guide on how to create an App Registration &lt;a href=&#34;https://hugo.euc365.com/create_an_azure_app_registration/&#34;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;, and then how to grant access to the Log Analytics Workspace &lt;a href=&#34;https://hugo.euc365.com/post/log-analytics-api-data-access-service-principals/&#34;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Once the App Registration has been created, we will need to download the Power BI Report, from the below button, and open it in Power BI Desktop.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/powerbi/tree/main/ASR&#34;&gt;&lt;img src=&#34;http://euc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;When you first open the report, you will be prompted to enter the following information:&lt;/p&gt;
@@ -80,7 +80,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/asr/reportconfig_hu80eabda50e35a15cf71c2db25414a828_18047_700x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Power BI Report Configuration&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/asr/reportconfig_hu80eabda50e35a15cf71c2db25414a828_18047_700x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Power BI Report Configuration&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -104,7 +104,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/asr/reportpreview_hua7dc859dbcce61fddb146d67c42340c1_167370_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Power BI Report Preview&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/asr/reportpreview_hua7dc859dbcce61fddb146d67c42340c1_167370_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Power BI Report Preview&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -120,22 +120,22 @@
     
     <item>
       <title>Graph API &amp; Power BI - MMS Edition</title>
-      <link>https://euc365.com/post/intune-power-bi-mms-edition/</link>
+      <link>https://hugo.euc365.com/post/intune-power-bi-mms-edition/</link>
       <pubDate>Fri, 19 May 2023 13:37:08 +0000</pubDate>
       
-      <guid>https://euc365.com/post/intune-power-bi-mms-edition/</guid>
-      <description>&lt;p&gt;What a blast this year at &lt;a href=&#34;https://mmsmoa.com&#34;&gt;&lt;strong&gt;MMS MOA&lt;/strong&gt;&lt;/a&gt; 2023!!. The time last year I spoke for the first time and did a quick 3 minute session in Tips &amp;amp; Tricks and this year (2023) I returned as a speaker, with an improved and fleshed out Power BI Session alongside &lt;a href=&#34;https://euc365.com/author/steve-beumont&#34;&gt;&lt;strong&gt;Steve Beaumont&lt;/strong&gt;&lt;/a&gt;. Some may recall my previous post &lt;a href=&#34;https://euc365.com/microsoft-graph-and-powerbi/&#34;&gt;&lt;strong&gt;Microsoft Graph API and PowerBI&lt;/strong&gt;&lt;/a&gt;, there will be some reference back to this as we go through this one.&lt;/p&gt;
+      <guid>https://hugo.euc365.com/post/intune-power-bi-mms-edition/</guid>
+      <description>&lt;p&gt;What a blast this year at &lt;a href=&#34;https://mmsmoa.com&#34;&gt;&lt;strong&gt;MMS MOA&lt;/strong&gt;&lt;/a&gt; 2023!!. The time last year I spoke for the first time and did a quick 3 minute session in Tips &amp;amp; Tricks and this year (2023) I returned as a speaker, with an improved and fleshed out Power BI Session alongside &lt;a href=&#34;https://hugo.euc365.com/author/steve-beumont&#34;&gt;&lt;strong&gt;Steve Beaumont&lt;/strong&gt;&lt;/a&gt;. Some may recall my previous post &lt;a href=&#34;https://hugo.euc365.com/microsoft-graph-and-powerbi/&#34;&gt;&lt;strong&gt;Microsoft Graph API and PowerBI&lt;/strong&gt;&lt;/a&gt;, there will be some reference back to this as we go through this one.&lt;/p&gt;
 &lt;p&gt;We covered a lot on stage, and this post is here to help flesh out those configuration area&amp;rsquo;s that we didn&amp;rsquo;t cover in the session, and also has the link to the goodies for you to start the journey to feature rich reports with Intune &amp;amp; Power BI.&lt;/p&gt;
 &lt;h2 id=&#34;getting-prepared&#34;&gt;Getting Prepared&lt;/h2&gt;
-&lt;p&gt;As per the previous &lt;a href=&#34;https://euc365.com/microsoft-graph-and-powerbi/&#34;&gt;&lt;strong&gt;post&lt;/strong&gt;&lt;/a&gt;, we will still be using a service principal to access the data, however we will also be expanding this scope to allowing data read access to your log analytics workspace.&lt;/p&gt;
+&lt;p&gt;As per the previous &lt;a href=&#34;https://hugo.euc365.com/microsoft-graph-and-powerbi/&#34;&gt;&lt;strong&gt;post&lt;/strong&gt;&lt;/a&gt;, we will still be using a service principal to access the data, however we will also be expanding this scope to allowing data read access to your log analytics workspace.&lt;/p&gt;
 &lt;p&gt;The dataset that is available for download has the following &lt;strong&gt;Application&lt;/strong&gt; API permission requirements for Intune and AAD:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;DeviceManagementManagedDevices.Read.All&lt;/strong&gt; (Intune Devices Data &amp;amp; Autopilot Events)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Device.Read.All&lt;/strong&gt; (AAD Data - Device)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;User.Read.All&lt;/strong&gt; (AAD Data - User)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;For information on creating a service principal (App Registration) and assigning the permissions, please refer to one of my previous &lt;a href=&#34;https://euc365.com/create_an_azure_app_registration/&#34;&gt;&lt;strong&gt;post&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Aside from the above, we also need to grant access to the Log Analytics Workspace that holds the Windows Update for Business reports data, please refer to the following &lt;a href=&#34;https://euc365.com/post/log-analytics-api-data-access-service-principals/&#34;&gt;&lt;strong&gt;post&lt;/strong&gt;&lt;/a&gt; for more information on how to grant access to the service principal.&lt;/p&gt;
+&lt;p&gt;For information on creating a service principal (App Registration) and assigning the permissions, please refer to one of my previous &lt;a href=&#34;https://hugo.euc365.com/create_an_azure_app_registration/&#34;&gt;&lt;strong&gt;post&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Aside from the above, we also need to grant access to the Log Analytics Workspace that holds the Windows Update for Business reports data, please refer to the following &lt;a href=&#34;https://hugo.euc365.com/post/log-analytics-api-data-access-service-principals/&#34;&gt;&lt;strong&gt;post&lt;/strong&gt;&lt;/a&gt; for more information on how to grant access to the service principal.&lt;/p&gt;
 
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;You can utilise the same service principal for both the Intune and Log Analytics API&amp;rsquo;s, just ensure you have the correct permissions assigned.&lt;/p&gt;&lt;/div&gt;
 
@@ -151,7 +151,7 @@
 &lt;p&gt;The Power BI Files used in the session are available for download from the below button.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/brookd2404/powerbi/tree/main/Intune&#34;&gt;&lt;img src=&#34;http://euc365.com/images/git_resource.png&#34; alt=&#34;GitHub Resource&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Once you have downloaded the files, you will need to open the &lt;strong&gt;MMS 2023 - Intune Data Model.pbit&lt;/strong&gt; file, once launched you will be prompted to enter the information we gathered in the previous section. In addition to this, you will also need to select a time period for the data from the Log Analytics Workspace, I have put this in a drop down option, but this can be amended to suit your needs once the report is loaded.&lt;/p&gt;
-&lt;p&gt;The logicAppURL is not required for the report to function, however there is a template query which will use this for data ingestion and this was again the premise of my previous &lt;a href=&#34;https://euc365.com/microsoft-graph-and-powerbi/&#34;&gt;&lt;strong&gt;post&lt;/strong&gt;&lt;/a&gt;, where the Deploy to Azure Button will allow you to deploy the Logic App in under 3 minutes.&lt;/p&gt;
+&lt;p&gt;The logicAppURL is not required for the report to function, however there is a template query which will use this for data ingestion and this was again the premise of my previous &lt;a href=&#34;https://hugo.euc365.com/microsoft-graph-and-powerbi/&#34;&gt;&lt;strong&gt;post&lt;/strong&gt;&lt;/a&gt;, where the Deploy to Azure Button will allow you to deploy the Logic App in under 3 minutes.&lt;/p&gt;
 
 &lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;It is important that you select the &lt;strong&gt;beta&lt;/strong&gt; option from the &lt;strong&gt;Graph Version&lt;/strong&gt; dropdown.&lt;/p&gt;&lt;/div&gt;
 
@@ -176,7 +176,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/powerbi/mmsdatamodconfig_hu84c3cb01cdf1a4a009f93b04bb392817_23470_700x0_resize_q100_h2_box_3.webp&#34; alt=&#34;mms data model config&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/powerbi/mmsdatamodconfig_hu84c3cb01cdf1a4a009f93b04bb392817_23470_700x0_resize_q100_h2_box_3.webp&#34; alt=&#34;mms data model config&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -199,7 +199,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/powerbi/dataload_huf1abd584e15a0b99ca41d31598af7b56_17208_500x0_resize_q100_h2_box_3.webp&#34; alt=&#34;mms data model load&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/powerbi/dataload_huf1abd584e15a0b99ca41d31598af7b56_17208_500x0_resize_q100_h2_box_3.webp&#34; alt=&#34;mms data model load&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -222,7 +222,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/powerbi/datavisual_hu23865522e704d8a9b20c29f2c0305e63_132603_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;mms data model template page&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/powerbi/datavisual_hu23865522e704d8a9b20c29f2c0305e63_132603_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;mms data model template page&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 

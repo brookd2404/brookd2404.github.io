@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Driver and Firmware on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/categories/driver-and-firmware/</link>
+    <link>https://hugo.euc365.com/categories/driver-and-firmware/</link>
     <description>Recent content in Driver and Firmware on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 20 Mar 2023 13:43:22 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/driver-and-firmware/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Mar 2023 13:43:22 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/driver-and-firmware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Driver and Firmware Servicing PowerShell Module</title>
-      <link>https://euc365.com/post/driver-firmware-servicing-powershell-module/</link>
+      <link>https://hugo.euc365.com/post/driver-firmware-servicing-powershell-module/</link>
       <pubDate>Mon, 20 Mar 2023 13:43:22 +0000</pubDate>
       
-      <guid>https://euc365.com/post/driver-firmware-servicing-powershell-module/</guid>
+      <guid>https://hugo.euc365.com/post/driver-firmware-servicing-powershell-module/</guid>
       <description>&lt;p&gt;Its been just over a month since the announcement of Commercial Driver and Firmware Servicing by Microsoft. Since then I have been working on delivering this to businesses, and sometimes it can be a challenge to keep on top of all of the different graph endpoints that are required to keep the cogs turning. So, out of my own sanity saving idea, I pulled together a PowerShell Module (&lt;a href=&#34;https://www.powershellgallery.com/packages/Driver.Firmware.Servicing/&#34;&gt;&lt;strong&gt;Driver.Firmware.Servicing&lt;/strong&gt;&lt;/a&gt;) to help make the service a lot more consumable for admins.&lt;/p&gt;
 &lt;p&gt;Microsoft provided some great conceptual documentation on the service, but I wanted to make it a lot easier to consume. So, I have created a PowerShell Module that abstracts away the complexity of the Graph API, and provides a simple interface to manage the service. See the &lt;a href=&#34;https://learn.microsoft.com/en-us/graph/windowsupdates-manage-driver-update&#34;&gt;&lt;strong&gt;Microsoft documentation&lt;/strong&gt;&lt;/a&gt; for more information on the service.&lt;/p&gt;
 &lt;h2 id=&#34;what-is-driver-and-firmware-servicing&#34;&gt;What is Driver and Firmware Servicing?&lt;/h2&gt;
@@ -71,10 +71,10 @@
     
     <item>
       <title>Bulk Enrol Device to Driver and Firmware Servicing</title>
-      <link>https://euc365.com/post/bulk-enrol-device-driver-firmware-servicing/</link>
+      <link>https://hugo.euc365.com/post/bulk-enrol-device-driver-firmware-servicing/</link>
       <pubDate>Fri, 17 Feb 2023 17:33:09 +0000</pubDate>
       
-      <guid>https://euc365.com/post/bulk-enrol-device-driver-firmware-servicing/</guid>
+      <guid>https://hugo.euc365.com/post/bulk-enrol-device-driver-firmware-servicing/</guid>
       <description>&lt;p&gt;The driver and firmware serving solution currently allows you to onboard up to 2000 devices at once using a CSV file, and even then most of the leg work need to be completed by the Admin to export, populate a CSV and then upload it and so on. It isn&amp;rsquo;t yet possible to map an AAD Group to the deployment audience either which again, isn&amp;rsquo;t always ideal if you have devices in their thousands and you want to enrol them into the service to bring back some more control.&lt;/p&gt;
 &lt;p&gt;With all that said and done, it is completely possible to automate this process with the Graph API and PowerShell. In this article we will focus on how to achieve just that with very little effort required from admins.&lt;/p&gt;
 
@@ -99,7 +99,7 @@ This can leave devices ending up in multiple policies if they exist in multiple 
 &lt;p&gt;There are two things needed to execute the script;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Azure AD Group ID&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Update Audience ID&lt;/strong&gt; (for assistance on finding this, look at &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api&#34;&gt;&lt;strong&gt;THIS POST&lt;/strong&gt;&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Update Audience ID&lt;/strong&gt; (for assistance on finding this, look at &lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api&#34;&gt;&lt;strong&gt;THIS POST&lt;/strong&gt;&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;It is super simple to achieve the end goal by just executing the scrip with the following command;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Update-BulkMembers.ps1 -aadGroupID &amp;lt;AADGroupID&amp;gt; -audienceId &amp;lt;updateAudienceID&amp;gt;&lt;/code&gt;&lt;/p&gt;
@@ -184,13 +184,13 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
     
     <item>
       <title>View Applicable Devices for Driver Deployments</title>
-      <link>https://euc365.com/post/view-applicable-devices-driver-deployments/</link>
+      <link>https://hugo.euc365.com/post/view-applicable-devices-driver-deployments/</link>
       <pubDate>Thu, 16 Feb 2023 08:59:43 +0000</pubDate>
       
-      <guid>https://euc365.com/post/view-applicable-devices-driver-deployments/</guid>
+      <guid>https://hugo.euc365.com/post/view-applicable-devices-driver-deployments/</guid>
       <description>&lt;p&gt;The commercial Driver and Firmware servicing has been big talk across the system management community (&lt;a href=&#34;https://techcommunity.microsoft.com/t5/windows-it-pro-blog/commercial-driver-and-firmware-servicing-is-publicly-available/ba-p/3741194&#34;&gt;&lt;strong&gt;SEE PRESS RELEASE HERE&lt;/strong&gt;&lt;/a&gt;) since it&amp;rsquo;s release on valentines day. It can be challenging though to find out the applicable devices, the UI does offer an applicable device count in its current state, however this post is to show you how to find the applicable devices in your audiences.&lt;/p&gt;
 &lt;p&gt;We will be looking at how we can do this via the Graph API, and also how you can retrieve this data from the Windows Update for Business Reports log analytics workspace.&lt;/p&gt;
-&lt;p&gt;If you don&amp;rsquo;t have WUfB Reports configured, you can take a look at my &lt;a href=&#34;https://euc365.com/post/vlog-wufb-reports&#34;&gt;&lt;strong&gt;VLOG&lt;/strong&gt;&lt;/a&gt; to assist with the configuration.&lt;/p&gt;
+&lt;p&gt;If you don&amp;rsquo;t have WUfB Reports configured, you can take a look at my &lt;a href=&#34;https://hugo.euc365.com/post/vlog-wufb-reports&#34;&gt;&lt;strong&gt;VLOG&lt;/strong&gt;&lt;/a&gt; to assist with the configuration.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Permissions to connect to the Graph API with the following scopes
@@ -228,7 +228,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -240,7 +240,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 &lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;This will only display the AzureAD Device ID, this will not give you the device name.&lt;/p&gt;&lt;/div&gt;
 
-&lt;p&gt;To list all of the applicable content from a policy, you must first know the deploymentAudience id to which your policy is targeted. You can take a look at my &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api&#34;&gt;&lt;strong&gt;Driver Management via Graph API  and PowerShell&lt;/strong&gt;&lt;/a&gt; post on how to obtain this information.&lt;/p&gt;
+&lt;p&gt;To list all of the applicable content from a policy, you must first know the deploymentAudience id to which your policy is targeted. You can take a look at my &lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api&#34;&gt;&lt;strong&gt;Driver Management via Graph API  and PowerShell&lt;/strong&gt;&lt;/a&gt; post on how to obtain this information.&lt;/p&gt;
 &lt;p&gt;Once you have your deployment audience you can run &lt;code&gt;(Invoke-MgGraphRequest -Method GET -Uri &amp;quot;https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences(&#39;&amp;lt;audienceID&amp;gt;&#39;)/applicableContent?`$expand=catalogEntry&amp;quot;).Value&lt;/code&gt;, replacing the &lt;code&gt;&amp;lt;audienceID&amp;gt;&lt;/code&gt; with your audience id, this will return something like the following;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Name                           Value
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----                           -----
@@ -315,7 +315,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/daf/deploymentsPerDeviceFeature_huefc0c7c1cf085a68f039545df14c5611_19881_551x0_resize_q100_h2_box_3.webp&#34; alt=&#34;query1 Output&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/daf/deploymentsPerDeviceFeature_huefc0c7c1cf085a68f039545df14c5611_19881_551x0_resize_q100_h2_box_3.webp&#34; alt=&#34;query1 Output&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -345,7 +345,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/daf/kqlByPolicy_hu27b85ae30c69a585fae69c0962e2b85c_36814_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;query2 Output&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/daf/kqlByPolicy_hu27b85ae30c69a585fae69c0962e2b85c_36814_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;query2 Output&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
 
 
 
@@ -358,12 +358,12 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
     
     <item>
       <title>Add Offer Deferrals to Driver and Firmware Policies</title>
-      <link>https://euc365.com/post/add-offer-deferrals-driver-firmware-policies/</link>
+      <link>https://hugo.euc365.com/post/add-offer-deferrals-driver-firmware-policies/</link>
       <pubDate>Wed, 15 Feb 2023 15:17:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/add-offer-deferrals-driver-firmware-policies/</guid>
+      <guid>https://hugo.euc365.com/post/add-offer-deferrals-driver-firmware-policies/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s been a days or so since the release of the public preview of Driver and Firmware management (&lt;a href=&#34;https://techcommunity.microsoft.com/t5/windows-it-pro-blog/commercial-driver-and-firmware-servicing-is-publicly-available/ba-p/3741194&#34;&gt;&lt;strong&gt;SEE PRESS RELEASE HERE&lt;/strong&gt;&lt;/a&gt;), and many of you may have used the GUI to create your policies, and have been left scratching your head as to why you cannot specify a deferral period. Well, let me let you into a secret, &lt;strong&gt;IT IS&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;If you have looked at my &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;Driver Management via Graph API and PowerShell&lt;/strong&gt;&lt;/a&gt; post, I call it out within the &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/#creating-an-update-policy-1&#34;&gt;&lt;strong&gt;Create an Update Policy&lt;/strong&gt;&lt;/a&gt; section.&lt;/p&gt;
+&lt;p&gt;If you have looked at my &lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;Driver Management via Graph API and PowerShell&lt;/strong&gt;&lt;/a&gt; post, I call it out within the &lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api/#creating-an-update-policy-1&#34;&gt;&lt;strong&gt;Create an Update Policy&lt;/strong&gt;&lt;/a&gt; section.&lt;/p&gt;
 &lt;p&gt;So, how do we add this to our policies so you don&amp;rsquo;t have to re-create your policies? Let&amp;rsquo;s take a look shall we.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
@@ -400,7 +400,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -415,7 +415,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 &lt;p&gt;&lt;code&gt;Update-PatchDeferrals.ps1 -updatePolicyID &#39;cc4fbe71-a024-41c2-a99f-559dcde6e916&#39; -deferralTime &#39;PT5D&#39;&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;looking-through-the-function&#34;&gt;Looking through the Function&lt;/h3&gt;
 &lt;p&gt;The basic premise of this script is to use the current complianceChangeRules, but only modify the durationBeforeDeploymentStart property which will control the deferral date. I thought the simplest way to do this was to pull in the current configuration, and amend only the durationBeforeDeploymentStart property. Let&amp;rsquo;s take a look at how we achieve this then shall we.&lt;/p&gt;
-&lt;p&gt;First of all, we have our &lt;strong&gt;Mandatory&lt;/strong&gt; parameters, &lt;strong&gt;updatePolicyID&lt;/strong&gt; and the &lt;strong&gt;deferralTime&lt;/strong&gt;. The update policy ID can be found by looking at the &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/#listing-update-policies&#34;&gt;&lt;strong&gt;Listing Update Policies&lt;/strong&gt;&lt;/a&gt; section in my original &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;article&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;First of all, we have our &lt;strong&gt;Mandatory&lt;/strong&gt; parameters, &lt;strong&gt;updatePolicyID&lt;/strong&gt; and the &lt;strong&gt;deferralTime&lt;/strong&gt;. The update policy ID can be found by looking at the &lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api/#listing-update-policies&#34;&gt;&lt;strong&gt;Listing Update Policies&lt;/strong&gt;&lt;/a&gt; section in my original &lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;article&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The &lt;strong&gt;deferralTime&lt;/strong&gt;, is the parameter that gives us what we need. This needs to be formatted in the &lt;strong&gt;ISO8601&lt;/strong&gt; standards for duration (&lt;a href=&#34;https://en.wikipedia.org/wiki/ISO_8601#Durations&#34;&gt;&lt;strong&gt;LINK&lt;/strong&gt;&lt;/a&gt;), for example, If we added PT1H, that would defer the update for an hour before offering. If we was to use P10D, that would defer the offer for 10 days.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[CmdletBinding()]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;param&lt;/span&gt; (
@@ -466,14 +466,14 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
     
     <item>
       <title>Driver Management via Graph API  and PowerShell</title>
-      <link>https://euc365.com/post/driver-management-graph-api/</link>
+      <link>https://hugo.euc365.com/post/driver-management-graph-api/</link>
       <pubDate>Tue, 14 Feb 2023 14:17:46 +0000</pubDate>
       
-      <guid>https://euc365.com/post/driver-management-graph-api/</guid>
+      <guid>https://hugo.euc365.com/post/driver-management-graph-api/</guid>
       <description>&lt;p&gt;Microsoft have now released the Driver and Firmware Update management via the Graph API to the public!! This is one small step for some, but a giant leap in terms of the management of Drivers and Firmware using the &lt;a href=&#34;https://learn.microsoft.com/en-us/windows/deployment/update/deployment-service-overview&#34;&gt;&lt;strong&gt;Windows Update for Business Deployment Service (WUfB DS)&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Many of you may have been anticipating this for a while as there has been various posts about it like the &lt;a href=&#34;https://techcommunity.microsoft.com/t5/windows-it-pro-blog/introducing-a-new-deployment-service-for-driver-and-firmware/ba-p/2176942&#34;&gt;&lt;strong&gt;Tech Community Post&lt;/strong&gt;&lt;/a&gt; from March 2021.&lt;/p&gt;
 &lt;p&gt;While the solution isn&amp;rsquo;t yet baked into Intune, it is on the horizon and anticipated to land in preview some time this year (but don&amp;rsquo;t hold me to it!). The Driver and Firmware team though are committed to delivering the solution components via WUfB DS for organisations and SMBs to start to take control of their environments.&lt;/p&gt;
-&lt;p&gt;The solution may only be configurable via the Graph API, however, the product team behind the solution have delivered an application that can be used to drive this in a GUI format, take a look at my &lt;a href=&#34;https://euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/&#34;&gt;&lt;strong&gt;VLOG Post&lt;/strong&gt;&lt;/a&gt; to find out how to configure this.&lt;/p&gt;
+&lt;p&gt;The solution may only be configurable via the Graph API, however, the product team behind the solution have delivered an application that can be used to drive this in a GUI format, take a look at my &lt;a href=&#34;https://hugo.euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/&#34;&gt;&lt;strong&gt;VLOG Post&lt;/strong&gt;&lt;/a&gt; to find out how to configure this.&lt;/p&gt;
 &lt;p&gt;Without further ado though, let take a look at how we can interact with the service with the Graph API and PowerShell.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
@@ -511,7 +511,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -745,10 +745,10 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
     
     <item>
       <title>VLOG - Driver and Firmware Updates Preview GUI Configuration</title>
-      <link>https://euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</link>
+      <link>https://hugo.euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</link>
       <pubDate>Tue, 14 Feb 2023 14:17:39 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</guid>
       <description>&lt;p&gt;In this video, we’ll walk you through:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Installing required components&lt;/li&gt;
@@ -762,7 +762,7 @@ Last, but not least we post the relevant bodies to the relevant endpoints and we
 &lt;li&gt;&lt;a href=&#34;https://nodejs.org/en/download&#34;&gt;&lt;strong&gt;Node.JS Downloads&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/microsoftgraph/windowsupdates-webapplication-sample&#34;&gt;&lt;strong&gt;WUfB DS Web Application Repo&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/graph/api/resources/adminwindowsupdates?view=graph-rest-beta&#34;&gt;&lt;strong&gt;Graph API Documentation&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;Driver Management via Graph API and PowerShell&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;Driver Management via Graph API and PowerShell&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 

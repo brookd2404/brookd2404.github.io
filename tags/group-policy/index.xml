@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Group Policy on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/group-policy/</link>
+    <link>https://hugo.euc365.com/tags/group-policy/</link>
     <description>Recent content in Group Policy on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 18 Nov 2022 22:00:01 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/group-policy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Nov 2022 22:00:01 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/group-policy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Import GPOs to Group Policy Analytics using Graph API</title>
-      <link>https://euc365.com/post/import-gpos-group-policy-analytics-graph-api/</link>
+      <link>https://hugo.euc365.com/post/import-gpos-group-policy-analytics-graph-api/</link>
       <pubDate>Fri, 18 Nov 2022 22:00:01 +0000</pubDate>
       
-      <guid>https://euc365.com/post/import-gpos-group-policy-analytics-graph-api/</guid>
+      <guid>https://hugo.euc365.com/post/import-gpos-group-policy-analytics-graph-api/</guid>
       <description>&lt;p&gt;Many organisations are starting to adopt cloud technologies, some of which decide to start again with a clean slate and add in policies where necessary. However, some organisations still look to take migrate their complex Group Policies.&lt;/p&gt;
 
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;I would recommend taking the approach of clean slate, aligned to relevant framework(s) such as NCSC, NIST or CIS and applying only relevant policies there after. &lt;/br&gt;&lt;/br&gt;
@@ -61,7 +61,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/grouppolicy/exportGPOs.gif&#34; alt=&#34;Export GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/grouppolicy/exportGPOs.gif&#34; alt=&#34;Export GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -96,7 +96,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/grouppolicy/importGPOs.gif&#34; alt=&#34;Import GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/grouppolicy/importGPOs.gif&#34; alt=&#34;Import GPOs Running&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -118,7 +118,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/grouppolicy/importResult.gif&#34; alt=&#34;Import GPOs Result&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/grouppolicy/importResult.gif&#34; alt=&#34;Import GPOs Result&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -133,10 +133,10 @@
     
     <item>
       <title>Breaking Down Custom OMA-URI (CSP) Policies</title>
-      <link>https://euc365.com/breaking-custom-oma-uri-csp-policies/</link>
+      <link>https://hugo.euc365.com/breaking-custom-oma-uri-csp-policies/</link>
       <pubDate>Tue, 30 Jun 2020 18:35:00 +0000</pubDate>
       
-      <guid>https://euc365.com/breaking-custom-oma-uri-csp-policies/</guid>
+      <guid>https://hugo.euc365.com/breaking-custom-oma-uri-csp-policies/</guid>
       <description>&lt;h2 id=&#34;what-is-an-oma-uri-policy&#34;&gt;What is an OMA-URI Policy?&lt;/h2&gt;
 &lt;h4 id=&#34;meaning-open-mobile-alliance-uniform-resource-identifier&#34;&gt;Meaning: Open Mobile Alliance Uniform Resource Identifier&lt;/h4&gt;
 &lt;p&gt;Traditionally when you implement a new piece of software which contains Group Policy Objects (GPO&amp;rsquo;s) to customise the feature of the application you would import the .adml and .admx files into the PolicyDefinitions folder located within SysVol (SYSVOL) for the domain or into the local PolicyDefinitions (C:\WindowsPolicyDefinitions) folder.&lt;/p&gt;
@@ -163,7 +163,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Dev_ConfigProfiles-1_hub4c1dfb37001814860e4d54f32983feb_70857_495x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Profile&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/Dev_ConfigProfiles-1_hub4c1dfb37001814860e4d54f32983feb_70857_495x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Profile&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -189,7 +189,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/profileselection_Custom_hu3a861b27495a45dcd027da4c8c3fe959_8956_579x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;60%&#34; width=&#34;60%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/profileselection_Custom_hu3a861b27495a45dcd027da4c8c3fe959_8956_579x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;60%&#34; width=&#34;60%&#34;&gt;
 
 
 
@@ -214,7 +214,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Add_Custom_hu20dddc9b2feb72a03cde2c793a07b7a4_18488_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;90%&#34; width=&#34;90%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/Add_Custom_hu20dddc9b2feb72a03cde2c793a07b7a4_18488_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;90%&#34; width=&#34;90%&#34;&gt;
 
 
 
@@ -246,7 +246,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/chromeadmx_hu086cffa5b21ffbc253f5dbda429b76b0_25205_580x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;402&#34; width=&#34;580&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/chromeadmx_hu086cffa5b21ffbc253f5dbda429b76b0_25205_580x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;402&#34; width=&#34;580&#34;&gt;
 
 
 
@@ -293,7 +293,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/RegSnap_PolicyADMX-1_hu3417758c36cd16322956ffede1fcbad1_49454_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/RegSnap_PolicyADMX-1_hu3417758c36cd16322956ffede1fcbad1_49454_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -327,7 +327,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Cat_SUbCat_GC-1_hub42571b1e7175f5ba0c0e1438475c4aa_7404_642x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;117&#34; width=&#34;642&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/Cat_SUbCat_GC-1_hub42571b1e7175f5ba0c0e1438475c4aa_7404_642x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;117&#34; width=&#34;642&#34;&gt;
 
 
 
@@ -350,7 +350,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Startup_Shot_hu9f38fa4a4a71e72eb893fd1012ed0316_11776_415x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;187&#34; width=&#34;415&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/Startup_Shot_hu9f38fa4a4a71e72eb893fd1012ed0316_11776_415x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;187&#34; width=&#34;415&#34;&gt;
 
 
 
@@ -373,7 +373,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/HomepageSetting_hue9c27d273b99d181e2a4d31e1ca3ec72_19374_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/HomepageSetting_hue9c27d273b99d181e2a4d31e1ca3ec72_19374_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
 
 
 
@@ -398,7 +398,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/PolicyClass_hu0a32aa200859219a652c97f51ac08d29_7084_477x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;157&#34; width=&#34;477&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/PolicyClass_hu0a32aa200859219a652c97f51ac08d29_7084_477x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;157&#34; width=&#34;477&#34;&gt;
 
 
 
@@ -429,7 +429,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Cat_SUbCat_GC-1_hub42571b1e7175f5ba0c0e1438475c4aa_7404_642x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/Cat_SUbCat_GC-1_hub42571b1e7175f5ba0c0e1438475c4aa_7404_642x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -460,7 +460,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/HomepageKey-1024x120_hu34eee4ff45c257f80c9ec29ab62b54dc_40615_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/HomepageKey-1024x120_hu34eee4ff45c257f80c9ec29ab62b54dc_40615_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -485,7 +485,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/simpledisable_hua57b6aeb75d1078af8ae4b713891b1e7_18118_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/simpledisable_hua57b6aeb75d1078af8ae4b713891b1e7_18118_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
 
 
 
@@ -508,7 +508,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/HomepageKey-1024x120_hu34eee4ff45c257f80c9ec29ab62b54dc_40615_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/HomepageKey-1024x120_hu34eee4ff45c257f80c9ec29ab62b54dc_40615_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -531,7 +531,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/HomepageSetting_hue9c27d273b99d181e2a4d31e1ca3ec72_19374_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/HomepageSetting_hue9c27d273b99d181e2a4d31e1ca3ec72_19374_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;407&#34; width=&#34;585&#34;&gt;
 
 
 
@@ -557,7 +557,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/omauri/Annotation-2020-07-02-123120_hu7cc69084f089061c99f2d44353ac98a4_23518_586x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;408&#34; width=&#34;586&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/omauri/Annotation-2020-07-02-123120_hu7cc69084f089061c99f2d44353ac98a4_23518_586x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;408&#34; width=&#34;586&#34;&gt;
 
 
 

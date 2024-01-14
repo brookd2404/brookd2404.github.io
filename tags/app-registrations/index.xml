@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>App Registrations on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/app-registrations/</link>
+    <link>https://hugo.euc365.com/tags/app-registrations/</link>
     <description>Recent content in App Registrations on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 25 May 2022 10:05:00 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/app-registrations/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 May 2022 10:05:00 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/app-registrations/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Microsoft Graph API and PowerBI</title>
-      <link>https://euc365.com/microsoft-graph-and-powerbi/</link>
+      <link>https://hugo.euc365.com/microsoft-graph-and-powerbi/</link>
       <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
       
-      <guid>https://euc365.com/microsoft-graph-and-powerbi/</guid>
+      <guid>https://hugo.euc365.com/microsoft-graph-and-powerbi/</guid>
       <description>&lt;h2 id=&#34;a-little-bit-about-this-post&#34;&gt;A little bit about this post&lt;/h2&gt;
 &lt;p&gt;At &lt;a href=&#34;http://mmsmoa.com&#34;&gt;MMS 2022&lt;/a&gt; I took a huge leap and briefly presented this in the &lt;strong&gt;Tips &amp;amp; Tricks&lt;/strong&gt; Session. This was the first time I had ever presented in front of an audience.&lt;/p&gt;
 &lt;p&gt;I thought it would be good to give a bit of context on how this was conceptualised and why certain aspects are the way they are (some of them still make me shudder).&lt;/p&gt;
@@ -37,7 +37,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;DeviceManagementManagedDevices.Read.All&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If you are not familiar with creating App Registrations, take a look at my &lt;a href=&#34;https://euc365.com/create-an-azure-app-registration&#34;&gt;Create an Azure App Registration&lt;/a&gt; post.&lt;/p&gt;
+&lt;p&gt;If you are not familiar with creating App Registrations, take a look at my &lt;a href=&#34;https://hugo.euc365.com/create-an-azure-app-registration&#34;&gt;Create an Azure App Registration&lt;/a&gt; post.&lt;/p&gt;
 &lt;p&gt;Once you have added permissions and granted consent, you need to obtain a secret, this can be done from the App Registration by;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Clicking &lt;strong&gt;Certificates &amp;amp; Secrets&lt;/strong&gt;&lt;/li&gt;
@@ -400,7 +400,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/logicapphttptrigger_hu338a9792ae73f90bd9539efe780b309c_19341_603x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;375px&#34; width=&#34;600px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/logicapphttptrigger_hu338a9792ae73f90bd9539efe780b309c_19341_603x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;375px&#34; width=&#34;600px&#34;&gt;
 
 
 
@@ -510,7 +510,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/biignoreprivacy_hue5264bb602aa113c8ac9babd235921e4_24178_639x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Ignore Privacy PowerBIx&#34; height=&#34;250px&#34; width=&#34;500px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/biignoreprivacy_hue5264bb602aa113c8ac9babd235921e4_24178_639x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Ignore Privacy PowerBIx&#34; height=&#34;250px&#34; width=&#34;500px&#34;&gt;
 
 
 
@@ -718,7 +718,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/expandgraphcall_hu3f6d3ee85f51aa6b27eccc41a3056c8b_5617_167x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand Graph Call Table&#34; height=&#34;200px&#34; width=&#34;167px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/expandgraphcall_hu3f6d3ee85f51aa6b27eccc41a3056c8b_5617_167x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand Graph Call Table&#34; height=&#34;200px&#34; width=&#34;167px&#34;&gt;
 
 
 
@@ -745,7 +745,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/expandhwinfo_hua40fe5206a377732053e5581dcd2fd48_29194_349x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand hardwareInformation&#34; height=&#34;450px&#34; width=&#34;300px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/expandhwinfo_hua40fe5206a377732053e5581dcd2fd48_29194_349x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand hardwareInformation&#34; height=&#34;450px&#34; width=&#34;300px&#34;&gt;
 
 
 
@@ -776,7 +776,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/modelbutton_huad4a1917d5b6128e85ae823a2a11966c_10638_216x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Model button&#34; height=&#34;252px&#34; width=&#34;216px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/modelbutton_huad4a1917d5b6128e85ae823a2a11966c_10638_216x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Model button&#34; height=&#34;252px&#34; width=&#34;216px&#34;&gt;
 
 
 
@@ -798,7 +798,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/linktables.gif&#34; alt=&#34;Model button&#34; height=&#34;500px&#34; width=&#34;800px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/linktables.gif&#34; alt=&#34;Model button&#34; height=&#34;500px&#34; width=&#34;800px&#34;&gt;
 
 
 
@@ -813,10 +813,10 @@ Voilà!, you now have the hardware information for each device. There are still 
     
     <item>
       <title>Backup and Import App Protection Policies</title>
-      <link>https://euc365.com/backup-and-import-app-protection-policies/</link>
+      <link>https://hugo.euc365.com/backup-and-import-app-protection-policies/</link>
       <pubDate>Fri, 18 Sep 2020 08:49:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backup-and-import-app-protection-policies/</guid>
+      <guid>https://hugo.euc365.com/backup-and-import-app-protection-policies/</guid>
       <description>&lt;h2 id=&#34;why-backup-app-protection-policies&#34;&gt;Why backup App Protection Policies?&lt;/h2&gt;
 &lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
 &lt;ul&gt;
@@ -1025,7 +1025,7 @@ You will finally end up with something like this;
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupappprotection/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupappprotection/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
 
 
 
@@ -1042,10 +1042,10 @@ You will finally end up with something like this;
     
     <item>
       <title>Backup and Import Conditional Access Policies</title>
-      <link>https://euc365.com/backup-and-import-conditional-access-policies/</link>
+      <link>https://hugo.euc365.com/backup-and-import-conditional-access-policies/</link>
       <pubDate>Mon, 14 Sep 2020 13:20:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backup-and-import-conditional-access-policies/</guid>
+      <guid>https://hugo.euc365.com/backup-and-import-conditional-access-policies/</guid>
       <description>&lt;h2 id=&#34;why-backup-conditional-access-policies&#34;&gt;Why backup Conditional Access Policies?&lt;/h2&gt;
 &lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
 &lt;ul&gt;
@@ -1253,7 +1253,7 @@ Using the ClientID, ClientSecret and TenantID (Unattended) you will need;
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupconditionalaccess/NoRedirectURI_hu6ae5db7a752f041bfb3ec13814289dc1_8084_399x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;192&#34; width=&#34;399&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupconditionalaccess/NoRedirectURI_hu6ae5db7a752f041bfb3ec13814289dc1_8084_399x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;192&#34; width=&#34;399&#34;&gt;
 
 
 
@@ -1315,7 +1315,7 @@ You will finally end up with something like this;
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupconditionalaccess/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupconditionalaccess/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
 
 
 
@@ -1331,10 +1331,10 @@ You will finally end up with something like this;
     
     <item>
       <title>Backup and Import Intune Compliance Policies</title>
-      <link>https://euc365.com/backup-and-import-intune-compliance-policies/</link>
+      <link>https://hugo.euc365.com/backup-and-import-intune-compliance-policies/</link>
       <pubDate>Wed, 09 Sep 2020 16:09:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backup-and-import-intune-compliance-policies/</guid>
+      <guid>https://hugo.euc365.com/backup-and-import-intune-compliance-policies/</guid>
       <description>&lt;h2 id=&#34;why-backup-compliance-policies&#34;&gt;Why backup Compliance Policies&lt;/h2&gt;
 &lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
 &lt;ul&gt;
@@ -1556,7 +1556,7 @@ If you launch the script without the Client ID, Secret and Tenant ID you will be
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupcompliencepolicy/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupcompliencepolicy/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -1574,10 +1574,10 @@ You will need an account with permissions to be able to read (for backups only) 
     
     <item>
       <title>Backup and Import Intune Device Configuration Profiles</title>
-      <link>https://euc365.com/backing-up-intune-device-configuration-profiles/</link>
+      <link>https://hugo.euc365.com/backing-up-intune-device-configuration-profiles/</link>
       <pubDate>Wed, 02 Sep 2020 11:02:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backing-up-intune-device-configuration-profiles/</guid>
+      <guid>https://hugo.euc365.com/backing-up-intune-device-configuration-profiles/</guid>
       <description>&lt;h2 id=&#34;why-backup-device-configuration-profiles&#34;&gt;Why backup Device Configuration Profiles?&lt;/h2&gt;
 &lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
 &lt;ul&gt;
@@ -1789,7 +1789,7 @@ If you launch the script without the Client ID, Secret and Tenant ID you will be
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupconfigprofile/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupconfigprofile/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
 
 
 
@@ -1805,10 +1805,10 @@ If you launch the script without the Client ID, Secret and Tenant ID you will be
     
     <item>
       <title>Add devices to an Azure Group using the Microsoft Graph API</title>
-      <link>https://euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</link>
+      <link>https://hugo.euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</link>
       <pubDate>Tue, 11 Aug 2020 11:54:00 +0000</pubDate>
       
-      <guid>https://euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</guid>
+      <guid>https://hugo.euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</guid>
       <description>&lt;p&gt;Have you ever needed to add a device to an Azure AD Group as part of your MEMCM or Autopilot deployment for specific app, profiles or scripts?&lt;/p&gt;
 &lt;p&gt;Well it became the case that my organisation needed to do so for a couple of reason, one of those was to disable Windows Hello and the other for devices migrating from a previous Configuration Manager (Not MEMCM).&lt;/p&gt;
 &lt;p&gt;Because I was using Hybrid AD Join Autopilot Deployments it became the case that I had to use the devices&amp;rsquo; computer name and get the device information that way.&lt;/p&gt;
@@ -1908,7 +1908,7 @@ If your not sure how to create an Azure AD App Registration head over to one of 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/addtoaadgroup/Script-Params-AADGroup_3_hu90e1e4c330db7090c37dcc8f6132ea13_26697_506x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;495&#34; width=&#34;506&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/addtoaadgroup/Script-Params-AADGroup_3_hu90e1e4c330db7090c37dcc8f6132ea13_26697_506x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;495&#34; width=&#34;506&#34;&gt;
 
 
 
@@ -1932,7 +1932,7 @@ If your not sure how to create an Azure AD App Registration head over to one of 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/addtoaadgroup/Hide_Input_hua553485fb62691c1f33ef9f5c0698f64_13264_393x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;420&#34; width=&#34;393&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/addtoaadgroup/Hide_Input_hua553485fb62691c1f33ef9f5c0698f64_13264_393x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;420&#34; width=&#34;393&#34;&gt;
 
 
 
@@ -1960,7 +1960,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/addtoaadgroup/ScriptOutput-1_huc3aabd5c534d9cd4863e0ad7d6cbd3c2_62689_692x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;745&#34; width=&#34;692&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/addtoaadgroup/ScriptOutput-1_huc3aabd5c534d9cd4863e0ad7d6cbd3c2_62689_692x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;745&#34; width=&#34;692&#34;&gt;
 
 
 
@@ -1988,7 +1988,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/addtoaadgroup/ScriptSliders_hu9dd1a09eec28ff928f41e32a8e77296b_13543_401x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;140&#34; width=&#34;401&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/addtoaadgroup/ScriptSliders_hu9dd1a09eec28ff928f41e32a8e77296b_13543_401x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;140&#34; width=&#34;401&#34;&gt;
 
 
 
@@ -2003,10 +2003,10 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
     
     <item>
       <title>Enrol Devices to Autopilot (Unattended)</title>
-      <link>https://euc365.com/enrol-devices-to-autopilot-unattended/</link>
+      <link>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</link>
       <pubDate>Fri, 07 Aug 2020 17:17:00 +0000</pubDate>
       
-      <guid>https://euc365.com/enrol-devices-to-autopilot-unattended/</guid>
+      <guid>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</guid>
       <description>&lt;p&gt;I have been working on a project at the company I work for, and up to this point we have been primarily focused on getting new devices imported and deploying via Autopilot.&lt;/p&gt;
 &lt;p&gt;Now we have successfully leaped over that hurdle with very little issues (apart from the odd TPM attestation issue here and there and the ESP Profile page been skipped), we moved onto focusing on our current estate and how to import these into Autopilot .&lt;/p&gt;
 &lt;p&gt;There is a couple of ways to do this, you could run this in a package, as an application, as a script or in a task sequence for when you decide to re-build the machines.&lt;/p&gt;
@@ -2167,7 +2167,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ScriptDetails_huffb502f169b84fe148c90c7f2f982cd5_56051_691x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/ScriptDetails_huffb502f169b84fe148c90c7f2f982cd5_56051_691x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -2194,7 +2194,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ScriptOutput_hu553da8b8a7270aa60479ecb1f20212da_42524_689x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;742&#34; width=&#34;689&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/ScriptOutput_hu553da8b8a7270aa60479ecb1f20212da_42524_689x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;742&#34; width=&#34;689&#34;&gt;
 
 
 
@@ -2221,7 +2221,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ExisitingTS_hu65d58b8f3b5a1e165321170cdfcb01dc_65154_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/ExisitingTS_hu65d58b8f3b5a1e165321170cdfcb01dc_65154_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -2258,7 +2258,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/AddedPStoTS_huc17e98f7bc193bccfffa80135edbc451_71594_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;653&#34; width=&#34;959&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/AddedPStoTS_huc17e98f7bc193bccfffa80135edbc451_71594_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;653&#34; width=&#34;959&#34;&gt;
 
 
 
@@ -2282,7 +2282,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ScriptRunning_hu8c821047757f90b60671961d0e039542_16087_675x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;141&#34; width=&#34;675&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/ScriptRunning_hu8c821047757f90b60671961d0e039542_16087_675x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;141&#34; width=&#34;675&#34;&gt;
 
 
 
@@ -2305,7 +2305,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/DevInAP_huef4c9c829fe1307dbd7eb33e8076c322_45112_299x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;814&#34; width=&#34;299&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/DevInAP_huef4c9c829fe1307dbd7eb33e8076c322_45112_299x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;814&#34; width=&#34;299&#34;&gt;
 
 
 
@@ -2319,10 +2319,10 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
     
     <item>
       <title>Create an Azure App Registration</title>
-      <link>https://euc365.com/create_an_azure_app_registration/</link>
+      <link>https://hugo.euc365.com/create_an_azure_app_registration/</link>
       <pubDate>Wed, 08 Jul 2020 10:00:00 +0000</pubDate>
       
-      <guid>https://euc365.com/create_an_azure_app_registration/</guid>
+      <guid>https://hugo.euc365.com/create_an_azure_app_registration/</guid>
       <description>&lt;h3 id=&#34;what-can-you-use-an-azure-app-registration-for&#34;&gt;What can you use an Azure App Registration for&lt;/h3&gt;
 &lt;p&gt;An Azure App Registration has many uses, in my case I use it mainly for the Microsoft Graph API to perform Intune Configuration Profile backups, List devices, Update local CMDB dynamically and also enrol devices into Autopilot.&lt;/p&gt;
 &lt;p&gt;You will see the vast amount of options you can use for the API when you start adding the API permissions below.&lt;/p&gt;
@@ -2348,7 +2348,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/getdeviceinfo/API_Ref_v1_hu4affc4b0080027ba38404ea7c874eb09_53524_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;300&#34; width=&#34;250&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/getdeviceinfo/API_Ref_v1_hu4affc4b0080027ba38404ea7c874eb09_53524_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;300&#34; width=&#34;250&#34;&gt;
 
 
 
@@ -2375,7 +2375,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/List_PreReq-1_huce009ed4788325df3c559bd6f81d7d63_22396_620x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;382&#34; width=&#34;620&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/List_PreReq-1_huce009ed4788325df3c559bd6f81d7d63_22396_620x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;382&#34; width=&#34;620&#34;&gt;
 
 
 
@@ -2406,7 +2406,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/RegisterAppPage_huf4ef4d3d51fc229b586acc661e31a7af_42191_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/RegisterAppPage_huf4ef4d3d51fc229b586acc661e31a7af_42191_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -2431,7 +2431,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/RequestAPIPerm_hu4036499d0354b849dd78b9f812318219_41961_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/RequestAPIPerm_hu4036499d0354b849dd78b9f812318219_41961_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -2456,7 +2456,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/ServiceConfig-1_hu14402e6f04598a9e8ab2784edd403a2d_36680_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/ServiceConfig-1_hu14402e6f04598a9e8ab2784edd403a2d_36680_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -2481,7 +2481,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/PermissionBanner_hu3e02e0cdc557a76f708123e57e0645dc_4446_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;84&#34; width=&#34;805&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/PermissionBanner_hu3e02e0cdc557a76f708123e57e0645dc_4446_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;84&#34; width=&#34;805&#34;&gt;
 
 
 
@@ -2505,7 +2505,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/GrantPerm-1024x202_huf299aff7730569e49c29ec07bc893502_35957_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;202&#34; width=&#34;1024&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/GrantPerm-1024x202_huf299aff7730569e49c29ec07bc893502_35957_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;202&#34; width=&#34;1024&#34;&gt;
 
 
 &lt;/h2&gt;&lt;/p&gt;
@@ -2536,7 +2536,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/ClientSecret_hu75bbd5033626f9ab9635d200fa97491b_11042_354x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;274&#34; width=&#34;354&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/ClientSecret_hu75bbd5033626f9ab9635d200fa97491b_11042_354x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;274&#34; width=&#34;354&#34;&gt;
 
 
 
@@ -2561,7 +2561,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/CLientID_AppReg_hu3d22a0d3229acec6570ef70622be8a3f_30037_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/CLientID_AppReg_hu3d22a0d3229acec6570ef70622be8a3f_30037_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 

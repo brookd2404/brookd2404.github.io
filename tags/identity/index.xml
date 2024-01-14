@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Identity on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/identity/</link>
+    <link>https://hugo.euc365.com/tags/identity/</link>
     <description>Recent content in Identity on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 22 Sep 2022 12:25:57 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/identity/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Sep 2022 12:25:57 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/identity/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Configure Self-Service Password Reset with Cloud Sync</title>
-      <link>https://euc365.com/post/configure-service-password-reset-cloud-sync/</link>
+      <link>https://hugo.euc365.com/post/configure-service-password-reset-cloud-sync/</link>
       <pubDate>Thu, 22 Sep 2022 12:25:57 +0000</pubDate>
       
-      <guid>https://euc365.com/post/configure-service-password-reset-cloud-sync/</guid>
+      <guid>https://hugo.euc365.com/post/configure-service-password-reset-cloud-sync/</guid>
       <description>&lt;p&gt;Self-Service Password reset is just one of many features that reduce the pressure on support staff. Often users and admins get frustrated when it comes to resetting passwords, &amp;ldquo;Can you try Bf756dsgT!&amp;rdquo; &lt;strong&gt;Short Pause&amp;hellip;&lt;/strong&gt; &amp;ldquo;Is that &lt;strong&gt;F&lt;/strong&gt; for foxtrot or &lt;strong&gt;S&lt;/strong&gt; for sugar?&amp;rdquo;. Once you get past this stage, the user then has to type it again and then think of a new password, the whole process is just sub-optimal.&lt;/p&gt;
 &lt;p&gt;With today&amp;rsquo;s cloud infrastructure you can relieve both end users and also admins from this stress and also streamline the process with &lt;strong&gt;Self-Service Password Reset&lt;/strong&gt; or &lt;strong&gt;SSPR&lt;/strong&gt; for short. I am not going to tell you that this is a silver bullet with one shot clearing out all password reset calls, as it won&amp;rsquo;t. The key to the success of SSPR and the ROI is stakeholder buy-in and great communication.&lt;/p&gt;
 
@@ -55,7 +55,7 @@ If this is a goal for you, then this may be a piece in your puzzle!&lt;/p&gt;&lt
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/azure/enableSSPR_hu18bc56efd4c4301013d91ba3ca3bb5e5_42327_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSPR Slider&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/azure/enableSSPR_hu18bc56efd4c4301013d91ba3ca3bb5e5_42327_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSPR Slider&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -98,7 +98,7 @@ If this is a goal for you, then this may be a piece in your puzzle!&lt;/p&gt;&lt
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/azure/ssprposh_hudb3fb2207206c95d294623bf34f7703a_30607_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSPR PowerShell Writeback&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/azure/ssprposh_hudb3fb2207206c95d294623bf34f7703a_30607_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSPR PowerShell Writeback&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -115,10 +115,10 @@ Thank you to &lt;a href=&#34;https://twitter.com/modaly_it&#34;&gt;&lt;strong&gt
     
     <item>
       <title>VLOG - Azure AD Connect Cloud Sync</title>
-      <link>https://euc365.com/post/vlog-azuread-connect-cloud-sync/</link>
+      <link>https://hugo.euc365.com/post/vlog-azuread-connect-cloud-sync/</link>
       <pubDate>Wed, 07 Sep 2022 15:35:50 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-azuread-connect-cloud-sync/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-azuread-connect-cloud-sync/</guid>
       <description>&lt;h2 id=&#34;what-is-this-video-about&#34;&gt;What is this video about?&lt;/h2&gt;
 &lt;p&gt;This video goes over the configuration of Azure AD Connect Cloud Sync, with some insight into what the differences are with its bigger brother AADC, the Pre-Reqs and some other insights.&lt;/p&gt;
 &lt;hr&gt;

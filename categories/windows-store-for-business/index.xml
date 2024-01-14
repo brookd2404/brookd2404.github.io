@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Windows Store for Business on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/categories/windows-store-for-business/</link>
+    <link>https://hugo.euc365.com/categories/windows-store-for-business/</link>
     <description>Recent content in Windows Store for Business on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 15 Feb 2021 22:29:00 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/windows-store-for-business/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Feb 2021 22:29:00 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/windows-store-for-business/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deploy Windows Subsystem for Linux</title>
-      <link>https://euc365.com/deploy-windows-subsystem-for-linux/</link>
+      <link>https://hugo.euc365.com/deploy-windows-subsystem-for-linux/</link>
       <pubDate>Mon, 15 Feb 2021 22:29:00 +0000</pubDate>
       
-      <guid>https://euc365.com/deploy-windows-subsystem-for-linux/</guid>
+      <guid>https://hugo.euc365.com/deploy-windows-subsystem-for-linux/</guid>
       <description>&lt;h2 id=&#34;what-is-the-windows-susbsystem-for-linux&#34;&gt;What is the Windows Susbsystem for Linux?&lt;/h2&gt;
 &lt;p&gt;As per the &lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/faq#:~:text=The%20Windows%20Subsystem%20for%20Linux,desktop%20and%20modern%20store%20apps.&#34;&gt;Microsoft Documentation&lt;/a&gt;, &lt;strong&gt;The Windows Subsystem for Linux (WSL)&lt;/strong&gt; is a new &lt;strong&gt;Windows 10 feature&lt;/strong&gt; that enables you to run &lt;strong&gt;native Linux command-line tools directly on Windows&lt;/strong&gt;, alongside your traditional Windows desktop and modern store apps.&lt;/p&gt;
 &lt;p&gt;Now what does that mean? Can you run a full Linux setup in this way? Well the answer to that is &lt;strong&gt;NO&lt;/strong&gt; unfortunately not. This tool is designed for developers and other users who use bash and other common Linux tools.&lt;/p&gt;
@@ -89,7 +89,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/deploywsl/FeaturedImage_hu88af6168fb2889d0285544f033f3f748_59352_432x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;512&#34; width=&#34;432&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/deploywsl/FeaturedImage_hu88af6168fb2889d0285544f033f3f748_59352_432x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;512&#34; width=&#34;432&#34;&gt;
 
 
 &lt;/h2&gt;&lt;/p&gt;
@@ -124,7 +124,7 @@ Finish both of the off the dialog windows through the summary panes and then dep
 &lt;p&gt;As mentioned above you will need to use a Linux distribution to use with the Windows Subsystem for Linux which are available in the Microsoft Store.&lt;/p&gt;
 &lt;h2 id=&#34;intune-application&#34;&gt;Intune Application&lt;/h2&gt;
 
-&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Please see &lt;a href=&#34;https://euc365.com/creating-intune-win32-apps&#34;&gt;Creating Intune Win32 Apps&lt;/a&gt; for creating an Intune Win32 App Package.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Please see &lt;a href=&#34;https://hugo.euc365.com/creating-intune-win32-apps&#34;&gt;Creating Intune Win32 Apps&lt;/a&gt; for creating an Intune Win32 App Package.&lt;/p&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Select &lt;strong&gt;Apps&lt;/strong&gt; from the navigation pane&lt;/li&gt;
@@ -173,7 +173,7 @@ Finish both of the off the dialog windows through the summary panes and then dep
 
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;You will receive the WSL Distros at the top if you use the &lt;strong&gt;Developer Tools&lt;/strong&gt; category filter&lt;/p&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://euc365.com/images/post/deploywsl/linuxdistros.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://hugo.euc365.com/images/post/deploywsl/linuxdistros.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Click on the Distro you would like to use/deploy&lt;/li&gt;
 &lt;li&gt;Select you Licence Type, See &lt;a href=&#34;https://docs.microsoft.com/en-us/microsoft-store/acquire-apps-microsoft-store-for-business#:~:text=The%20Microsoft%20Store%20supports%20two%20options%20to%20license,is%20a%20new%20licensing%20option%20for%20Windows%2010.&#34;&gt;Microsoft Documentation&lt;/a&gt;, Click &lt;strong&gt;Get App&lt;/strong&gt;.&lt;/li&gt;
@@ -251,7 +251,7 @@ Finish both of the off the dialog windows through the summary panes and then dep
 &lt;li&gt;Click &lt;strong&gt;Manage&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Select your &lt;strong&gt;Platform&lt;/strong&gt;, &lt;strong&gt;Minimum Version&lt;/strong&gt;, &lt;strong&gt;Architecture&lt;/strong&gt;, &lt;strong&gt;App Metadata&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;You will then see something like the image below, this contains the &lt;strong&gt;Package Identity Name&lt;/strong&gt;, &lt;strong&gt;Package family name&lt;/strong&gt;, &lt;strong&gt;Package full name&lt;/strong&gt;, &lt;strong&gt;Package format&lt;/strong&gt; and the &lt;strong&gt;Supported architectures&lt;/strong&gt;.
-&lt;img src=&#34;https://euc365.com/images/post/deploywsl/offlineoptions.png&#34; alt=&#34;Image&#34;&gt;&lt;/li&gt;
+&lt;img src=&#34;https://hugo.euc365.com/images/post/deploywsl/offlineoptions.png&#34; alt=&#34;Image&#34;&gt;&lt;/li&gt;
 &lt;li&gt;Click &lt;strong&gt;Download&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;I will demonstrate how to install this using PowerShell, however, please see the &lt;a href=&#34;https://docs.microsoft.com/en-us/microsoft-store/distribute-offline-apps&#34;&gt;Distribute Offline Apps&lt;/a&gt; Microsoft Documentation for alternative methods.&lt;/p&gt;&lt;/div&gt;
@@ -272,10 +272,10 @@ Finish both of the off the dialog windows through the summary panes and then dep
 &lt;/ul&gt;
 
 &lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;To Enable WSL for use the device must be restarted, If you see the below message, WSL is either not installed or your device is pending a reboot.&lt;br&gt;
-&lt;img src=&#34;https://euc365.com/images/post/deploywsl/wslnotenabled.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;&lt;/div&gt;
+&lt;img src=&#34;https://hugo.euc365.com/images/post/deploywsl/wslnotenabled.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;&lt;/div&gt;
 
 &lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
-&lt;p&gt;I hope that you find this useful if you ever need to deploy WSL. If you have any questions please do not hesitate to reach out using the &lt;a href=&#34;https://euc365.com/contact&#34;&gt;Contact&lt;/a&gt; page or in the comment section below.&lt;/p&gt;
+&lt;p&gt;I hope that you find this useful if you ever need to deploy WSL. If you have any questions please do not hesitate to reach out using the &lt;a href=&#34;https://hugo.euc365.com/contact&#34;&gt;Contact&lt;/a&gt; page or in the comment section below.&lt;/p&gt;
 
 &lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;I had to use WSL the other day when deploying Docker Desktop as a dependency, the script came in handy for sure.&lt;/p&gt;&lt;/div&gt;
 

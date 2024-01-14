@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Autopilot on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/autopilot/</link>
+    <link>https://hugo.euc365.com/tags/autopilot/</link>
     <description>Recent content in Autopilot on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Nov 2022 12:39:33 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/autopilot/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Nov 2022 12:39:33 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/autopilot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bulk Remove Autopilot DisplayName Property</title>
-      <link>https://euc365.com/post/remove-autopilot-displayname/</link>
+      <link>https://hugo.euc365.com/post/remove-autopilot-displayname/</link>
       <pubDate>Thu, 10 Nov 2022 12:39:33 +0000</pubDate>
       
-      <guid>https://euc365.com/post/remove-autopilot-displayname/</guid>
+      <guid>https://hugo.euc365.com/post/remove-autopilot-displayname/</guid>
       <description>&lt;p&gt;Often, during the initial adoption of Microsoft Intune you will see organisations and admins try and maintain some of their technical debt of old. One of those areas is often the device naming conventions. In the modern management world, tracking assets via this method is long out dated, and if you are using Hybrid Azure AD Joined Devices you end up with an entirely new challenge on your hands anyway.&lt;/p&gt;
 &lt;p&gt;This post is aimed at organisations and admins who have decided to remove some of this technical debt and move towards using the options available within the &lt;a href=&#34;https://learn.microsoft.com/en-us/mem/autopilot/profiles&#34;&gt;&lt;strong&gt;Deployment Profiles&lt;/strong&gt;&lt;/a&gt; for Autopilot.&lt;/p&gt;
 &lt;p&gt;In this post we will be using a PowerShell Script with the &lt;a href=&#34;https://www.powershellgallery.com/packages/Microsoft.Graph&#34;&gt;&lt;strong&gt;Microsoft.Graph&lt;/strong&gt;&lt;/a&gt; module to achieve our goal and also take a backup of the devices previously specified DisplayNames.&lt;/p&gt;
@@ -40,7 +40,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/assumption_gs_hu5df4ecf98f56a3c1772c2b2ea9131e86_26473_484x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Display Name Value Magnified&#34; height=&#34;50%&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/autopilot/assumption_gs_hu5df4ecf98f56a3c1772c2b2ea9131e86_26473_484x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Display Name Value Magnified&#34; height=&#34;50%&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -64,7 +64,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/removeidentities.gif&#34; alt=&#34;Remove Identities Overview&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/autopilot/removeidentities.gif&#34; alt=&#34;Remove Identities Overview&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -87,7 +87,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/autopilot/rmidenlogoutput_hueeca295891e6afe644887b6489d5762b_16366_643x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Remove Identities Log&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/autopilot/rmidenlogoutput_hueeca295891e6afe644887b6489d5762b_16366_643x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Remove Identities Log&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -99,10 +99,10 @@
     
     <item>
       <title>Autopilot Enrolment Terms of Use</title>
-      <link>https://euc365.com/autopilot-enrolment-terms-of-use/</link>
+      <link>https://hugo.euc365.com/autopilot-enrolment-terms-of-use/</link>
       <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
       
-      <guid>https://euc365.com/autopilot-enrolment-terms-of-use/</guid>
+      <guid>https://hugo.euc365.com/autopilot-enrolment-terms-of-use/</guid>
       <description>&lt;h2 id=&#34;why-would-i-want-to-do-this-whats-the-purpose&#34;&gt;Why would I want to do this? Whats the Purpose?&lt;/h2&gt;
 &lt;p&gt;You maybe asking yourself why should I be adding Terms of use to Autopilot Enrolment? Well there are a few use cases that spring to mind.&lt;/p&gt;
 &lt;p&gt;The first been accepting an It acceptable use policy, for many years users have come to collect devices from a field office and/or had the devices delivered to them by an internal tech. Well in the current day and age of Modern Management and Windows Autopilot you now have the option to ship straight from the vendor to the end user, ensuring that the user accepts the policy prior to using the device maybe an absolute must for your organisation.&lt;/p&gt;
@@ -140,7 +140,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termsnameanddisplay_hub8ff1006e3bc9242cc17866791a4f670_26243_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Name and DisplayName&#34; height=&#34;138px&#34; width=&#34;587px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/termsnameanddisplay_hub8ff1006e3bc9242cc17866791a4f670_26243_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Name and DisplayName&#34; height=&#34;138px&#34; width=&#34;587px&#34;&gt;
 
 
 &lt;/p&gt;
@@ -153,7 +153,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/termsmultiplepdfs.png&#34; alt=&#34;Terms MultiplePDFS&#34; width=&#34;587px&#34; height=&#34;175px&#34; /&gt;
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/apterms/termsmultiplepdfs.png&#34; alt=&#34;Terms MultiplePDFS&#34; width=&#34;587px&#34; height=&#34;175px&#34; /&gt;
 &lt;br&gt;At this point you can upload the same terms in a different language, simply click **+ Add language**, Upload the PDF and then select its language from the drop down to the right-hand side.
 &lt;/p&gt;&lt;/div&gt;
 
@@ -162,7 +162,7 @@
 &lt;li&gt;&lt;strong&gt;Require users to consent on every device&lt;/strong&gt;, This one &lt;strong&gt;HAS&lt;/strong&gt; to be set to &lt;strong&gt;Off&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/consentwarning.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;650px&#34; height=&#34;138px&#34; /&gt;&lt;br&gt;
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/apterms/consentwarning.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;650px&#34; height=&#34;138px&#34; /&gt;&lt;br&gt;
 This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on the device has to be Joined to Azure AD Already and in fully working order. You will see this warning if you do attempt to switch it on.&lt;/p&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -192,7 +192,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termscomplete_hu78f625e649dfc516ebb0eba7978febd3_121537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;650px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/termscomplete_hu78f625e649dfc516ebb0eba7978febd3_121537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;650px&#34;&gt;
 
 
 &lt;/p&gt;
@@ -238,7 +238,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/grantselectterms_hu18dde69c3568addac427ca6104d8369f_93291_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;250px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/grantselectterms_hu18dde69c3568addac427ca6104d8369f_93291_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;250px&#34;&gt;
 
 
 
@@ -268,13 +268,13 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termsduringap_hu243e40b91a29d7e929c678b53a0b3d64_18595_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;300px&#34; width=&#34;1000px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/termsduringap_hu243e40b91a29d7e929c678b53a0b3d64_18595_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;300px&#34; width=&#34;1000px&#34;&gt;
 
 
 
 
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;If you selected to force the users to expand the terms, but just click accept you will see the message below pop up.
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/termsnoexpand.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;450px&#34; height=&#34;150px&#34; /&gt;&lt;/p&gt;&lt;/div&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/apterms/termsnoexpand.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;450px&#34; height=&#34;150px&#34; /&gt;&lt;/p&gt;&lt;/div&gt;
 
 &lt;p&gt;If you expand the terms you will see your terms in an embedded PDF viewer, once you have finished click &lt;strong&gt;Accept&lt;/strong&gt;, you will then just continue along your way on a standard Autopilot build.&lt;/p&gt;
 
@@ -300,7 +300,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/acceptteddeclinenumbers_hufcb2f10437b382c8df62e46426bbab6e_3110_635x0_resize_q100_h2_box_3.webp&#34; alt=&#34;acceptteddeclinenumbers&#34; height=&#34;75px&#34; width=&#34;600px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/acceptteddeclinenumbers_hufcb2f10437b382c8df62e46426bbab6e_3110_635x0_resize_q100_h2_box_3.webp&#34; alt=&#34;acceptteddeclinenumbers&#34; height=&#34;75px&#34; width=&#34;600px&#34;&gt;
 
 
 
@@ -313,10 +313,10 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
     
     <item>
       <title>Enrol Devices to Autopilot (Unattended)</title>
-      <link>https://euc365.com/enrol-devices-to-autopilot-unattended/</link>
+      <link>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</link>
       <pubDate>Fri, 07 Aug 2020 17:17:00 +0000</pubDate>
       
-      <guid>https://euc365.com/enrol-devices-to-autopilot-unattended/</guid>
+      <guid>https://hugo.euc365.com/enrol-devices-to-autopilot-unattended/</guid>
       <description>&lt;p&gt;I have been working on a project at the company I work for, and up to this point we have been primarily focused on getting new devices imported and deploying via Autopilot.&lt;/p&gt;
 &lt;p&gt;Now we have successfully leaped over that hurdle with very little issues (apart from the odd TPM attestation issue here and there and the ESP Profile page been skipped), we moved onto focusing on our current estate and how to import these into Autopilot .&lt;/p&gt;
 &lt;p&gt;There is a couple of ways to do this, you could run this in a package, as an application, as a script or in a task sequence for when you decide to re-build the machines.&lt;/p&gt;
@@ -477,7 +477,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ScriptDetails_huffb502f169b84fe148c90c7f2f982cd5_56051_691x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/ScriptDetails_huffb502f169b84fe148c90c7f2f982cd5_56051_691x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -504,7 +504,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ScriptOutput_hu553da8b8a7270aa60479ecb1f20212da_42524_689x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;742&#34; width=&#34;689&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/ScriptOutput_hu553da8b8a7270aa60479ecb1f20212da_42524_689x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;742&#34; width=&#34;689&#34;&gt;
 
 
 
@@ -531,7 +531,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ExisitingTS_hu65d58b8f3b5a1e165321170cdfcb01dc_65154_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/ExisitingTS_hu65d58b8f3b5a1e165321170cdfcb01dc_65154_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -568,7 +568,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/AddedPStoTS_huc17e98f7bc193bccfffa80135edbc451_71594_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;653&#34; width=&#34;959&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/AddedPStoTS_huc17e98f7bc193bccfffa80135edbc451_71594_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;653&#34; width=&#34;959&#34;&gt;
 
 
 
@@ -592,7 +592,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/ScriptRunning_hu8c821047757f90b60671961d0e039542_16087_675x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;141&#34; width=&#34;675&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/ScriptRunning_hu8c821047757f90b60671961d0e039542_16087_675x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;141&#34; width=&#34;675&#34;&gt;
 
 
 
@@ -615,7 +615,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/enroltoap/DevInAP_huef4c9c829fe1307dbd7eb33e8076c322_45112_299x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;814&#34; width=&#34;299&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/enroltoap/DevInAP_huef4c9c829fe1307dbd7eb33e8076c322_45112_299x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;814&#34; width=&#34;299&#34;&gt;
 
 
 

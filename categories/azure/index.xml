@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Azure on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/categories/azure/</link>
+    <link>https://hugo.euc365.com/categories/azure/</link>
     <description>Recent content in Azure on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 31 May 2023 08:37:18 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/azure/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 May 2023 08:37:18 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/azure/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows 365 Custom Images - Part 1 - The Foundations</title>
-      <link>https://euc365.com/post/windows-365-custom-images-part-1-foundations/</link>
+      <link>https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/</link>
       <pubDate>Wed, 31 May 2023 08:37:18 +0000</pubDate>
       
-      <guid>https://euc365.com/post/windows-365-custom-images-part-1-foundations/</guid>
+      <guid>https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/</guid>
       <description>&lt;p&gt;Welcome along for the ride as we talk about Windows 365 Custom Images, and how we can use Azure Image Builder to create these images. In the upcoming series of posts, we will cover the following topics;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Part 1 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
-&lt;li&gt;Part 2 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 3 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 4 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 1 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
+&lt;li&gt;Part 2 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 3 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 4 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;In this post we are going to discuss the foundations &amp;amp; requirements for creating a custom images, it is intended that this post is read first before moving onto the other parts of the series to ensure you fully understand the required components and how they work together. So without any further ado, let&amp;rsquo;s get started.&lt;/p&gt;
 &lt;hr&gt;
@@ -96,7 +96,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/foundationExecute_hued813d45066a380b444f1d6f23611c53_97552_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Foundation Script Execution Output&#34; height=&#34;&#34; width=&#34;100%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/foundationExecute_hued813d45066a380b444f1d6f23611c53_97552_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Foundation Script Execution Output&#34; height=&#34;&#34; width=&#34;100%&#34;&gt;
 
 
 
@@ -119,7 +119,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/foundationRG_hu64e7c07917baf29ec5f79875b729408e_52537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Resource Group&#34; height=&#34;&#34; width=&#34;85%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/foundationRG_hu64e7c07917baf29ec5f79875b729408e_52537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Resource Group&#34; height=&#34;&#34; width=&#34;85%&#34;&gt;
 
 
 
@@ -131,16 +131,16 @@
     
     <item>
       <title>Windows 365 Custom Images - Part 2 - PowerShell Deployment</title>
-      <link>https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/</link>
+      <link>https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/</link>
       <pubDate>Wed, 31 May 2023 08:37:10 +0000</pubDate>
       
-      <guid>https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/</guid>
+      <guid>https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/</guid>
       <description>&lt;p&gt;Welcome to the second post in the series talking about Windows 365 Custom Images, and how we can use Azure Image Builder to create these images. In this series of posts, we will cover the following topics;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Part 1 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 2 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
-&lt;li&gt;Part 3 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 4 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 1 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 2 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
+&lt;li&gt;Part 3 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 4 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The first post in the series covered the foundations for all of the deployment methods, and as such, this post will cover the PowerShell deployment method. We will cover additional requirements and what to expect as an output from the script.&lt;/p&gt;
 &lt;p&gt;The PowerShell deployment method will not only create the Image, but it will also upload the image to the Windows 365 Service, and then create a new Windows 365 Cloud PC Provisioning Policy, or update and existing policy if one already exists.&lt;/p&gt;
@@ -206,16 +206,16 @@
     
     <item>
       <title>Windows 365 Custom Images - Part 3 - Azure DevOps Deployment</title>
-      <link>https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/</link>
+      <link>https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/</link>
       <pubDate>Wed, 31 May 2023 08:37:04 +0000</pubDate>
       
-      <guid>https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/</guid>
+      <guid>https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/</guid>
       <description>&lt;p&gt;Welcome to the third post in the series talking about Windows 365 Custom Images, and how we can use Azure Image Builder to create these images. In this series of posts, we will cover the following topics;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Part 1 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 2 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 3 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
-&lt;li&gt;Part 4 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 1 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 2 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 3 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
+&lt;li&gt;Part 4 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Some of you may be like Veruca Salt from Charlie and the Chocolate Factory, and want all of the goodies &lt;strong&gt;Now&lt;/strong&gt; and opted to jump the second post in the series, and well, that is fine, I would have done the same thing 🤣, sorry not sorry.&lt;/p&gt;
 &lt;p&gt;In this post, we will be looking at how we can use Azure DevOps to deploy our Windows 365 Custom Image. Please follow the process carefully, as missing any of the steps could leave you scratching your head as to why it is not working.&lt;/p&gt;
@@ -245,7 +245,7 @@
 &lt;p&gt;Once you have the project created, we will need to create a Service Connection, again I would recommend following the &lt;a href=&#34;https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&amp;amp;tabs=yaml&#34;&gt;&lt;strong&gt;Microsoft Documentation&lt;/strong&gt;&lt;/a&gt;, ensuring you select &lt;strong&gt;Resource Group&lt;/strong&gt; created in the Foundations post and you select &lt;strong&gt;Grant access permission to all pipelines&lt;/strong&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;service-principal-app-registration&#34;&gt;Service Principal (App Registration)&lt;/h3&gt;
 &lt;p&gt;You only need to run through this section if you want to upload the image to Windows 365, which I assume you do. If you do not, then you can skip this section.&lt;/p&gt;
-&lt;p&gt;Not that it&amp;rsquo;s a habit of this post&amp;hellip; but I have another link&amp;hellip; this time it&amp;rsquo;s to one of my previous posts, &lt;a href=&#34;https://euc365.com/create_an_azure_app_registration/&#34;&gt;&lt;strong&gt;Create an Azure App Registration&lt;/strong&gt;&lt;/a&gt;, the service principal will need the following permissions;&lt;/p&gt;
+&lt;p&gt;Not that it&amp;rsquo;s a habit of this post&amp;hellip; but I have another link&amp;hellip; this time it&amp;rsquo;s to one of my previous posts, &lt;a href=&#34;https://hugo.euc365.com/create_an_azure_app_registration/&#34;&gt;&lt;strong&gt;Create an Azure App Registration&lt;/strong&gt;&lt;/a&gt;, the service principal will need the following permissions;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;CloudPC.ReadWrite.All&lt;/strong&gt; - This is required to upload the image to Windows 365&lt;/li&gt;
 &lt;li&gt;It will also need the &lt;strong&gt;Custom&lt;/strong&gt; Role assigning on the resource group you created in the Foundations post. (By default this will be called &lt;strong&gt;Azure Image Builder Image Definition for &lt;code&gt;&amp;lt;Resource Group Name&amp;gt;&lt;/code&gt;&lt;/strong&gt;)&lt;/li&gt;
@@ -268,7 +268,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/roleUMI_hu69e4290da9899aa02ab231893e9f5679_24893_749x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Role UMI Assignment&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/roleUMI_hu69e4290da9899aa02ab231893e9f5679_24893_749x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Role UMI Assignment&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -300,7 +300,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/bicepcustomise_hue12491a4e3059e3eaf7fb4e6b7897415_36145_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;BICEP File Customisations&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/bicepcustomise_hue12491a4e3059e3eaf7fb4e6b7897415_36145_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;BICEP File Customisations&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -371,7 +371,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/pipemanimage_hudeec81268b330ab108800f6c522c3040_18507_479x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Managed Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/pipemanimage_hudeec81268b330ab108800f6c522c3040_18507_479x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Managed Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -405,7 +405,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/pipedeploy_huffd282c64140e230de438d3f9b6bb626_18148_475x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Deploy Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/pipedeploy_huffd282c64140e230de438d3f9b6bb626_18148_475x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Deploy Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -437,7 +437,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/variables_hud9efc08a6bb0eab0d48ef34c3fab449f_9776_479x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Deploy Pipeline Variables&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/variables_hud9efc08a6bb0eab0d48ef34c3fab449f_9776_479x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Deploy Pipeline Variables&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -462,7 +462,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/pipelinesoverview_hud8fd705d8e95f858ad27dfca40aa306b_25407_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Overview of Pipelines&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/pipelinesoverview_hud8fd705d8e95f858ad27dfca40aa306b_25407_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Overview of Pipelines&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -485,7 +485,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/pipeline1_huca642fd523260eb418be34325ecc07ba_64621_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Managed Image Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/pipeline1_huca642fd523260eb418be34325ecc07ba_64621_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Managed Image Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -508,7 +508,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/pipeline2_hucf13e8f87123791a75d7c22b8d8e1d5f_66682_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Deploy to Windows 365 Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/pipeline2_hucf13e8f87123791a75d7c22b8d8e1d5f_66682_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Deploy to Windows 365 Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -531,7 +531,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/w365Portal_hub792f1d997280632cb8ce8e8538634b1_26697_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Windows 365 Image&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/w365Portal_hub792f1d997280632cb8ce8e8538634b1_26697_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Windows 365 Image&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -545,16 +545,16 @@
     
     <item>
       <title>Windows 365 Custom Images - Part 4 - Azure AVD UI</title>
-      <link>https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/</link>
+      <link>https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/</link>
       <pubDate>Wed, 31 May 2023 08:36:57 +0000</pubDate>
       
-      <guid>https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/</guid>
+      <guid>https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/</guid>
       <description>&lt;p&gt;Welcome to the fourth (&amp;amp; final&amp;hellip; for now) post in the series talking about Windows 365 Custom Images, and how we can use Azure Image Builder to create these images. In this series of posts, we will cover the following topics;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Part 1 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 2 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 3 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 4 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
+&lt;li&gt;Part 1 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 2 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 3 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 4 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This has been a long time coming for people not so involved with ARM, BICEP, DevOps or PowerShell as there is now UI Capabilities for you to create your own custom images. You can even use some &amp;lsquo;in-built&amp;rsquo; customisation options to give you that extra hand along the way.&lt;/p&gt;
 &lt;p&gt;This is by far the most manually involved piece, but it is a great way to get started with Azure Image Builder, and then you can start to explore the other options available to you.&lt;/p&gt;
@@ -590,7 +590,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/avdblade_hu778898063c6d8de5e701e77fbfb39d16_26113_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop blade&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/avdblade_hu778898063c6d8de5e701e77fbfb39d16_26113_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop blade&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -614,7 +614,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/avdcioptions_hu2801852e31a0583f0516b511f91b5fad_11105_272x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Option&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/avdcioptions_hu2801852e31a0583f0516b511f91b5fad_11105_272x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Option&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -652,7 +652,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/avdcibasic_hu9012fe3d09e45c478a3ea5eedea1725f_22846_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Basic Blade&#34; height=&#34;80%&#34; width=&#34;80%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/avdcibasic_hu9012fe3d09e45c478a3ea5eedea1725f_22846_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Basic Blade&#34; height=&#34;80%&#34; width=&#34;80%&#34;&gt;
 
 
 
@@ -681,7 +681,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/selectsource_huf3006c8c85dd3f8fcf4cacd5f7c8f095_38458_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Source Blade&#34; height=&#34;80%&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/selectsource_huf3006c8c85dd3f8fcf4cacd5f7c8f095_38458_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Source Blade&#34; height=&#34;80%&#34; width=&#34;&#34;&gt;
 
 
 
@@ -713,7 +713,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/disttarget_hua0fd067a64de8c83b0ad172a60722fbd_37601_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Distribution Blade&#34; height=&#34;80%&#34; width=&#34;80%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/disttarget_hua0fd067a64de8c83b0ad172a60722fbd_37601_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Distribution Blade&#34; height=&#34;80%&#34; width=&#34;80%&#34;&gt;
 
 
 
@@ -743,7 +743,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/portalcustomisations_hu79d20c7044884d8d8ae77709ee2d5ef5_41833_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Customizations Blade&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/portalcustomisations_hu79d20c7044884d8d8ae77709ee2d5ef5_41833_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Customizations Blade&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -774,7 +774,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/creatingtemplate_hua61144197f9d8016b8906ee91fa352ae_68081_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Template&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/creatingtemplate_hua61144197f9d8016b8906ee91fa352ae_68081_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Template&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -798,7 +798,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/startbuild_hu33487020f63f5569ef2d7a7314802443_52830_727x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Template - start build&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/startbuild_hu33487020f63f5569ef2d7a7314802443_52830_727x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Template - start build&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -833,7 +833,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/w365ImageConfig_hub6630b53745c50f9e1843fbcde86210d_21626_325x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Windows 365 Custom Image Configuration&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/w365ImageConfig_hub6630b53745c50f9e1843fbcde86210d_21626_325x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Windows 365 Custom Image Configuration&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -856,7 +856,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/w365ImageList_huff17fe2c60f360e05021906c2344c47b_36591_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Windows 365 Custom Image List&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/w365ImageList_huff17fe2c60f360e05021906c2344c47b_36591_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Windows 365 Custom Image List&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -870,10 +870,10 @@
     
     <item>
       <title>Configure Self-Service Password Reset with Cloud Sync</title>
-      <link>https://euc365.com/post/configure-service-password-reset-cloud-sync/</link>
+      <link>https://hugo.euc365.com/post/configure-service-password-reset-cloud-sync/</link>
       <pubDate>Thu, 22 Sep 2022 12:25:57 +0000</pubDate>
       
-      <guid>https://euc365.com/post/configure-service-password-reset-cloud-sync/</guid>
+      <guid>https://hugo.euc365.com/post/configure-service-password-reset-cloud-sync/</guid>
       <description>&lt;p&gt;Self-Service Password reset is just one of many features that reduce the pressure on support staff. Often users and admins get frustrated when it comes to resetting passwords, &amp;ldquo;Can you try Bf756dsgT!&amp;rdquo; &lt;strong&gt;Short Pause&amp;hellip;&lt;/strong&gt; &amp;ldquo;Is that &lt;strong&gt;F&lt;/strong&gt; for foxtrot or &lt;strong&gt;S&lt;/strong&gt; for sugar?&amp;rdquo;. Once you get past this stage, the user then has to type it again and then think of a new password, the whole process is just sub-optimal.&lt;/p&gt;
 &lt;p&gt;With today&amp;rsquo;s cloud infrastructure you can relieve both end users and also admins from this stress and also streamline the process with &lt;strong&gt;Self-Service Password Reset&lt;/strong&gt; or &lt;strong&gt;SSPR&lt;/strong&gt; for short. I am not going to tell you that this is a silver bullet with one shot clearing out all password reset calls, as it won&amp;rsquo;t. The key to the success of SSPR and the ROI is stakeholder buy-in and great communication.&lt;/p&gt;
 
@@ -916,7 +916,7 @@ If this is a goal for you, then this may be a piece in your puzzle!&lt;/p&gt;&lt
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/azure/enableSSPR_hu18bc56efd4c4301013d91ba3ca3bb5e5_42327_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSPR Slider&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/azure/enableSSPR_hu18bc56efd4c4301013d91ba3ca3bb5e5_42327_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSPR Slider&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -959,7 +959,7 @@ If this is a goal for you, then this may be a piece in your puzzle!&lt;/p&gt;&lt
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/azure/ssprposh_hudb3fb2207206c95d294623bf34f7703a_30607_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSPR PowerShell Writeback&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/azure/ssprposh_hudb3fb2207206c95d294623bf34f7703a_30607_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSPR PowerShell Writeback&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -976,10 +976,10 @@ Thank you to &lt;a href=&#34;https://twitter.com/modaly_it&#34;&gt;&lt;strong&gt
     
     <item>
       <title>Deny Resource Type Creation with Azure Policy</title>
-      <link>https://euc365.com/post/deny-resource-type-creation-azure-policy/</link>
+      <link>https://hugo.euc365.com/post/deny-resource-type-creation-azure-policy/</link>
       <pubDate>Thu, 07 Jul 2022 10:34:57 +0000</pubDate>
       
-      <guid>https://euc365.com/post/deny-resource-type-creation-azure-policy/</guid>
+      <guid>https://hugo.euc365.com/post/deny-resource-type-creation-azure-policy/</guid>
       <description>&lt;h2 id=&#34;what-is-azure-policy&#34;&gt;What is Azure Policy?&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Azure Policy&lt;/strong&gt; is a way to help organisations enforce standards and compliance. &lt;strong&gt;Azure Policy&lt;/strong&gt; is commonly used for things like enforcing only certain allowed locations for resources, locating non-compliant Azure resources and for many, many other reasons.&lt;/p&gt;
 &lt;p&gt;For a full overview of Azure Policy, please take a look at the &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/governance/policy/overview&#34;&gt;&lt;strong&gt;Microsoft Documentation&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
@@ -1020,7 +1020,7 @@ Thank you to &lt;a href=&#34;https://twitter.com/modaly_it&#34;&gt;&lt;strong&gt
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;parameters&amp;#34;&lt;/span&gt;: {}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;assignment-experience&#34;&gt;Assignment Experience&lt;/h3&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/azurepolicy/anyOfassignment.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/azurepolicy/anyOfassignment.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 
@@ -1059,7 +1059,7 @@ Thank you to &lt;a href=&#34;https://twitter.com/modaly_it&#34;&gt;&lt;strong&gt
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;assignment-experience&#34;&gt;Assignment Experience&lt;/h3&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/azurepolicy/hardcodedassignment.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/azurepolicy/hardcodedassignment.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 
@@ -1095,7 +1095,7 @@ Thank you to &lt;a href=&#34;https://twitter.com/modaly_it&#34;&gt;&lt;strong&gt
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;assignment-experience&#34;&gt;Assignment Experience&lt;/h3&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/azurepolicy/strongtypeassignment.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/azurepolicy/strongtypeassignment.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -1142,10 +1142,10 @@ Thank you to &lt;a href=&#34;https://twitter.com/modaly_it&#34;&gt;&lt;strong&gt
     
     <item>
       <title>Microsoft Graph API and PowerBI</title>
-      <link>https://euc365.com/microsoft-graph-and-powerbi/</link>
+      <link>https://hugo.euc365.com/microsoft-graph-and-powerbi/</link>
       <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
       
-      <guid>https://euc365.com/microsoft-graph-and-powerbi/</guid>
+      <guid>https://hugo.euc365.com/microsoft-graph-and-powerbi/</guid>
       <description>&lt;h2 id=&#34;a-little-bit-about-this-post&#34;&gt;A little bit about this post&lt;/h2&gt;
 &lt;p&gt;At &lt;a href=&#34;http://mmsmoa.com&#34;&gt;MMS 2022&lt;/a&gt; I took a huge leap and briefly presented this in the &lt;strong&gt;Tips &amp;amp; Tricks&lt;/strong&gt; Session. This was the first time I had ever presented in front of an audience.&lt;/p&gt;
 &lt;p&gt;I thought it would be good to give a bit of context on how this was conceptualised and why certain aspects are the way they are (some of them still make me shudder).&lt;/p&gt;
@@ -1170,7 +1170,7 @@ Thank you to &lt;a href=&#34;https://twitter.com/modaly_it&#34;&gt;&lt;strong&gt
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;DeviceManagementManagedDevices.Read.All&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If you are not familiar with creating App Registrations, take a look at my &lt;a href=&#34;https://euc365.com/create-an-azure-app-registration&#34;&gt;Create an Azure App Registration&lt;/a&gt; post.&lt;/p&gt;
+&lt;p&gt;If you are not familiar with creating App Registrations, take a look at my &lt;a href=&#34;https://hugo.euc365.com/create-an-azure-app-registration&#34;&gt;Create an Azure App Registration&lt;/a&gt; post.&lt;/p&gt;
 &lt;p&gt;Once you have added permissions and granted consent, you need to obtain a secret, this can be done from the App Registration by;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Clicking &lt;strong&gt;Certificates &amp;amp; Secrets&lt;/strong&gt;&lt;/li&gt;
@@ -1533,7 +1533,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/logicapphttptrigger_hu338a9792ae73f90bd9539efe780b309c_19341_603x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;375px&#34; width=&#34;600px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/logicapphttptrigger_hu338a9792ae73f90bd9539efe780b309c_19341_603x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;375px&#34; width=&#34;600px&#34;&gt;
 
 
 
@@ -1643,7 +1643,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/biignoreprivacy_hue5264bb602aa113c8ac9babd235921e4_24178_639x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Ignore Privacy PowerBIx&#34; height=&#34;250px&#34; width=&#34;500px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/biignoreprivacy_hue5264bb602aa113c8ac9babd235921e4_24178_639x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Ignore Privacy PowerBIx&#34; height=&#34;250px&#34; width=&#34;500px&#34;&gt;
 
 
 
@@ -1851,7 +1851,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/expandgraphcall_hu3f6d3ee85f51aa6b27eccc41a3056c8b_5617_167x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand Graph Call Table&#34; height=&#34;200px&#34; width=&#34;167px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/expandgraphcall_hu3f6d3ee85f51aa6b27eccc41a3056c8b_5617_167x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand Graph Call Table&#34; height=&#34;200px&#34; width=&#34;167px&#34;&gt;
 
 
 
@@ -1878,7 +1878,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/expandhwinfo_hua40fe5206a377732053e5581dcd2fd48_29194_349x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand hardwareInformation&#34; height=&#34;450px&#34; width=&#34;300px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/expandhwinfo_hua40fe5206a377732053e5581dcd2fd48_29194_349x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand hardwareInformation&#34; height=&#34;450px&#34; width=&#34;300px&#34;&gt;
 
 
 
@@ -1909,7 +1909,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/modelbutton_huad4a1917d5b6128e85ae823a2a11966c_10638_216x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Model button&#34; height=&#34;252px&#34; width=&#34;216px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/modelbutton_huad4a1917d5b6128e85ae823a2a11966c_10638_216x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Model button&#34; height=&#34;252px&#34; width=&#34;216px&#34;&gt;
 
 
 
@@ -1931,7 +1931,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/linktables.gif&#34; alt=&#34;Model button&#34; height=&#34;500px&#34; width=&#34;800px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/linktables.gif&#34; alt=&#34;Model button&#34; height=&#34;500px&#34; width=&#34;800px&#34;&gt;
 
 
 
@@ -1946,10 +1946,10 @@ Voilà!, you now have the hardware information for each device. There are still 
     
     <item>
       <title>Update Apple SCIM Token</title>
-      <link>https://euc365.com/update-apple-scim-token/</link>
+      <link>https://hugo.euc365.com/update-apple-scim-token/</link>
       <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
       
-      <guid>https://euc365.com/update-apple-scim-token/</guid>
+      <guid>https://hugo.euc365.com/update-apple-scim-token/</guid>
       <description>&lt;h2 id=&#34;what-is-scim&#34;&gt;What is SCIM?&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Meaning:&lt;/strong&gt; SCIM (System for Cross-domain Identity Management)&lt;br&gt;
 &lt;br&gt;
@@ -1982,7 +1982,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/launchpref_hucdd93b0f2b7def139acf5a1585498382_19992_534x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Launch Preferences&#34; height=&#34;225px&#34; width=&#34;500px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/launchpref_hucdd93b0f2b7def139acf5a1585498382_19992_534x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Launch Preferences&#34; height=&#34;225px&#34; width=&#34;500px&#34;&gt;
 
 
 
@@ -2006,7 +2006,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/editsync_hua4708496e6dd0362aea1a42e0549cbbe_49783_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;100%&#34; width=&#34;100%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/editsync_hua4708496e6dd0362aea1a42e0549cbbe_49783_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;100%&#34; width=&#34;100%&#34;&gt;
 
 
 
@@ -2031,7 +2031,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/tokenscreen_hue88b80ce8971ec084768576963e12dd4_43840_744x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Token Pop-up&#34; height=&#34;475px&#34; width=&#34;400px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/tokenscreen_hue88b80ce8971ec084768576963e12dd4_43840_744x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Token Pop-up&#34; height=&#34;475px&#34; width=&#34;400px&#34;&gt;
 
 
 
@@ -2069,7 +2069,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/editprov_hu13798373de147c6e48c0bc8e68d77114_43470_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Provisioning&#34; height=&#34;325px&#34; width=&#34;800px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/editprov_hu13798373de147c6e48c0bc8e68d77114_43470_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Provisioning&#34; height=&#34;325px&#34; width=&#34;800px&#34;&gt;
 
 
 
@@ -2093,7 +2093,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/updateprov_huc07af3022dbc619d82f545ba8fc8a57f_29814_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Update Provisioning&#34; height=&#34;325px&#34; width=&#34;650px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/updateprov_huc07af3022dbc619d82f545ba8fc8a57f_29814_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Update Provisioning&#34; height=&#34;325px&#34; width=&#34;650px&#34;&gt;
 
 
 
@@ -2118,7 +2118,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/testresult_hu1d65da5bc27754a2671bdb52290bbdb6_16630_431x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Test Result&#34; height=&#34;125px&#34; width=&#34;350px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/testresult_hu1d65da5bc27754a2671bdb52290bbdb6_16630_431x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Test Result&#34; height=&#34;125px&#34; width=&#34;350px&#34;&gt;
 
 
 
@@ -2129,10 +2129,10 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
     
     <item>
       <title>Autopilot Enrolment Terms of Use</title>
-      <link>https://euc365.com/autopilot-enrolment-terms-of-use/</link>
+      <link>https://hugo.euc365.com/autopilot-enrolment-terms-of-use/</link>
       <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
       
-      <guid>https://euc365.com/autopilot-enrolment-terms-of-use/</guid>
+      <guid>https://hugo.euc365.com/autopilot-enrolment-terms-of-use/</guid>
       <description>&lt;h2 id=&#34;why-would-i-want-to-do-this-whats-the-purpose&#34;&gt;Why would I want to do this? Whats the Purpose?&lt;/h2&gt;
 &lt;p&gt;You maybe asking yourself why should I be adding Terms of use to Autopilot Enrolment? Well there are a few use cases that spring to mind.&lt;/p&gt;
 &lt;p&gt;The first been accepting an It acceptable use policy, for many years users have come to collect devices from a field office and/or had the devices delivered to them by an internal tech. Well in the current day and age of Modern Management and Windows Autopilot you now have the option to ship straight from the vendor to the end user, ensuring that the user accepts the policy prior to using the device maybe an absolute must for your organisation.&lt;/p&gt;
@@ -2170,7 +2170,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termsnameanddisplay_hub8ff1006e3bc9242cc17866791a4f670_26243_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Name and DisplayName&#34; height=&#34;138px&#34; width=&#34;587px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/termsnameanddisplay_hub8ff1006e3bc9242cc17866791a4f670_26243_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Name and DisplayName&#34; height=&#34;138px&#34; width=&#34;587px&#34;&gt;
 
 
 &lt;/p&gt;
@@ -2183,7 +2183,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/termsmultiplepdfs.png&#34; alt=&#34;Terms MultiplePDFS&#34; width=&#34;587px&#34; height=&#34;175px&#34; /&gt;
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/apterms/termsmultiplepdfs.png&#34; alt=&#34;Terms MultiplePDFS&#34; width=&#34;587px&#34; height=&#34;175px&#34; /&gt;
 &lt;br&gt;At this point you can upload the same terms in a different language, simply click **+ Add language**, Upload the PDF and then select its language from the drop down to the right-hand side.
 &lt;/p&gt;&lt;/div&gt;
 
@@ -2192,7 +2192,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 &lt;li&gt;&lt;strong&gt;Require users to consent on every device&lt;/strong&gt;, This one &lt;strong&gt;HAS&lt;/strong&gt; to be set to &lt;strong&gt;Off&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/consentwarning.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;650px&#34; height=&#34;138px&#34; /&gt;&lt;br&gt;
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/apterms/consentwarning.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;650px&#34; height=&#34;138px&#34; /&gt;&lt;br&gt;
 This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on the device has to be Joined to Azure AD Already and in fully working order. You will see this warning if you do attempt to switch it on.&lt;/p&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -2222,7 +2222,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termscomplete_hu78f625e649dfc516ebb0eba7978febd3_121537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;650px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/termscomplete_hu78f625e649dfc516ebb0eba7978febd3_121537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;650px&#34;&gt;
 
 
 &lt;/p&gt;
@@ -2268,7 +2268,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/grantselectterms_hu18dde69c3568addac427ca6104d8369f_93291_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;250px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/grantselectterms_hu18dde69c3568addac427ca6104d8369f_93291_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;250px&#34;&gt;
 
 
 
@@ -2298,13 +2298,13 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termsduringap_hu243e40b91a29d7e929c678b53a0b3d64_18595_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;300px&#34; width=&#34;1000px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/termsduringap_hu243e40b91a29d7e929c678b53a0b3d64_18595_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;300px&#34; width=&#34;1000px&#34;&gt;
 
 
 
 
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;If you selected to force the users to expand the terms, but just click accept you will see the message below pop up.
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/termsnoexpand.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;450px&#34; height=&#34;150px&#34; /&gt;&lt;/p&gt;&lt;/div&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/apterms/termsnoexpand.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;450px&#34; height=&#34;150px&#34; /&gt;&lt;/p&gt;&lt;/div&gt;
 
 &lt;p&gt;If you expand the terms you will see your terms in an embedded PDF viewer, once you have finished click &lt;strong&gt;Accept&lt;/strong&gt;, you will then just continue along your way on a standard Autopilot build.&lt;/p&gt;
 
@@ -2330,7 +2330,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/acceptteddeclinenumbers_hufcb2f10437b382c8df62e46426bbab6e_3110_635x0_resize_q100_h2_box_3.webp&#34; alt=&#34;acceptteddeclinenumbers&#34; height=&#34;75px&#34; width=&#34;600px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/acceptteddeclinenumbers_hufcb2f10437b382c8df62e46426bbab6e_3110_635x0_resize_q100_h2_box_3.webp&#34; alt=&#34;acceptteddeclinenumbers&#34; height=&#34;75px&#34; width=&#34;600px&#34;&gt;
 
 
 
@@ -2343,10 +2343,10 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
     
     <item>
       <title>Finding Microsoft Graph API&#39;s from the Web</title>
-      <link>https://euc365.com/finding-microsoft-graph-apis-from-the-web/</link>
+      <link>https://hugo.euc365.com/finding-microsoft-graph-apis-from-the-web/</link>
       <pubDate>Mon, 05 Oct 2020 16:18:00 +0000</pubDate>
       
-      <guid>https://euc365.com/finding-microsoft-graph-apis-from-the-web/</guid>
+      <guid>https://hugo.euc365.com/finding-microsoft-graph-apis-from-the-web/</guid>
       <description>&lt;h2 id=&#34;why-do-i-need-to-find-these&#34;&gt;Why do I need to find these?&lt;/h2&gt;
 &lt;p&gt;Welcome (Back) to another post about the graph API&amp;rsquo;s, This time it isn&amp;rsquo;t so much about rambling through documentation but about giving you a nice handy tip on your route to finding what API is been called when browsing in the Web Console.&lt;/p&gt;
 &lt;p&gt;The only things your are going to need for this will be an &lt;b&gt;Azure AD Account&lt;/b&gt; with permissions to at least &lt;b&gt;Read&lt;/b&gt; policies and a modern web browser, Yes really that&amp;rsquo;s it.&lt;/p&gt;
@@ -2372,7 +2372,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/findapis/DevToolsTabs_hu263fe55261254b26a66783d5d9793455_3463_559x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;43&#34; width=&#34;559&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/findapis/DevToolsTabs_hu263fe55261254b26a66783d5d9793455_3463_559x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;43&#34; width=&#34;559&#34;&gt;
 
 
 
@@ -2395,7 +2395,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/findapis/Network-Pane_hu9c8ab21e5f886923c79852df5ce0c776_24041_206x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;535&#34; width=&#34;206&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/findapis/Network-Pane_hu9c8ab21e5f886923c79852df5ce0c776_24041_206x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;535&#34; width=&#34;206&#34;&gt;
 
 
 
@@ -2417,7 +2417,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/findapis/Network-Pane-DataReturn_hua3a680465a25672fa15ad98cd815f8fb_49560_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;400&#34; width=&#34;800&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/findapis/Network-Pane-DataReturn_hua3a680465a25672fa15ad98cd815f8fb_49560_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;400&#34; width=&#34;800&#34;&gt;
 
 
 &lt;/p&gt;
@@ -2439,7 +2439,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/findapis/APIHover_hud29685835cbbb5311b013760c4ac7052_10522_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/findapis/APIHover_hud29685835cbbb5311b013760c4ac7052_10522_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -2461,7 +2461,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/findapis/GraphExplorer_hu113933821425111d428596dbdd3f93eb_48495_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/findapis/GraphExplorer_hu113933821425111d428596dbdd3f93eb_48495_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -2472,10 +2472,10 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
     
     <item>
       <title>Backup and Import Conditional Access Policies</title>
-      <link>https://euc365.com/backup-and-import-conditional-access-policies/</link>
+      <link>https://hugo.euc365.com/backup-and-import-conditional-access-policies/</link>
       <pubDate>Mon, 14 Sep 2020 13:20:00 +0000</pubDate>
       
-      <guid>https://euc365.com/backup-and-import-conditional-access-policies/</guid>
+      <guid>https://hugo.euc365.com/backup-and-import-conditional-access-policies/</guid>
       <description>&lt;h2 id=&#34;why-backup-conditional-access-policies&#34;&gt;Why backup Conditional Access Policies?&lt;/h2&gt;
 &lt;p&gt;Why would you need to back up something that runs in stored and hosted on Azure? Well there are numerous answers to this question really.&lt;/p&gt;
 &lt;ul&gt;
@@ -2683,7 +2683,7 @@ Using the ClientID, ClientSecret and TenantID (Unattended) you will need;
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupconditionalaccess/NoRedirectURI_hu6ae5db7a752f041bfb3ec13814289dc1_8084_399x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;192&#34; width=&#34;399&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupconditionalaccess/NoRedirectURI_hu6ae5db7a752f041bfb3ec13814289dc1_8084_399x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;192&#34; width=&#34;399&#34;&gt;
 
 
 
@@ -2745,7 +2745,7 @@ You will finally end up with something like this;
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/backupconditionalaccess/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/backupconditionalaccess/MSGraphWindow_hu3473e43f0886b317d217ed86cd989e3b_12794_565x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;394&#34; width=&#34;565&#34;&gt;
 
 
 
@@ -2761,10 +2761,10 @@ You will finally end up with something like this;
     
     <item>
       <title>Add devices to an Azure Group using the Microsoft Graph API</title>
-      <link>https://euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</link>
+      <link>https://hugo.euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</link>
       <pubDate>Tue, 11 Aug 2020 11:54:00 +0000</pubDate>
       
-      <guid>https://euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</guid>
+      <guid>https://hugo.euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</guid>
       <description>&lt;p&gt;Have you ever needed to add a device to an Azure AD Group as part of your MEMCM or Autopilot deployment for specific app, profiles or scripts?&lt;/p&gt;
 &lt;p&gt;Well it became the case that my organisation needed to do so for a couple of reason, one of those was to disable Windows Hello and the other for devices migrating from a previous Configuration Manager (Not MEMCM).&lt;/p&gt;
 &lt;p&gt;Because I was using Hybrid AD Join Autopilot Deployments it became the case that I had to use the devices&amp;rsquo; computer name and get the device information that way.&lt;/p&gt;
@@ -2864,7 +2864,7 @@ If your not sure how to create an Azure AD App Registration head over to one of 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/addtoaadgroup/Script-Params-AADGroup_3_hu90e1e4c330db7090c37dcc8f6132ea13_26697_506x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;495&#34; width=&#34;506&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/addtoaadgroup/Script-Params-AADGroup_3_hu90e1e4c330db7090c37dcc8f6132ea13_26697_506x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;495&#34; width=&#34;506&#34;&gt;
 
 
 
@@ -2888,7 +2888,7 @@ If your not sure how to create an Azure AD App Registration head over to one of 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/addtoaadgroup/Hide_Input_hua553485fb62691c1f33ef9f5c0698f64_13264_393x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;420&#34; width=&#34;393&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/addtoaadgroup/Hide_Input_hua553485fb62691c1f33ef9f5c0698f64_13264_393x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;420&#34; width=&#34;393&#34;&gt;
 
 
 
@@ -2916,7 +2916,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/addtoaadgroup/ScriptOutput-1_huc3aabd5c534d9cd4863e0ad7d6cbd3c2_62689_692x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;745&#34; width=&#34;692&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/addtoaadgroup/ScriptOutput-1_huc3aabd5c534d9cd4863e0ad7d6cbd3c2_62689_692x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;745&#34; width=&#34;692&#34;&gt;
 
 
 
@@ -2944,7 +2944,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/addtoaadgroup/ScriptSliders_hu9dd1a09eec28ff928f41e32a8e77296b_13543_401x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;140&#34; width=&#34;401&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/addtoaadgroup/ScriptSliders_hu9dd1a09eec28ff928f41e32a8e77296b_13543_401x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;140&#34; width=&#34;401&#34;&gt;
 
 
 
@@ -2959,10 +2959,10 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
     
     <item>
       <title>Create an Azure App Registration</title>
-      <link>https://euc365.com/create_an_azure_app_registration/</link>
+      <link>https://hugo.euc365.com/create_an_azure_app_registration/</link>
       <pubDate>Wed, 08 Jul 2020 10:00:00 +0000</pubDate>
       
-      <guid>https://euc365.com/create_an_azure_app_registration/</guid>
+      <guid>https://hugo.euc365.com/create_an_azure_app_registration/</guid>
       <description>&lt;h3 id=&#34;what-can-you-use-an-azure-app-registration-for&#34;&gt;What can you use an Azure App Registration for&lt;/h3&gt;
 &lt;p&gt;An Azure App Registration has many uses, in my case I use it mainly for the Microsoft Graph API to perform Intune Configuration Profile backups, List devices, Update local CMDB dynamically and also enrol devices into Autopilot.&lt;/p&gt;
 &lt;p&gt;You will see the vast amount of options you can use for the API when you start adding the API permissions below.&lt;/p&gt;
@@ -2988,7 +2988,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/getdeviceinfo/API_Ref_v1_hu4affc4b0080027ba38404ea7c874eb09_53524_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;300&#34; width=&#34;250&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/getdeviceinfo/API_Ref_v1_hu4affc4b0080027ba38404ea7c874eb09_53524_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;300&#34; width=&#34;250&#34;&gt;
 
 
 
@@ -3015,7 +3015,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/List_PreReq-1_huce009ed4788325df3c559bd6f81d7d63_22396_620x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;382&#34; width=&#34;620&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/List_PreReq-1_huce009ed4788325df3c559bd6f81d7d63_22396_620x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;382&#34; width=&#34;620&#34;&gt;
 
 
 
@@ -3046,7 +3046,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/RegisterAppPage_huf4ef4d3d51fc229b586acc661e31a7af_42191_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/RegisterAppPage_huf4ef4d3d51fc229b586acc661e31a7af_42191_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -3071,7 +3071,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/RequestAPIPerm_hu4036499d0354b849dd78b9f812318219_41961_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/RequestAPIPerm_hu4036499d0354b849dd78b9f812318219_41961_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -3096,7 +3096,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/ServiceConfig-1_hu14402e6f04598a9e8ab2784edd403a2d_36680_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/ServiceConfig-1_hu14402e6f04598a9e8ab2784edd403a2d_36680_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -3121,7 +3121,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/PermissionBanner_hu3e02e0cdc557a76f708123e57e0645dc_4446_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;84&#34; width=&#34;805&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/PermissionBanner_hu3e02e0cdc557a76f708123e57e0645dc_4446_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;84&#34; width=&#34;805&#34;&gt;
 
 
 
@@ -3145,7 +3145,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/GrantPerm-1024x202_huf299aff7730569e49c29ec07bc893502_35957_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;202&#34; width=&#34;1024&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/GrantPerm-1024x202_huf299aff7730569e49c29ec07bc893502_35957_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;202&#34; width=&#34;1024&#34;&gt;
 
 
 &lt;/h2&gt;&lt;/p&gt;
@@ -3176,7 +3176,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/ClientSecret_hu75bbd5033626f9ab9635d200fa97491b_11042_354x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;274&#34; width=&#34;354&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/ClientSecret_hu75bbd5033626f9ab9635d200fa97491b_11042_354x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;274&#34; width=&#34;354&#34;&gt;
 
 
 
@@ -3201,7 +3201,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/CLientID_AppReg_hu3d22a0d3229acec6570ef70622be8a3f_30037_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/CLientID_AppReg_hu3d22a0d3229acec6570ef70622be8a3f_30037_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 

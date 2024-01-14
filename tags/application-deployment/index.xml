@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Application Deployment on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/application-deployment/</link>
+    <link>https://hugo.euc365.com/tags/application-deployment/</link>
     <description>Recent content in Application Deployment on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 12 Jan 2023 19:12:28 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/application-deployment/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Jan 2023 19:12:28 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/application-deployment/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Troubleshooting New MS Store App Install Error 0x00000000</title>
-      <link>https://euc365.com/post/troubleshooting-ms-store-app-install-error-0x00000000/</link>
+      <link>https://hugo.euc365.com/post/troubleshooting-ms-store-app-install-error-0x00000000/</link>
       <pubDate>Thu, 12 Jan 2023 19:12:28 +0000</pubDate>
       
-      <guid>https://euc365.com/post/troubleshooting-ms-store-app-install-error-0x00000000/</guid>
+      <guid>https://hugo.euc365.com/post/troubleshooting-ms-store-app-install-error-0x00000000/</guid>
       <description>&lt;p&gt;While performing some work out in the wild, it was noted that one of the Microsoft Store Apps (New) would not install unless excluded from all policies. The app in this case was the Company Portal app which is pretty vital for self-service application delivery. The error displayed was
 0x00000000 in the Intune console as below.&lt;/p&gt;
 
@@ -32,7 +32,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/intuneStates_hu16abd48ce42cb8ca8d955ab3683b50dd_60495_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Status Code&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/winget/0x0/intuneStates_hu16abd48ce42cb8ca8d955ab3683b50dd_60495_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Status Code&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -60,7 +60,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/blockedByPolicy_hu36d5245d5cc098b17883ced742b899e0_48434_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Blocked by Policy&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/winget/0x0/blockedByPolicy_hu36d5245d5cc098b17883ced742b899e0_48434_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Blocked by Policy&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -84,7 +84,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/wingetFailed_hud80ecbb129c7232a3b357758e1d8db5c_173094_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;WinGet Failed&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/winget/0x0/wingetFailed_hud80ecbb129c7232a3b357758e1d8db5c_173094_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;WinGet Failed&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -108,7 +108,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/turnOffStore_hu747332f4cc2d491d128d773f1d8b725f_72129_695x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Turn off MS Store&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/winget/0x0/turnOffStore_hu747332f4cc2d491d128d773f1d8b725f_72129_695x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Turn off MS Store&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
 
 
 
@@ -131,7 +131,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/regeditPolicyKey_huc49e4df386f53c2fff4760bc77b7e337_55622_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Reg Key&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/winget/0x0/regeditPolicyKey_huc49e4df386f53c2fff4760bc77b7e337_55622_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Reg Key&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
 
 
 
@@ -154,7 +154,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/wingetSuccess_hub2c1ae989c73ab9e916ee8602b3da013_436836_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;WinGet Success&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/winget/0x0/wingetSuccess_hub2c1ae989c73ab9e916ee8602b3da013_436836_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;WinGet Success&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -177,7 +177,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/winget/0x0/intuneStates_PostFix_hueb617e0658ad93015083a423ed73bce3_63735_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Status Code PostFix&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/winget/0x0/intuneStates_PostFix_hueb617e0658ad93015083a423ed73bce3_63735_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Status Code PostFix&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -190,10 +190,10 @@
     
     <item>
       <title>Create Dynamic Application Packages with PowerShell</title>
-      <link>https://euc365.com/create-dynamic-application-packages-with-powershell/</link>
+      <link>https://hugo.euc365.com/create-dynamic-application-packages-with-powershell/</link>
       <pubDate>Wed, 31 Mar 2021 03:08:00 +0000</pubDate>
       
-      <guid>https://euc365.com/create-dynamic-application-packages-with-powershell/</guid>
+      <guid>https://hugo.euc365.com/create-dynamic-application-packages-with-powershell/</guid>
       <description>&lt;h2 id=&#34;dynamic-in-what-way&#34;&gt;Dynamic? In what way?&lt;/h2&gt;
 &lt;p&gt;When I say the packages are dynamic, I mean that you don&amp;rsquo;t have to update the application package when a new version is released by the vendor.&lt;/p&gt;
 &lt;p&gt;There are caveats to both methods that we walk through below, there are also other community and paid for tools to do similar things.&lt;/p&gt;
@@ -212,9 +212,9 @@
   &lt;/a&gt;
   &lt;div class=&#34;collapse&#34; id=&#34;detection&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;p&gt;Lets start by looking at the way we obtain the latest version and check it again the version in the registry.&lt;/p&gt;
 &lt;p&gt;As you can see from the image below, there is a version table right at the top of the web page.&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/versiontable_hu1c23da9cfc0bedc4c104346e90921a98_11876_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/versiontable_hu1c23da9cfc0bedc4c104346e90921a98_11876_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;p&gt;If you press &lt;strong&gt;F12&lt;/strong&gt; and open the developer options, you can click through the HTML sections in the &lt;strong&gt;Elements&lt;/strong&gt; tab and find the table like below;&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/f12versiontable_hu9cda19cfd06773916047adad8dba8b92_31345_555x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/f12versiontable_hu9cda19cfd06773916047adad8dba8b92_31345_555x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;p&gt;As you can see from the snippet below we have to use a &lt;code&gt;HTMLContent&lt;/code&gt; &lt;strong&gt;COM&lt;/strong&gt; object to parse the HTML data so we can interact with the tables.&lt;/p&gt;
 &lt;p&gt;In it&amp;rsquo;s simplest form we get the &lt;strong&gt;RawContent&lt;/strong&gt; and then write it to the &lt;strong&gt;IHTMLDocument2&lt;/strong&gt; object with the &lt;strong&gt;COM&lt;/strong&gt; object, giving us the functionality  work with the tables.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; Get-LatestVersion {
@@ -262,7 +262,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s take a closer look at the interaction with the tables, as you can see the variable &lt;code&gt;$Tables&lt;/code&gt; uses the the &lt;code&gt;$HTML&lt;/code&gt; variable which contains the &lt;strong&gt;COM&lt;/strong&gt; object data to select everything with the tag of &lt;strong&gt;table&lt;/strong&gt; (&lt;code&gt;$Tables = @($html.all.tags(&#39;table&#39;))&lt;/code&gt;). From this point it uses a &lt;strong&gt;for&lt;/strong&gt; loop to gather the table data, until finally we decide which part of the table we want to use.&lt;/p&gt;
 &lt;p&gt;For example, We are focusing on the latest version, so if you run the &lt;strong&gt;for loop&lt;/strong&gt; manually and look at &lt;code&gt;$resultObject&lt;/code&gt; in PowerShell it will return something like this;&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/pswindow_resultobject_hu37262acdfae5055cb19d159b9e5bd811_8970_420x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/pswindow_resultobject_hu37262acdfae5055cb19d159b9e5bd811_8970_420x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;p&gt;From this point you can create a PSCustomObject with the table header you want. Now this is kind of over complicating it for this example as you could just return &lt;code&gt;$resultObject.&#39;Latest version&#39;&lt;/code&gt; however, I use this loop for other methods and keeping it in this format helps me standardise the way I work, but it also gives you the ability to use if for other things too.&lt;/p&gt;
 &lt;p&gt;All of this is wrapped inside a function (&lt;code&gt;Get-LatestVersion&lt;/code&gt;) as I plan on using the same script for the detection method as for the install, but I also like to re-check in my install script that the application definitely is not installed before the install action executes. If you look at the &lt;code&gt;Detect-Application&lt;/code&gt; function you can see that I check both the 64-bit and 32-bit registry locations with an &lt;strong&gt;IF&lt;/strong&gt; statement based on the variables below;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$UninstallKey = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\&amp;#34;&lt;/span&gt;
@@ -309,9 +309,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ($HTML.links | Where-Object {$_.InnerHTMl &lt;span style=&#34;color:#f92672&#34;&gt;-Like&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;*&lt;/span&gt;$Arch&lt;span style=&#34;color:#e6db74&#34;&gt;*&amp;#34;&lt;/span&gt;}).href        
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you look at the &lt;a href=&#34;https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop&#34;&gt;web page&lt;/a&gt; for the downloads you will see that the links are in an unordered list;&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/install_links_hu175eaed89cb75656c50c7774eeb1eccf_51511_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;250px&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/install_links_hu175eaed89cb75656c50c7774eeb1eccf_51511_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;250px&#34; width=&#34;&#34;&gt;
 &lt;p&gt;Again if you hit &lt;strong&gt;F12&lt;/strong&gt; and look at the html content behind the table, you will see the data we are looking for.&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/f12install_links_huae335265959d969c587091404647096f_106242_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;250px&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/f12install_links_huae335265959d969c587091404647096f_106242_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;250px&#34; width=&#34;&#34;&gt;
 &lt;p&gt;To get this using the script we simply run &lt;code&gt;($HTML.links | Where-Object {$_.InnerHTMl -Like &amp;quot;*$Arch*&amp;quot;}).href&lt;/code&gt; simple right?&lt;/p&gt;
 &lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -654,7 +654,7 @@ You will need to take this into account if you plan to package multiple applicat
   &lt;/a&gt;
   &lt;div class=&#34;collapse&#34; id=&#34;git-detection&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;p&gt;Lets start by looking at the &lt;a href=&#34;https://github.com/git-for-windows/git/releases/latest&#34;&gt;latest releases page&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The first thing you may notice that it automatically redirects the URL, but we just want to check the version.&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/gitreleasepage_hu909719682eb7fd19dcc6a36a2d87bb00_128796_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/gitreleasepage_hu909719682eb7fd19dcc6a36a2d87bb00_128796_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
 &lt;p&gt;Now that we know what the latest version is on the GitHub page, lets take a look at the API. If you change the URL in your browser to &lt;a href=&#34;https://api.github.com/repos/git-for-windows/git/releases/latest&#34;&gt;https://api.github.com/repos/git-for-windows/git/releases/latest&lt;/a&gt;, you will see a JSON response like the below.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;url&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://api.github.com/repos/git-for-windows/git/releases/37800609&amp;#34;&lt;/span&gt;,
@@ -749,7 +749,7 @@ You will need to take this into account if you plan to package multiple applicat
     GIT Download Link &lt;i class=&#34;fas fa-plus ml-auto&#34;&gt;&lt;/i&gt;
   &lt;/a&gt;
   &lt;div class=&#34;collapse&#34; id=&#34;git-download-link&#34;&gt;&lt;div class=&#34;p-2&#34;&gt;&lt;p&gt;If you take a look back at the &lt;a href=&#34;https://github.com/git-for-windows/git/releases/latest&#34;&gt;latest releases page&lt;/a&gt;, and scroll down to &lt;strong&gt;Assets&lt;/strong&gt;, if you hover over one of them you will see the URL it links to in the bottom left-hand corner of your browser.&lt;/p&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/dynamicappinstall/gitdownloadlink_hu7d4e75b3389a9760d62de70d46e7f76c_10729_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/dynamicappinstall/gitdownloadlink_hu7d4e75b3389a9760d62de70d46e7f76c_10729_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;75%&#34;&gt;
 &lt;p&gt;Now we know that we can &lt;strong&gt;Detect&lt;/strong&gt; the application, lets look at obtaining the download link.&lt;/p&gt;
 &lt;p&gt;If you look at the script snippet below, you can see that we are still using the &lt;code&gt;$RestResult&lt;/code&gt; to obtain the download link. To get the download link for the architecture you specify we first have to build up the &lt;code&gt;$EXEName&lt;/code&gt; Variable, this uses the &lt;code&gt;$LatestVersion&lt;/code&gt; and &lt;code&gt;$Arch&lt;/code&gt; variables to bring the name together.&lt;/p&gt;
 &lt;p&gt;Once the name EXE Name is sorted, we then use this to get the link, by using the &lt;code&gt;Where-Object&lt;/code&gt; function to select the download URL from the asset where the &lt;code&gt;$_.name&lt;/code&gt; matches &lt;code&gt;$EXEName&lt;/code&gt;.&lt;/p&gt;
@@ -1110,7 +1110,7 @@ You will need to take this into account if you plan to package multiple applicat
 &lt;br&gt;
 &lt;h2 id=&#34;application-deployment&#34;&gt;Application Deployment&lt;/h2&gt;
 
-&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Please see &lt;a href=&#34;https://euc365.com/creating-intune-win32-apps&#34;&gt;Creating Intune Win32 Apps&lt;/a&gt; for creating an Intune Win32 App Package.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Please see &lt;a href=&#34;https://hugo.euc365.com/creating-intune-win32-apps&#34;&gt;Creating Intune Win32 Apps&lt;/a&gt; for creating an Intune Win32 App Package.&lt;/p&gt;&lt;/div&gt;
 
 &lt;p&gt;Lets look at how we deploy these applications from ConfigMG (MEMCM) and Intune.&lt;/p&gt;
 
@@ -1200,10 +1200,10 @@ You will need to take this into account if you plan to package multiple applicat
     
     <item>
       <title>Deploy Windows Subsystem for Linux</title>
-      <link>https://euc365.com/deploy-windows-subsystem-for-linux/</link>
+      <link>https://hugo.euc365.com/deploy-windows-subsystem-for-linux/</link>
       <pubDate>Mon, 15 Feb 2021 22:29:00 +0000</pubDate>
       
-      <guid>https://euc365.com/deploy-windows-subsystem-for-linux/</guid>
+      <guid>https://hugo.euc365.com/deploy-windows-subsystem-for-linux/</guid>
       <description>&lt;h2 id=&#34;what-is-the-windows-susbsystem-for-linux&#34;&gt;What is the Windows Susbsystem for Linux?&lt;/h2&gt;
 &lt;p&gt;As per the &lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/faq#:~:text=The%20Windows%20Subsystem%20for%20Linux,desktop%20and%20modern%20store%20apps.&#34;&gt;Microsoft Documentation&lt;/a&gt;, &lt;strong&gt;The Windows Subsystem for Linux (WSL)&lt;/strong&gt; is a new &lt;strong&gt;Windows 10 feature&lt;/strong&gt; that enables you to run &lt;strong&gt;native Linux command-line tools directly on Windows&lt;/strong&gt;, alongside your traditional Windows desktop and modern store apps.&lt;/p&gt;
 &lt;p&gt;Now what does that mean? Can you run a full Linux setup in this way? Well the answer to that is &lt;strong&gt;NO&lt;/strong&gt; unfortunately not. This tool is designed for developers and other users who use bash and other common Linux tools.&lt;/p&gt;
@@ -1280,7 +1280,7 @@ You will need to take this into account if you plan to package multiple applicat
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/deploywsl/FeaturedImage_hu88af6168fb2889d0285544f033f3f748_59352_432x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;512&#34; width=&#34;432&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/deploywsl/FeaturedImage_hu88af6168fb2889d0285544f033f3f748_59352_432x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;512&#34; width=&#34;432&#34;&gt;
 
 
 &lt;/h2&gt;&lt;/p&gt;
@@ -1315,7 +1315,7 @@ Finish both of the off the dialog windows through the summary panes and then dep
 &lt;p&gt;As mentioned above you will need to use a Linux distribution to use with the Windows Subsystem for Linux which are available in the Microsoft Store.&lt;/p&gt;
 &lt;h2 id=&#34;intune-application&#34;&gt;Intune Application&lt;/h2&gt;
 
-&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Please see &lt;a href=&#34;https://euc365.com/creating-intune-win32-apps&#34;&gt;Creating Intune Win32 Apps&lt;/a&gt; for creating an Intune Win32 App Package.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Please see &lt;a href=&#34;https://hugo.euc365.com/creating-intune-win32-apps&#34;&gt;Creating Intune Win32 Apps&lt;/a&gt; for creating an Intune Win32 App Package.&lt;/p&gt;&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Select &lt;strong&gt;Apps&lt;/strong&gt; from the navigation pane&lt;/li&gt;
@@ -1364,7 +1364,7 @@ Finish both of the off the dialog windows through the summary panes and then dep
 
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;You will receive the WSL Distros at the top if you use the &lt;strong&gt;Developer Tools&lt;/strong&gt; category filter&lt;/p&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://euc365.com/images/post/deploywsl/linuxdistros.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://hugo.euc365.com/images/post/deploywsl/linuxdistros.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Click on the Distro you would like to use/deploy&lt;/li&gt;
 &lt;li&gt;Select you Licence Type, See &lt;a href=&#34;https://docs.microsoft.com/en-us/microsoft-store/acquire-apps-microsoft-store-for-business#:~:text=The%20Microsoft%20Store%20supports%20two%20options%20to%20license,is%20a%20new%20licensing%20option%20for%20Windows%2010.&#34;&gt;Microsoft Documentation&lt;/a&gt;, Click &lt;strong&gt;Get App&lt;/strong&gt;.&lt;/li&gt;
@@ -1442,7 +1442,7 @@ Finish both of the off the dialog windows through the summary panes and then dep
 &lt;li&gt;Click &lt;strong&gt;Manage&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Select your &lt;strong&gt;Platform&lt;/strong&gt;, &lt;strong&gt;Minimum Version&lt;/strong&gt;, &lt;strong&gt;Architecture&lt;/strong&gt;, &lt;strong&gt;App Metadata&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;You will then see something like the image below, this contains the &lt;strong&gt;Package Identity Name&lt;/strong&gt;, &lt;strong&gt;Package family name&lt;/strong&gt;, &lt;strong&gt;Package full name&lt;/strong&gt;, &lt;strong&gt;Package format&lt;/strong&gt; and the &lt;strong&gt;Supported architectures&lt;/strong&gt;.
-&lt;img src=&#34;https://euc365.com/images/post/deploywsl/offlineoptions.png&#34; alt=&#34;Image&#34;&gt;&lt;/li&gt;
+&lt;img src=&#34;https://hugo.euc365.com/images/post/deploywsl/offlineoptions.png&#34; alt=&#34;Image&#34;&gt;&lt;/li&gt;
 &lt;li&gt;Click &lt;strong&gt;Download&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;I will demonstrate how to install this using PowerShell, however, please see the &lt;a href=&#34;https://docs.microsoft.com/en-us/microsoft-store/distribute-offline-apps&#34;&gt;Distribute Offline Apps&lt;/a&gt; Microsoft Documentation for alternative methods.&lt;/p&gt;&lt;/div&gt;
@@ -1463,10 +1463,10 @@ Finish both of the off the dialog windows through the summary panes and then dep
 &lt;/ul&gt;
 
 &lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;To Enable WSL for use the device must be restarted, If you see the below message, WSL is either not installed or your device is pending a reboot.&lt;br&gt;
-&lt;img src=&#34;https://euc365.com/images/post/deploywsl/wslnotenabled.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;&lt;/div&gt;
+&lt;img src=&#34;https://hugo.euc365.com/images/post/deploywsl/wslnotenabled.png&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;&lt;/div&gt;
 
 &lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
-&lt;p&gt;I hope that you find this useful if you ever need to deploy WSL. If you have any questions please do not hesitate to reach out using the &lt;a href=&#34;https://euc365.com/contact&#34;&gt;Contact&lt;/a&gt; page or in the comment section below.&lt;/p&gt;
+&lt;p&gt;I hope that you find this useful if you ever need to deploy WSL. If you have any questions please do not hesitate to reach out using the &lt;a href=&#34;https://hugo.euc365.com/contact&#34;&gt;Contact&lt;/a&gt; page or in the comment section below.&lt;/p&gt;
 
 &lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;I had to use WSL the other day when deploying Docker Desktop as a dependency, the script came in handy for sure.&lt;/p&gt;&lt;/div&gt;
 
@@ -1475,10 +1475,10 @@ Finish both of the off the dialog windows through the summary panes and then dep
     
     <item>
       <title>Creating Intune Win32 Apps</title>
-      <link>https://euc365.com/creating-intune-win32-apps/</link>
+      <link>https://hugo.euc365.com/creating-intune-win32-apps/</link>
       <pubDate>Tue, 05 Jan 2021 20:17:00 +0000</pubDate>
       
-      <guid>https://euc365.com/creating-intune-win32-apps/</guid>
+      <guid>https://hugo.euc365.com/creating-intune-win32-apps/</guid>
       <description>&lt;h2 id=&#34;win32-apps-what-are-they&#34;&gt;Win32 Apps, What Are they?&lt;/h2&gt;
 &lt;p&gt;If you&amp;rsquo;re familiar with Configuration Manager/MEMCM then think of these files as your source directory, the difference being you are effectively zipping it up and then uploading to Intune.&lt;/p&gt;
 &lt;p&gt;According to Microsoft, if you decide to use Win32 Apps, it is &lt;strong&gt;advised&lt;/strong&gt; that you use these exclusively and NOT &lt;strong&gt;&amp;lsquo;Mix and Match&amp;rsquo;&lt;/strong&gt; these with Line of Business applications when using Autopilot (See Microsoft Doc link below).&lt;/p&gt;
@@ -1565,7 +1565,7 @@ That is your app finished and deploying, it is worth noting it may take &lt;str
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createwin32/FileDetection_huc0e49b822f03c69ba2bd53c4c8a32b09_10617_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;229&#34; width=&#34;402&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createwin32/FileDetection_huc0e49b822f03c69ba2bd53c4c8a32b09_10617_585x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;229&#34; width=&#34;402&#34;&gt;
 
 
 
@@ -1588,7 +1588,7 @@ That is your app finished and deploying, it is worth noting it may take &lt;str
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createwin32/Date_CreatedModified_hu93a36f35bddffda5f3d629ae6d3915c9_8390_577x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;126&#34; width=&#34;333&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createwin32/Date_CreatedModified_hu93a36f35bddffda5f3d629ae6d3915c9_8390_577x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;126&#34; width=&#34;333&#34;&gt;
 
 
 
@@ -1628,7 +1628,7 @@ Now that rule is very quick and simple, as mentioned you can use the date modifi
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createwin32/7z-Date-Mod-Endpoint_hu4194ba41d42d1ab3f3fc3c413cb3d5cd_14802_579x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;302&#34; width=&#34;409&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createwin32/7z-Date-Mod-Endpoint_hu4194ba41d42d1ab3f3fc3c413cb3d5cd_14802_579x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;302&#34; width=&#34;409&#34;&gt;
 
 
 

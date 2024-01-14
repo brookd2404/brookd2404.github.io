@@ -2,467 +2,467 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/</link>
+    <link>https://hugo.euc365.com/tags/</link>
     <description>Recent content in Tags on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 31 May 2023 08:37:18 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 May 2023 08:37:18 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Azure</title>
-      <link>https://euc365.com/tags/azure/</link>
+      <link>https://hugo.euc365.com/tags/azure/</link>
       <pubDate>Wed, 31 May 2023 08:37:18 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/azure/</guid>
+      <guid>https://hugo.euc365.com/tags/azure/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Azure Image Builder</title>
-      <link>https://euc365.com/tags/azure-image-builder/</link>
+      <link>https://hugo.euc365.com/tags/azure-image-builder/</link>
       <pubDate>Wed, 31 May 2023 08:37:18 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/azure-image-builder/</guid>
+      <guid>https://hugo.euc365.com/tags/azure-image-builder/</guid>
       <description></description>
     </item>
     
     <item>
       <title>PowerShell</title>
-      <link>https://euc365.com/tags/powershell/</link>
+      <link>https://hugo.euc365.com/tags/powershell/</link>
       <pubDate>Wed, 31 May 2023 08:37:18 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/powershell/</guid>
+      <guid>https://hugo.euc365.com/tags/powershell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Windows 365</title>
-      <link>https://euc365.com/tags/windows-365/</link>
+      <link>https://hugo.euc365.com/tags/windows-365/</link>
       <pubDate>Wed, 31 May 2023 08:37:18 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/windows-365/</guid>
+      <guid>https://hugo.euc365.com/tags/windows-365/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Bicep</title>
-      <link>https://euc365.com/tags/bicep/</link>
+      <link>https://hugo.euc365.com/tags/bicep/</link>
       <pubDate>Wed, 31 May 2023 08:37:04 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/bicep/</guid>
+      <guid>https://hugo.euc365.com/tags/bicep/</guid>
       <description></description>
     </item>
     
     <item>
       <title>DevOps</title>
-      <link>https://euc365.com/tags/devops/</link>
+      <link>https://hugo.euc365.com/tags/devops/</link>
       <pubDate>Wed, 31 May 2023 08:37:04 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/devops/</guid>
+      <guid>https://hugo.euc365.com/tags/devops/</guid>
       <description></description>
     </item>
     
     <item>
       <title>YAML</title>
-      <link>https://euc365.com/tags/yaml/</link>
+      <link>https://hugo.euc365.com/tags/yaml/</link>
       <pubDate>Wed, 31 May 2023 08:37:04 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/yaml/</guid>
+      <guid>https://hugo.euc365.com/tags/yaml/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ASR</title>
-      <link>https://euc365.com/tags/asr/</link>
+      <link>https://hugo.euc365.com/tags/asr/</link>
       <pubDate>Wed, 24 May 2023 20:05:23 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/asr/</guid>
+      <guid>https://hugo.euc365.com/tags/asr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Intune</title>
-      <link>https://euc365.com/tags/intune/</link>
+      <link>https://hugo.euc365.com/tags/intune/</link>
       <pubDate>Wed, 24 May 2023 20:05:23 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/intune/</guid>
+      <guid>https://hugo.euc365.com/tags/intune/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Log Analytics</title>
-      <link>https://euc365.com/tags/log-analytics/</link>
+      <link>https://hugo.euc365.com/tags/log-analytics/</link>
       <pubDate>Wed, 24 May 2023 20:05:23 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/log-analytics/</guid>
+      <guid>https://hugo.euc365.com/tags/log-analytics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Power BI</title>
-      <link>https://euc365.com/tags/power-bi/</link>
+      <link>https://hugo.euc365.com/tags/power-bi/</link>
       <pubDate>Wed, 24 May 2023 20:05:23 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/power-bi/</guid>
+      <guid>https://hugo.euc365.com/tags/power-bi/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Drivers</title>
-      <link>https://euc365.com/tags/drivers/</link>
+      <link>https://hugo.euc365.com/tags/drivers/</link>
       <pubDate>Mon, 20 Mar 2023 13:43:22 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/drivers/</guid>
+      <guid>https://hugo.euc365.com/tags/drivers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Firmware</title>
-      <link>https://euc365.com/tags/firmware/</link>
+      <link>https://hugo.euc365.com/tags/firmware/</link>
       <pubDate>Mon, 20 Mar 2023 13:43:22 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/firmware/</guid>
+      <guid>https://hugo.euc365.com/tags/firmware/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Graph API</title>
-      <link>https://euc365.com/tags/graph-api/</link>
+      <link>https://hugo.euc365.com/tags/graph-api/</link>
       <pubDate>Mon, 20 Mar 2023 13:43:22 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/graph-api/</guid>
+      <guid>https://hugo.euc365.com/tags/graph-api/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Updates</title>
-      <link>https://euc365.com/tags/updates/</link>
+      <link>https://hugo.euc365.com/tags/updates/</link>
       <pubDate>Mon, 20 Mar 2023 13:43:22 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/updates/</guid>
+      <guid>https://hugo.euc365.com/tags/updates/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Windows</title>
-      <link>https://euc365.com/tags/windows/</link>
+      <link>https://hugo.euc365.com/tags/windows/</link>
       <pubDate>Tue, 14 Feb 2023 14:17:39 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/windows/</guid>
+      <guid>https://hugo.euc365.com/tags/windows/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cloud PC</title>
-      <link>https://euc365.com/tags/cloud-pc/</link>
+      <link>https://hugo.euc365.com/tags/cloud-pc/</link>
       <pubDate>Mon, 23 Jan 2023 09:16:47 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/cloud-pc/</guid>
+      <guid>https://hugo.euc365.com/tags/cloud-pc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Application Deployment</title>
-      <link>https://euc365.com/tags/application-deployment/</link>
+      <link>https://hugo.euc365.com/tags/application-deployment/</link>
       <pubDate>Thu, 12 Jan 2023 19:12:28 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/application-deployment/</guid>
+      <guid>https://hugo.euc365.com/tags/application-deployment/</guid>
       <description></description>
     </item>
     
     <item>
       <title>WinGet</title>
-      <link>https://euc365.com/tags/winget/</link>
+      <link>https://hugo.euc365.com/tags/winget/</link>
       <pubDate>Thu, 12 Jan 2023 19:12:28 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/winget/</guid>
+      <guid>https://hugo.euc365.com/tags/winget/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Entitlement Management</title>
-      <link>https://euc365.com/tags/entitlement-management/</link>
+      <link>https://hugo.euc365.com/tags/entitlement-management/</link>
       <pubDate>Mon, 09 Jan 2023 09:38:04 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/entitlement-management/</guid>
+      <guid>https://hugo.euc365.com/tags/entitlement-management/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Group Policy</title>
-      <link>https://euc365.com/tags/group-policy/</link>
+      <link>https://hugo.euc365.com/tags/group-policy/</link>
       <pubDate>Fri, 18 Nov 2022 22:00:01 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/group-policy/</guid>
+      <guid>https://hugo.euc365.com/tags/group-policy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Autopilot</title>
-      <link>https://euc365.com/tags/autopilot/</link>
+      <link>https://hugo.euc365.com/tags/autopilot/</link>
       <pubDate>Thu, 10 Nov 2022 12:39:33 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/autopilot/</guid>
+      <guid>https://hugo.euc365.com/tags/autopilot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Autopatch</title>
-      <link>https://euc365.com/tags/autopatch/</link>
+      <link>https://hugo.euc365.com/tags/autopatch/</link>
       <pubDate>Tue, 01 Nov 2022 19:24:35 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/autopatch/</guid>
+      <guid>https://hugo.euc365.com/tags/autopatch/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Azure AD</title>
-      <link>https://euc365.com/tags/azure-ad/</link>
+      <link>https://hugo.euc365.com/tags/azure-ad/</link>
       <pubDate>Thu, 22 Sep 2022 12:25:57 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/azure-ad/</guid>
+      <guid>https://hugo.euc365.com/tags/azure-ad/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Identity</title>
-      <link>https://euc365.com/tags/identity/</link>
+      <link>https://hugo.euc365.com/tags/identity/</link>
       <pubDate>Thu, 22 Sep 2022 12:25:57 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/identity/</guid>
+      <guid>https://hugo.euc365.com/tags/identity/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hyper-V</title>
-      <link>https://euc365.com/tags/hyper-v/</link>
+      <link>https://hugo.euc365.com/tags/hyper-v/</link>
       <pubDate>Wed, 17 Aug 2022 13:25:30 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/hyper-v/</guid>
+      <guid>https://hugo.euc365.com/tags/hyper-v/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Lab</title>
-      <link>https://euc365.com/tags/lab/</link>
+      <link>https://hugo.euc365.com/tags/lab/</link>
       <pubDate>Wed, 17 Aug 2022 13:25:30 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/lab/</guid>
+      <guid>https://hugo.euc365.com/tags/lab/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Windows Server</title>
-      <link>https://euc365.com/tags/windows-server/</link>
+      <link>https://hugo.euc365.com/tags/windows-server/</link>
       <pubDate>Wed, 17 Aug 2022 13:25:30 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/windows-server/</guid>
+      <guid>https://hugo.euc365.com/tags/windows-server/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Microsoft Graph Module</title>
-      <link>https://euc365.com/tags/microsoft-graph-module/</link>
+      <link>https://hugo.euc365.com/tags/microsoft-graph-module/</link>
       <pubDate>Wed, 03 Aug 2022 19:31:42 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/microsoft-graph-module/</guid>
+      <guid>https://hugo.euc365.com/tags/microsoft-graph-module/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Teams</title>
-      <link>https://euc365.com/tags/teams/</link>
+      <link>https://hugo.euc365.com/tags/teams/</link>
       <pubDate>Wed, 03 Aug 2022 19:31:42 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/teams/</guid>
+      <guid>https://hugo.euc365.com/tags/teams/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ARM</title>
-      <link>https://euc365.com/tags/arm/</link>
+      <link>https://hugo.euc365.com/tags/arm/</link>
       <pubDate>Sun, 17 Jul 2022 11:50:17 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/arm/</guid>
+      <guid>https://hugo.euc365.com/tags/arm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Infrastructure as Code</title>
-      <link>https://euc365.com/tags/infrastructure-as-code/</link>
+      <link>https://hugo.euc365.com/tags/infrastructure-as-code/</link>
       <pubDate>Sun, 17 Jul 2022 11:50:17 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/infrastructure-as-code/</guid>
+      <guid>https://hugo.euc365.com/tags/infrastructure-as-code/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Azure Policy</title>
-      <link>https://euc365.com/tags/azure-policy/</link>
+      <link>https://hugo.euc365.com/tags/azure-policy/</link>
       <pubDate>Thu, 07 Jul 2022 10:34:57 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/azure-policy/</guid>
+      <guid>https://hugo.euc365.com/tags/azure-policy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Compliance</title>
-      <link>https://euc365.com/tags/compliance/</link>
+      <link>https://hugo.euc365.com/tags/compliance/</link>
       <pubDate>Thu, 07 Jul 2022 10:34:57 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/compliance/</guid>
+      <guid>https://hugo.euc365.com/tags/compliance/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Knox</title>
-      <link>https://euc365.com/tags/knox/</link>
+      <link>https://hugo.euc365.com/tags/knox/</link>
       <pubDate>Fri, 17 Jun 2022 14:19:57 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/knox/</guid>
+      <guid>https://hugo.euc365.com/tags/knox/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Samsung</title>
-      <link>https://euc365.com/tags/samsung/</link>
+      <link>https://hugo.euc365.com/tags/samsung/</link>
       <pubDate>Fri, 17 Jun 2022 14:19:57 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/samsung/</guid>
+      <guid>https://hugo.euc365.com/tags/samsung/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SSO</title>
-      <link>https://euc365.com/tags/sso/</link>
+      <link>https://hugo.euc365.com/tags/sso/</link>
       <pubDate>Thu, 09 Jun 2022 12:52:16 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/sso/</guid>
+      <guid>https://hugo.euc365.com/tags/sso/</guid>
       <description></description>
     </item>
     
     <item>
       <title>App Registrations</title>
-      <link>https://euc365.com/tags/app-registrations/</link>
+      <link>https://hugo.euc365.com/tags/app-registrations/</link>
       <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/app-registrations/</guid>
+      <guid>https://hugo.euc365.com/tags/app-registrations/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Logic Apps</title>
-      <link>https://euc365.com/tags/logic-apps/</link>
+      <link>https://hugo.euc365.com/tags/logic-apps/</link>
       <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/logic-apps/</guid>
+      <guid>https://hugo.euc365.com/tags/logic-apps/</guid>
       <description></description>
     </item>
     
     <item>
       <title>PowerBI</title>
-      <link>https://euc365.com/tags/powerbi/</link>
+      <link>https://hugo.euc365.com/tags/powerbi/</link>
       <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/powerbi/</guid>
+      <guid>https://hugo.euc365.com/tags/powerbi/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Apple Business Manager</title>
-      <link>https://euc365.com/tags/apple-business-manager/</link>
+      <link>https://hugo.euc365.com/tags/apple-business-manager/</link>
       <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/apple-business-manager/</guid>
+      <guid>https://hugo.euc365.com/tags/apple-business-manager/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Apple School Manager</title>
-      <link>https://euc365.com/tags/apple-school-manager/</link>
+      <link>https://hugo.euc365.com/tags/apple-school-manager/</link>
       <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/apple-school-manager/</guid>
+      <guid>https://hugo.euc365.com/tags/apple-school-manager/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Azure Enterprise App</title>
-      <link>https://euc365.com/tags/azure-enterprise-app/</link>
+      <link>https://hugo.euc365.com/tags/azure-enterprise-app/</link>
       <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/azure-enterprise-app/</guid>
+      <guid>https://hugo.euc365.com/tags/azure-enterprise-app/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Conditional Access</title>
-      <link>https://euc365.com/tags/conditional-access/</link>
+      <link>https://hugo.euc365.com/tags/conditional-access/</link>
       <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/conditional-access/</guid>
+      <guid>https://hugo.euc365.com/tags/conditional-access/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Terms of Use</title>
-      <link>https://euc365.com/tags/terms-of-use/</link>
+      <link>https://hugo.euc365.com/tags/terms-of-use/</link>
       <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/terms-of-use/</guid>
+      <guid>https://hugo.euc365.com/tags/terms-of-use/</guid>
       <description></description>
     </item>
     
     <item>
       <title>GitHub API</title>
-      <link>https://euc365.com/tags/github-api/</link>
+      <link>https://hugo.euc365.com/tags/github-api/</link>
       <pubDate>Wed, 31 Mar 2021 03:08:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/github-api/</guid>
+      <guid>https://hugo.euc365.com/tags/github-api/</guid>
       <description></description>
     </item>
     
     <item>
       <title>HTML Web Scraping</title>
-      <link>https://euc365.com/tags/html-web-scraping/</link>
+      <link>https://hugo.euc365.com/tags/html-web-scraping/</link>
       <pubDate>Wed, 31 Mar 2021 03:08:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/html-web-scraping/</guid>
+      <guid>https://hugo.euc365.com/tags/html-web-scraping/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MEMCM</title>
-      <link>https://euc365.com/tags/memcm/</link>
+      <link>https://hugo.euc365.com/tags/memcm/</link>
       <pubDate>Mon, 15 Feb 2021 22:29:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/memcm/</guid>
+      <guid>https://hugo.euc365.com/tags/memcm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>App Protection</title>
-      <link>https://euc365.com/tags/app-protection/</link>
+      <link>https://hugo.euc365.com/tags/app-protection/</link>
       <pubDate>Fri, 18 Sep 2020 08:49:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/app-protection/</guid>
+      <guid>https://hugo.euc365.com/tags/app-protection/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Configuration Profiles</title>
-      <link>https://euc365.com/tags/configuration-profiles/</link>
+      <link>https://hugo.euc365.com/tags/configuration-profiles/</link>
       <pubDate>Wed, 02 Sep 2020 11:02:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/configuration-profiles/</guid>
+      <guid>https://hugo.euc365.com/tags/configuration-profiles/</guid>
       <description></description>
     </item>
     
     <item>
       <title>PowerShell Tools</title>
-      <link>https://euc365.com/tags/powershell-tools/</link>
+      <link>https://hugo.euc365.com/tags/powershell-tools/</link>
       <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://euc365.com/tags/powershell-tools/</guid>
+      <guid>https://hugo.euc365.com/tags/powershell-tools/</guid>
       <description></description>
     </item>
     

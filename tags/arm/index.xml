@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ARM on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/arm/</link>
+    <link>https://hugo.euc365.com/tags/arm/</link>
     <description>Recent content in ARM on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 17 Jul 2022 11:50:17 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/arm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jul 2022 11:50:17 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/arm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Use Bicep to Compile or Decompile ARM Templates</title>
-      <link>https://euc365.com/post/use-bicep-to-compile-or-decompile-arm-templates/</link>
+      <link>https://hugo.euc365.com/post/use-bicep-to-compile-or-decompile-arm-templates/</link>
       <pubDate>Sun, 17 Jul 2022 11:50:17 +0000</pubDate>
       
-      <guid>https://euc365.com/post/use-bicep-to-compile-or-decompile-arm-templates/</guid>
+      <guid>https://hugo.euc365.com/post/use-bicep-to-compile-or-decompile-arm-templates/</guid>
       <description>&lt;h2 id=&#34;what-is-bicep&#34;&gt;What is Bicep?&lt;/h2&gt;
 
 
@@ -62,7 +62,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/bicep/decompile.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/bicep/decompile.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -93,7 +93,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/bicep/compile.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/bicep/compile.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 

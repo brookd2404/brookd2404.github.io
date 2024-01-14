@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>VLOG on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/categories/vlog/</link>
+    <link>https://hugo.euc365.com/categories/vlog/</link>
     <description>Recent content in VLOG on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 14 Feb 2023 14:17:39 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/vlog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Feb 2023 14:17:39 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/vlog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VLOG - Driver and Firmware Updates Preview GUI Configuration</title>
-      <link>https://euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</link>
+      <link>https://hugo.euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</link>
       <pubDate>Tue, 14 Feb 2023 14:17:39 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</guid>
       <description>&lt;p&gt;In this video, we’ll walk you through:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Installing required components&lt;/li&gt;
@@ -26,7 +26,7 @@
 &lt;li&gt;&lt;a href=&#34;https://nodejs.org/en/download&#34;&gt;&lt;strong&gt;Node.JS Downloads&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/microsoftgraph/windowsupdates-webapplication-sample&#34;&gt;&lt;strong&gt;WUfB DS Web Application Repo&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/graph/api/resources/adminwindowsupdates?view=graph-rest-beta&#34;&gt;&lt;strong&gt;Graph API Documentation&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;Driver Management via Graph API and PowerShell&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;Driver Management via Graph API and PowerShell&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 
@@ -39,10 +39,10 @@
     
     <item>
       <title>VLOG - Windows 365 Access Solutions</title>
-      <link>https://euc365.com/post/vlog-windows-365-access-solutions/</link>
+      <link>https://hugo.euc365.com/post/vlog-windows-365-access-solutions/</link>
       <pubDate>Mon, 09 Jan 2023 09:38:04 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-windows-365-access-solutions/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-windows-365-access-solutions/</guid>
       <description>&lt;p&gt;In this video, we’ll walk you through:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Self service methods of Access&lt;/li&gt;
@@ -70,10 +70,10 @@
     
     <item>
       <title>VLOG - Windows Update for Business Reports</title>
-      <link>https://euc365.com/post/vlog-wufb-reports/</link>
+      <link>https://hugo.euc365.com/post/vlog-wufb-reports/</link>
       <pubDate>Fri, 02 Dec 2022 13:48:29 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-wufb-reports/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-wufb-reports/</guid>
       <description>
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
   &lt;iframe src=&#34;https://www.youtube.com/embed/W30BT2Pk4kU&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
@@ -97,10 +97,10 @@ Don’t forget to subscribe!&lt;/p&gt;
     
     <item>
       <title>VLOG - Getting Started with Windows 365 Enterprise</title>
-      <link>https://euc365.com/post/vlog-gs-windows365/</link>
+      <link>https://hugo.euc365.com/post/vlog-gs-windows365/</link>
       <pubDate>Thu, 03 Nov 2022 11:38:42 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-gs-windows365/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-gs-windows365/</guid>
       <description>&lt;p&gt;A look into a &amp;lsquo;From the Ground Up&amp;rsquo; approach to Windows 365, including Licensing, differences in Product SKUs, configuration and also three ways to access Windows 365.&lt;/p&gt;
 &lt;h2 id=&#34;useful-links&#34;&gt;Useful Links&lt;/h2&gt;
 &lt;ul&gt;
@@ -126,10 +126,10 @@ Don’t forget to subscribe!&lt;/p&gt;
     
     <item>
       <title>VLOG - Getting Started with Windows Autopatch</title>
-      <link>https://euc365.com/post/vlog-windows-autopatch/</link>
+      <link>https://hugo.euc365.com/post/vlog-windows-autopatch/</link>
       <pubDate>Tue, 01 Nov 2022 19:24:35 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-windows-autopatch/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-windows-autopatch/</guid>
       <description>&lt;p&gt;This video goes over what Windows Autopatch is, and how the tenant enrollment flow happens.&lt;/p&gt;
 &lt;hr&gt;
 
@@ -142,10 +142,10 @@ Don’t forget to subscribe!&lt;/p&gt;
     
     <item>
       <title>VLOG - Azure AD Connect Cloud Sync</title>
-      <link>https://euc365.com/post/vlog-azuread-connect-cloud-sync/</link>
+      <link>https://hugo.euc365.com/post/vlog-azuread-connect-cloud-sync/</link>
       <pubDate>Wed, 07 Sep 2022 15:35:50 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-azuread-connect-cloud-sync/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-azuread-connect-cloud-sync/</guid>
       <description>&lt;h2 id=&#34;what-is-this-video-about&#34;&gt;What is this video about?&lt;/h2&gt;
 &lt;p&gt;This video goes over the configuration of Azure AD Connect Cloud Sync, with some insight into what the differences are with its bigger brother AADC, the Pre-Reqs and some other insights.&lt;/p&gt;
 &lt;hr&gt;
@@ -159,10 +159,10 @@ Don’t forget to subscribe!&lt;/p&gt;
     
     <item>
       <title>VLOG - Isolate your Hyper V Lab Environment from your network</title>
-      <link>https://euc365.com/post/vlog-isolate-hyper-v-lab-environment/</link>
+      <link>https://hugo.euc365.com/post/vlog-isolate-hyper-v-lab-environment/</link>
       <pubDate>Wed, 17 Aug 2022 13:25:30 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-isolate-hyper-v-lab-environment/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-isolate-hyper-v-lab-environment/</guid>
       <description>&lt;h2 id=&#34;my-first-vlog-post&#34;&gt;My first Vlog Post&lt;/h2&gt;
 &lt;p&gt;This video, is the first, of what I hope to be many Vlog&amp;rsquo;s. I recently destroyed my old Lab set up, and I thought I would Vlog the steps I take to re-create it along with some useful information along the way when I start connecting my Lab up with Azure and Intune.&lt;/p&gt;
 &lt;hr&gt; 

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Governance on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/categories/governance/</link>
+    <link>https://hugo.euc365.com/categories/governance/</link>
     <description>Recent content in Governance on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 07 Jul 2022 10:34:57 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/governance/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Jul 2022 10:34:57 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/governance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deny Resource Type Creation with Azure Policy</title>
-      <link>https://euc365.com/post/deny-resource-type-creation-azure-policy/</link>
+      <link>https://hugo.euc365.com/post/deny-resource-type-creation-azure-policy/</link>
       <pubDate>Thu, 07 Jul 2022 10:34:57 +0000</pubDate>
       
-      <guid>https://euc365.com/post/deny-resource-type-creation-azure-policy/</guid>
+      <guid>https://hugo.euc365.com/post/deny-resource-type-creation-azure-policy/</guid>
       <description>&lt;h2 id=&#34;what-is-azure-policy&#34;&gt;What is Azure Policy?&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Azure Policy&lt;/strong&gt; is a way to help organisations enforce standards and compliance. &lt;strong&gt;Azure Policy&lt;/strong&gt; is commonly used for things like enforcing only certain allowed locations for resources, locating non-compliant Azure resources and for many, many other reasons.&lt;/p&gt;
 &lt;p&gt;For a full overview of Azure Policy, please take a look at the &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/governance/policy/overview&#34;&gt;&lt;strong&gt;Microsoft Documentation&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
@@ -53,7 +53,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;parameters&amp;#34;&lt;/span&gt;: {}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;assignment-experience&#34;&gt;Assignment Experience&lt;/h3&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/azurepolicy/anyOfassignment.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/azurepolicy/anyOfassignment.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 
@@ -92,7 +92,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;assignment-experience&#34;&gt;Assignment Experience&lt;/h3&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/azurepolicy/hardcodedassignment.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/azurepolicy/hardcodedassignment.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 
@@ -128,7 +128,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;assignment-experience&#34;&gt;Assignment Experience&lt;/h3&gt;
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/azurepolicy/strongtypeassignment.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/azurepolicy/strongtypeassignment.gif&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 &lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;
 &lt;hr&gt;

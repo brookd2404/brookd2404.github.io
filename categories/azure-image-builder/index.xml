@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Azure Image Builder on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/categories/azure-image-builder/</link>
+    <link>https://hugo.euc365.com/categories/azure-image-builder/</link>
     <description>Recent content in Azure Image Builder on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 31 May 2023 08:37:18 +0000</lastBuildDate><atom:link href="https://euc365.com/categories/azure-image-builder/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 May 2023 08:37:18 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/categories/azure-image-builder/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows 365 Custom Images - Part 1 - The Foundations</title>
-      <link>https://euc365.com/post/windows-365-custom-images-part-1-foundations/</link>
+      <link>https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/</link>
       <pubDate>Wed, 31 May 2023 08:37:18 +0000</pubDate>
       
-      <guid>https://euc365.com/post/windows-365-custom-images-part-1-foundations/</guid>
+      <guid>https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/</guid>
       <description>&lt;p&gt;Welcome along for the ride as we talk about Windows 365 Custom Images, and how we can use Azure Image Builder to create these images. In the upcoming series of posts, we will cover the following topics;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Part 1 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
-&lt;li&gt;Part 2 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 3 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 4 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 1 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
+&lt;li&gt;Part 2 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 3 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 4 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;In this post we are going to discuss the foundations &amp;amp; requirements for creating a custom images, it is intended that this post is read first before moving onto the other parts of the series to ensure you fully understand the required components and how they work together. So without any further ado, let&amp;rsquo;s get started.&lt;/p&gt;
 &lt;hr&gt;
@@ -96,7 +96,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/foundationExecute_hued813d45066a380b444f1d6f23611c53_97552_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Foundation Script Execution Output&#34; height=&#34;&#34; width=&#34;100%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/foundationExecute_hued813d45066a380b444f1d6f23611c53_97552_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Foundation Script Execution Output&#34; height=&#34;&#34; width=&#34;100%&#34;&gt;
 
 
 
@@ -119,7 +119,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/foundationRG_hu64e7c07917baf29ec5f79875b729408e_52537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Resource Group&#34; height=&#34;&#34; width=&#34;85%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/foundationRG_hu64e7c07917baf29ec5f79875b729408e_52537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Resource Group&#34; height=&#34;&#34; width=&#34;85%&#34;&gt;
 
 
 
@@ -131,16 +131,16 @@
     
     <item>
       <title>Windows 365 Custom Images - Part 2 - PowerShell Deployment</title>
-      <link>https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/</link>
+      <link>https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/</link>
       <pubDate>Wed, 31 May 2023 08:37:10 +0000</pubDate>
       
-      <guid>https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/</guid>
+      <guid>https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/</guid>
       <description>&lt;p&gt;Welcome to the second post in the series talking about Windows 365 Custom Images, and how we can use Azure Image Builder to create these images. In this series of posts, we will cover the following topics;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Part 1 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 2 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
-&lt;li&gt;Part 3 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 4 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 1 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 2 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
+&lt;li&gt;Part 3 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 4 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The first post in the series covered the foundations for all of the deployment methods, and as such, this post will cover the PowerShell deployment method. We will cover additional requirements and what to expect as an output from the script.&lt;/p&gt;
 &lt;p&gt;The PowerShell deployment method will not only create the Image, but it will also upload the image to the Windows 365 Service, and then create a new Windows 365 Cloud PC Provisioning Policy, or update and existing policy if one already exists.&lt;/p&gt;
@@ -206,16 +206,16 @@
     
     <item>
       <title>Windows 365 Custom Images - Part 3 - Azure DevOps Deployment</title>
-      <link>https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/</link>
+      <link>https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/</link>
       <pubDate>Wed, 31 May 2023 08:37:04 +0000</pubDate>
       
-      <guid>https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/</guid>
+      <guid>https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/</guid>
       <description>&lt;p&gt;Welcome to the third post in the series talking about Windows 365 Custom Images, and how we can use Azure Image Builder to create these images. In this series of posts, we will cover the following topics;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Part 1 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 2 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 3 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
-&lt;li&gt;Part 4 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 1 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 2 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 3 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
+&lt;li&gt;Part 4 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Some of you may be like Veruca Salt from Charlie and the Chocolate Factory, and want all of the goodies &lt;strong&gt;Now&lt;/strong&gt; and opted to jump the second post in the series, and well, that is fine, I would have done the same thing 🤣, sorry not sorry.&lt;/p&gt;
 &lt;p&gt;In this post, we will be looking at how we can use Azure DevOps to deploy our Windows 365 Custom Image. Please follow the process carefully, as missing any of the steps could leave you scratching your head as to why it is not working.&lt;/p&gt;
@@ -245,7 +245,7 @@
 &lt;p&gt;Once you have the project created, we will need to create a Service Connection, again I would recommend following the &lt;a href=&#34;https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&amp;amp;tabs=yaml&#34;&gt;&lt;strong&gt;Microsoft Documentation&lt;/strong&gt;&lt;/a&gt;, ensuring you select &lt;strong&gt;Resource Group&lt;/strong&gt; created in the Foundations post and you select &lt;strong&gt;Grant access permission to all pipelines&lt;/strong&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;service-principal-app-registration&#34;&gt;Service Principal (App Registration)&lt;/h3&gt;
 &lt;p&gt;You only need to run through this section if you want to upload the image to Windows 365, which I assume you do. If you do not, then you can skip this section.&lt;/p&gt;
-&lt;p&gt;Not that it&amp;rsquo;s a habit of this post&amp;hellip; but I have another link&amp;hellip; this time it&amp;rsquo;s to one of my previous posts, &lt;a href=&#34;https://euc365.com/create_an_azure_app_registration/&#34;&gt;&lt;strong&gt;Create an Azure App Registration&lt;/strong&gt;&lt;/a&gt;, the service principal will need the following permissions;&lt;/p&gt;
+&lt;p&gt;Not that it&amp;rsquo;s a habit of this post&amp;hellip; but I have another link&amp;hellip; this time it&amp;rsquo;s to one of my previous posts, &lt;a href=&#34;https://hugo.euc365.com/create_an_azure_app_registration/&#34;&gt;&lt;strong&gt;Create an Azure App Registration&lt;/strong&gt;&lt;/a&gt;, the service principal will need the following permissions;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;CloudPC.ReadWrite.All&lt;/strong&gt; - This is required to upload the image to Windows 365&lt;/li&gt;
 &lt;li&gt;It will also need the &lt;strong&gt;Custom&lt;/strong&gt; Role assigning on the resource group you created in the Foundations post. (By default this will be called &lt;strong&gt;Azure Image Builder Image Definition for &lt;code&gt;&amp;lt;Resource Group Name&amp;gt;&lt;/code&gt;&lt;/strong&gt;)&lt;/li&gt;
@@ -268,7 +268,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/roleUMI_hu69e4290da9899aa02ab231893e9f5679_24893_749x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Role UMI Assignment&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/roleUMI_hu69e4290da9899aa02ab231893e9f5679_24893_749x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Role UMI Assignment&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -300,7 +300,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/bicepcustomise_hue12491a4e3059e3eaf7fb4e6b7897415_36145_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;BICEP File Customisations&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/bicepcustomise_hue12491a4e3059e3eaf7fb4e6b7897415_36145_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;BICEP File Customisations&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -371,7 +371,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/pipemanimage_hudeec81268b330ab108800f6c522c3040_18507_479x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Managed Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/pipemanimage_hudeec81268b330ab108800f6c522c3040_18507_479x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Managed Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -405,7 +405,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/pipedeploy_huffd282c64140e230de438d3f9b6bb626_18148_475x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Deploy Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/pipedeploy_huffd282c64140e230de438d3f9b6bb626_18148_475x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Deploy Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -437,7 +437,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/variables_hud9efc08a6bb0eab0d48ef34c3fab449f_9776_479x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Deploy Pipeline Variables&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/variables_hud9efc08a6bb0eab0d48ef34c3fab449f_9776_479x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Deploy Pipeline Variables&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -462,7 +462,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/pipelinesoverview_hud8fd705d8e95f858ad27dfca40aa306b_25407_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Overview of Pipelines&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/pipelinesoverview_hud8fd705d8e95f858ad27dfca40aa306b_25407_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Overview of Pipelines&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -485,7 +485,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/pipeline1_huca642fd523260eb418be34325ecc07ba_64621_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Managed Image Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/pipeline1_huca642fd523260eb418be34325ecc07ba_64621_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Managed Image Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -508,7 +508,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/pipeline2_hucf13e8f87123791a75d7c22b8d8e1d5f_66682_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Deploy to Windows 365 Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/pipeline2_hucf13e8f87123791a75d7c22b8d8e1d5f_66682_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Deploy to Windows 365 Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -531,7 +531,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/w365Portal_hub792f1d997280632cb8ce8e8538634b1_26697_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Windows 365 Image&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/w365Portal_hub792f1d997280632cb8ce8e8538634b1_26697_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Windows 365 Image&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -545,16 +545,16 @@
     
     <item>
       <title>Windows 365 Custom Images - Part 4 - Azure AVD UI</title>
-      <link>https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/</link>
+      <link>https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/</link>
       <pubDate>Wed, 31 May 2023 08:36:57 +0000</pubDate>
       
-      <guid>https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/</guid>
+      <guid>https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/</guid>
       <description>&lt;p&gt;Welcome to the fourth (&amp;amp; final&amp;hellip; for now) post in the series talking about Windows 365 Custom Images, and how we can use Azure Image Builder to create these images. In this series of posts, we will cover the following topics;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Part 1 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 2 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 3 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 4 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
+&lt;li&gt;Part 1 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 2 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 3 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 4 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This has been a long time coming for people not so involved with ARM, BICEP, DevOps or PowerShell as there is now UI Capabilities for you to create your own custom images. You can even use some &amp;lsquo;in-built&amp;rsquo; customisation options to give you that extra hand along the way.&lt;/p&gt;
 &lt;p&gt;This is by far the most manually involved piece, but it is a great way to get started with Azure Image Builder, and then you can start to explore the other options available to you.&lt;/p&gt;
@@ -590,7 +590,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/avdblade_hu778898063c6d8de5e701e77fbfb39d16_26113_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop blade&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/avdblade_hu778898063c6d8de5e701e77fbfb39d16_26113_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop blade&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -614,7 +614,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/avdcioptions_hu2801852e31a0583f0516b511f91b5fad_11105_272x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Option&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/avdcioptions_hu2801852e31a0583f0516b511f91b5fad_11105_272x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Option&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -652,7 +652,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/avdcibasic_hu9012fe3d09e45c478a3ea5eedea1725f_22846_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Basic Blade&#34; height=&#34;80%&#34; width=&#34;80%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/avdcibasic_hu9012fe3d09e45c478a3ea5eedea1725f_22846_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Basic Blade&#34; height=&#34;80%&#34; width=&#34;80%&#34;&gt;
 
 
 
@@ -681,7 +681,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/selectsource_huf3006c8c85dd3f8fcf4cacd5f7c8f095_38458_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Source Blade&#34; height=&#34;80%&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/selectsource_huf3006c8c85dd3f8fcf4cacd5f7c8f095_38458_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Source Blade&#34; height=&#34;80%&#34; width=&#34;&#34;&gt;
 
 
 
@@ -713,7 +713,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/disttarget_hua0fd067a64de8c83b0ad172a60722fbd_37601_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Distribution Blade&#34; height=&#34;80%&#34; width=&#34;80%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/disttarget_hua0fd067a64de8c83b0ad172a60722fbd_37601_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Distribution Blade&#34; height=&#34;80%&#34; width=&#34;80%&#34;&gt;
 
 
 
@@ -743,7 +743,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/portalcustomisations_hu79d20c7044884d8d8ae77709ee2d5ef5_41833_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Customizations Blade&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/portalcustomisations_hu79d20c7044884d8d8ae77709ee2d5ef5_41833_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Customizations Blade&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -774,7 +774,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/creatingtemplate_hua61144197f9d8016b8906ee91fa352ae_68081_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Template&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/creatingtemplate_hua61144197f9d8016b8906ee91fa352ae_68081_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Template&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -798,7 +798,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/startbuild_hu33487020f63f5569ef2d7a7314802443_52830_727x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Template - start build&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/startbuild_hu33487020f63f5569ef2d7a7314802443_52830_727x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Azure Virtual Desktop Custom Image Template - start build&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -833,7 +833,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/w365ImageConfig_hub6630b53745c50f9e1843fbcde86210d_21626_325x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Windows 365 Custom Image Configuration&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/w365ImageConfig_hub6630b53745c50f9e1843fbcde86210d_21626_325x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Windows 365 Custom Image Configuration&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -856,7 +856,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/w365ImageList_huff17fe2c60f360e05021906c2344c47b_36591_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Windows 365 Custom Image List&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/w365ImageList_huff17fe2c60f360e05021906c2344c47b_36591_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Intune Windows 365 Custom Image List&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 

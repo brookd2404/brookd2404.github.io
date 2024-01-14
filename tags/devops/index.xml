@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DevOps on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/devops/</link>
+    <link>https://hugo.euc365.com/tags/devops/</link>
     <description>Recent content in DevOps on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 31 May 2023 08:37:04 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 May 2023 08:37:04 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/devops/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows 365 Custom Images - Part 3 - Azure DevOps Deployment</title>
-      <link>https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/</link>
+      <link>https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/</link>
       <pubDate>Wed, 31 May 2023 08:37:04 +0000</pubDate>
       
-      <guid>https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/</guid>
+      <guid>https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/</guid>
       <description>&lt;p&gt;Welcome to the third post in the series talking about Windows 365 Custom Images, and how we can use Azure Image Builder to create these images. In this series of posts, we will cover the following topics;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Part 1 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 2 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 3 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
-&lt;li&gt;Part 4 - &lt;a href=&#34;https://euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 1 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-1-foundations/&#34;&gt;&lt;strong&gt;The Foundations&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 2 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-2-powershell-deployment/&#34;&gt;&lt;strong&gt;PowerShell Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 3 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-3-azure-devops-deployment/&#34;&gt;&lt;strong&gt;DevOps Deployment&lt;/strong&gt;&lt;/a&gt; (This Post)&lt;/li&gt;
+&lt;li&gt;Part 4 - &lt;a href=&#34;https://hugo.euc365.com/post/windows-365-custom-images-part-4-azure-avd-ui/&#34;&gt;&lt;strong&gt;Azure Virtual Desktop UI Deployment&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Some of you may be like Veruca Salt from Charlie and the Chocolate Factory, and want all of the goodies &lt;strong&gt;Now&lt;/strong&gt; and opted to jump the second post in the series, and well, that is fine, I would have done the same thing 🤣, sorry not sorry.&lt;/p&gt;
 &lt;p&gt;In this post, we will be looking at how we can use Azure DevOps to deploy our Windows 365 Custom Image. Please follow the process carefully, as missing any of the steps could leave you scratching your head as to why it is not working.&lt;/p&gt;
@@ -48,7 +48,7 @@
 &lt;p&gt;Once you have the project created, we will need to create a Service Connection, again I would recommend following the &lt;a href=&#34;https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&amp;amp;tabs=yaml&#34;&gt;&lt;strong&gt;Microsoft Documentation&lt;/strong&gt;&lt;/a&gt;, ensuring you select &lt;strong&gt;Resource Group&lt;/strong&gt; created in the Foundations post and you select &lt;strong&gt;Grant access permission to all pipelines&lt;/strong&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;service-principal-app-registration&#34;&gt;Service Principal (App Registration)&lt;/h3&gt;
 &lt;p&gt;You only need to run through this section if you want to upload the image to Windows 365, which I assume you do. If you do not, then you can skip this section.&lt;/p&gt;
-&lt;p&gt;Not that it&amp;rsquo;s a habit of this post&amp;hellip; but I have another link&amp;hellip; this time it&amp;rsquo;s to one of my previous posts, &lt;a href=&#34;https://euc365.com/create_an_azure_app_registration/&#34;&gt;&lt;strong&gt;Create an Azure App Registration&lt;/strong&gt;&lt;/a&gt;, the service principal will need the following permissions;&lt;/p&gt;
+&lt;p&gt;Not that it&amp;rsquo;s a habit of this post&amp;hellip; but I have another link&amp;hellip; this time it&amp;rsquo;s to one of my previous posts, &lt;a href=&#34;https://hugo.euc365.com/create_an_azure_app_registration/&#34;&gt;&lt;strong&gt;Create an Azure App Registration&lt;/strong&gt;&lt;/a&gt;, the service principal will need the following permissions;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;CloudPC.ReadWrite.All&lt;/strong&gt; - This is required to upload the image to Windows 365&lt;/li&gt;
 &lt;li&gt;It will also need the &lt;strong&gt;Custom&lt;/strong&gt; Role assigning on the resource group you created in the Foundations post. (By default this will be called &lt;strong&gt;Azure Image Builder Image Definition for &lt;code&gt;&amp;lt;Resource Group Name&amp;gt;&lt;/code&gt;&lt;/strong&gt;)&lt;/li&gt;
@@ -71,7 +71,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/roleUMI_hu69e4290da9899aa02ab231893e9f5679_24893_749x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Role UMI Assignment&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/roleUMI_hu69e4290da9899aa02ab231893e9f5679_24893_749x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Role UMI Assignment&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -103,7 +103,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/bicepcustomise_hue12491a4e3059e3eaf7fb4e6b7897415_36145_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;BICEP File Customisations&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/bicepcustomise_hue12491a4e3059e3eaf7fb4e6b7897415_36145_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;BICEP File Customisations&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -174,7 +174,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/pipemanimage_hudeec81268b330ab108800f6c522c3040_18507_479x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Managed Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/pipemanimage_hudeec81268b330ab108800f6c522c3040_18507_479x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Managed Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -208,7 +208,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/pipedeploy_huffd282c64140e230de438d3f9b6bb626_18148_475x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Deploy Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/pipedeploy_huffd282c64140e230de438d3f9b6bb626_18148_475x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Deploy Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -240,7 +240,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/variables_hud9efc08a6bb0eab0d48ef34c3fab449f_9776_479x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Deploy Pipeline Variables&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/variables_hud9efc08a6bb0eab0d48ef34c3fab449f_9776_479x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Deploy Pipeline Variables&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -265,7 +265,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/pipelinesoverview_hud8fd705d8e95f858ad27dfca40aa306b_25407_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Overview of Pipelines&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/pipelinesoverview_hud8fd705d8e95f858ad27dfca40aa306b_25407_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Overview of Pipelines&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -288,7 +288,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/pipeline1_huca642fd523260eb418be34325ecc07ba_64621_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Managed Image Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/pipeline1_huca642fd523260eb418be34325ecc07ba_64621_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Create Managed Image Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -311,7 +311,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/pipeline2_hucf13e8f87123791a75d7c22b8d8e1d5f_66682_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Deploy to Windows 365 Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/pipeline2_hucf13e8f87123791a75d7c22b8d8e1d5f_66682_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Deploy to Windows 365 Pipeline&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -334,7 +334,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/customimage/w365Portal_hub792f1d997280632cb8ce8e8538634b1_26697_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Windows 365 Image&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/customimage/w365Portal_hub792f1d997280632cb8ce8e8538634b1_26697_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Windows 365 Image&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 

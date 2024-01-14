@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Autopatch on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/autopatch/</link>
+    <link>https://hugo.euc365.com/tags/autopatch/</link>
     <description>Recent content in Autopatch on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 01 Nov 2022 19:24:35 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/autopatch/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Nov 2022 19:24:35 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/autopatch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VLOG - Getting Started with Windows Autopatch</title>
-      <link>https://euc365.com/post/vlog-windows-autopatch/</link>
+      <link>https://hugo.euc365.com/post/vlog-windows-autopatch/</link>
       <pubDate>Tue, 01 Nov 2022 19:24:35 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-windows-autopatch/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-windows-autopatch/</guid>
       <description>&lt;p&gt;This video goes over what Windows Autopatch is, and how the tenant enrollment flow happens.&lt;/p&gt;
 &lt;hr&gt;
 

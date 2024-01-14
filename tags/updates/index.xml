@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Updates on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/updates/</link>
+    <link>https://hugo.euc365.com/tags/updates/</link>
     <description>Recent content in Updates on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 20 Mar 2023 13:43:22 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/updates/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Mar 2023 13:43:22 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/updates/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Driver and Firmware Servicing PowerShell Module</title>
-      <link>https://euc365.com/post/driver-firmware-servicing-powershell-module/</link>
+      <link>https://hugo.euc365.com/post/driver-firmware-servicing-powershell-module/</link>
       <pubDate>Mon, 20 Mar 2023 13:43:22 +0000</pubDate>
       
-      <guid>https://euc365.com/post/driver-firmware-servicing-powershell-module/</guid>
+      <guid>https://hugo.euc365.com/post/driver-firmware-servicing-powershell-module/</guid>
       <description>&lt;p&gt;Its been just over a month since the announcement of Commercial Driver and Firmware Servicing by Microsoft. Since then I have been working on delivering this to businesses, and sometimes it can be a challenge to keep on top of all of the different graph endpoints that are required to keep the cogs turning. So, out of my own sanity saving idea, I pulled together a PowerShell Module (&lt;a href=&#34;https://www.powershellgallery.com/packages/Driver.Firmware.Servicing/&#34;&gt;&lt;strong&gt;Driver.Firmware.Servicing&lt;/strong&gt;&lt;/a&gt;) to help make the service a lot more consumable for admins.&lt;/p&gt;
 &lt;p&gt;Microsoft provided some great conceptual documentation on the service, but I wanted to make it a lot easier to consume. So, I have created a PowerShell Module that abstracts away the complexity of the Graph API, and provides a simple interface to manage the service. See the &lt;a href=&#34;https://learn.microsoft.com/en-us/graph/windowsupdates-manage-driver-update&#34;&gt;&lt;strong&gt;Microsoft documentation&lt;/strong&gt;&lt;/a&gt; for more information on the service.&lt;/p&gt;
 &lt;h2 id=&#34;what-is-driver-and-firmware-servicing&#34;&gt;What is Driver and Firmware Servicing?&lt;/h2&gt;
@@ -71,12 +71,12 @@
     
     <item>
       <title>Add Offer Deferrals to Driver and Firmware Policies</title>
-      <link>https://euc365.com/post/add-offer-deferrals-driver-firmware-policies/</link>
+      <link>https://hugo.euc365.com/post/add-offer-deferrals-driver-firmware-policies/</link>
       <pubDate>Wed, 15 Feb 2023 15:17:00 +0000</pubDate>
       
-      <guid>https://euc365.com/post/add-offer-deferrals-driver-firmware-policies/</guid>
+      <guid>https://hugo.euc365.com/post/add-offer-deferrals-driver-firmware-policies/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s been a days or so since the release of the public preview of Driver and Firmware management (&lt;a href=&#34;https://techcommunity.microsoft.com/t5/windows-it-pro-blog/commercial-driver-and-firmware-servicing-is-publicly-available/ba-p/3741194&#34;&gt;&lt;strong&gt;SEE PRESS RELEASE HERE&lt;/strong&gt;&lt;/a&gt;), and many of you may have used the GUI to create your policies, and have been left scratching your head as to why you cannot specify a deferral period. Well, let me let you into a secret, &lt;strong&gt;IT IS&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;If you have looked at my &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;Driver Management via Graph API and PowerShell&lt;/strong&gt;&lt;/a&gt; post, I call it out within the &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/#creating-an-update-policy-1&#34;&gt;&lt;strong&gt;Create an Update Policy&lt;/strong&gt;&lt;/a&gt; section.&lt;/p&gt;
+&lt;p&gt;If you have looked at my &lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;Driver Management via Graph API and PowerShell&lt;/strong&gt;&lt;/a&gt; post, I call it out within the &lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api/#creating-an-update-policy-1&#34;&gt;&lt;strong&gt;Create an Update Policy&lt;/strong&gt;&lt;/a&gt; section.&lt;/p&gt;
 &lt;p&gt;So, how do we add this to our policies so you don&amp;rsquo;t have to re-create your policies? Let&amp;rsquo;s take a look shall we.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
@@ -113,7 +113,7 @@
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/w365/mgpsAuthPrompt_huc48670c2adede80f3727a5bca56f1c44_35416_566x0_resize_q100_h2_box_3.webp&#34; alt=&#34;MGraph Module Authentication Prompt&#34; height=&#34;&#34; width=&#34;50%&#34;&gt;
 
 
 
@@ -128,7 +128,7 @@
 &lt;p&gt;&lt;code&gt;Update-PatchDeferrals.ps1 -updatePolicyID &#39;cc4fbe71-a024-41c2-a99f-559dcde6e916&#39; -deferralTime &#39;PT5D&#39;&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;looking-through-the-function&#34;&gt;Looking through the Function&lt;/h3&gt;
 &lt;p&gt;The basic premise of this script is to use the current complianceChangeRules, but only modify the durationBeforeDeploymentStart property which will control the deferral date. I thought the simplest way to do this was to pull in the current configuration, and amend only the durationBeforeDeploymentStart property. Let&amp;rsquo;s take a look at how we achieve this then shall we.&lt;/p&gt;
-&lt;p&gt;First of all, we have our &lt;strong&gt;Mandatory&lt;/strong&gt; parameters, &lt;strong&gt;updatePolicyID&lt;/strong&gt; and the &lt;strong&gt;deferralTime&lt;/strong&gt;. The update policy ID can be found by looking at the &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/#listing-update-policies&#34;&gt;&lt;strong&gt;Listing Update Policies&lt;/strong&gt;&lt;/a&gt; section in my original &lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;article&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;First of all, we have our &lt;strong&gt;Mandatory&lt;/strong&gt; parameters, &lt;strong&gt;updatePolicyID&lt;/strong&gt; and the &lt;strong&gt;deferralTime&lt;/strong&gt;. The update policy ID can be found by looking at the &lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api/#listing-update-policies&#34;&gt;&lt;strong&gt;Listing Update Policies&lt;/strong&gt;&lt;/a&gt; section in my original &lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;article&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The &lt;strong&gt;deferralTime&lt;/strong&gt;, is the parameter that gives us what we need. This needs to be formatted in the &lt;strong&gt;ISO8601&lt;/strong&gt; standards for duration (&lt;a href=&#34;https://en.wikipedia.org/wiki/ISO_8601#Durations&#34;&gt;&lt;strong&gt;LINK&lt;/strong&gt;&lt;/a&gt;), for example, If we added PT1H, that would defer the update for an hour before offering. If we was to use P10D, that would defer the offer for 10 days.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-posh&#34; data-lang=&#34;posh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[CmdletBinding()]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;param&lt;/span&gt; (
@@ -179,10 +179,10 @@
     
     <item>
       <title>VLOG - Driver and Firmware Updates Preview GUI Configuration</title>
-      <link>https://euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</link>
+      <link>https://hugo.euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</link>
       <pubDate>Tue, 14 Feb 2023 14:17:39 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-driver-firmware-updates-public-preview-gui-configuration/</guid>
       <description>&lt;p&gt;In this video, we’ll walk you through:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Installing required components&lt;/li&gt;
@@ -196,7 +196,7 @@
 &lt;li&gt;&lt;a href=&#34;https://nodejs.org/en/download&#34;&gt;&lt;strong&gt;Node.JS Downloads&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/microsoftgraph/windowsupdates-webapplication-sample&#34;&gt;&lt;strong&gt;WUfB DS Web Application Repo&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/graph/api/resources/adminwindowsupdates?view=graph-rest-beta&#34;&gt;&lt;strong&gt;Graph API Documentation&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;Driver Management via Graph API and PowerShell&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hugo.euc365.com/post/driver-management-graph-api/&#34;&gt;&lt;strong&gt;Driver Management via Graph API and PowerShell&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 
@@ -209,10 +209,10 @@
     
     <item>
       <title>VLOG - Windows Update for Business Reports</title>
-      <link>https://euc365.com/post/vlog-wufb-reports/</link>
+      <link>https://hugo.euc365.com/post/vlog-wufb-reports/</link>
       <pubDate>Fri, 02 Dec 2022 13:48:29 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-wufb-reports/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-wufb-reports/</guid>
       <description>
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
   &lt;iframe src=&#34;https://www.youtube.com/embed/W30BT2Pk4kU&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
@@ -236,10 +236,10 @@ Don’t forget to subscribe!&lt;/p&gt;
     
     <item>
       <title>VLOG - Getting Started with Windows Autopatch</title>
-      <link>https://euc365.com/post/vlog-windows-autopatch/</link>
+      <link>https://hugo.euc365.com/post/vlog-windows-autopatch/</link>
       <pubDate>Tue, 01 Nov 2022 19:24:35 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-windows-autopatch/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-windows-autopatch/</guid>
       <description>&lt;p&gt;This video goes over what Windows Autopatch is, and how the tenant enrollment flow happens.&lt;/p&gt;
 &lt;hr&gt;
 

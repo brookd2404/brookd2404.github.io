@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Azure AD on EUC365 | Modern Technology Blog</title>
-    <link>https://euc365.com/tags/azure-ad/</link>
+    <link>https://hugo.euc365.com/tags/azure-ad/</link>
     <description>Recent content in Azure AD on EUC365 | Modern Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 22 Sep 2022 12:25:57 +0000</lastBuildDate><atom:link href="https://euc365.com/tags/azure-ad/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Sep 2022 12:25:57 +0000</lastBuildDate><atom:link href="https://hugo.euc365.com/tags/azure-ad/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Configure Self-Service Password Reset with Cloud Sync</title>
-      <link>https://euc365.com/post/configure-service-password-reset-cloud-sync/</link>
+      <link>https://hugo.euc365.com/post/configure-service-password-reset-cloud-sync/</link>
       <pubDate>Thu, 22 Sep 2022 12:25:57 +0000</pubDate>
       
-      <guid>https://euc365.com/post/configure-service-password-reset-cloud-sync/</guid>
+      <guid>https://hugo.euc365.com/post/configure-service-password-reset-cloud-sync/</guid>
       <description>&lt;p&gt;Self-Service Password reset is just one of many features that reduce the pressure on support staff. Often users and admins get frustrated when it comes to resetting passwords, &amp;ldquo;Can you try Bf756dsgT!&amp;rdquo; &lt;strong&gt;Short Pause&amp;hellip;&lt;/strong&gt; &amp;ldquo;Is that &lt;strong&gt;F&lt;/strong&gt; for foxtrot or &lt;strong&gt;S&lt;/strong&gt; for sugar?&amp;rdquo;. Once you get past this stage, the user then has to type it again and then think of a new password, the whole process is just sub-optimal.&lt;/p&gt;
 &lt;p&gt;With today&amp;rsquo;s cloud infrastructure you can relieve both end users and also admins from this stress and also streamline the process with &lt;strong&gt;Self-Service Password Reset&lt;/strong&gt; or &lt;strong&gt;SSPR&lt;/strong&gt; for short. I am not going to tell you that this is a silver bullet with one shot clearing out all password reset calls, as it won&amp;rsquo;t. The key to the success of SSPR and the ROI is stakeholder buy-in and great communication.&lt;/p&gt;
 
@@ -55,7 +55,7 @@ If this is a goal for you, then this may be a piece in your puzzle!&lt;/p&gt;&lt
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/azure/enableSSPR_hu18bc56efd4c4301013d91ba3ca3bb5e5_42327_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSPR Slider&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/azure/enableSSPR_hu18bc56efd4c4301013d91ba3ca3bb5e5_42327_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSPR Slider&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -98,7 +98,7 @@ If this is a goal for you, then this may be a piece in your puzzle!&lt;/p&gt;&lt
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/azure/ssprposh_hudb3fb2207206c95d294623bf34f7703a_30607_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSPR PowerShell Writeback&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/azure/ssprposh_hudb3fb2207206c95d294623bf34f7703a_30607_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;SSPR PowerShell Writeback&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -115,10 +115,10 @@ Thank you to &lt;a href=&#34;https://twitter.com/modaly_it&#34;&gt;&lt;strong&gt
     
     <item>
       <title>VLOG - Azure AD Connect Cloud Sync</title>
-      <link>https://euc365.com/post/vlog-azuread-connect-cloud-sync/</link>
+      <link>https://hugo.euc365.com/post/vlog-azuread-connect-cloud-sync/</link>
       <pubDate>Wed, 07 Sep 2022 15:35:50 +0000</pubDate>
       
-      <guid>https://euc365.com/post/vlog-azuread-connect-cloud-sync/</guid>
+      <guid>https://hugo.euc365.com/post/vlog-azuread-connect-cloud-sync/</guid>
       <description>&lt;h2 id=&#34;what-is-this-video-about&#34;&gt;What is this video about?&lt;/h2&gt;
 &lt;p&gt;This video goes over the configuration of Azure AD Connect Cloud Sync, with some insight into what the differences are with its bigger brother AADC, the Pre-Reqs and some other insights.&lt;/p&gt;
 &lt;hr&gt;
@@ -132,10 +132,10 @@ Thank you to &lt;a href=&#34;https://twitter.com/modaly_it&#34;&gt;&lt;strong&gt
     
     <item>
       <title>Microsoft Graph API and PowerBI</title>
-      <link>https://euc365.com/microsoft-graph-and-powerbi/</link>
+      <link>https://hugo.euc365.com/microsoft-graph-and-powerbi/</link>
       <pubDate>Wed, 25 May 2022 10:05:00 +0000</pubDate>
       
-      <guid>https://euc365.com/microsoft-graph-and-powerbi/</guid>
+      <guid>https://hugo.euc365.com/microsoft-graph-and-powerbi/</guid>
       <description>&lt;h2 id=&#34;a-little-bit-about-this-post&#34;&gt;A little bit about this post&lt;/h2&gt;
 &lt;p&gt;At &lt;a href=&#34;http://mmsmoa.com&#34;&gt;MMS 2022&lt;/a&gt; I took a huge leap and briefly presented this in the &lt;strong&gt;Tips &amp;amp; Tricks&lt;/strong&gt; Session. This was the first time I had ever presented in front of an audience.&lt;/p&gt;
 &lt;p&gt;I thought it would be good to give a bit of context on how this was conceptualised and why certain aspects are the way they are (some of them still make me shudder).&lt;/p&gt;
@@ -160,7 +160,7 @@ Thank you to &lt;a href=&#34;https://twitter.com/modaly_it&#34;&gt;&lt;strong&gt
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;DeviceManagementManagedDevices.Read.All&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If you are not familiar with creating App Registrations, take a look at my &lt;a href=&#34;https://euc365.com/create-an-azure-app-registration&#34;&gt;Create an Azure App Registration&lt;/a&gt; post.&lt;/p&gt;
+&lt;p&gt;If you are not familiar with creating App Registrations, take a look at my &lt;a href=&#34;https://hugo.euc365.com/create-an-azure-app-registration&#34;&gt;Create an Azure App Registration&lt;/a&gt; post.&lt;/p&gt;
 &lt;p&gt;Once you have added permissions and granted consent, you need to obtain a secret, this can be done from the App Registration by;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Clicking &lt;strong&gt;Certificates &amp;amp; Secrets&lt;/strong&gt;&lt;/li&gt;
@@ -523,7 +523,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/logicapphttptrigger_hu338a9792ae73f90bd9539efe780b309c_19341_603x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;375px&#34; width=&#34;600px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/logicapphttptrigger_hu338a9792ae73f90bd9539efe780b309c_19341_603x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;375px&#34; width=&#34;600px&#34;&gt;
 
 
 
@@ -633,7 +633,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/biignoreprivacy_hue5264bb602aa113c8ac9babd235921e4_24178_639x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Ignore Privacy PowerBIx&#34; height=&#34;250px&#34; width=&#34;500px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/biignoreprivacy_hue5264bb602aa113c8ac9babd235921e4_24178_639x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Ignore Privacy PowerBIx&#34; height=&#34;250px&#34; width=&#34;500px&#34;&gt;
 
 
 
@@ -841,7 +841,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/expandgraphcall_hu3f6d3ee85f51aa6b27eccc41a3056c8b_5617_167x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand Graph Call Table&#34; height=&#34;200px&#34; width=&#34;167px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/expandgraphcall_hu3f6d3ee85f51aa6b27eccc41a3056c8b_5617_167x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand Graph Call Table&#34; height=&#34;200px&#34; width=&#34;167px&#34;&gt;
 
 
 
@@ -868,7 +868,7 @@ Feel free to dig into the Logic App and look at how the data is being processed,
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/expandhwinfo_hua40fe5206a377732053e5581dcd2fd48_29194_349x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand hardwareInformation&#34; height=&#34;450px&#34; width=&#34;300px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/expandhwinfo_hua40fe5206a377732053e5581dcd2fd48_29194_349x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Expand hardwareInformation&#34; height=&#34;450px&#34; width=&#34;300px&#34;&gt;
 
 
 
@@ -899,7 +899,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/modelbutton_huad4a1917d5b6128e85ae823a2a11966c_10638_216x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Model button&#34; height=&#34;252px&#34; width=&#34;216px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/modelbutton_huad4a1917d5b6128e85ae823a2a11966c_10638_216x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Model button&#34; height=&#34;252px&#34; width=&#34;216px&#34;&gt;
 
 
 
@@ -921,7 +921,7 @@ Voilà!, you now have the hardware information for each device. There are still 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/graphbi/linktables.gif&#34; alt=&#34;Model button&#34; height=&#34;500px&#34; width=&#34;800px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/graphbi/linktables.gif&#34; alt=&#34;Model button&#34; height=&#34;500px&#34; width=&#34;800px&#34;&gt;
 
 
 
@@ -936,10 +936,10 @@ Voilà!, you now have the hardware information for each device. There are still 
     
     <item>
       <title>Update Apple SCIM Token</title>
-      <link>https://euc365.com/update-apple-scim-token/</link>
+      <link>https://hugo.euc365.com/update-apple-scim-token/</link>
       <pubDate>Sun, 08 May 2022 15:23:00 +0000</pubDate>
       
-      <guid>https://euc365.com/update-apple-scim-token/</guid>
+      <guid>https://hugo.euc365.com/update-apple-scim-token/</guid>
       <description>&lt;h2 id=&#34;what-is-scim&#34;&gt;What is SCIM?&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Meaning:&lt;/strong&gt; SCIM (System for Cross-domain Identity Management)&lt;br&gt;
 &lt;br&gt;
@@ -972,7 +972,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/launchpref_hucdd93b0f2b7def139acf5a1585498382_19992_534x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Launch Preferences&#34; height=&#34;225px&#34; width=&#34;500px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/launchpref_hucdd93b0f2b7def139acf5a1585498382_19992_534x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Launch Preferences&#34; height=&#34;225px&#34; width=&#34;500px&#34;&gt;
 
 
 
@@ -996,7 +996,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/editsync_hua4708496e6dd0362aea1a42e0549cbbe_49783_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;100%&#34; width=&#34;100%&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/editsync_hua4708496e6dd0362aea1a42e0549cbbe_49783_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Sync&#34; height=&#34;100%&#34; width=&#34;100%&#34;&gt;
 
 
 
@@ -1021,7 +1021,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/tokenscreen_hue88b80ce8971ec084768576963e12dd4_43840_744x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Token Pop-up&#34; height=&#34;475px&#34; width=&#34;400px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/tokenscreen_hue88b80ce8971ec084768576963e12dd4_43840_744x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Token Pop-up&#34; height=&#34;475px&#34; width=&#34;400px&#34;&gt;
 
 
 
@@ -1059,7 +1059,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/editprov_hu13798373de147c6e48c0bc8e68d77114_43470_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Provisioning&#34; height=&#34;325px&#34; width=&#34;800px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/editprov_hu13798373de147c6e48c0bc8e68d77114_43470_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Edit Provisioning&#34; height=&#34;325px&#34; width=&#34;800px&#34;&gt;
 
 
 
@@ -1083,7 +1083,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/updateprov_huc07af3022dbc619d82f545ba8fc8a57f_29814_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Update Provisioning&#34; height=&#34;325px&#34; width=&#34;650px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/updateprov_huc07af3022dbc619d82f545ba8fc8a57f_29814_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Update Provisioning&#34; height=&#34;325px&#34; width=&#34;650px&#34;&gt;
 
 
 
@@ -1108,7 +1108,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/updatescim/testresult_hu1d65da5bc27754a2671bdb52290bbdb6_16630_431x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Test Result&#34; height=&#34;125px&#34; width=&#34;350px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/updatescim/testresult_hu1d65da5bc27754a2671bdb52290bbdb6_16630_431x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Test Result&#34; height=&#34;125px&#34; width=&#34;350px&#34;&gt;
 
 
 
@@ -1119,10 +1119,10 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
     
     <item>
       <title>Autopilot Enrolment Terms of Use</title>
-      <link>https://euc365.com/autopilot-enrolment-terms-of-use/</link>
+      <link>https://hugo.euc365.com/autopilot-enrolment-terms-of-use/</link>
       <pubDate>Sun, 16 May 2021 08:06:00 +0000</pubDate>
       
-      <guid>https://euc365.com/autopilot-enrolment-terms-of-use/</guid>
+      <guid>https://hugo.euc365.com/autopilot-enrolment-terms-of-use/</guid>
       <description>&lt;h2 id=&#34;why-would-i-want-to-do-this-whats-the-purpose&#34;&gt;Why would I want to do this? Whats the Purpose?&lt;/h2&gt;
 &lt;p&gt;You maybe asking yourself why should I be adding Terms of use to Autopilot Enrolment? Well there are a few use cases that spring to mind.&lt;/p&gt;
 &lt;p&gt;The first been accepting an It acceptable use policy, for many years users have come to collect devices from a field office and/or had the devices delivered to them by an internal tech. Well in the current day and age of Modern Management and Windows Autopilot you now have the option to ship straight from the vendor to the end user, ensuring that the user accepts the policy prior to using the device maybe an absolute must for your organisation.&lt;/p&gt;
@@ -1160,7 +1160,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termsnameanddisplay_hub8ff1006e3bc9242cc17866791a4f670_26243_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Name and DisplayName&#34; height=&#34;138px&#34; width=&#34;587px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/termsnameanddisplay_hub8ff1006e3bc9242cc17866791a4f670_26243_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Name and DisplayName&#34; height=&#34;138px&#34; width=&#34;587px&#34;&gt;
 
 
 &lt;/p&gt;
@@ -1173,7 +1173,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/termsmultiplepdfs.png&#34; alt=&#34;Terms MultiplePDFS&#34; width=&#34;587px&#34; height=&#34;175px&#34; /&gt;
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/apterms/termsmultiplepdfs.png&#34; alt=&#34;Terms MultiplePDFS&#34; width=&#34;587px&#34; height=&#34;175px&#34; /&gt;
 &lt;br&gt;At this point you can upload the same terms in a different language, simply click **+ Add language**, Upload the PDF and then select its language from the drop down to the right-hand side.
 &lt;/p&gt;&lt;/div&gt;
 
@@ -1182,7 +1182,7 @@ SCIM Tokens expire xxx days, each Administrator will be notified via e-mail 60 d
 &lt;li&gt;&lt;strong&gt;Require users to consent on every device&lt;/strong&gt;, This one &lt;strong&gt;HAS&lt;/strong&gt; to be set to &lt;strong&gt;Off&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/consentwarning.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;650px&#34; height=&#34;138px&#34; /&gt;&lt;br&gt;
+&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/apterms/consentwarning.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;650px&#34; height=&#34;138px&#34; /&gt;&lt;br&gt;
 This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on the device has to be Joined to Azure AD Already and in fully working order. You will see this warning if you do attempt to switch it on.&lt;/p&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -1212,7 +1212,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termscomplete_hu78f625e649dfc516ebb0eba7978febd3_121537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;650px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/termscomplete_hu78f625e649dfc516ebb0eba7978febd3_121537_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;650px&#34;&gt;
 
 
 &lt;/p&gt;
@@ -1258,7 +1258,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/grantselectterms_hu18dde69c3568addac427ca6104d8369f_93291_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;250px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/grantselectterms_hu18dde69c3568addac427ca6104d8369f_93291_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;500px&#34; width=&#34;250px&#34;&gt;
 
 
 
@@ -1288,13 +1288,13 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/termsduringap_hu243e40b91a29d7e929c678b53a0b3d64_18595_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;300px&#34; width=&#34;1000px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/termsduringap_hu243e40b91a29d7e929c678b53a0b3d64_18595_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;Terms Consent Warning&#34; height=&#34;300px&#34; width=&#34;1000px&#34;&gt;
 
 
 
 
 &lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;If you selected to force the users to expand the terms, but just click accept you will see the message below pop up.
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/apterms/termsnoexpand.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;450px&#34; height=&#34;150px&#34; /&gt;&lt;/p&gt;&lt;/div&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/apterms/termsnoexpand.png&#34; alt=&#34;Terms Consent Warning&#34; width=&#34;450px&#34; height=&#34;150px&#34; /&gt;&lt;/p&gt;&lt;/div&gt;
 
 &lt;p&gt;If you expand the terms you will see your terms in an embedded PDF viewer, once you have finished click &lt;strong&gt;Accept&lt;/strong&gt;, you will then just continue along your way on a standard Autopilot build.&lt;/p&gt;
 
@@ -1320,7 +1320,7 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/apterms/acceptteddeclinenumbers_hufcb2f10437b382c8df62e46426bbab6e_3110_635x0_resize_q100_h2_box_3.webp&#34; alt=&#34;acceptteddeclinenumbers&#34; height=&#34;75px&#34; width=&#34;600px&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/apterms/acceptteddeclinenumbers_hufcb2f10437b382c8df62e46426bbab6e_3110_635x0_resize_q100_h2_box_3.webp&#34; alt=&#34;acceptteddeclinenumbers&#34; height=&#34;75px&#34; width=&#34;600px&#34;&gt;
 
 
 
@@ -1333,10 +1333,10 @@ This has to be &lt;strong&gt;Off&lt;/strong&gt; because, if you do switch it on 
     
     <item>
       <title>Add devices to an Azure Group using the Microsoft Graph API</title>
-      <link>https://euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</link>
+      <link>https://hugo.euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</link>
       <pubDate>Tue, 11 Aug 2020 11:54:00 +0000</pubDate>
       
-      <guid>https://euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</guid>
+      <guid>https://hugo.euc365.com/add-devices-to-an-azure-ad-group-using-the-microsoft-graph-api/</guid>
       <description>&lt;p&gt;Have you ever needed to add a device to an Azure AD Group as part of your MEMCM or Autopilot deployment for specific app, profiles or scripts?&lt;/p&gt;
 &lt;p&gt;Well it became the case that my organisation needed to do so for a couple of reason, one of those was to disable Windows Hello and the other for devices migrating from a previous Configuration Manager (Not MEMCM).&lt;/p&gt;
 &lt;p&gt;Because I was using Hybrid AD Join Autopilot Deployments it became the case that I had to use the devices&amp;rsquo; computer name and get the device information that way.&lt;/p&gt;
@@ -1436,7 +1436,7 @@ If your not sure how to create an Azure AD App Registration head over to one of 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/addtoaadgroup/Script-Params-AADGroup_3_hu90e1e4c330db7090c37dcc8f6132ea13_26697_506x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;495&#34; width=&#34;506&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/addtoaadgroup/Script-Params-AADGroup_3_hu90e1e4c330db7090c37dcc8f6132ea13_26697_506x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;495&#34; width=&#34;506&#34;&gt;
 
 
 
@@ -1460,7 +1460,7 @@ If your not sure how to create an Azure AD App Registration head over to one of 
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/addtoaadgroup/Hide_Input_hua553485fb62691c1f33ef9f5c0698f64_13264_393x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;420&#34; width=&#34;393&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/addtoaadgroup/Hide_Input_hua553485fb62691c1f33ef9f5c0698f64_13264_393x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;420&#34; width=&#34;393&#34;&gt;
 
 
 
@@ -1488,7 +1488,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/addtoaadgroup/ScriptOutput-1_huc3aabd5c534d9cd4863e0ad7d6cbd3c2_62689_692x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;745&#34; width=&#34;692&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/addtoaadgroup/ScriptOutput-1_huc3aabd5c534d9cd4863e0ad7d6cbd3c2_62689_692x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;745&#34; width=&#34;692&#34;&gt;
 
 
 
@@ -1516,7 +1516,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/addtoaadgroup/ScriptSliders_hu9dd1a09eec28ff928f41e32a8e77296b_13543_401x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;140&#34; width=&#34;401&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/addtoaadgroup/ScriptSliders_hu9dd1a09eec28ff928f41e32a8e77296b_13543_401x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;140&#34; width=&#34;401&#34;&gt;
 
 
 
@@ -1531,10 +1531,10 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
     
     <item>
       <title>Create an Azure App Registration</title>
-      <link>https://euc365.com/create_an_azure_app_registration/</link>
+      <link>https://hugo.euc365.com/create_an_azure_app_registration/</link>
       <pubDate>Wed, 08 Jul 2020 10:00:00 +0000</pubDate>
       
-      <guid>https://euc365.com/create_an_azure_app_registration/</guid>
+      <guid>https://hugo.euc365.com/create_an_azure_app_registration/</guid>
       <description>&lt;h3 id=&#34;what-can-you-use-an-azure-app-registration-for&#34;&gt;What can you use an Azure App Registration for&lt;/h3&gt;
 &lt;p&gt;An Azure App Registration has many uses, in my case I use it mainly for the Microsoft Graph API to perform Intune Configuration Profile backups, List devices, Update local CMDB dynamically and also enrol devices into Autopilot.&lt;/p&gt;
 &lt;p&gt;You will see the vast amount of options you can use for the API when you start adding the API permissions below.&lt;/p&gt;
@@ -1560,7 +1560,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/getdeviceinfo/API_Ref_v1_hu4affc4b0080027ba38404ea7c874eb09_53524_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;300&#34; width=&#34;250&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/getdeviceinfo/API_Ref_v1_hu4affc4b0080027ba38404ea7c874eb09_53524_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;300&#34; width=&#34;250&#34;&gt;
 
 
 
@@ -1587,7 +1587,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/List_PreReq-1_huce009ed4788325df3c559bd6f81d7d63_22396_620x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;382&#34; width=&#34;620&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/List_PreReq-1_huce009ed4788325df3c559bd6f81d7d63_22396_620x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;382&#34; width=&#34;620&#34;&gt;
 
 
 
@@ -1618,7 +1618,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/RegisterAppPage_huf4ef4d3d51fc229b586acc661e31a7af_42191_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/RegisterAppPage_huf4ef4d3d51fc229b586acc661e31a7af_42191_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -1643,7 +1643,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/RequestAPIPerm_hu4036499d0354b849dd78b9f812318219_41961_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/RequestAPIPerm_hu4036499d0354b849dd78b9f812318219_41961_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -1668,7 +1668,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/ServiceConfig-1_hu14402e6f04598a9e8ab2784edd403a2d_36680_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/ServiceConfig-1_hu14402e6f04598a9e8ab2784edd403a2d_36680_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
@@ -1693,7 +1693,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/PermissionBanner_hu3e02e0cdc557a76f708123e57e0645dc_4446_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;84&#34; width=&#34;805&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/PermissionBanner_hu3e02e0cdc557a76f708123e57e0645dc_4446_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;84&#34; width=&#34;805&#34;&gt;
 
 
 
@@ -1717,7 +1717,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/GrantPerm-1024x202_huf299aff7730569e49c29ec07bc893502_35957_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;202&#34; width=&#34;1024&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/GrantPerm-1024x202_huf299aff7730569e49c29ec07bc893502_35957_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;202&#34; width=&#34;1024&#34;&gt;
 
 
 &lt;/h2&gt;&lt;/p&gt;
@@ -1748,7 +1748,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/ClientSecret_hu75bbd5033626f9ab9635d200fa97491b_11042_354x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;274&#34; width=&#34;354&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/ClientSecret_hu75bbd5033626f9ab9635d200fa97491b_11042_354x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;274&#34; width=&#34;354&#34;&gt;
 
 
 
@@ -1773,7 +1773,7 @@ Now lets choose a client computer from &lt;b&gt;Assets and Compliance &amp;gt; D
 
 
 
-&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://euc365.com/images/post/createazureapp/CLientID_AppReg_hu3d22a0d3229acec6570ef70622be8a3f_30037_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
+&lt;img loading=&#34;lazy&#34; decoding=&#34;async&#34; class=&#34;mx-auto d-block&#34; src=&#34;https://hugo.euc365.com/images/post/createazureapp/CLientID_AppReg_hu3d22a0d3229acec6570ef70622be8a3f_30037_750x0_resize_q100_h2_box_3.webp&#34; alt=&#34;&#34; height=&#34;&#34; width=&#34;&#34;&gt;
 
 
 
